@@ -114,7 +114,7 @@
 ### Upload
 
 - 用于上传图片、视频或文件。
-- 小程序上传能力受微信平台 API 约束，具体配置必须查 `api/miniprogram/upload.md`。
+- 小程序上传能力受微信平台 API 约束，具体配置必须查 `api/miniprogram/upload/index.md`。
 
 ## 数据展示
 

@@ -31,6 +31,6 @@
 
 ## 栈差异入口
 
-- React：查 `api/react/dialog.md`，事件为 `onConfirm`、`onCancel`、`onClose`。
-- Vue Next：查 `api/vue-next/dialog.md`，事件为 `confirm`、`cancel`、`close`，常见受控写法可用 `v-model:visible`。
-- Vue 2：查 `api/vue2/dialog.md`，事件为 `confirm`、`cancel`、`close`，按项目 Vue 2 受控约定实现。
+- React：查 `api/react/dialog/index.md`，事件为 `onConfirm`、`onCancel`、`onClose`。
+- Vue Next：查 `api/vue-next/dialog/index.md`，事件为 `confirm`、`cancel`、`close`，常见受控写法可用 `v-model:visible`。
+- Vue 2：查 `api/vue2/dialog/index.md`，事件为 `confirm`、`cancel`、`close`，按项目 Vue 2 受控约定实现。

@@ -19,9 +19,9 @@
 
 ## 栈差异提醒
 
-- React 查 `api/react/table.md`，列渲染和事件按 JSX/onXxx 写法。
-- Vue Next 查 `api/vue-next/table.md`，自定义单元格按 Vue 插槽或项目列配置写法。
-- Vue 2 查 `api/vue2/table.md`，自定义单元格按 Vue 2 scoped slot 或项目列配置写法。
+- React 查 `api/react/table/index.md`，列渲染和事件按 JSX/onXxx 写法。
+- Vue Next 查 `api/vue-next/table/index.md`，自定义单元格按 Vue 插槽或项目列配置写法。
+- Vue 2 查 `api/vue2/table/index.md`，自定义单元格按 Vue 2 scoped slot 或项目列配置写法。
 
 ## 验证清单
 

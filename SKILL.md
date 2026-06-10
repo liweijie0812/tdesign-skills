@@ -40,7 +40,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 2. `decisions/web/`、`decisions/mobile/` 和通用 `decisions/`：组件选型、反模式和降级策略；Web 与 Mobile 系同名组件按平台分别判断。
 3. `scenarios/`：表单页、列表页、应用壳等页面级组合方案。
 4. `api/_shared/`：跨栈通用契约，如 props 语义、事件语义、插槽语义。
-5. `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：当前技术栈的真实 API、导入、模板、JSX 或小程序写法。
+5. `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：当前技术栈的真实 API、导入、模板、JSX 或小程序写法；组件 API 位于 `api/<stack>/<component>/index.md`，同技术栈目录下的 `type.ts` / `props.ts` / `common.ts` 是精确类型源。
 6. `meta/stack-matrix.json`：跨 Web、移动端和小程序覆盖情况及已知写法差异。
 7. TDesign 上游 API 文档和当前项目代码约定。
 
@@ -53,7 +53,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 5. 识别当前框架是 React、Vue Next、Vue 2、移动端 React、移动端 Vue 还是小程序，按对应框架的组件标签、导入方式、插槽和事件命名实现，不混用 React 点语法、Vue 标签写法和小程序组件写法。
 6. 优先查阅 `decisions/platform-design-policy.md`、对应平台的组件选型文档和 `decisions/anti-patterns.md`，先做平台正确的选型。
 7. 若是页面搭建，查阅 `scenarios/` 中对应场景卡，确定 TDesign 组件组合。
-8. 如果需要确认 props、事件、插槽、类型或子组件 API，按技术栈查阅 `api/react`、`api/vue-next`、`api/vue2`、`api/mobile-react`、`api/mobile-vue` 或 `api/miniprogram`，不要跨技术栈混用 API。
+8. 如果需要确认 props、事件、插槽、类型或子组件 API，按技术栈查阅 `api/react`、`api/vue-next`、`api/vue2`、`api/mobile-react`、`api/mobile-vue` 或 `api/miniprogram`；API 表不够精确时读取同技术栈目录下对应组件或子组件的 `type.ts`、`props.ts` 和公共 `common.ts`，不要跨技术栈混用 API。
 9. 如果需要判断某组件是否存在于当前栈，查阅 `meta/stack-matrix.json`。
 10. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
 11. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
@@ -95,6 +95,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 - 不优先通过大量自定义 CSS 复刻 TDesign 已有组件能力；只有组件组合和 props 无法满足时才补充最小 CSS。
 - 当 TDesign 有自己的组件命名时，使用 TDesign 命名，例如模态对话框使用 `Dialog`。
 - 不把 Web 设计指南直接套到移动端或小程序；小程序设计口径复用 Mobile，但 API 必须查 `api/miniprogram/`。
+- 不依赖用户项目 `node_modules` 推断 TDesign 官方 API；本 skill 已同步上游 `type.ts`、`props.ts` 和 `common.ts` 时，以 `api/<stack>/` 下的源文件为准。
 - Vue 项目中不要直接使用 `Layout.Aside`、`Form.FormItem` 这类 React 点语法；应使用项目已有的 Vue 标签、组件注册名或 TDesign Vue 文档写法。
 - 能用轻量组件解决时，不推荐更复杂的组件。
 - 不以视觉相似作为等价依据，必须按用户任务和交互成本判断。
@@ -109,7 +110,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 - `decisions/anti-patterns.md`：全局禁止项。
 - `decisions/fallback-policy.md`：不用 TDesign 时的统一降级口径。
 - `scenarios/`：页面级组件组合方案。
-- `api/index.md`：Web、移动端和小程序分技术栈 API 文档索引。
+- `api/index.md`：Web、移动端和小程序分技术栈 API 文档索引；组件 API 位于 `api/<stack>/<component>/index.md`，类型源文件同步在同技术栈目录。
 - `api/_shared/`：跨栈通用契约。
 - `meta/stack-matrix.json`：跨 Web、移动端和小程序组件覆盖矩阵。
 - `meta/source-links.md`：上游文档来源链接。

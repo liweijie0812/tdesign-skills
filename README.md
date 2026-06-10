@@ -48,7 +48,7 @@ npx skills add liweijie0812/tdesign-skills
 - `decisions/mobile/`：移动端与小程序通用设计选型决策。
 - `scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
 - `api/_shared/`：跨栈通用契约、子组件和组合语义。
-- `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：按技术栈拆分的 TDesign API Markdown。
+- `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：按技术栈拆分的 TDesign API；组件 API 位于 `api/<stack>/<component>/index.md`，并同步上游 `type.ts` / `props.ts` / `common.ts`。
 - `scripts/sync-api-docs.mjs`：同步 Web、移动端和小程序 API 文档。
 
 ## 同步 API 文档
@@ -57,6 +57,6 @@ npx skills add liweijie0812/tdesign-skills
 node scripts/sync-api-docs.mjs
 ```
 
-该脚本同步 Web、移动端和小程序 API 文档。组件范围来自 `tdesign-common/js/components.ts`，输出目录为 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`。
+该脚本同步 Web、移动端和小程序 API 文档。组件范围来自 `tdesign-common/js/components.ts`，输出目录为 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`。组件 API 写入 `api/<stack>/<component>/index.md`；若上游存在 `type.ts`、`props.ts` 或公共 `common.ts`，会同步到对应技术栈目录，用于补充 API 表中不够精确的类型、默认值和 prop validator 信息。
 
 若仓库同级目录存在 `tdesign-common`、`tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`，脚本会优先切换到对应仓库的 `develop` 分支并执行 `git pull --ff-only` 后读取本地文件；本地仓库不存在或无法安全快进更新时回退到 GitHub raw URL。

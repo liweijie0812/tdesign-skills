@@ -18,9 +18,9 @@
 
 ## 栈差异提醒
 
-- React 查 `api/react/form.md`，常见字段容器为 `FormItem` 或 `Form.FormItem`。
-- Vue Next 查 `api/vue-next/form.md`，常见字段容器为 `<t-form-item>`。
-- Vue 2 查 `api/vue2/form.md`，按 Vue 2 模板、事件和插槽语法实现。
+- React 查 `api/react/form/index.md`，常见字段容器为 `FormItem` 或 `Form.FormItem`。
+- Vue Next 查 `api/vue-next/form/index.md`，常见字段容器为 `<t-form-item>`。
+- Vue 2 查 `api/vue2/form/index.md`，按 Vue 2 模板、事件和插槽语法实现。
 
 ## 验证清单
 
