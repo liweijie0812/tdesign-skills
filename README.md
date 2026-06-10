@@ -47,7 +47,7 @@ npx skills add liweijie0812/tdesign-skills
 - `decisions/web/`：Web 设计选型决策。
 - `decisions/mobile/`：移动端与小程序通用设计选型决策。
 - `scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
-- `api/_shared/`：跨栈通用契约、子组件和组合语义。
+- `api/_shared/`：跨端通用契约、子组件和组合语义，按 `dialog/`、`sub-components/` 和 Web / Mobile / Miniprogram 拆分。
 - `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：按技术栈拆分的 TDesign API；组件 API 位于 `api/<stack>/<component>/index.md`，并同步上游 `type.ts` / `props.ts` / `common.ts`。
 - `scripts/sync-api-docs.mjs`：同步 Web、移动端和小程序 API 文档。
 

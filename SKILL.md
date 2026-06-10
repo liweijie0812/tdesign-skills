@@ -23,7 +23,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 2. 组件选型先查 `decisions/platform-design-policy.md`；Web 查 `decisions/web/component-usage-map.md`、`decisions/similar-components.md` 和 `decisions/when-to-use/`，移动端和小程序查 `decisions/mobile/component-usage-map.md`。
 3. 页面搭建先查 `scenarios/`，按表单页、列表页、应用壳等场景选择组件组合。
 4. 需要确认 props、事件、插槽、子组件或函数式调用时，再查当前栈的 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
-5. 需要判断跨栈、移动端和小程序覆盖差异时，查 `meta/stack-matrix.json` 和 `api/_shared/`。
+5. 需要判断跨栈、移动端和小程序覆盖差异时，查 `meta/stack-matrix.json` 和 `api/_shared/index.md`。
 6. TDesign 不能满足需求时，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
 
 ## 目标
@@ -39,7 +39,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 1. `decisions/platform-design-policy.md`：Web 与 Mobile 系设计指南的适用口径，小程序设计口径复用 Mobile。
 2. `decisions/web/`、`decisions/mobile/` 和通用 `decisions/`：组件选型、反模式和降级策略；Web 与 Mobile 系同名组件按平台分别判断。
 3. `scenarios/`：表单页、列表页、应用壳等页面级组合方案。
-4. `api/_shared/`：跨栈通用契约，如 props 语义、事件语义、插槽语义。
+4. `api/_shared/`：跨端通用契约、端差异入口和组合语义，按 `dialog/`、`sub-components/` 以及 Web / Mobile / Miniprogram 拆分。
 5. `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：当前技术栈的真实 API、导入、模板、JSX 或小程序写法；组件 API 位于 `api/<stack>/<component>/index.md`，同技术栈目录下的 `type.ts` / `props.ts` / `common.ts` 是精确类型源。
 6. `meta/stack-matrix.json`：跨 Web、移动端和小程序覆盖情况及已知写法差异。
 7. TDesign 上游 API 文档和当前项目代码约定。
@@ -111,6 +111,6 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 - `decisions/fallback-policy.md`：不用 TDesign 时的统一降级口径。
 - `scenarios/`：页面级组件组合方案。
 - `api/index.md`：Web、移动端和小程序分技术栈 API 文档索引；组件 API 位于 `api/<stack>/<component>/index.md`，类型源文件同步在同技术栈目录。
-- `api/_shared/`：跨栈通用契约。
+- `api/_shared/index.md`：跨端通用契约和端差异入口。
 - `meta/stack-matrix.json`：跨 Web、移动端和小程序组件覆盖矩阵。
 - `meta/source-links.md`：上游文档来源链接。

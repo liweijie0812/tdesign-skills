@@ -1,6 +1,21 @@
-# TDesign 子组件与组合项何时使用
+# Web 子组件与组合项何时使用
 
-本文补充 TDesign 常见子组件、插槽型组件和组合配置项的使用场景。生成页面或实现业务组件时，优先用这些子组件和配置项组合能力，少写自定义 CSS 和临时结构。
+本文补充 TDesign Web 常见子组件、插槽型组件和组合配置项的使用场景。生成页面或实现业务组件时，优先用这些子组件和配置项组合能力，少写自定义 CSS 和临时结构。
+
+本文不是完整 API 清单，也不保证每个条目在 React、Vue Next 和 Vue 2 都存在。真实可用性、标签名、导入名、props、事件、插槽和类型必须回到当前栈 API 与本地类型源确认。
+
+## 查阅边界
+
+- Web API 入口统一是 `api/react/<component>/index.md`、`api/vue-next/<component>/index.md` 或 `api/vue2/<component>/index.md`。
+- API 表描述不够精确时，读取同技术栈目录下对应组件或子组件的 `type.ts` / `props.ts`，公共类型读 `api/<stack>/common.ts`。
+- React 点语法、Vue 标签写法和 Vue 插槽写法不能互相套用。
+- 移动端和小程序子组件语义见 `api/_shared/sub-components/mobile.md` 与 `api/_shared/sub-components/miniprogram.md`。
+
+## 类型源提示
+
+- React 通常以 `type.ts` 为主，Vue Next / Vue 2 通常同时有 `props.ts` 和 `type.ts`。
+- `ConfigProvider` 的全局配置项较多，具体字段以 `config-provider/type.ts` 和 `props.ts` 为准。
+- `Table`、`Upload`、`Tree`、`Select`、`DatePicker` 等复杂组件的组合配置较多，优先查本地类型源，不要凭 API 表摘要推断。
 
 ## 跨框架命名规则
 

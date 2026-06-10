@@ -25,4 +25,4 @@
 
 - 轻量二次确认优先 `Popconfirm`。
 - 完全自定义浮层且标准组件无法满足时才考虑 `Popup`。
-- Dialog 通用语义见 `api/_shared/dialog.contract.md`。
+- Dialog 通用语义见 `api/_shared/dialog/contract.md`，端差异按 `api/_shared/dialog/` 下的 Web、移动端和小程序文档确认。
