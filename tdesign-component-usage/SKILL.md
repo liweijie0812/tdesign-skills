@@ -1,6 +1,6 @@
 ---
 name: tdesign-component-usage
-description: 当需要选择 TDesign 组件、回答组件“何时使用”、比较相似组件、生成页面、搭建页面结构、实现表单页、列表页、详情页、弹窗页、后台管理页，或 package.json 已安装 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram 等 TDesign 组件包时使用。
+description: 当需要选择 TDesign 组件、回答组件“何时使用”、比较相似组件、生成页面、搭建页面结构、实现 Vue/Vue3/Vue2/React 表单页、列表页、详情页、弹窗页、后台管理页，或 package.json 已安装 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram 等 TDesign 组件包时使用。
 ---
 
 # TDesign 组件使用规范
@@ -18,7 +18,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 ## 信息来源优先级
 
 1. `references/component-usage-map.md` 中整理的 TDesign 组件“何时使用”，以及上游 `tdesign-common/docs/web/design`。
-2. TDesign 框架 API 文档，尤其是 React 组件文档 `tdesign-react/packages/components`。
+2. TDesign 框架 API 文档，按当前项目技术栈选择 React、Vue Next、Vue 2、移动端或小程序对应文档。
 3. 通用企业级 UI 选型经验，仅作为补充设计判断，不能作为 TDesign API 依据。
 4. 当前项目代码和团队既有约定。
 
@@ -28,9 +28,11 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 2. 提取交互意图：导航、数据录入、数据展示、反馈、布局或操作。
 3. 如果当前项目存在 `package.json`，检查是否已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue` 等 TDesign 组件包。
 4. 优先查阅 `references/component-usage-map.md`，寻找直接对应的 TDesign 组件说明。
-5. 如果多个组件都匹配，查阅 `references/similar-components.md`，说明取舍原因。
-6. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
-7. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
+5. 如果涉及子组件、插槽、表格列、表单项、函数式调用或组合配置，查阅 `references/sub-components.md`。
+6. 识别当前框架是 React、Vue Next、Vue 2、移动端还是小程序，按对应框架的组件标签、导入方式、插槽和事件命名实现，不混用 React 点语法、Vue 标签写法和小程序组件写法。
+7. 如果多个组件都匹配，查阅 `references/similar-components.md`，说明取舍原因。
+8. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
+9. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
 
 ## 选型原则
 
@@ -67,11 +69,13 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 - 不在生成页面时绕开 TDesign 组件体系，除非 TDesign 没有对应能力或项目已有明确约束。
 - 不优先通过大量自定义 CSS 复刻 TDesign 已有组件能力；只有组件组合和 props 无法满足时才补充最小 CSS。
 - 当 TDesign 有自己的组件命名时，使用 TDesign 命名，例如模态对话框使用 `Dialog`。
+- Vue 项目中不要直接使用 `Layout.Aside`、`Form.FormItem` 这类 React 点语法；应使用项目已有的 Vue 标签、组件注册名或 TDesign Vue 文档写法。
 - 能用轻量组件解决时，不推荐更复杂的组件。
 - 不以视觉相似作为等价依据，必须按用户任务和交互成本判断。
 
 ## 关键参考
 
 - `references/component-usage-map.md`：TDesign 组件“何时使用”整理。
+- `references/sub-components.md`：TDesign 子组件、插槽和组合配置“何时使用”整理。
 - `references/similar-components.md`：常见相似组件选型规则。
 - `references/source-links.md`：上游文档来源链接。

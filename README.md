@@ -14,7 +14,7 @@ npx skills add liweijie0812/tdesign-skills
 
 ### tdesign-component-usage
 
-用于 TDesign 组件选型、组件“何时使用”、相似组件比较，以及既有 UI 方案迁移到 TDesign 的场景。
+用于 TDesign 组件选型、组件“何时使用”、相似组件比较，以及既有 UI 方案迁移到 TDesign 的场景。支持 React、Vue Next、Vue 2、移动端和小程序项目，但实现时必须使用对应框架的组件写法。
 
 当项目 `package.json` 已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 等 TDesign 组件包时，也应优先使用该 skill。
 
@@ -28,5 +28,6 @@ npx skills add liweijie0812/tdesign-skills
 
 - `SKILL.md`：TDesign 组件使用主规范。
 - `references/component-usage-map.md`：按 TDesign 组件整理的“何时使用”。
+- `references/sub-components.md`：TDesign 子组件、插槽和组合配置“何时使用”，包含 React 与 Vue 写法差异提醒。
 - `references/similar-components.md`：常见相似组件选型规则。
 - `references/source-links.md`：TDesign 上游文档来源。

@@ -63,14 +63,13 @@
 
 判断规则：单选用 `Radio`；多选或表单内布尔值用 `Checkbox`；即时状态切换用 `Switch`。
 
-## Input、Textarea、Search、InputNumber
+## Input、Textarea、InputNumber
 
 - `Input`：短文本自由输入。
 - `Textarea`：多行自由文本输入。
-- `Search`：以搜索为核心任务的文本输入。
 - `InputNumber`：数字输入。
 
-判断规则：按值类型和任务选择。存在更语义化组件时，不使用泛化的 `Input` 替代。
+判断规则：按值类型和任务选择。搜索场景优先使用 `Input` 的搜索类型、图标、后置按钮或项目已有的 TDesign 搜索封装，不编造不存在的组件。
 
 ## Loading、Skeleton、Progress
 

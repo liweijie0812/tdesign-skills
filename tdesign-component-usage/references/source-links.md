@@ -4,6 +4,8 @@
 
 - TDesign Web 设计指南：https://github.com/Tencent/tdesign-common/tree/develop/docs/web/design
 - TDesign React 组件源码与 API 文档：https://github.com/Tencent/tdesign-react/tree/develop/packages/components
+- TDesign Vue Next 组件源码与 API 文档：https://github.com/Tencent/tdesign-vue-next/tree/develop/packages/components
+- TDesign Vue 组件源码与 API 文档：https://github.com/Tencent/tdesign-vue/tree/develop/src
 - TDesign React 官网：https://tdesign.tencent.com/react/components/overview
 - TDesign Vue Next 官网：https://tdesign.tencent.com/vue-next/components/overview
 
