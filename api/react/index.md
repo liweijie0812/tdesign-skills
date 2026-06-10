@@ -4,7 +4,9 @@
 
 分支：develop
 
-同步组件数：71
+组件映射：WEB_COMPONENT_MAP
+
+同步组件数：72
 
 ## 组件
 
@@ -35,6 +37,7 @@
 - [form](./form.md)
 - [grid](./grid.md)
 - [guide](./guide.md)
+- [icon](./icon.md)
 - [image](./image.md)
 - [image-viewer](./image-viewer.md)
 - [input](./input.md)

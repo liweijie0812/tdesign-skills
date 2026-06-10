@@ -22,8 +22,8 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 1. 先识别任务类型和当前技术栈，不混用 React、Vue Next、Vue 2、移动端和小程序写法。
 2. 组件选型先查 `decisions/`，尤其是 `decisions/when-to-use/`、`decisions/component-usage-map.md` 和 `decisions/similar-components.md`。
 3. 页面搭建先查 `scenarios/`，按表单页、列表页、应用壳等场景选择组件组合。
-4. 需要确认 props、事件、插槽、子组件或函数式调用时，再查当前栈的 `api/react/`、`api/vue-next/` 或 `api/vue2/`。
-5. 需要判断跨栈覆盖和差异时，查 `meta/stack-matrix.json` 和 `api/_shared/`。
+4. 需要确认 props、事件、插槽、子组件或函数式调用时，再查当前栈的 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
+5. 需要判断跨栈、移动端和小程序覆盖差异时，查 `meta/stack-matrix.json` 和 `api/_shared/`。
 6. TDesign 不能满足需求时，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
 
 ## 目标
@@ -31,7 +31,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 - 根据用户场景推荐最合适的 TDesign 组件。
 - 优先依据 TDesign 设计指南解释组件适用原因。
 - 当多个组件都可能适用时，明确比较取舍。
-- 把栈无关决策和场景知识放在前面，把 React、Vue Next、Vue 2 写法差异下沉到 `api/`。
+- 把栈无关决策和场景知识放在前面，把 React、Vue Next、Vue 2、移动端和小程序写法差异下沉到 `api/`。
 - 不把非 TDesign 的 API、属性或交互行为直接套用到 TDesign，除非当前栈 API 明确支持。
 
 ## 信息来源优先级
@@ -39,8 +39,8 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 1. `decisions/`：栈无关的组件选型、反模式和降级策略。
 2. `scenarios/`：表单页、列表页、应用壳等页面级组合方案。
 3. `api/_shared/`：跨栈通用契约，如 props 语义、事件语义、插槽语义。
-4. `api/react/`、`api/vue-next/`、`api/vue2/`：当前技术栈的真实 API、导入、模板或 JSX 写法。
-5. `meta/stack-matrix.json`：跨栈覆盖情况和已知写法差异。
+4. `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：当前技术栈的真实 API、导入、模板、JSX 或小程序写法。
+5. `meta/stack-matrix.json`：跨 Web、移动端和小程序覆盖情况及已知写法差异。
 6. TDesign 上游 API 文档和当前项目代码约定。
 
 ## 工作流程细则
@@ -51,7 +51,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 4. 识别当前框架是 React、Vue Next、Vue 2、移动端还是小程序，按对应框架的组件标签、导入方式、插槽和事件命名实现，不混用 React 点语法、Vue 标签写法和小程序组件写法。
 5. 优先查阅 `decisions/when-to-use/` 和 `decisions/anti-patterns.md`，先做栈无关选型。
 6. 若是页面搭建，查阅 `scenarios/` 中对应场景卡，确定 TDesign 组件组合。
-7. 如果需要确认 props、事件、插槽、类型或子组件 API，按技术栈查阅 `api/react`、`api/vue-next` 或 `api/vue2`，不要跨技术栈混用 API。
+7. 如果需要确认 props、事件、插槽、类型或子组件 API，按技术栈查阅 `api/react`、`api/vue-next`、`api/vue2`、`api/mobile-react`、`api/mobile-vue` 或 `api/miniprogram`，不要跨技术栈混用 API。
 8. 如果需要判断某组件是否存在于当前栈，查阅 `meta/stack-matrix.json`。
 9. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
 10. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
@@ -104,7 +104,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 - `decisions/anti-patterns.md`：全局禁止项。
 - `decisions/fallback-policy.md`：不用 TDesign 时的统一降级口径。
 - `scenarios/`：页面级组件组合方案。
-- `api/index.md`：Web 端分技术栈 API 文档索引。
+- `api/index.md`：Web、移动端和小程序分技术栈 API 文档索引。
 - `api/_shared/`：跨栈通用契约。
-- `meta/stack-matrix.json`：跨栈组件覆盖矩阵。
+- `meta/stack-matrix.json`：跨 Web、移动端和小程序组件覆盖矩阵。
 - `meta/source-links.md`：上游文档来源链接。

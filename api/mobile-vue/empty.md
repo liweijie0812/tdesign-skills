@@ -1,0 +1,27 @@
+# empty
+
+来源：TDesign Mobile Vue
+
+上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-vue/develop/src/empty/empty.md
+
+## API
+
+### Empty Props
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+action | Slot / Function | - | 操作按钮。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-mobile-vue/blob/develop/src/common.ts) | N
+description | String / Slot / Function | - | 描述文字。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-mobile-vue/blob/develop/src/common.ts) | N
+icon | String / Slot / Function | - | 图标。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-mobile-vue/blob/develop/src/common.ts) | N
+image | String / Slot / Function | - | 图片地址。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-mobile-vue/blob/develop/src/common.ts) | N
+
+### CSS Variables
+
+组件提供了下列 CSS 变量，可用于自定义样式。
+名称 | 默认值 | 描述
+-- | -- | --
+--td-empty-action-margin-top | @spacer-4 | -
+--td-empty-description-color | @text-color-placeholder | -
+--td-empty-description-font | @font-body-medium | -
+--td-empty-description-margin-top | @spacer-2 | -
+--td-empty-icon-color | @text-color-placeholder | -

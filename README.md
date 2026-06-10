@@ -33,26 +33,28 @@ npx skills add liweijie0812/tdesign-skills
 
 ## 如何使用
 
-1. 先确认项目技术栈，避免混用 React、Vue Next、Vue 2 写法。
+1. 先确认项目技术栈，避免混用 React、Vue Next、Vue 2、移动端和小程序写法。
 2. 组件选型先查 `decisions/`。
 3. 页面搭建先查 `scenarios/`。
-4. API、事件、插槽和写法差异按当前栈查 `api/react/`、`api/vue-next/` 或 `api/vue2/`。
+4. API、事件、插槽和写法差异按当前栈查 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
 5. 跨栈覆盖和差异查 `meta/stack-matrix.json`。
 
 ## 目录结构
 
 - `SKILL.md`：入口，定义触发规则、范围、目标和查阅顺序。
-- `meta/stack-matrix.json`：跨 React、Vue Next、Vue 2 的组件覆盖和已知写法差异。
+- `meta/stack-matrix.json`：跨 Web、移动端和小程序的组件覆盖和已知写法差异。
 - `decisions/`：栈无关决策知识，包括“选谁不选谁”、反模式和降级策略。
 - `scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
 - `api/_shared/`：跨栈通用契约、子组件和组合语义。
-- `api/react/`、`api/vue-next/`、`api/vue2/`：按 Web 技术栈拆分的 TDesign API Markdown。
-- `scripts/sync-web-api-docs.mjs`：同步 Web API 文档。
+- `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：按技术栈拆分的 TDesign API Markdown。
+- `scripts/sync-api-docs.mjs`：同步 Web、移动端和小程序 API 文档。
 
-## 同步 Web API 文档
+## 同步 API 文档
 
 ```bash
-node scripts/sync-web-api-docs.mjs
+node scripts/sync-api-docs.mjs
 ```
 
-该脚本只同步 Web 端 API 文档：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue`。输出目录为 `api/react/`、`api/vue-next/`、`api/vue2/`。移动端和小程序 API 文档后续单独规划。
+该脚本同步 Web、移动端和小程序 API 文档。组件范围来自 `tdesign-common/js/components.ts`，输出目录为 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`。
+
+若仓库同级目录存在 `tdesign-common`、`tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`，脚本会优先切换到对应仓库的 `develop` 分支并执行 `git pull --ff-only` 后读取本地文件；本地仓库不存在或无法安全快进更新时回退到 GitHub raw URL。
