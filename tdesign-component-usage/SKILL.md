@@ -1,11 +1,12 @@
 ---
 name: tdesign-component-usage
-description: 当需要选择 TDesign 组件、回答组件“何时使用”、比较相似组件，或将既有 UI 方案迁移到 TDesign 时使用。
+description: 当需要选择 TDesign 组件、回答组件“何时使用”、比较相似组件、生成页面、搭建页面结构、实现表单页、列表页、详情页、弹窗页、后台管理页，或 package.json 已安装 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram 等 TDesign 组件包时使用。
 ---
 
 # TDesign 组件使用规范
 
-当用户询问 TDesign 组件选型、组件“何时使用”、相似组件差异、UI 组合方式，或从既有 UI 方案迁移到 TDesign 时，使用本 skill。
+当用户询问 TDesign 组件选型、组件“何时使用”、相似组件差异、UI 组合方式，或从既有 UI 方案迁移到 TDesign 时，使用本 skill。若当前项目的 `package.json` 中已安装 TDesign 组件包，也应优先按本规范进行组件选型和实现判断。
+当用户要求生成页面、搭建页面结构、实现表单页、列表页、详情页、弹窗页或后台管理页时，如果项目已安装或明确使用 TDesign，应优先使用 TDesign 组件完成页面实现。
 
 ## 目标
 
@@ -25,13 +26,17 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 
 1. 判断用户任务类型：组件选型、组件比较、迁移、实现或评审。
 2. 提取交互意图：导航、数据录入、数据展示、反馈、布局或操作。
-3. 优先查阅 `references/component-usage-map.md`，寻找直接对应的 TDesign 组件说明。
-4. 如果多个组件都匹配，查阅 `references/similar-components.md`，说明取舍原因。
-5. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
-6. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
+3. 如果当前项目存在 `package.json`，检查是否已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue` 等 TDesign 组件包。
+4. 优先查阅 `references/component-usage-map.md`，寻找直接对应的 TDesign 组件说明。
+5. 如果多个组件都匹配，查阅 `references/similar-components.md`，说明取舍原因。
+6. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
+7. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
 
 ## 选型原则
 
+- 在已安装或明确使用 TDesign 的项目中，组件实现应优先使用 TDesign 组件。
+- 生成页面时，优先使用 TDesign 的布局、表单、数据展示、反馈和导航组件组织页面结构。
+- 生成页面时，尽量少写自定义 CSS，优先通过 TDesign 组件搭配、组件 props、布局组件和已有设计变量完成效果。
 - 优先选择与用户核心任务一致的组件，而不是视觉上勉强相似的组件。
 - 轻量交互优先使用轻量组件，不使用过重的弹层或复杂组件。
 - 持久内容优先放在页面内，临时中断任务才使用弹层类组件。
@@ -58,6 +63,9 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 
 - 不编造 TDesign 组件名、props、事件或能力。
 - 不把非 TDesign 组件推荐为 TDesign 组件。
+- 不在已有 TDesign 组件能满足需求时，优先推荐原生 HTML、其他组件库组件或自定义组件。
+- 不在生成页面时绕开 TDesign 组件体系，除非 TDesign 没有对应能力或项目已有明确约束。
+- 不优先通过大量自定义 CSS 复刻 TDesign 已有组件能力；只有组件组合和 props 无法满足时才补充最小 CSS。
 - 当 TDesign 有自己的组件命名时，使用 TDesign 命名，例如模态对话框使用 `Dialog`。
 - 能用轻量组件解决时，不推荐更复杂的组件。
 - 不以视觉相似作为等价依据，必须按用户任务和交互成本判断。
