@@ -33,8 +33,8 @@ npx skills add liweijie0812/tdesign-skills
 
 ## 如何使用
 
-1. 先确认项目技术栈，避免混用 React、Vue Next、Vue 2、移动端和小程序写法。
-2. 组件选型先查 `decisions/`。
+1. 先确认平台口径和项目技术栈，避免混用 Web、移动端、小程序、React、Vue Next 和 Vue 2 写法。
+2. 组件选型先查 `decisions/platform-design-policy.md`；Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`。
 3. 页面搭建先查 `scenarios/`。
 4. API、事件、插槽和写法差异按当前栈查 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
 5. 跨栈覆盖和差异查 `meta/stack-matrix.json`。
@@ -43,7 +43,9 @@ npx skills add liweijie0812/tdesign-skills
 
 - `SKILL.md`：入口，定义触发规则、范围、目标和查阅顺序。
 - `meta/stack-matrix.json`：跨 Web、移动端和小程序的组件覆盖和已知写法差异。
-- `decisions/`：栈无关决策知识，包括“选谁不选谁”、反模式和降级策略。
+- `decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。
+- `decisions/web/`：Web 设计选型决策。
+- `decisions/mobile/`：移动端与小程序通用设计选型决策。
 - `scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
 - `api/_shared/`：跨栈通用契约、子组件和组合语义。
 - `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：按技术栈拆分的 TDesign API Markdown。

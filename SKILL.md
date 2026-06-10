@@ -19,8 +19,8 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 
 ## 如何使用
 
-1. 先识别任务类型和当前技术栈，不混用 React、Vue Next、Vue 2、移动端和小程序写法。
-2. 组件选型先查 `decisions/`，尤其是 `decisions/when-to-use/`、`decisions/component-usage-map.md` 和 `decisions/similar-components.md`。
+1. 先识别任务类型、平台口径和当前技术栈，不混用 Web、移动端、小程序、React、Vue Next 和 Vue 2 写法。
+2. 组件选型先查 `decisions/platform-design-policy.md`；Web 查 `decisions/web/component-usage-map.md`、`decisions/similar-components.md` 和 `decisions/when-to-use/`，移动端和小程序查 `decisions/mobile/component-usage-map.md`。
 3. 页面搭建先查 `scenarios/`，按表单页、列表页、应用壳等场景选择组件组合。
 4. 需要确认 props、事件、插槽、子组件或函数式调用时，再查当前栈的 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
 5. 需要判断跨栈、移动端和小程序覆盖差异时，查 `meta/stack-matrix.json` 和 `api/_shared/`。
@@ -31,30 +31,32 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 - 根据用户场景推荐最合适的 TDesign 组件。
 - 优先依据 TDesign 设计指南解释组件适用原因。
 - 当多个组件都可能适用时，明确比较取舍。
-- 把栈无关决策和场景知识放在前面，把 React、Vue Next、Vue 2、移动端和小程序写法差异下沉到 `api/`。
+- 把平台设计决策和场景知识放在前面，把 React、Vue Next、Vue 2、移动端和小程序写法差异下沉到 `api/`。
 - 不把非 TDesign 的 API、属性或交互行为直接套用到 TDesign，除非当前栈 API 明确支持。
 
 ## 信息来源优先级
 
-1. `decisions/`：栈无关的组件选型、反模式和降级策略。
-2. `scenarios/`：表单页、列表页、应用壳等页面级组合方案。
-3. `api/_shared/`：跨栈通用契约，如 props 语义、事件语义、插槽语义。
-4. `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：当前技术栈的真实 API、导入、模板、JSX 或小程序写法。
-5. `meta/stack-matrix.json`：跨 Web、移动端和小程序覆盖情况及已知写法差异。
-6. TDesign 上游 API 文档和当前项目代码约定。
+1. `decisions/platform-design-policy.md`：Web 与 Mobile 系设计指南的适用口径，小程序设计口径复用 Mobile。
+2. `decisions/web/`、`decisions/mobile/` 和通用 `decisions/`：组件选型、反模式和降级策略；Web 与 Mobile 系同名组件按平台分别判断。
+3. `scenarios/`：表单页、列表页、应用壳等页面级组合方案。
+4. `api/_shared/`：跨栈通用契约，如 props 语义、事件语义、插槽语义。
+5. `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：当前技术栈的真实 API、导入、模板、JSX 或小程序写法。
+6. `meta/stack-matrix.json`：跨 Web、移动端和小程序覆盖情况及已知写法差异。
+7. TDesign 上游 API 文档和当前项目代码约定。
 
 ## 工作流程细则
 
 1. 判断用户任务类型：组件选型、组件比较、迁移、实现或评审。
 2. 提取交互意图：导航、数据录入、数据展示、反馈、布局或操作。
-3. 如果当前项目存在 `package.json`，检查是否已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue` 等 TDesign 组件包。
-4. 识别当前框架是 React、Vue Next、Vue 2、移动端还是小程序，按对应框架的组件标签、导入方式、插槽和事件命名实现，不混用 React 点语法、Vue 标签写法和小程序组件写法。
-5. 优先查阅 `decisions/when-to-use/` 和 `decisions/anti-patterns.md`，先做栈无关选型。
-6. 若是页面搭建，查阅 `scenarios/` 中对应场景卡，确定 TDesign 组件组合。
-7. 如果需要确认 props、事件、插槽、类型或子组件 API，按技术栈查阅 `api/react`、`api/vue-next`、`api/vue2`、`api/mobile-react`、`api/mobile-vue` 或 `api/miniprogram`，不要跨技术栈混用 API。
-8. 如果需要判断某组件是否存在于当前栈，查阅 `meta/stack-matrix.json`。
-9. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
-10. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
+3. 如果当前项目存在 `package.json`，检查是否已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue` 或 `tdesign-miniprogram` 等 TDesign 组件包。
+4. 识别当前平台是 Web 还是 Mobile 系；`tdesign-miniprogram` 的设计口径复用 Mobile，具体 API 和平台能力按小程序文档确认。
+5. 识别当前框架是 React、Vue Next、Vue 2、移动端 React、移动端 Vue 还是小程序，按对应框架的组件标签、导入方式、插槽和事件命名实现，不混用 React 点语法、Vue 标签写法和小程序组件写法。
+6. 优先查阅 `decisions/platform-design-policy.md`、对应平台的组件选型文档和 `decisions/anti-patterns.md`，先做平台正确的选型。
+7. 若是页面搭建，查阅 `scenarios/` 中对应场景卡，确定 TDesign 组件组合。
+8. 如果需要确认 props、事件、插槽、类型或子组件 API，按技术栈查阅 `api/react`、`api/vue-next`、`api/vue2`、`api/mobile-react`、`api/mobile-vue` 或 `api/miniprogram`，不要跨技术栈混用 API。
+9. 如果需要判断某组件是否存在于当前栈，查阅 `meta/stack-matrix.json`。
+10. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
+11. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
 
 ## 选型原则
 
@@ -92,6 +94,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 - 不在生成页面时绕开 TDesign 组件体系，除非 TDesign 没有对应能力或项目已有明确约束。
 - 不优先通过大量自定义 CSS 复刻 TDesign 已有组件能力；只有组件组合和 props 无法满足时才补充最小 CSS。
 - 当 TDesign 有自己的组件命名时，使用 TDesign 命名，例如模态对话框使用 `Dialog`。
+- 不把 Web 设计指南直接套到移动端或小程序；小程序设计口径复用 Mobile，但 API 必须查 `api/miniprogram/`。
 - Vue 项目中不要直接使用 `Layout.Aside`、`Form.FormItem` 这类 React 点语法；应使用项目已有的 Vue 标签、组件注册名或 TDesign Vue 文档写法。
 - 能用轻量组件解决时，不推荐更复杂的组件。
 - 不以视觉相似作为等价依据，必须按用户任务和交互成本判断。
@@ -99,7 +102,9 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 ## 关键参考
 
 - `decisions/when-to-use/`：高频相似组件取舍。
-- `decisions/component-usage-map.md`：按 TDesign 组件整理的“何时使用”。
+- `decisions/platform-design-policy.md`：Web、Mobile 系和小程序设计口径。
+- `decisions/web/component-usage-map.md`：Web 组件“何时使用”。
+- `decisions/mobile/component-usage-map.md`：移动端和小程序通用“何时使用”。
 - `decisions/similar-components.md`：常见相似组件选型规则。
 - `decisions/anti-patterns.md`：全局禁止项。
 - `decisions/fallback-policy.md`：不用 TDesign 时的统一降级口径。

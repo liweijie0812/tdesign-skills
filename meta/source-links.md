@@ -20,6 +20,7 @@
 ## 说明
 
 - TDesign 设计文档是产品设计选型的主要依据。
+- 小程序设计口径复用 TDesign Mobile 设计指南；小程序 API、事件和平台能力以 `tdesign-miniprogram` 文档为准。
 - `tdesign-common/js/components.ts` 是 Web 与移动端组件范围的主要依据。
 - TDesign 框架文档是 API、props、事件、插槽和组件能力的主要依据。
 - 通用企业级 UI 经验只作为补充判断，不作为 TDesign API 依据。
