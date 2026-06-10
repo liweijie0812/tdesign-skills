@@ -5,115 +5,152 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 
 # TDesign 组件使用规范
 
-当用户询问 TDesign 组件选型、组件“何时使用”、相似组件差异、UI 组合方式，或从既有 UI 方案迁移到 TDesign 时，使用本 skill。若当前项目的 `package.json` 中已安装 TDesign 组件包，也应优先按本规范进行组件选型和实现判断。
+本 skill 用于指导 AI 在生成、迁移或评审 UI 代码时正确选择和使用 TDesign 组件。
 
-当用户要求生成页面、搭建页面结构、实现表单页、列表页、详情页、弹窗页或后台管理页时，如果项目已安装或明确使用 TDesign，应优先使用 TDesign 组件完成页面实现。
+核心目标：优先使用 TDesign 组件、布局、props 和设计变量，减少自定义 CSS，不瞎造组件和 API。
 
-## 范围与成熟度
+## 适用范围
 
-- Scope：覆盖 Web、移动端和小程序；Web 包含 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`，移动端包含 `tdesign-mobile-react`、`tdesign-mobile-vue`，小程序包含 `tdesign-miniprogram`。
-- Maturity：当前仍处于早期验证阶段。必须用当前项目代码和对应 `api/<stack>/` 文件确认具体写法，不把本 skill 的通用规则当作最终 API。
-- Token 约束：不要一次性读取整个 `api/` 树。先读 `decisions/`、`scenarios/` 和 `api/_shared/index.md`，只有需要具体 props、事件、插槽或类型时才读取单个组件目录。
+- 适用：项目已安装或明确使用 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`。
+- 适用：用户要求组件选型、组件“何时使用”、相似组件比较、页面搭建、表单页、列表页、详情页、弹窗页、后台管理页或 UI 迁移。
+- 不适用：未使用 TDesign 的项目，或纯 Node、构建工具、数据处理等非 UI 实现任务。
+- Maturity：当前仍处于早期验证阶段；必须用当前项目代码和对应 `api/<stack>/` 文件确认具体写法。
 
-## 快速闭环
+## 核心原则
 
-- `Button`：用于明确操作；确认按钮文案表达结果，危险操作查当前栈 `button` 和 `dialog` API。
+1. 优先使用 TDesign 组件。
+2. 其次使用 TDesign 布局、子组件、props、插槽和设计变量。
+3. 只有 TDesign 无法满足需求时，才使用原生 HTML、最小 CSS 或受控自定义组件，并说明不是 TDesign 官方能力。
+4. 禁止无理由引入 AntD、Element Plus 或其他组件库。
+5. 禁止用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力。
+6. 禁止凭经验猜 props、事件、插槽、函数式调用或小程序 external classes。
+
+## 技术栈识别规则
+
+| 包名 | 技术栈 | 写法边界 |
+| --- | --- | --- |
+| `tdesign-react` | React Web | JSX、React 事件和 React 组件导入 |
+| `tdesign-vue-next` | Vue 3 Web | Vue 3 模板、Composition API、Vue 事件/插槽 |
+| `tdesign-vue` | Vue 2 Web | Vue 2 模板、Options API、Vue 2 插槽约定 |
+| `tdesign-mobile-react` | React Mobile | 移动端 React API，不照搬 Web React |
+| `tdesign-mobile-vue` | Vue Mobile | 移动端 Vue API，不照搬 Web Vue |
+| `tdesign-miniprogram` | 小程序 | WXML/JS、短横线属性、bind 事件、external classes |
+
+先检查 `package.json` 和项目已有代码，再决定技术栈。禁止混用 React 点语法、Vue 标签写法、小程序短横线属性和不同端默认值。
+
+## 工作流程
+
+1. 识别任务类型：选型、比较、迁移、实现、页面搭建或评审。
+2. 识别平台和技术栈：Web、Mobile、Miniprogram；React、Vue Next、Vue 2、Mobile React、Mobile Vue、小程序。
+3. 先查选型规则：Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`，相似组件查 `decisions/similar-components.md`。
+4. 页面搭建先查 `scenarios/`，例如表单页、表格列表页、应用壳。
+5. 跨端语义先查 `api/_shared/index.md`，例如 Dialog 和子组件端差异。
+6. 需要具体 props、事件、插槽、子组件、函数式调用或类型时，只读取当前栈的单个组件目录：`api/<stack>/<component>/index.md` 和同目录 `type.ts` / `props.ts` / `common.ts`。
+7. 如果 TDesign 不能满足需求，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
+
+Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只读 1 个场景卡、1 个决策文档和 1 个组件 API 文件。
+
+## 常见组件速查
+
+下表只表达组件语义，不代表所有端的真实 props 或标签名；具体写法必须查当前栈 API。
+
+| 场景 | 优先组件 | 错误做法 |
+| --- | --- | --- |
+| 主操作 | `Button`，使用当前栈主按钮配置 | 手写 `.btn-primary` |
+| 文本录入 | `Input` + `FormItem` | 裸 `<input>` + 自研校验 |
+| 表单提交 | `Form` + `FormItem` + 内置 rules | 手写 label、错误信息和校验状态 |
+| 强确认/告警/短表单 | `Dialog` | `window.confirm()` 或自研 Modal |
+| 侧边编辑/详情 | `Drawer` | 把大表单塞进 `Dialog` |
+| 结构化数据 | `Table` | 手写表格和分页控制 |
+| 简单列表 | `List` | 手写 `ul > li` 复刻样式 |
+| 页面壳 | Web `Layout`；Mobile/Miniprogram `Row` / `Col` | 手写大量 flex 布局 |
+| 轻量反馈 | 当前栈支持的 `Message` / `Notification` / `Toast` | `alert()` 或第三方 toast |
+| 二次确认 | 当前栈支持的 `Popconfirm` 或 `Dialog` | 所有确认都用大弹窗 |
+
+## 五组件快速闭环
+
+- `Button`：用于明确操作；危险操作按钮文案表达结果，例如“删除项目”。
 - `Input`：用于短文本录入；表单场景必须放进 `FormItem`，校验和错误提示优先用 `Form` 能力。
 - `Form`：用于用户提交数据；字段容器、校验规则、提交事件和实例能力必须按当前栈确认。
 - `Dialog`：用于强中断确认、告警和短表单；通用语义查 `api/_shared/dialog/contract.md`，端差异查 `api/_shared/dialog/`。
 - `Layout`：Web 应用壳用 `Layout` / `Header` / `Aside` / `Content` / `Footer`；移动端和小程序的 `layout` 是 `Row` / `Col` 栅格，不等同 Web 应用壳。
 
-## 何时使用
+## 布局与样式规范
 
-- 用户需要选择 TDesign 组件、比较相似组件，或询问某个组件“何时使用”。
-- 用户要生成页面、搭建页面结构，或实现表单页、列表页、详情页、弹窗页、后台管理页。
-- 当前项目已安装或明确使用 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 等组件包。
-- 用户要把既有 UI、原生 HTML、其他组件库组件或自定义组件迁移到 TDesign。
-- 用户要求评审 TDesign 组件使用是否合理、是否混用 API、是否过度自定义。
+- 推荐使用 `Layout` / `Grid` / `Space` / `Card` / `Row` / `Col` 搭建结构。
+- 推荐使用组件的 `size`、`theme`、`variant`、布局 props、插槽和设计变量控制样式。
+- 只有组件组合和 props 无法满足时，才补充最小 CSS。
+- 禁止手写大量 `margin`、`padding`、`flex` 复刻 TDesign 默认布局。
+- 禁止覆盖 TDesign 默认样式，除非是明确的主题定制或项目已有设计系统要求。
 
-## 如何使用
+## 表单规范
 
-1. 先识别任务类型、平台口径和当前技术栈，不混用 Web、移动端、小程序、React、Vue Next 和 Vue 2 写法。
-2. 组件选型先查 `decisions/platform-design-policy.md`；Web 查 `decisions/web/component-usage-map.md`、`decisions/similar-components.md` 和 `decisions/when-to-use/`，移动端和小程序查 `decisions/mobile/component-usage-map.md`。
-3. 页面搭建先查 `scenarios/`，按表单页、列表页、应用壳等场景选择组件组合。
-4. 需要确认 props、事件、插槽、子组件或函数式调用时，再查当前栈的 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
-5. 需要判断跨栈、移动端和小程序覆盖差异时，查 `meta/stack-matrix.json` 和 `api/_shared/index.md`。
-6. TDesign 不能满足需求时，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
+- 必须使用 `Form` + `FormItem` 组织可提交字段。
+- 表单校验优先使用 TDesign 内置 rules、事件和错误展示能力。
+- 禁止自研一套 label、必填星号、错误信息和校验状态，除非当前栈 API 不支持。
+- 动态字段、复杂校验和实例方法必须查当前栈 `api/<stack>/form/index.md` 与 `type.ts` / `props.ts`。
+- 移动端和小程序表单不要照搬 Web Form 实例、事件或插槽写法。
 
-## 目标
+## 相似组件决策规则
 
-- 根据用户场景推荐最合适的 TDesign 组件。
-- 优先依据 TDesign 设计指南解释组件适用原因。
-- 当多个组件都可能适用时，明确比较取舍。
-- 把平台设计决策和场景知识放在前面，把 React、Vue Next、Vue 2、移动端和小程序写法差异下沉到 `api/`。
-- 不把非 TDesign 的 API、属性或交互行为直接套用到 TDesign，除非当前栈 API 明确支持。
+| 对比 | 决策 |
+| --- | --- |
+| `Button` vs `Link` | 跳转用 `Link`，触发操作用 `Button` |
+| `Dialog` vs `Drawer` | 强打断确认用 `Dialog`，保留上下文编辑/详情用 `Drawer` |
+| `Table` vs `List` | 结构化多列数据用 `Table`，简单条目用 `List` |
+| `Select` vs `Cascader` | 一级选择用 `Select`，层级路径选择用 `Cascader` |
+| `Message` vs `Notification` | 短反馈用 `Message`，较完整通知用 `Notification` |
+| `Popconfirm` vs `Dialog` | 轻量二次确认用 `Popconfirm`，高风险或复杂确认用 `Dialog` |
 
-## 信息来源优先级
+完整规则见 `decisions/similar-components.md` 和 `decisions/when-to-use/`。
+如果当前端没有某个相似组件，按 `meta/stack-matrix.json` 和对应 `api/<stack>/` 确认后选择替代方案。
 
-1. `decisions/platform-design-policy.md`：Web 与 Mobile 系设计指南的适用口径，小程序设计口径复用 Mobile。
-2. `decisions/web/`、`decisions/mobile/` 和通用 `decisions/`：组件选型、反模式和降级策略；Web 与 Mobile 系同名组件按平台分别判断。
-3. `scenarios/`：表单页、列表页、应用壳等页面级组合方案。
-4. `api/_shared/`：跨端通用契约、端差异入口和组合语义，按 `dialog/`、`sub-components/` 以及 Web / Mobile / Miniprogram 拆分。
-5. `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：当前技术栈的真实 API、导入、模板、JSX 或小程序写法；组件 API 位于 `api/<stack>/<component>/index.md`，同技术栈目录下的 `type.ts` / `props.ts` / `common.ts` 是精确类型源。
-6. `meta/stack-matrix.json`：跨 Web、移动端和小程序覆盖情况及已知写法差异。
-7. TDesign 上游 API 文档和当前项目代码约定。
+## 子组件与插槽规则
 
-## 工作流程细则
+- 优先使用 TDesign 官方子组件、配置项、slots 和函数式插件。
+- 禁止自行模拟 TDesign 已有子组件和插槽结构。
+- React / Vue / 小程序子组件命名和 slot 写法不同，端差异见 `api/_shared/sub-components/`。
+- 子组件如果有独立类型源，按真实目录读取，例如 `api/miniprogram/tab-panel/type.ts`。
 
-1. 判断用户任务类型：组件选型、组件比较、迁移、实现或评审。
-2. 提取交互意图：导航、数据录入、数据展示、反馈、布局或操作。
-3. 如果当前项目存在 `package.json`，检查是否已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue` 或 `tdesign-miniprogram` 等 TDesign 组件包。
-4. 识别当前平台是 Web 还是 Mobile 系；`tdesign-miniprogram` 的设计口径复用 Mobile，具体 API 和平台能力按小程序文档确认。
-5. 识别当前框架是 React、Vue Next、Vue 2、移动端 React、移动端 Vue 还是小程序，按对应框架的组件标签、导入方式、插槽和事件命名实现，不混用 React 点语法、Vue 标签写法和小程序组件写法。
-6. 优先查阅 `decisions/platform-design-policy.md`、对应平台的组件选型文档和 `decisions/anti-patterns.md`，先做平台正确的选型。
-7. 若是页面搭建，查阅 `scenarios/` 中对应场景卡，确定 TDesign 组件组合。
-8. 如果需要确认 props、事件、插槽、类型或子组件 API，按技术栈查阅 `api/react`、`api/vue-next`、`api/vue2`、`api/mobile-react`、`api/mobile-vue` 或 `api/miniprogram`；API 表不够精确时读取同技术栈目录下对应组件或子组件的 `type.ts`、`props.ts` 和公共 `common.ts`，不要跨技术栈混用 API。
-9. 如果需要判断某组件是否存在于当前栈，查阅 `meta/stack-matrix.json`。
-10. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
-11. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
-12. 如果上下文预算紧张，只读取当前任务相关的 1 个场景卡、1 个决策文档和 1 个组件 API 文件。
+## API 使用规则
 
-## 选型原则
+- Web React：查 `api/react/<component>/index.md`。
+- Web Vue Next：查 `api/vue-next/<component>/index.md`。
+- Web Vue 2：查 `api/vue2/<component>/index.md`。
+- Mobile React：查 `api/mobile-react/<component>/index.md`。
+- Mobile Vue：查 `api/mobile-vue/<component>/index.md`。
+- Miniprogram：查 `api/miniprogram/<component>/index.md`。
+- API 表不够精确时，读取同目录 `type.ts` / `props.ts` 和公共 `common.ts`。
+- 禁止依赖用户项目 `node_modules` 推断 TDesign 官方 API。
 
-- 在已安装或明确使用 TDesign 的项目中，组件实现应优先使用 TDesign 组件。
-- 生成页面时，优先使用 TDesign 的布局、表单、数据展示、反馈和导航组件组织页面结构。
-- 生成页面时，尽量少写自定义 CSS，优先通过 TDesign 组件搭配、组件 props、布局组件和已有设计变量完成效果。
-- 优先选择与用户核心任务一致的组件，而不是视觉上勉强相似的组件。
-- 轻量交互优先使用轻量组件，不使用过重的弹层或复杂组件。
-- 持久内容优先放在页面内，临时中断任务才使用弹层类组件。
-- 只读信息优先使用数据展示组件，需要用户提交的信息使用表单或输入类组件。
-- 破坏性或高后果操作需要明确确认和结果导向的操作文案。
-- 如果 TDesign 没有对应能力，按 `decisions/fallback-policy.md` 选择降级方案，并说明原因。
+## 迁移场景
+
+当用户说“把这个页面改成 TDesign”或类似需求时：
+
+1. 识别原 UI 模式和交互意图。
+2. 映射到 TDesign 组件或组件组合。
+3. 保留业务逻辑，只替换 UI 实现和必要事件绑定。
+4. 删除不再需要的自定义样式，保留项目级布局和业务样式。
+5. 验证 props、事件、插槽、移动端/小程序写法和可访问交互差异。
+
+## 禁止行为清单
+
+- 不使用 TDesign 却假装用了。
+- 用 `div`、原生表单、`window.confirm()` 或手写 CSS 模拟 TDesign 组件。
+- 混用 AntD、Element Plus 或其他组件库，除非用户明确要求。
+- 无视 `package.json` 中已安装的 TDesign 技术栈。
+- 把 Web API 套到 Mobile 或 Miniprogram。
+- 把 React 点语法套到 Vue 或小程序。
+- 编造 TDesign 组件、props、事件、插槽、CSS Variables 或 external classes。
+- 一次性加载整个 `api/` 树消耗上下文。
 
 ## 回答格式
 
-组件选型问题建议包含：
+组件选型问题建议包含：推荐组件、何时使用、为什么不用相似组件、实现注意。
 
-- 推荐组件：TDesign 组件名。
-- 何时使用：一句话说明适用场景。
-- 为什么不用其他组件：只列出确实容易混淆的替代项。
-- 实现注意：关键 props、布局、可访问性或交互约束。
+迁移问题建议包含：来源 UI 模式、TDesign 目标组件、API 差异、需要验证的行为差异。
 
-迁移问题建议包含：
-
-- 来源组件或既有 UI 模式。
-- TDesign 目标组件或组件组合。
-- 需要调整的 API 差异。
-- 需要验证的行为差异。
-
-## 约束
-
-- 不编造 TDesign 组件名、props、事件或能力。
-- 不把非 TDesign 组件推荐为 TDesign 组件。
-- 不在已有 TDesign 组件能满足需求时，优先推荐原生 HTML、其他组件库组件或自定义组件。
-- 不在生成页面时绕开 TDesign 组件体系，除非 TDesign 没有对应能力或项目已有明确约束。
-- 不优先通过大量自定义 CSS 复刻 TDesign 已有组件能力；只有组件组合和 props 无法满足时才补充最小 CSS。
-- 当 TDesign 有自己的组件命名时，使用 TDesign 命名，例如模态对话框使用 `Dialog`。
-- 不把 Web 设计指南直接套到移动端或小程序；小程序设计口径复用 Mobile，但 API 必须查 `api/miniprogram/`。
-- 不依赖用户项目 `node_modules` 推断 TDesign 官方 API；本 skill 已同步上游 `type.ts`、`props.ts` 和 `common.ts` 时，以 `api/<stack>/` 下的源文件为准。
-- Vue 项目中不要直接使用 `Layout.Aside`、`Form.FormItem` 这类 React 点语法；应使用项目已有的 Vue 标签、组件注册名或 TDesign Vue 文档写法。
-- 能用轻量组件解决时，不推荐更复杂的组件。
-- 不以视觉相似作为等价依据，必须按用户任务和交互成本判断。
+评审问题优先指出混用 API、过度自定义、重复造轮子、缺少表单/反馈/布局组件的问题。
 
 ## 关键参考
 

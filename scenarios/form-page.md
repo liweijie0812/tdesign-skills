@@ -4,10 +4,19 @@
 
 ## 默认组件组合
 
+### Web
+
 - 页面容器：`Layout`、`Card`、`Space`、`Divider`。
 - 表单主体：`Form`、`FormItem`，字段组件按值类型选择 `Input`、`Select`、`DatePicker`、`Checkbox`、`Radio`、`Switch`、`Upload`。
-- 操作区：`Button`，主操作使用 `theme="primary"`，取消、重置、返回使用次级按钮。
-- 反馈：提交成功用 `Message`，失败原因在表单项或页面 `Alert` 中展示。
+- 操作区：`Button`，主操作使用当前栈的主按钮配置，取消、重置、返回使用次级按钮。
+- 反馈：提交成功用 `Message`，失败原因优先在表单项或页面 `Alert` 中展示。
+
+### Mobile / Miniprogram
+
+- 页面容器：使用当前项目页面容器，必要时用 `Cell`、`CellGroup`、`Divider`、`Row`、`Col` 组织分组，不照搬 Web `Layout` / `Card` / `Space`。
+- 表单主体：`Form`、`FormItem`，字段组件按值类型选择 `Input`、`Textarea`、`Picker`、`Cascader`、`DateTimePicker`、`Checkbox`、`Radio`、`Switch`、`Upload`、`Stepper`。
+- 操作区：`Button`，长页面可使用吸底或固定操作区；具体实现按项目已有布局和当前栈 API。
+- 反馈：提交成功用当前栈支持的 `Toast` / `Message`，失败原因优先在 `FormItem` 或页面提示组件中展示。
 
 ## 选型规则
 
@@ -15,12 +24,16 @@
 - 简单筛选表单可以使用行内布局，复杂编辑表单优先纵向布局。
 - 多个动态重复字段使用表单列表能力或项目已有封装，不自行拼装数组状态。
 - 长表单需要分区时使用 `Card`、`Divider`、`Tabs` 或锚点，不默认塞进 `Dialog`。
+- Mobile / Miniprogram 长表单优先分组、分步或拆页面；不要照搬 Web 多列布局。
 
 ## 栈差异提醒
 
 - React 查 `api/react/form/index.md`，常见字段容器为 `FormItem` 或 `Form.FormItem`。
 - Vue Next 查 `api/vue-next/form/index.md`，常见字段容器为 `<t-form-item>`。
 - Vue 2 查 `api/vue2/form/index.md`，按 Vue 2 模板、事件和插槽语法实现。
+- Mobile React 查 `api/mobile-react/form/index.md`，字段、校验和反馈按移动端 API 实现。
+- Mobile Vue 查 `api/mobile-vue/form/index.md`，字段、校验、事件和插槽按移动端 Vue API 实现。
+- Miniprogram 查 `api/miniprogram/form/index.md`，使用小程序属性、事件和插槽写法。
 
 ## 验证清单
 
