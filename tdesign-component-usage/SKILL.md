@@ -18,21 +18,23 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 ## 信息来源优先级
 
 1. `references/component-usage-map.md` 中整理的 TDesign 组件“何时使用”，以及上游 `tdesign-common/docs/web/design`。
-2. TDesign 框架 API 文档，按当前项目技术栈选择 React、Vue Next、Vue 2、移动端或小程序对应文档。
-3. 通用企业级 UI 选型经验，仅作为补充设计判断，不能作为 TDesign API 依据。
-4. 当前项目代码和团队既有约定。
+2. 本地 Web API 文档，按当前项目技术栈选择 `references/api/react`、`references/api/vue-next` 或 `references/api/vue`。
+3. TDesign 框架上游 API 文档，按当前项目技术栈选择 React、Vue Next、Vue 2、移动端或小程序对应文档。
+4. 通用企业级 UI 选型经验，仅作为补充设计判断，不能作为 TDesign API 依据。
+5. 当前项目代码和团队既有约定。
 
 ## 工作流程
 
 1. 判断用户任务类型：组件选型、组件比较、迁移、实现或评审。
 2. 提取交互意图：导航、数据录入、数据展示、反馈、布局或操作。
 3. 如果当前项目存在 `package.json`，检查是否已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue` 等 TDesign 组件包。
-4. 优先查阅 `references/component-usage-map.md`，寻找直接对应的 TDesign 组件说明。
-5. 如果涉及子组件、插槽、表格列、表单项、函数式调用或组合配置，查阅 `references/sub-components.md`。
-6. 识别当前框架是 React、Vue Next、Vue 2、移动端还是小程序，按对应框架的组件标签、导入方式、插槽和事件命名实现，不混用 React 点语法、Vue 标签写法和小程序组件写法。
-7. 如果多个组件都匹配，查阅 `references/similar-components.md`，说明取舍原因。
-8. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
-9. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
+4. 识别当前框架是 React、Vue Next、Vue 2、移动端还是小程序，按对应框架的组件标签、导入方式、插槽和事件命名实现，不混用 React 点语法、Vue 标签写法和小程序组件写法。
+5. 优先查阅 `references/component-usage-map.md`，寻找直接对应的 TDesign 组件说明。
+6. 如果需要确认 props、事件、插槽、类型或子组件 API，按技术栈查阅 `references/api/react`、`references/api/vue-next` 或 `references/api/vue`，不要跨技术栈混用 API。
+7. 如果涉及子组件、插槽、表格列、表单项、函数式调用或组合配置，查阅 `references/sub-components.md`。
+8. 如果多个组件都匹配，查阅 `references/similar-components.md`，说明取舍原因。
+9. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
+10. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
 
 ## 选型原则
 
@@ -76,6 +78,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 ## 关键参考
 
 - `references/component-usage-map.md`：TDesign 组件“何时使用”整理。
+- `references/api/index.md`：Web 端分技术栈 API 文档索引。
 - `references/sub-components.md`：TDesign 子组件、插槽和组合配置“何时使用”整理。
 - `references/similar-components.md`：常见相似组件选型规则。
 - `references/source-links.md`：上游文档来源链接。

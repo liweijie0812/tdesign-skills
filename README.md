@@ -28,6 +28,15 @@ npx skills add liweijie0812/tdesign-skills
 
 - `SKILL.md`：TDesign 组件使用主规范。
 - `references/component-usage-map.md`：按 TDesign 组件整理的“何时使用”。
+- `references/api/`：按 Web 技术栈拆分的 TDesign API Markdown，包含 `react/`、`vue-next/`、`vue/`。
 - `references/sub-components.md`：TDesign 子组件、插槽和组合配置“何时使用”，包含 React 与 Vue 写法差异提醒。
 - `references/similar-components.md`：常见相似组件选型规则。
 - `references/source-links.md`：TDesign 上游文档来源。
+
+## 同步 Web API 文档
+
+```bash
+node tdesign-component-usage/scripts/sync-web-api-docs.mjs
+```
+
+该脚本只同步 Web 端 API 文档：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue`。移动端和小程序 API 文档后续单独规划。
