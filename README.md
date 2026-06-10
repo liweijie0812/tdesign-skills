@@ -1,6 +1,6 @@
 # TDesign Skills
 
-面向 TDesign 组件使用规范的 skills 集合。
+面向 TDesign 组件使用规范的 skill。
 
 ## 安装
 
@@ -10,9 +10,9 @@ npx skills add liweijie0812/tdesign-skills
 
 安装后请重启 opencode，使新增 skills 生效。
 
-## Skills
+## Skill
 
-### tdesign-component-usage
+### tdesign-skills
 
 用于 TDesign 组件选型、组件“何时使用”、相似组件比较，以及既有 UI 方案迁移到 TDesign 的场景。支持 React、Vue Next、Vue 2、移动端和小程序项目，但实现时必须使用对应框架的组件写法。
 
@@ -24,19 +24,35 @@ npx skills add liweijie0812/tdesign-skills
 
 页面实现目标是少写自定义 CSS，优先通过 TDesign 组件搭配、组件 props、布局组件和已有设计变量完成效果。
 
-主要内容：
+## 何时使用
 
-- `SKILL.md`：TDesign 组件使用主规范。
-- `references/component-usage-map.md`：按 TDesign 组件整理的“何时使用”。
-- `references/api/`：按 Web 技术栈拆分的 TDesign API Markdown，包含 `react/`、`vue-next/`、`vue/`。
-- `references/sub-components.md`：TDesign 子组件、插槽和组合配置“何时使用”，包含 React 与 Vue 写法差异提醒。
-- `references/similar-components.md`：常见相似组件选型规则。
-- `references/source-links.md`：TDesign 上游文档来源。
+- 选择 TDesign 组件、比较相似组件，或回答组件“何时使用”。
+- 生成页面、搭建页面结构，或实现表单页、列表页、详情页、弹窗页、后台管理页。
+- 项目已安装或明确使用 TDesign Web、移动端或小程序组件包。
+- 将原生 HTML、其他组件库或自定义 UI 迁移到 TDesign。
+
+## 如何使用
+
+1. 先确认项目技术栈，避免混用 React、Vue Next、Vue 2 写法。
+2. 组件选型先查 `decisions/`。
+3. 页面搭建先查 `scenarios/`。
+4. API、事件、插槽和写法差异按当前栈查 `api/react/`、`api/vue-next/` 或 `api/vue2/`。
+5. 跨栈覆盖和差异查 `meta/stack-matrix.json`。
+
+## 目录结构
+
+- `SKILL.md`：入口，定义触发规则、范围、目标和查阅顺序。
+- `meta/stack-matrix.json`：跨 React、Vue Next、Vue 2 的组件覆盖和已知写法差异。
+- `decisions/`：栈无关决策知识，包括“选谁不选谁”、反模式和降级策略。
+- `scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
+- `api/_shared/`：跨栈通用契约、子组件和组合语义。
+- `api/react/`、`api/vue-next/`、`api/vue2/`：按 Web 技术栈拆分的 TDesign API Markdown。
+- `scripts/sync-web-api-docs.mjs`：同步 Web API 文档。
 
 ## 同步 Web API 文档
 
 ```bash
-node tdesign-component-usage/scripts/sync-web-api-docs.mjs
+node scripts/sync-web-api-docs.mjs
 ```
 
-该脚本只同步 Web 端 API 文档：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue`。移动端和小程序 API 文档后续单独规划。
+该脚本只同步 Web 端 API 文档：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue`。输出目录为 `api/react/`、`api/vue-next/`、`api/vue2/`。移动端和小程序 API 文档后续单独规划。

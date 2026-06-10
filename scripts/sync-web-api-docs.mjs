@@ -1,8 +1,7 @@
 import fs from 'node:fs/promises';
-import path from 'node:path';
 
 const ROOT = new URL('..', import.meta.url);
-const OUTPUT_ROOT = new URL('../references/api/', import.meta.url);
+const OUTPUT_ROOT = new URL('../api/', import.meta.url);
 
 const STACKS = [
   {
@@ -22,7 +21,7 @@ const STACKS = [
     docPath: (component) => `packages/components/${component}/${component}.md`,
   },
   {
-    key: 'vue',
+    key: 'vue2',
     name: 'TDesign Vue 2',
     repo: 'Tencent/tdesign-vue',
     branch: 'develop',
@@ -145,7 +144,7 @@ async function main() {
     '',
     '- [TDesign React](./react/index.md)',
     '- [TDesign Vue Next](./vue-next/index.md)',
-    '- [TDesign Vue 2](./vue/index.md)',
+    '- [TDesign Vue 2](./vue2/index.md)',
     '',
     '## 同步结果',
     '',
@@ -155,7 +154,7 @@ async function main() {
     '',
     '- React 项目只查阅 `react/` 下的 API 文档。',
     '- Vue 3 / Vue Next 项目只查阅 `vue-next/` 下的 API 文档。',
-    '- Vue 2 项目只查阅 `vue/` 下的 API 文档。',
+    '- Vue 2 项目只查阅 `vue2/` 下的 API 文档。',
     '- 不同技术栈的 props、事件、插槽和组件命名不能混用。',
     '',
   ].join('\n');
