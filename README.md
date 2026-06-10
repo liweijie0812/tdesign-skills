@@ -49,7 +49,11 @@ npx skills add liweijie0812/tdesign-skills
 2. 组件选型先查 `decisions/platform-design-policy.md`；Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`。
 3. 页面搭建先查 `scenarios/`。
 4. API、事件、插槽和写法差异按当前栈查 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
-5. 跨栈覆盖和差异查 `meta/stack-matrix.json`。
+5. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 查 `design/color.md`。
+6. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
+7. Web 中后台框架、后台页面模板、整站/区域导航查 `design/offices.md`。
+8. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `design/offices-task.md`。
+9. 跨栈覆盖和差异查 `meta/stack-matrix.json`。
 
 ## 最小示例
 
@@ -62,6 +66,10 @@ npx skills add liweijie0812/tdesign-skills
 - `decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。
 - `decisions/web/`：Web 设计选型决策。
 - `decisions/mobile/`：移动端与小程序通用设计选型决策。
+- `design/color.md`：TDesign Color 色彩、官方色板、语义 Token 和主题定制规则。
+- `design/layout.md`：TDesign Web 中后台 Layout 布局、导航布局、栅格、断点和间距规则。
+- `design/offices.md`：TDesign Web 中后台整体框架、导航分类、页面布局和模板映射。
+- `design/offices-task.md`：TDesign Web 中后台高频任务流程和组件选型方向。
 - `scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
 - `api/_shared/`：跨端通用契约、子组件和组合语义，按 `dialog/`、`sub-components/` 和 Web / Mobile / Miniprogram 拆分。
 - `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：按技术栈拆分的 TDesign API；组件 API 位于 `api/<stack>/<component>/index.md`，并同步上游 `type.ts` / `props.ts` / `common.ts`。

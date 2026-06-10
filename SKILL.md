@@ -43,10 +43,14 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 1. 识别任务类型：选型、比较、迁移、实现、页面搭建或评审。
 2. 识别平台和技术栈：Web、Mobile、Miniprogram；React、Vue Next、Vue 2、Mobile React、Mobile Vue、小程序。
 3. 先查选型规则：Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`，相似组件查 `decisions/similar-components.md`。
-4. 页面搭建先查 `scenarios/`，例如表单页、表格列表页、应用壳。
-5. 跨端语义先查 `api/_shared/index.md`，例如 Dialog 和子组件端差异。
-6. 需要具体 props、事件、插槽、子组件、函数式调用或类型时，只读取当前栈的单个组件目录：`api/<stack>/<component>/index.md` 和同目录 `type.ts` / `props.ts` / `common.ts`。
-7. 如果 TDesign 不能满足需求，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
+4. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 问题先查 `design/color.md`。
+5. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架问题先查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
+6. Web 中后台框架、后台页面模板、整站/区域导航或上下/左右/混合布局问题先查 `design/offices.md`。
+7. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引先查 `design/offices-task.md`。
+8. 页面搭建再查 `scenarios/`，例如表单页、表格列表页、应用壳。
+9. 跨端语义先查 `api/_shared/index.md`，例如 Dialog 和子组件端差异。
+10. 需要具体 props、事件、插槽、子组件、函数式调用或类型时，只读取当前栈的单个组件目录：`api/<stack>/<component>/index.md` 和同目录 `type.ts` / `props.ts` / `common.ts`。
+11. 如果 TDesign 不能满足需求，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
 
 Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只读 1 个场景卡、1 个决策文档和 1 个组件 API 文件。
 
@@ -79,6 +83,9 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 
 - 推荐使用 `Layout` / `Grid` / `Space` / `Card` / `Row` / `Col` 搭建结构。
 - 推荐使用组件的 `size`、`theme`、`variant`、布局 props、插槽和设计变量控制样式。
+- 色彩语义和 Design Token 规则查 `design/color.md`，优先覆盖 CSS Variables，不直接覆盖组件内部 class。
+- Web 中后台布局、栅格、断点和间距规则查 `design/layout.md`，优先遵循 8px 基数、12 栅格和 TDesign 响应式断点；Mobile / Miniprogram 不套 Web 应用壳。
+- Web 中后台框架先查 `design/offices.md` 选择导航和页面布局，高频任务流程查 `design/offices-task.md`。
 - 只有组件组合和 props 无法满足时，才补充最小 CSS。
 - 禁止手写大量 `margin`、`padding`、`flex` 复刻 TDesign 默认布局。
 - 禁止覆盖 TDesign 默认样式，除非是明确的主题定制或项目已有设计系统要求。
@@ -161,6 +168,10 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 - `decisions/similar-components.md`：常见相似组件选型规则。
 - `decisions/anti-patterns.md`：全局禁止项。
 - `decisions/fallback-policy.md`：不用 TDesign 时的统一降级口径。
+- `design/color.md`：TDesign Color 色彩、官方色板、语义 Token 和主题定制规则。
+- `design/layout.md`：TDesign Web 中后台 Layout 布局、导航布局、栅格、断点和间距规则。
+- `design/offices.md`：TDesign Web 中后台整体框架、导航分类、页面布局和模板映射。
+- `design/offices-task.md`：TDesign Web 中后台高频任务流程和组件选型方向。
 - `scenarios/`：页面级组件组合方案。
 - `api/index.md`：Web、移动端和小程序分技术栈 API 文档索引；组件 API 位于 `api/<stack>/<component>/index.md`，类型源文件同步在同技术栈目录。
 - `api/_shared/index.md`：跨端通用契约和端差异入口。
