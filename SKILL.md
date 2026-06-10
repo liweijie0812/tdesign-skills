@@ -177,3 +177,10 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 - `api/_shared/index.md`：跨端通用契约和端差异入口。
 - `meta/stack-matrix.json`：跨 Web、移动端和小程序组件覆盖矩阵。
 - `meta/source-links.md`：上游文档来源链接。
+
+## 强制约束（不得绕过）
+
+- 禁止在 TDesign 已提供组件的情况下手写等价实现
+- 禁止通过覆盖 TDesign 样式来实现新 UI，应优先换组件或调整 props
+- 涉及 Dialog / Form / Table 的用法，必须先查阅 `scenarios/` 中的场景卡
+
