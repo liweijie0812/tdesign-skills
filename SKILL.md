@@ -9,6 +9,20 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 
 当用户要求生成页面、搭建页面结构、实现表单页、列表页、详情页、弹窗页或后台管理页时，如果项目已安装或明确使用 TDesign，应优先使用 TDesign 组件完成页面实现。
 
+## 范围与成熟度
+
+- Scope：覆盖 Web、移动端和小程序；Web 包含 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`，移动端包含 `tdesign-mobile-react`、`tdesign-mobile-vue`，小程序包含 `tdesign-miniprogram`。
+- Maturity：当前仍处于早期验证阶段。必须用当前项目代码和对应 `api/<stack>/` 文件确认具体写法，不把本 skill 的通用规则当作最终 API。
+- Token 约束：不要一次性读取整个 `api/` 树。先读 `decisions/`、`scenarios/` 和 `api/_shared/index.md`，只有需要具体 props、事件、插槽或类型时才读取单个组件目录。
+
+## 快速闭环
+
+- `Button`：用于明确操作；确认按钮文案表达结果，危险操作查当前栈 `button` 和 `dialog` API。
+- `Input`：用于短文本录入；表单场景必须放进 `FormItem`，校验和错误提示优先用 `Form` 能力。
+- `Form`：用于用户提交数据；字段容器、校验规则、提交事件和实例能力必须按当前栈确认。
+- `Dialog`：用于强中断确认、告警和短表单；通用语义查 `api/_shared/dialog/contract.md`，端差异查 `api/_shared/dialog/`。
+- `Layout`：Web 应用壳用 `Layout` / `Header` / `Aside` / `Content` / `Footer`；移动端和小程序的 `layout` 是 `Row` / `Col` 栅格，不等同 Web 应用壳。
+
 ## 何时使用
 
 - 用户需要选择 TDesign 组件、比较相似组件，或询问某个组件“何时使用”。
@@ -57,6 +71,7 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 9. 如果需要判断某组件是否存在于当前栈，查阅 `meta/stack-matrix.json`。
 10. 如果用户要求实现代码，先确认项目技术栈和现有 TDesign 引入方式，再修改代码。
 11. 只有在 TDesign 文档或项目已有用法确认后，才推荐具体 props、事件或组件组合。
+12. 如果上下文预算紧张，只读取当前任务相关的 1 个场景卡、1 个决策文档和 1 个组件 API 文件。
 
 ## 选型原则
 

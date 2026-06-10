@@ -2,6 +2,18 @@
 
 面向 TDesign 组件使用规范的 skill。
 
+## 状态
+
+- Maturity：早期可用，仍需要真实项目中的 agent 对抗测试来验证命中率、读取深度和 token 成本。
+- Scope：覆盖 TDesign Web、移动端和小程序；具体 API 必须回到对应 `api/<stack>/` 文件确认。
+- Token policy：主 skill 只放决策流程和常用闭环，组件 API 按需读取单个组件目录，不建议整树加载。
+
+## Compatibility
+
+- Skill format：Agent Skills / opencode `SKILL.md` frontmatter，`name` 为 `tdesign-skills`。
+- Tested install：本仓库提供 `scripts/validate.mjs` 做静态校验；`npx skills add .` 作为本地安装烟测命令。
+- Tested agents：当前主要在 opencode 环境验证；Claude Code、Cursor 等 agent 需要按 `examples/minimal-skill.md` 的 smoke prompts 继续压测。
+
 ## 安装
 
 ```bash
@@ -39,6 +51,10 @@ npx skills add liweijie0812/tdesign-skills
 4. API、事件、插槽和写法差异按当前栈查 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
 5. 跨栈覆盖和差异查 `meta/stack-matrix.json`。
 
+## 最小示例
+
+- `examples/minimal-skill.md`：一个不自动加载的精简 SKILL 示例，只覆盖 Button、Input、Form、Dialog、Layout 五个高频组件，用于验证 agent 是否能按短规则回到 TDesign。
+
 ## 目录结构
 
 - `SKILL.md`：入口，定义触发规则、范围、目标和查阅顺序。
@@ -60,3 +76,17 @@ node scripts/sync-api-docs.mjs
 该脚本同步 Web、移动端和小程序 API 文档。组件范围来自 `tdesign-common/js/components.ts`，输出目录为 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`。组件 API 写入 `api/<stack>/<component>/index.md`；若上游存在 `type.ts`、`props.ts` 或公共 `common.ts`，会同步到对应技术栈目录，用于补充 API 表中不够精确的类型、默认值和 prop validator 信息。
 
 若仓库同级目录存在 `tdesign-common`、`tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`，脚本会优先切换到对应仓库的 `develop` 分支并执行 `git pull --ff-only` 后读取本地文件；本地仓库不存在或无法安全快进更新时回退到 GitHub raw URL。
+
+## 验证
+
+```bash
+node scripts/validate.mjs
+node --check scripts/sync-api-docs.mjs
+git diff --check
+```
+
+可选安装烟测：
+
+```bash
+npx skills add .
+```

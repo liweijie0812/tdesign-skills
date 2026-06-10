@@ -29,7 +29,7 @@ const KNOWN_DIFFERENCES = {
     miniprogram: '使用 <t-button>，属性和事件采用小程序 kebab-case / bind 写法。',
   },
   dialog: {
-    sharedContract: 'api/_shared/dialog.contract.md',
+    sharedContract: 'api/_shared/dialog/contract.md',
     react: '使用 visible 控制展示，事件为 onConfirm/onCancel/onClose，可用 dialog 或 DialogPlugin 函数式调用。',
     'vue-next': '使用 visible / v-model:visible 控制展示，事件为 confirm/cancel/close，可用 DialogPlugin 或 this.$dialog。',
     vue2: '使用 visible / .sync 或项目既有 v-model 封装控制展示，事件为 confirm/cancel/close，可用 DialogPlugin 或 this.$dialog。',
