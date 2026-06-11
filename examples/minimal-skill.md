@@ -41,7 +41,7 @@ Use this when a normal business project has `tdesign-react`, `tdesign-vue-next`,
 - Button vs Link: navigation uses Link, operations use Button.
 - Dialog vs Drawer: blocking decisions use Dialog, contextual editing uses Drawer.
 - Table vs List: structured multi-column data uses Table, simple items use List.
-- Select vs Cascader: flat choices use Select, hierarchical paths use Cascader.
+- Web Select / Mobile Picker vs Cascader: single-level choices use Web Select or Mobile Picker, hierarchical paths use Cascader.
 
 ## Hard Rules
 
