@@ -44,8 +44,8 @@ description: 当用户项目安装 tdesign-react、tdesign-vue-next、tdesign-vu
 1. 识别任务类型：选型、比较、迁移、实现、页面搭建或评审。
 2. 识别平台和技术栈：Web、Mobile、Miniprogram；React、Vue Next、Vue 2、Mobile React、Mobile Vue、小程序。
 3. 需要知道当前栈有什么组件可用时，先查 `meta/stack-matrix.json` 的 `coverage.byStack`、`allWebStacks`、`allMobileStacks`、`webOnly` 和 `mobileOnly`。
-4. 先查选型规则：Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`，相似组件查 `decisions/similar-components.md`。
-5. 需要组件组合方案时，先查 `decisions/component-composition-map.md`，再查具体 `scenarios/` 场景卡。
+4. 先查选型规则：Web 查 `decisions/web/component-usage-map.md` 和 `decisions/web/similar-components.md`；移动端和小程序查 `decisions/mobile/component-usage-map.md` 和 `decisions/mobile/similar-components.md`。
+5. 需要组件组合方案时，Web 查 `decisions/web/component-composition-map.md`；移动端和小程序查 `decisions/mobile/component-composition-map.md`；再查具体 `scenarios/` 场景卡。
 6. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 问题先查 `design/color.md`。
 7. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架问题先查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
 8. Web 中后台框架、后台页面模板、整站/区域导航或上下/左右/混合布局问题先查 `design/offices.md`。
@@ -78,8 +78,8 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 
 - 有什么组件可用：查 `meta/stack-matrix.json`，按当前栈读取 `coverage.byStack.<stack>`；不要把 Web only 组件默认用于 Mobile / Miniprogram。
 - 组件何时使用：Web 查 `decisions/web/component-usage-map.md`，Mobile / Miniprogram 查 `decisions/mobile/component-usage-map.md`。
-- 相似组件怎么选：查 `decisions/similar-components.md` 和 `decisions/when-to-use/`。
-- 组件怎么搭配：查 `decisions/component-composition-map.md` 和 `scenarios/`。
+- 相似组件怎么选：Web 查 `decisions/web/similar-components.md`，Mobile / Miniprogram 查 `decisions/mobile/similar-components.md`，通用入口查 `decisions/similar-components.md` 和 `decisions/when-to-use/`。
+- 组件怎么搭配：Web 查 `decisions/web/component-composition-map.md`，Mobile / Miniprogram 查 `decisions/mobile/component-composition-map.md`，再查 `scenarios/`。
 - 有哪些 API 可用：查 `api/<stack>/<component>/index.md`；API 表不够时查同目录 `type.ts`、`props.ts`、`common.ts`。
 
 ## 五组件快速闭环
@@ -120,7 +120,7 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 | `Message` vs `Notification` | 短反馈用 `Message`，较完整通知用 `Notification` |
 | `Popconfirm` vs `Dialog` | 轻量二次确认用 `Popconfirm`，高风险或复杂确认用 `Dialog` |
 
-完整规则见 `decisions/similar-components.md` 和 `decisions/when-to-use/`。
+完整规则见 `decisions/web/similar-components.md`、`decisions/mobile/similar-components.md` 和 `decisions/when-to-use/`。
 如果当前端没有某个相似组件，按 `meta/stack-matrix.json` 和对应 `api/<stack>/` 确认后选择替代方案。
 
 ## 子组件与插槽规则
@@ -172,13 +172,13 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 
 ## 关键参考
 
-- `decisions/when-to-use/`：高频相似组件取舍。
+- `decisions/when-to-use/`：高频相似组件通用取舍入口；端差异优先查 `decisions/web/when-to-use/` 或 `decisions/mobile/when-to-use/`。
 - `decisions/platform-design-policy.md`：Web、Mobile 系和小程序设计口径。
 - `decisions/web/component-usage-map.md`：Web 组件“何时使用”。
 - `decisions/mobile/component-usage-map.md`：移动端和小程序通用“何时使用”。
-- `decisions/component-composition-map.md`：常见页面和交互的组件搭配。
-- `decisions/similar-components.md`：常见相似组件选型规则。
-- `decisions/anti-patterns.md`：全局禁止项。
+- `decisions/component-composition-map.md`：组件搭配通用入口；端规则查 `decisions/web/component-composition-map.md` 或 `decisions/mobile/component-composition-map.md`。
+- `decisions/similar-components.md`：相似组件选型入口；端规则查 `decisions/web/similar-components.md` 或 `decisions/mobile/similar-components.md`。
+- `decisions/anti-patterns.md`：反模式入口；端规则查 `decisions/web/anti-patterns.md` 或 `decisions/mobile/anti-patterns.md`。
 - `decisions/fallback-policy.md`：不用 TDesign 时的统一降级口径。
 - `design/color.md`：TDesign Color 色彩、官方色板、语义 Token 和主题定制规则。
 - `design/layout.md`：TDesign Web 中后台 Layout 布局、导航布局、栅格、断点和间距规则。

@@ -50,8 +50,8 @@ npx skills add liweijie0812/tdesign-skills
 
 1. 先确认平台口径和项目技术栈，避免混用 Web、移动端、小程序、React、Vue Next 和 Vue 2 写法。
 2. 查询组件可用性先查 `meta/stack-matrix.json`，按当前栈读取组件覆盖范围。
-3. 组件选型先查 `decisions/platform-design-policy.md`；Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`。
-4. 组件搭配先查 `decisions/component-composition-map.md`，页面搭建再查 `scenarios/`。
+3. 组件选型先查 `decisions/platform-design-policy.md`；Web 查 `decisions/web/component-usage-map.md` 和 `decisions/web/similar-components.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md` 和 `decisions/mobile/similar-components.md`。
+4. 组件搭配按端查 `decisions/web/component-composition-map.md` 或 `decisions/mobile/component-composition-map.md`，页面搭建再查 `scenarios/`。
 5. API、事件、插槽和写法差异按当前栈查 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
 6. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 查 `design/color.md`。
 7. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
@@ -67,9 +67,11 @@ npx skills add liweijie0812/tdesign-skills
 - `SKILL.md`：入口，定义触发规则、范围、目标和查阅顺序。
 - `meta/stack-matrix.json`：跨 Web、移动端和小程序的组件覆盖和已知写法差异。
 - `decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。
-- `decisions/component-composition-map.md`：常见页面、交互和移动端场景的组件搭配索引。
-- `decisions/web/`：Web 设计选型决策。
-- `decisions/mobile/`：移动端与小程序通用设计选型决策。
+- `decisions/component-composition-map.md`：组件搭配入口索引，端细节在 `decisions/web/` 和 `decisions/mobile/`。
+- `decisions/similar-components.md`：相似组件选型入口索引，端细节在 `decisions/web/` 和 `decisions/mobile/`。
+- `decisions/anti-patterns.md`：反模式入口索引，端细节在 `decisions/web/` 和 `decisions/mobile/`。
+- `decisions/web/`：Web 设计选型、组件搭配、相似组件和反模式决策。
+- `decisions/mobile/`：移动端与小程序通用设计选型、组件搭配、相似组件和反模式决策。
 - `design/color.md`：TDesign Color 色彩、官方色板、语义 Token 和主题定制规则。
 - `design/layout.md`：TDesign Web 中后台 Layout 布局、导航布局、栅格、断点和间距规则。
 - `design/offices.md`：TDesign Web 中后台整体框架、导航分类、页面布局和模板映射。

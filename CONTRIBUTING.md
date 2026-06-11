@@ -3,6 +3,7 @@
 ## Scope
 
 - 组件可用性、组件选型、组件搭配、场景规则和反模式优先改 `meta/`、`decisions/` 与 `scenarios/`。
+- 端差异规则优先放到 `decisions/web/` 或 `decisions/mobile/`，根目录 `decisions/*.md` 只保留通用入口、平台口径和兜底策略。
 - 具体 props、事件、插槽和类型不要手写到 `SKILL.md`，应通过 `scripts/sync-api-docs.mjs` 同步到 `api/<stack>/`。
 - 跨端语义和端差异入口放在 `api/_shared/`，不要把 Web、Mobile 和 Miniprogram API 混写。
 
