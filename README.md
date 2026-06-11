@@ -1,11 +1,11 @@
 # TDesign Skills
 
-面向 TDesign 组件使用规范的 skill。
+面向普通业务项目的 TDesign 组件库使用引导 skill。
 
 ## 状态
 
 - Maturity：早期可用，仍需要真实项目中的 agent 对抗测试来验证命中率、读取深度和 token 成本。
-- Scope：覆盖 TDesign Web、移动端和小程序；具体 API 必须回到对应 `api/<stack>/` 文件确认。
+- Scope：只要用户项目安装或明确使用 TDesign 组件依赖，就引导 AI 优先使用组件库；覆盖 Web、移动端和小程序；具体 API 必须回到对应 `api/<stack>/` 文件确认。
 - Token policy：主 skill 只放决策流程和常用闭环，组件 API 按需读取单个组件目录，不建议整树加载。
 
 ## Compatibility
@@ -26,9 +26,9 @@ npx skills add liweijie0812/tdesign-skills
 
 ### tdesign-skills
 
-用于 TDesign 组件选型、组件“何时使用”、相似组件比较，以及既有 UI 方案迁移到 TDesign 的场景。支持 React、Vue Next、Vue 2、移动端和小程序项目，但实现时必须使用对应框架的组件写法。
+用于普通业务项目安装 TDesign 依赖后，引导 AI 优先使用 TDesign 组件库完成 UI 实现、组件选型、组件“何时使用”、可用组件查询、API 查询、组件搭配，以及既有 UI 方案迁移到 TDesign 的场景。支持 React、Vue Next、Vue 2、移动端和小程序项目，但实现时必须使用对应框架的组件写法。
 
-当项目 `package.json` 已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 等 TDesign 组件包时，也应优先使用该 skill。
+当普通业务项目 `package.json` 已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 等 TDesign 组件包时，应优先使用该 skill。
 
 在已安装或明确使用 TDesign 的项目中，推荐优先使用 TDesign 组件；只有 TDesign 组件无法满足需求时，再考虑原生 HTML、其他组件库组件或自定义组件。
 
@@ -39,6 +39,9 @@ npx skills add liweijie0812/tdesign-skills
 ## 何时使用
 
 - 选择 TDesign 组件、比较相似组件，或回答组件“何时使用”。
+- 查询当前 TDesign 技术栈有什么组件可用。
+- 查询某个 TDesign 组件有哪些 props、事件、插槽、类型或函数式 API。
+- 询问页面、表单、列表、弹窗、抽屉、上传、导航等场景中组件怎么搭配。
 - 生成页面、搭建页面结构，或实现表单页、列表页、详情页、弹窗页、后台管理页。
 - 项目已安装或明确使用 TDesign Web、移动端或小程序组件包。
 - 将原生 HTML、其他组件库或自定义 UI 迁移到 TDesign。
@@ -46,14 +49,14 @@ npx skills add liweijie0812/tdesign-skills
 ## 如何使用
 
 1. 先确认平台口径和项目技术栈，避免混用 Web、移动端、小程序、React、Vue Next 和 Vue 2 写法。
-2. 组件选型先查 `decisions/platform-design-policy.md`；Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`。
-3. 页面搭建先查 `scenarios/`。
-4. API、事件、插槽和写法差异按当前栈查 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
-5. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 查 `design/color.md`。
-6. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
-7. Web 中后台框架、后台页面模板、整站/区域导航查 `design/offices.md`。
-8. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `design/offices-task.md`。
-9. 跨栈覆盖和差异查 `meta/stack-matrix.json`。
+2. 查询组件可用性先查 `meta/stack-matrix.json`，按当前栈读取组件覆盖范围。
+3. 组件选型先查 `decisions/platform-design-policy.md`；Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`。
+4. 组件搭配先查 `decisions/component-composition-map.md`，页面搭建再查 `scenarios/`。
+5. API、事件、插槽和写法差异按当前栈查 `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/` 或 `api/miniprogram/`。
+6. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 查 `design/color.md`。
+7. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
+8. Web 中后台框架、后台页面模板、整站/区域导航查 `design/offices.md`。
+9. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `design/offices-task.md`。
 
 ## 最小示例
 
@@ -64,6 +67,7 @@ npx skills add liweijie0812/tdesign-skills
 - `SKILL.md`：入口，定义触发规则、范围、目标和查阅顺序。
 - `meta/stack-matrix.json`：跨 Web、移动端和小程序的组件覆盖和已知写法差异。
 - `decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。
+- `decisions/component-composition-map.md`：常见页面、交互和移动端场景的组件搭配索引。
 - `decisions/web/`：Web 设计选型决策。
 - `decisions/mobile/`：移动端与小程序通用设计选型决策。
 - `design/color.md`：TDesign Color 色彩、官方色板、语义 Token 和主题定制规则。

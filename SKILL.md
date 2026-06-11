@@ -1,18 +1,19 @@
 ---
 name: tdesign-skills
-description: 当需要选择 TDesign 组件、回答组件“何时使用”、比较相似组件、生成页面、搭建页面结构、实现 Vue/Vue3/Vue2/React 表单页、列表页、详情页、弹窗页、后台管理页，或 package.json 已安装 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram 等 TDesign 组件包时使用。优先读取 decisions、scenarios、api 和 meta。
+description: 当用户项目安装 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram，或需要在普通业务项目中优先使用 TDesign 组件库实现 UI、查询可用组件/API、判断组件何时使用和怎么搭配时使用。优先读取 meta、decisions、scenarios 和 api。
 ---
 
-# TDesign 组件使用规范
+# TDesign 组件库使用引导
 
-本 skill 用于指导 AI 在生成、迁移或评审 UI 代码时正确选择和使用 TDesign 组件。
+本 skill 用于指导 AI 在普通业务项目中，只要检测到 TDesign 组件依赖，就优先使用 TDesign 组件库生成、迁移或评审 UI 代码。
 
-核心目标：优先使用 TDesign 组件、布局、props 和设计变量，减少自定义 CSS，不瞎造组件和 API。
+核心目标：识别当前 TDesign 技术栈，知道有哪些组件可用，判断组件何时使用，按场景搭配组件，并按当前栈 API 使用真实 props、事件、插槽和类型。
 
 ## 适用范围
 
-- 适用：项目已安装或明确使用 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`。
+- 适用：普通业务项目已安装或明确使用 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`。
 - 适用：用户要求组件选型、组件“何时使用”、相似组件比较、页面搭建、表单页、列表页、详情页、弹窗页、后台管理页或 UI 迁移。
+- 适用：用户询问 TDesign 当前栈有什么组件可用、某个组件有哪些 API、多个组件如何组合完成页面或交互。
 - 不适用：未使用 TDesign 的项目，或纯 Node、构建工具、数据处理等非 UI 实现任务。
 - Maturity：当前仍处于早期验证阶段；必须用当前项目代码和对应 `api/<stack>/` 文件确认具体写法。
 
@@ -42,15 +43,17 @@ description: 当需要选择 TDesign 组件、回答组件“何时使用”、�
 
 1. 识别任务类型：选型、比较、迁移、实现、页面搭建或评审。
 2. 识别平台和技术栈：Web、Mobile、Miniprogram；React、Vue Next、Vue 2、Mobile React、Mobile Vue、小程序。
-3. 先查选型规则：Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`，相似组件查 `decisions/similar-components.md`。
-4. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 问题先查 `design/color.md`。
-5. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架问题先查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
-6. Web 中后台框架、后台页面模板、整站/区域导航或上下/左右/混合布局问题先查 `design/offices.md`。
-7. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引先查 `design/offices-task.md`。
-8. 页面搭建再查 `scenarios/`，例如表单页、表格列表页、应用壳。
-9. 跨端语义先查 `api/_shared/index.md`，例如 Dialog 和子组件端差异。
-10. 需要具体 props、事件、插槽、子组件、函数式调用或类型时，只读取当前栈的单个组件目录：`api/<stack>/<component>/index.md` 和同目录 `type.ts` / `props.ts` / `common.ts`。
-11. 如果 TDesign 不能满足需求，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
+3. 需要知道当前栈有什么组件可用时，先查 `meta/stack-matrix.json` 的 `coverage.byStack`、`allWebStacks`、`allMobileStacks`、`webOnly` 和 `mobileOnly`。
+4. 先查选型规则：Web 查 `decisions/web/component-usage-map.md`，移动端和小程序查 `decisions/mobile/component-usage-map.md`，相似组件查 `decisions/similar-components.md`。
+5. 需要组件组合方案时，先查 `decisions/component-composition-map.md`，再查具体 `scenarios/` 场景卡。
+6. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 问题先查 `design/color.md`。
+7. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架问题先查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
+8. Web 中后台框架、后台页面模板、整站/区域导航或上下/左右/混合布局问题先查 `design/offices.md`。
+9. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引先查 `design/offices-task.md`。
+10. 页面搭建再查 `scenarios/`，例如表单页、表格列表页、应用壳。
+11. 跨端语义先查 `api/_shared/index.md`，例如 Dialog 和子组件端差异。
+12. 需要具体 props、事件、插槽、子组件、函数式调用或类型时，只读取当前栈的单个组件目录：`api/<stack>/<component>/index.md` 和同目录 `type.ts` / `props.ts` / `common.ts`。
+13. 如果 TDesign 不能满足需求，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
 
 Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只读 1 个场景卡、1 个决策文档和 1 个组件 API 文件。
 
@@ -70,6 +73,14 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 | 页面壳 | Web `Layout`；Mobile/Miniprogram `Row` / `Col` | 手写大量 flex 布局 |
 | 轻量反馈 | 当前栈支持的 `Message` / `Notification` / `Toast` | `alert()` 或第三方 toast |
 | 二次确认 | 当前栈支持的 `Popconfirm` 或 `Dialog` | 所有确认都用大弹窗 |
+
+## 能力查询规则
+
+- 有什么组件可用：查 `meta/stack-matrix.json`，按当前栈读取 `coverage.byStack.<stack>`；不要把 Web only 组件默认用于 Mobile / Miniprogram。
+- 组件何时使用：Web 查 `decisions/web/component-usage-map.md`，Mobile / Miniprogram 查 `decisions/mobile/component-usage-map.md`。
+- 相似组件怎么选：查 `decisions/similar-components.md` 和 `decisions/when-to-use/`。
+- 组件怎么搭配：查 `decisions/component-composition-map.md` 和 `scenarios/`。
+- 有哪些 API 可用：查 `api/<stack>/<component>/index.md`；API 表不够时查同目录 `type.ts`、`props.ts`、`common.ts`。
 
 ## 五组件快速闭环
 
@@ -165,6 +176,7 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 - `decisions/platform-design-policy.md`：Web、Mobile 系和小程序设计口径。
 - `decisions/web/component-usage-map.md`：Web 组件“何时使用”。
 - `decisions/mobile/component-usage-map.md`：移动端和小程序通用“何时使用”。
+- `decisions/component-composition-map.md`：常见页面和交互的组件搭配。
 - `decisions/similar-components.md`：常见相似组件选型规则。
 - `decisions/anti-patterns.md`：全局禁止项。
 - `decisions/fallback-policy.md`：不用 TDesign 时的统一降级口径。
@@ -183,4 +195,3 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 - 禁止在 TDesign 已提供组件的情况下手写等价实现
 - 禁止通过覆盖 TDesign 样式来实现新 UI，应优先换组件或调整 props
 - 涉及 Dialog / Form / Table 的用法，必须先查阅 `scenarios/` 中的场景卡
-
