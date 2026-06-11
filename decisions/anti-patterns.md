@@ -12,7 +12,7 @@
 ## 通用禁止项
 
 - 不编造 TDesign 组件名、props、事件、插槽、函数式 API 或组合能力。
-- 不把 Ant Design、Element Plus、Naive UI、原生 HTML 的 API 当成 TDesign API。
+- 不把其他组件库或原生 HTML 的 API 当成 TDesign API。
 - 不把项目私有封装说成 TDesign 官方组件。
 - 不为了视觉相似选择错误组件，必须按任务、数据结构和交互成本判断。
 - 不在 TDesign 已提供组件的情况下手写等价实现。

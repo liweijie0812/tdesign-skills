@@ -22,7 +22,7 @@ description: 当用户项目安装 tdesign-react、tdesign-vue-next、tdesign-vu
 1. 优先使用 TDesign 组件。
 2. 其次使用 TDesign 布局、子组件、props、插槽和设计变量。
 3. 只有 TDesign 无法满足需求时，才使用原生 HTML、最小 CSS 或受控自定义组件，并说明不是 TDesign 官方能力。
-4. 禁止无理由引入 AntD、Element Plus 或其他组件库。
+4. 禁止无理由引入其他组件库。
 5. 禁止用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力。
 6. 禁止凭经验猜 props、事件、插槽、函数式调用或小程序 external classes。
 
@@ -43,19 +43,59 @@ description: 当用户项目安装 tdesign-react、tdesign-vue-next、tdesign-vu
 
 1. 识别任务类型：选型、比较、迁移、实现、页面搭建或评审。
 2. 识别平台和技术栈：Web、Mobile、Miniprogram；React、Vue Next、Vue 2、Mobile React、Mobile Vue、小程序。
-3. 需要知道当前栈有什么组件可用时，先查 `meta/stack-matrix.json` 的 `coverage.byStack`、`allWebStacks`、`allMobileStacks`、`webOnly` 和 `mobileOnly`。
-4. 先查 `decisions/README.md`，按平台进入对应选型规则、相似组件规则和 `when-to-use`。
-5. 需要组件组合方案时，先查 `scenarios/README.md`；组件搭配入口和页面场景卡都从这里继续进入。
-6. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 问题先查 `design/color.md`。
-7. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架问题先查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
-8. Web 中后台框架、后台页面模板、整站/区域导航或上下/左右/混合布局问题先查 `design/offices.md`。
-9. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引先查 `design/offices-task.md`。
-10. 页面搭建再按 `scenarios/README.md` 进入具体场景卡，例如表单页、表格列表页、应用壳。
-11. API 读取顺序先查 `api/README.md`；跨端语义和端差异按需进入 `api/_shared/index.md`。
-12. 需要具体 props、事件、插槽、子组件、函数式调用或类型时，只读取当前栈的单个组件目录：`api/<stack>/<component>/index.md` 和同目录 `type.ts` / `props.ts` / `common.ts`。
-13. 如果 TDesign 不能满足需求，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
+3. 先确认当前项目是否真的安装了 TDesign，以及安装的是哪一套包；不要只根据截图、类名或历史记忆判断。
+4. 需要知道当前栈有什么组件可用时，先查 `meta/stack-matrix.json` 的 `coverage.byStack`、`allWebStacks`、`allMobileStacks`、`webOnly` 和 `mobileOnly`。
+5. 先查 `decisions/README.md`，按平台进入对应选型规则、相似组件规则和 `when-to-use`。
+6. 需要组件组合方案时，先查 `scenarios/README.md`；组件搭配入口和页面场景卡都从这里继续进入。
+7. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 问题先查 `design/color.md`。
+8. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架问题先查 `design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
+9. Web 中后台框架、后台页面模板、整站/区域导航或上下/左右/混合布局问题先查 `design/offices.md`。
+10. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引先查 `design/offices-task.md`。
+11. 页面搭建再按 `scenarios/README.md` 进入具体场景卡，例如表单页、表格列表页、应用壳。
+12. API 读取顺序先查 `api/README.md`；跨端语义和端差异按需进入 `api/_shared/index.md`。
+13. 需要具体 props、事件、插槽、子组件、函数式调用或类型时，只读取当前栈的单个组件目录：`api/<stack>/<component>/index.md` 和同目录 `type.ts` / `props.ts` / `common.ts`。
+14. 如果 TDesign 不能满足需求，按 `decisions/fallback-policy.md` 降级，并明确说明不是 TDesign 官方能力。
 
 Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只读 1 个场景卡、1 个决策文档和 1 个组件 API 文件。
+
+## Agent 工作模式
+
+- 先查再写：生成 TDesign 代码前，先确认技术栈、组件可用性和当前组件 API，禁止只凭记忆输出。
+- 版本跟随项目：以用户项目 `package.json`、锁文件和现有代码为准，不把仓库里较新的 API 默认当成当前项目可用；需要核对版本差异时，优先用 `node scripts/query-changelog.mjs --stack <stack> --component <Component>` 按组件和版本确认新增、变更、废弃能力。
+- 先组件后样式：先通过组件、slots、props、布局和 token 解决问题，最后才补最小 CSS。
+- 先页面骨架后细节：搭页面时先定应用壳、区域结构和组件组合，再补字段、交互和状态。
+- 先扫描后迁移：把原有 HTML、其他组件库或自定义 UI 迁到 TDesign 时，先识别现有交互意图，再做组件映射，不直接逐标签替换。
+- 先核对后评审：评审 TDesign 代码时，优先检查跨栈 API、伪造组件能力、过度自定义样式和重复造轮子。
+
+## 场景化检索顺序
+
+### 写组件 / 修 Bug
+
+1. 先识别当前技术栈和端。
+2. 查 `meta/stack-matrix.json` 确认组件存在。
+3. 查 `api/<stack>/<component>/index.md` 确认 props、事件、插槽和类型。
+4. 如果问题涉及“某个版本是否支持某 API / 是否为新增能力 / 是否有废弃迁移提示”，先运行 `node scripts/query-changelog.mjs --stack <stack> --component <Component>`，需要精确版本时再追加 `--version`。
+5. 需要组合方式时，再补查 `scenarios/README.md` 和对应场景卡。
+
+### 搭页面 / 生成后台界面
+
+1. 先确认是 Web、Mobile 还是 Miniprogram。
+2. Web 中后台先查 `design/offices.md` 选导航与页面框架。
+3. 再查 `design/layout.md` 确定栅格、断点、间距和内容区结构。
+4. 最后按 `scenarios/README.md` 进入表单页、表格列表页、应用壳等具体场景卡。
+
+### 做迁移 / 替换其他组件库
+
+1. 先识别来源：原生 HTML、其他组件库或项目私有封装。
+2. 先抽象交互语义：录入、筛选、确认、承载数据、导航、反馈。
+3. 再映射到 TDesign 组件，而不是照搬来源库 props 名、事件名和 DOM 结构。
+4. 需要落地 API 时，只查目标栈对应的单组件 API 文件。
+
+### 做选型 / 回答“何时使用”
+
+1. 先查 `decisions/README.md`。
+2. 再进入相似组件文档和 `when-to-use`。
+3. 如果问题涉及页面组合，再补查 `scenarios/README.md`。
 
 ## 常见组件速查
 
@@ -70,7 +110,7 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 | 侧边编辑/详情 | `Drawer` | 把大表单塞进 `Dialog` |
 | 结构化数据 | `Table` | 手写表格和分页控制 |
 | 简单列表 | `List` | 手写 `ul > li` 复刻样式 |
-| 页面壳 | Web `Layout`；Mobile/Miniprogram `Row` / `Col` | 手写大量 flex 布局 |
+| 页面壳 | Web `Layout`；Mobile/Miniprogram 优先使用导航与内容组件组织页面，`Row` / `Col` 仅用于栅格 | 手写大量 flex 布局 |
 | 轻量反馈 | 当前栈支持的 `Message` / `Notification` / `Toast` | `alert()` 或第三方 toast |
 | 二次确认 | 当前栈支持的 `Popconfirm` 或 `Dialog` | 所有确认都用大弹窗 |
 
@@ -80,6 +120,7 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 - 组件何时使用、相似组件怎么选：先查 `decisions/README.md`，再按平台进入对应文档。
 - 组件怎么搭配、页面怎么组织：先查 `scenarios/README.md`，再进入具体场景卡或相关搭配文档。
 - 有哪些 API 可用、具体怎么写：先查 `api/README.md`，再读取 `api/<stack>/<component>/index.md`；API 表不够时查同目录 `type.ts`、`props.ts`、`common.ts`。
+- 某版本是否支持某 API、该能力何时新增、是否有废弃迁移提示：先运行 `node scripts/query-changelog.mjs --stack <stack> --component <Component>`，再回到 `api/<stack>/<component>/index.md` 确认当前写法。
 
 ## 五组件快速闭环
 
@@ -138,6 +179,8 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 - Mobile Vue：查 `api/mobile-vue/<component>/index.md`。
 - Miniprogram：查 `api/miniprogram/<component>/index.md`。
 - API 表不够精确时，读取同目录 `type.ts` / `props.ts` 和公共 `common.ts`。
+- 要核对版本差异时，可运行 `node scripts/query-changelog.mjs`；底层数据来自 `react`、`vue-next`、`vue`、`mobile-react`、`mobile-vue`、`miniprogram` 对应的 changelog JSON，按组件、`version`、`date` 和分类变更项组织。
+- changelog 查询脚本适合回答“某版本是否已支持”“何时新增”“何时修复”“是否有废弃提示”，不替代当前 `api/<stack>/<component>/index.md` 的真实写法确认。
 - 禁止依赖用户项目 `node_modules` 推断 TDesign 官方 API。
 
 ## 迁移场景
@@ -150,11 +193,17 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 4. 删除不再需要的自定义样式，保留项目级布局和业务样式。
 5. 验证 props、事件、插槽、移动端/小程序写法和可访问交互差异。
 
+迁移来源如果是其他组件库或项目私有封装，还要额外执行：
+
+6. 不继承来源库的 props 名、事件名、受控字段名、弹层挂载习惯和样式覆盖方式。
+7. 不把来源库的设计 token、语义 DOM、子组件挂载点或 Pro 组件当作 TDesign 官方能力。
+8. 如果来源库有高阶页面模板，优先用 TDesign 的 `design/offices.md`、`design/offices-task.md` 和 `scenarios/` 重新组织页面，而不是机械一比一翻译。
+
 ## 禁止行为清单
 
 - 不使用 TDesign 却假装用了。
 - 用 `div`、原生表单、`window.confirm()` 或手写 CSS 模拟 TDesign 组件。
-- 混用 AntD、Element Plus 或其他组件库，除非用户明确要求。
+- 混用其他组件库，除非用户明确要求。
 - 无视 `package.json` 中已安装的 TDesign 技术栈。
 - 把 Web API 套到 Mobile 或 Miniprogram。
 - 把 React 点语法套到 Vue 或小程序。
@@ -168,6 +217,8 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 迁移问题建议包含：来源 UI 模式、TDesign 目标组件、API 差异、需要验证的行为差异。
 
 评审问题优先指出混用 API、过度自定义、重复造轮子、缺少表单/反馈/布局组件的问题。
+
+页面生成问题建议包含：页面骨架、推荐组件组合、需要读取的最少 API 文件、哪些地方不应手写 CSS。
 
 ## 关键参考
 
@@ -183,9 +234,10 @@ Token 约束：不要一次性读取整个 `api/` 树。上下文紧张时，只
 - `api/_shared/index.md`：跨端通用契约和端差异入口文档。
 - `meta/stack-matrix.json`：跨 Web、移动端和小程序组件覆盖矩阵。
 - `meta/source-links.md`：上游文档来源链接。
+- `scripts/query-changelog.mjs`：查询各技术栈组件版本变更、修复和废弃提示。
 
 ## 强制约束（不得绕过）
 
 - 禁止在 TDesign 已提供组件的情况下手写等价实现
 - 禁止通过覆盖 TDesign 样式来实现新 UI，应优先换组件或调整 props
-- 涉及 `Dialog`、`Form`、`Table` 的用法，必须先查阅 `scenarios/README.md` 并进入对应场景卡
+- 涉及 `Dialog`、`Form`、`Table` 的页面搭建、组件组合或交互流程设计，必须先查阅 `scenarios/README.md` 并进入对应场景卡；纯 API 查询或局部修复可直接查对应组件 API

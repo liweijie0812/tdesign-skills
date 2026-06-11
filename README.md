@@ -61,6 +61,7 @@ npx skills add liweijie0812/tdesign-skills
 ## 最小示例
 
 - `examples/minimal-skill.md`：一个不自动加载的精简 SKILL 示例，只覆盖 Button、Input、Form、Dialog、Layout 五个高频组件，用于验证 agent 是否能按短规则回到 TDesign。
+- `examples/changelog-queries.md`：变更日志查询示例，演示 `scripts/query-changelog.mjs` 的典型调用方式。
 
 ## 目录结构
 
@@ -83,6 +84,7 @@ npx skills add liweijie0812/tdesign-skills
 - `api/_shared/`：跨端通用契约、子组件和组合语义，按 `dialog/`、`sub-components/` 和 Web / Mobile / Miniprogram 拆分。
 - `api/react/`、`api/vue-next/`、`api/vue2/`、`api/mobile-react/`、`api/mobile-vue/`、`api/miniprogram/`：按技术栈拆分的 TDesign API；组件 API 位于 `api/<stack>/<component>/index.md`，并同步上游 `type.ts` / `props.ts` / `common.ts`。
 - `scripts/sync-api-docs.mjs`：同步 Web、移动端和小程序 API 文档。
+- `scripts/query-changelog.mjs`：查询 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 组件在各版本中的变更日志，支持按组件、版本和关键词过滤。
 
 ## 同步 API 文档
 

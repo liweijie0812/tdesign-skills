@@ -48,7 +48,7 @@ Use this when a normal business project has `tdesign-react`, `tdesign-vue-next`,
 - Do not invent TDesign props, events, slots, or components.
 - Do not use `window.confirm()` when TDesign Dialog or Popconfirm fits.
 - Do not copy Web props into Mobile or Miniprogram.
-- Do not use AntD, Element Plus, or other component libraries unless the user explicitly asks.
+- Do not use other component libraries unless the user explicitly asks.
 - Do not load the whole API tree; read only the component file needed for the current task.
 ```
 
