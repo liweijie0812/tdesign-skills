@@ -1,18 +1,18 @@
 # TDesign Skills
 
-面向普通业务项目的 TDesign 组件库使用引导 skills。
+面向普通业务项目的 TDesign 组件库使用引导 skills。当项目已安装 TDesign 组件依赖时，自动引导 AI 优先使用 TDesign 组件，覆盖 Web（React / Vue 2 / Vue 3）、移动端和小程序。
 
 ## 状态
 
-- Maturity：早期可用，仍需要真实项目中的 agent 对抗测试来验证命中率、读取深度和 token 成本。
-- Scope：只要用户项目安装或明确使用 TDesign 组件依赖，就引导 AI 优先使用组件库；覆盖 Web、移动端和小程序；具体 API 必须回到对应技术栈 skill 的 `references/api/` 文件确认。
-- Token policy：根 skill 只做技术栈识别和任务路由，专项 skills 按文档、变更日志、使用指南、组件搭配和具体技术栈拆分；组件 API 按需读取单个组件目录，不建议整树加载。
+- **成熟度**：早期可用，仍需要真实项目中的 agent 对抗测试来验证命中率、读取深度和 token 成本。
+- **覆盖范围**：只要用户项目安装或明确使用 TDesign 组件依赖，就引导 AI 优先使用组件库；覆盖 Web、移动端和小程序；具体 API 必须回到对应技术栈 skill 的 `references/api/` 文件确认。
+- **Token 策略**：根 skill 只做技术栈识别和任务路由，专项 skills 按文档、变更日志、使用指南、组件搭配和具体技术栈拆分；组件 API 按需读取单个组件目录，不建议整树加载。
 
-## Compatibility
+## 兼容性
 
-- Skill format：Agent Skills / opencode `SKILL.md` frontmatter；所有 skills 都位于 `skills/<name>/SKILL.md`，其中 `skills/tdesign-skills/SKILL.md` 是总入口。
-- Tested install：本仓库提供 `scripts/validate.mjs` 做静态校验；`npx skills add .` 作为本地安装烟测命令。
-- Tested agents：当前主要在 opencode 环境验证；Claude Code、Cursor 等 agent 需要按 `skills/tdesign-skills/references/minimal-skill.md` 的 smoke prompts 继续压测。
+- **Skill 格式**：Agent Skills `SKILL.md` frontmatter；所有 skills 都位于 `skills/<name>/SKILL.md`，其中 `skills/tdesign-skills/SKILL.md` 是总入口。
+- **安装测试**：本仓库提供 `scripts/validate.mjs` 做静态校验；`npx skills add .` 作为本地安装冒烟测试命令。
+- **测试环境**：当前主要在各 AI Coding Agent 环境验证，按 `skills/tdesign-skills/references/minimal-skill.md` 的 smoke prompts 继续压测。
 
 ## 安装
 
@@ -20,7 +20,7 @@
 npx skills add liweijie0812/tdesign-skills
 ```
 
-安装后请重启 opencode，使新增 skills 生效。
+安装后请重启对应工具，使新增 skills 生效。
 
 ## Skills
 
@@ -51,9 +51,11 @@ npx skills add liweijie0812/tdesign-skills
 | `tdesign-mobile-vue` | `tdesign-mobile-vue` 的移动端 Vue API | `skills/tdesign-mobile-vue/references/api/` |
 | `tdesign-miniprogram` | `tdesign-miniprogram` 的 WXML、短横线属性、`bind` 事件、external classes | `skills/tdesign-miniprogram/references/api/` |
 
-## 何时使用
+## 适用场景（AI Agent）
 
-- 选择 TDesign 组件、比较相似组件，或回答组件“何时使用”。
+当用户向 AI 提出以下任务时，应自动触发 TDesign Skills：
+
+- 选择 TDesign 组件、比较相似组件，或回答组件"何时使用"。
 - 查询当前 TDesign 技术栈有什么组件可用。
 - 查询某个 TDesign 组件有哪些 props、事件、插槽、类型或函数式 API。
 - 询问页面、表单、列表、弹窗、抽屉、上传、导航等场景中组件怎么搭配。
@@ -61,9 +63,9 @@ npx skills add liweijie0812/tdesign-skills
 - 项目已安装或明确使用 TDesign Web、移动端或小程序组件包。
 - 将原生 HTML、其他组件库或自定义 UI 迁移到 TDesign。
 
-## 如何使用
+## 使用指引（AI Agent）
 
-1. 先确认平台口径和项目技术栈，避免混用 Web、移动端、小程序、React、Vue Next 和 Vue 2 写法。
+1. 先确认平台口径和项目技术栈，避免混用 Web、移动端、小程序、React、Vue 3 和 Vue 2 写法。
 2. 根 `tdesign-skills` 只做任务路由；资料入口用 `tdesign-docs`，选型和迁移评审用 `tdesign-usage-guide`，页面搭配用 `tdesign-composition`。
 3. 查询组件可用性先查 `skills/tdesign-docs/references/meta/stack-matrix.json`，按当前栈读取组件覆盖范围。
 4. 具体 API、事件、插槽和写法差异按当前依赖进入技术栈 skill：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue2`、`tdesign-mobile-react`、`tdesign-mobile-vue` 或 `tdesign-miniprogram`。
@@ -109,7 +111,7 @@ node --check scripts/sync-api-docs.mjs
 git diff --check
 ```
 
-可选安装烟测：
+可选安装冒烟测试：
 
 ```bash
 npx skills add .
