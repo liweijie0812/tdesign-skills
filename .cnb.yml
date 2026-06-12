@@ -1,3 +1,18 @@
+main:
+  push:
+    # 生成 CodeWiki 文档
+    - services:
+        - docker
+      docker:
+        volumes:
+          - /data/codewiki/${CNB_REPO_SLUG}:data
+      stages:
+        - name: generate codewiki
+          timeout: 10h
+          image: cnbcool/codewiki:latest
+          settings:
+            git_doc_dir: /data/codewiki/${CNB_REPO_SLUG}
+
 $:
   push:
     # 导入密钥仓库文件为环境变量
@@ -11,20 +26,6 @@ $:
             auth_type: https
             username: ${GIT_USERNAME}
             password: ${GIT_ACCESS_TOKEN}
-
-  push(main):
-    # 生成 CodeWiki 文档
-    - services:
-        - docker
-      docker:
-        volumes:
-          - /data/codewiki/${CNB_REPO_SLUG}:data
-      stages:
-        - name: generate codewiki
-          timeout: 10h
-          image: cnbcool/codewiki:latest
-          settings:
-            git_doc_dir: /data/codewiki/${CNB_REPO_SLUG}
 
   vscode:
     - docker:
