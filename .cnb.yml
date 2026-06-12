@@ -18,4 +18,46 @@ $:
       services:
         - vscode
         - docker
+      stages:
+        - name: clone tdesign repo
+          jobs:
+            - name: clone tdesign-common
+              script:
+                - cd /
+                - git clone https://github.com/Tencent/tdesign-common.git --depth=1
+
+            - name: clone tdesign-vue-next
+              script:
+                - cd /
+                - git clone https://github.com/Tencent/tdesign-vue-next.git --depth=1
+
+            - name: clone tdesign-vue
+              script:
+                - cd /
+                - git clone https://github.com/Tencent/tdesign-vue.git --depth=1
+
+            - name: clone tdesign-react
+              script:
+                - cd /
+                - git clone https://github.com/Tencent/tdesign-react.git --depth=1
+
+            - name: clone tdesign-mobile-vue
+              script:
+                - cd /
+                - git clone https://github.com/Tencent/tdesign-mobile-vue.git --depth=1
+
+            - name: clone tdesign-mobile-react
+              script:
+                - cd /
+                - git clone https://github.com/Tencent/tdesign-mobile-react.git --depth=1
+
+            - name: clone tdesign-miniprogram
+              script:
+                - cd /
+                - git clone https://github.com/Tencent/tdesign-miniprogram.git --depth=1
+          
+            - name: clone tdesign-icons
+              script:
+                - cd /
+                - git clone https://github.com/Tencent/tdesign-icons.git --depth=1
   
