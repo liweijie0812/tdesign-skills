@@ -16,8 +16,16 @@
 
 ## 安装
 
+GitHub：
+
 ```bash
 npx skills add liweijie0812/tdesign-skills
+```
+
+国内镜像：
+
+```bash
+npx skills install https://cnb.cool/liweijie0812/tdesign-skills.git
 ```
 
 安装后请重启对应工具，使新增 skills 生效。
@@ -44,13 +52,13 @@ npx skills add liweijie0812/tdesign-skills
 | `tdesign-changelog` | 新增、修复、废弃、Breaking Changes、版本区间查询 | `skills/tdesign-changelog/scripts/`、`skills/tdesign-changelog/references/` |
 | `tdesign-usage-guide` | 使用指南、组件选型、何时使用、相似组件、迁移、评审、反模式 | `skills/tdesign-usage-guide/references/decisions/` |
 | `tdesign-composition` | 组件搭配、表单页、表格列表页、应用壳、后台页面骨架 | `skills/tdesign-composition/references/` |
-| `tdesign-react` | `tdesign-react` 的 React Web API 和 JSX 实现 | `skills/tdesign-react/references/api/` |
-| `tdesign-vue-next` | `tdesign-vue-next` 的 Vue 3 API、插槽和 `v-model` | `skills/tdesign-vue-next/references/api/` |
-| `tdesign-vue2` | `tdesign-vue` 的 Vue 2 API、插槽和 Options API | `skills/tdesign-vue2/references/api/` |
-| `tdesign-mobile-react` | `tdesign-mobile-react` 的移动端 React API | `skills/tdesign-mobile-react/references/api/` |
-| `tdesign-mobile-vue` | `tdesign-mobile-vue` 的移动端 Vue API | `skills/tdesign-mobile-vue/references/api/` |
-| `tdesign-miniprogram` | `tdesign-miniprogram` 的 WXML、短横线属性、`bind` 事件、external classes | `skills/tdesign-miniprogram/references/api/` |
-| `tdesign-uniapp` | `tdesign-uniapp` 的 uni-app API、`@event` 事件、easycom 引入 | `skills/tdesign-uniapp/references/api/` |
+| `tdesign-react` | `tdesign-react` 的 React Web API、JSX 写法和示例代码 | `skills/tdesign-react/references/api/`、`skills/tdesign-react/references/examples/` |
+| `tdesign-vue-next` | `tdesign-vue-next` 的 Vue 3 API、插槽、`v-model` 和示例代码 | `skills/tdesign-vue-next/references/api/`、`skills/tdesign-vue-next/references/examples/` |
+| `tdesign-vue2` | `tdesign-vue` 的 Vue 2 API、插槽、Options API 和示例代码 | `skills/tdesign-vue2/references/api/`、`skills/tdesign-vue2/references/examples/` |
+| `tdesign-mobile-react` | `tdesign-mobile-react` 的移动端 React API 和示例代码 | `skills/tdesign-mobile-react/references/api/`、`skills/tdesign-mobile-react/references/examples/` |
+| `tdesign-mobile-vue` | `tdesign-mobile-vue` 的移动端 Vue API 和示例代码 | `skills/tdesign-mobile-vue/references/api/`、`skills/tdesign-mobile-vue/references/examples/` |
+| `tdesign-miniprogram` | `tdesign-miniprogram` 的 WXML、短横线属性、`bind` 事件、external classes 和示例代码 | `skills/tdesign-miniprogram/references/api/`、`skills/tdesign-miniprogram/references/examples/` |
+| `tdesign-uniapp` | `tdesign-uniapp` 的 uni-app API、`@event` 事件、easycom 引入和示例代码 | `skills/tdesign-uniapp/references/api/`、`skills/tdesign-uniapp/references/examples/` |
 
 ## 适用场景（AI Agent）
 
@@ -91,6 +99,7 @@ npx skills add liweijie0812/tdesign-skills
 - `skills/tdesign-composition/references/design/`：TDesign Color、Layout、中后台框架和高频任务设计方法。
 - `skills/tdesign-composition/references/scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
 - `skills/tdesign-react/references/api/`、`skills/tdesign-vue-next/references/api/`、`skills/tdesign-vue2/references/api/`、`skills/tdesign-mobile-react/references/api/`、`skills/tdesign-mobile-vue/references/api/`、`skills/tdesign-miniprogram/references/api/`、`skills/tdesign-uniapp/references/api/`：按技术栈拆分的 TDesign API；组件 API 位于 `references/api/<component>/index.md`。
+- `skills/tdesign-react/references/examples/`、`skills/tdesign-vue-next/references/examples/`、`skills/tdesign-vue2/references/examples/`、`skills/tdesign-mobile-react/references/examples/`、`skills/tdesign-mobile-vue/references/examples/`、`skills/tdesign-miniprogram/references/examples/`、`skills/tdesign-uniapp/references/examples/`：按技术栈拆分的示例代码，展示各技术栈的典型写法（表单页、组件搭配等）。
 - `scripts/sync-api-docs.mjs`：同步 Web、移动端、小程序和 uni-app API 文档。
 - `skills/tdesign-changelog/scripts/query-changelog.mjs`：查询 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`、`tdesign-uniapp` 组件在各版本中的变更日志，支持按组件、版本和关键词过滤。
 
