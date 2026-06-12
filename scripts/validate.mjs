@@ -136,7 +136,13 @@ function validateNoRootReferenceDirectories() {
 }
 
 function validateMatrixSourcePaths() {
-  const matrix = JSON.parse(readText('skills/tdesign-docs/references/meta/stack-matrix.json'));
+  const matrixRoot = 'skills/tdesign-docs/references/meta';
+  const matrixFiles = [
+    `${matrixRoot}/stack-matrix.json`,
+    `${matrixRoot}/stack-matrix-web.json`,
+    `${matrixRoot}/stack-matrix-mobile.json`,
+    `${matrixRoot}/stack-matrix-miniprogram.json`,
+  ];
   const stackDirectories = {
     react: 'skills/tdesign-react/references/api',
     'vue-next': 'skills/tdesign-vue-next/references/api',
@@ -144,24 +150,35 @@ function validateMatrixSourcePaths() {
     'mobile-react': 'skills/tdesign-mobile-react/references/api',
     'mobile-vue': 'skills/tdesign-mobile-vue/references/api',
     miniprogram: 'skills/tdesign-miniprogram/references/api',
+    uniapp: 'skills/tdesign-uniapp/references/api',
   };
-  for (const [stack, files] of Object.entries(matrix.coverage.commonSourceFilesByStack)) {
-    const stackDirectory = stackDirectories[stack];
-    for (const file of files) {
-      const filePath = path.join(stackDirectory, file);
-      if (!fs.existsSync(path.join(root, filePath))) {
-        fail(`Missing matrix common source path: ${filePath}`);
+
+  for (const matrixFile of matrixFiles) {
+    const matrix = JSON.parse(readText(matrixFile));
+    const cov = matrix.coverage || {};
+
+    if (cov.commonSourceFilesByStack) {
+      for (const [stack, files] of Object.entries(cov.commonSourceFilesByStack)) {
+        const stackDirectory = stackDirectories[stack];
+        for (const file of files) {
+          const filePath = path.join(stackDirectory, file);
+          if (!fs.existsSync(path.join(root, filePath))) {
+            fail(`Missing matrix common source path: ${filePath}`);
+          }
+        }
       }
     }
-  }
 
-  for (const [stack, components] of Object.entries(matrix.coverage.sourceFilesByStack)) {
-    const stackDirectory = stackDirectories[stack];
-    for (const files of Object.values(components)) {
-      for (const file of files) {
-        const filePath = path.join(stackDirectory, file);
-        if (!fs.existsSync(path.join(root, filePath))) {
-          fail(`Missing matrix source path: ${filePath}`);
+    if (cov.sourceFilesByStack) {
+      for (const [stack, components] of Object.entries(cov.sourceFilesByStack)) {
+        const stackDirectory = stackDirectories[stack];
+        for (const files of Object.values(components)) {
+          for (const file of files) {
+            const filePath = path.join(stackDirectory, file);
+            if (!fs.existsSync(path.join(root, filePath))) {
+              fail(`Missing matrix source path: ${filePath}`);
+            }
+          }
         }
       }
     }

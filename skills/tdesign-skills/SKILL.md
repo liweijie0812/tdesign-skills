@@ -1,6 +1,6 @@
 ---
 name: tdesign-skills
-description: 当用户项目安装或明确使用 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram，且任务涉及 TDesign 组件选型、实现、API、组件搭配、文档、变更日志、迁移或评审时使用。作为总入口，只做技术栈识别和专项 skill 路由。
+description: 当用户项目安装或明确使用 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram、tdesign-uniapp，且任务涉及 TDesign 组件选型、实现、API、组件搭配、文档、变更日志、迁移或评审时使用。作为总入口，只做技术栈识别和专项 skill 路由。
 ---
 
 # TDesign Skills 总入口
@@ -9,7 +9,7 @@ description: 当用户项目安装或明确使用 tdesign-react、tdesign-vue-ne
 
 ## 适用范围
 
-- 适用：普通业务项目已安装或明确使用 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`。
+- 适用：普通业务项目已安装或明确使用 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`、`tdesign-uniapp`。
 - 适用：用户要求组件选型、组件 API 查询、页面搭建、组件搭配、使用指南、迁移、评审、变更日志或版本能力确认。
 - 不适用：未使用 TDesign 的项目，或纯 Node、构建工具、数据处理等非 UI 实现任务。
 - Maturity：当前仍处于早期验证阶段；具体写法必须回到当前项目代码和对应资料确认。
@@ -26,8 +26,9 @@ description: 当用户项目安装或明确使用 tdesign-react、tdesign-vue-ne
 | `tdesign-mobile-react` | React Mobile | `tdesign-mobile-react` | `../tdesign-mobile-react/references/api/` |
 | `tdesign-mobile-vue` | Vue Mobile | `tdesign-mobile-vue` | `../tdesign-mobile-vue/references/api/` |
 | `tdesign-miniprogram` | Miniprogram | `tdesign-miniprogram` | `../tdesign-miniprogram/references/api/` |
+| `tdesign-uniapp` | UniApp | `tdesign-uniapp` | `../tdesign-uniapp/references/api/` |
 
-禁止混用 React 点语法、Vue 标签写法、小程序短横线属性和不同端默认值。
+禁止混用 React 点语法、Vue 标签写法、小程序短横线属性、uni-app `@event` 语法和不同端默认值。
 
 ## 路由规则
 

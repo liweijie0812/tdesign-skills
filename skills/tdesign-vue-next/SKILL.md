@@ -10,7 +10,7 @@ description: 当项目使用 tdesign-vue-next，且任务需要 Vue 3 Web 组件
 ## 查阅顺序
 
 1. 先确认项目安装 `tdesign-vue-next`，并查看已有代码的导入与写法。
-2. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix.json` 的 `coverage.byStack.vue-next` 或 Web 覆盖范围。
+2. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-web.json` 的 `coverage.byStack.vue-next` 或 Web 覆盖范围。
 3. 具体组件 API 查 `references/api/<component>/index.md`。
 4. API 表不够精确时，查同目录 `type.ts`、`props.ts`、`common.ts` 或子组件类型文件。
 5. 涉及跨端语义或端差异时，先看 `../tdesign-docs/references/api/shared/index.md`，再回到 `references/api/<component>/`。

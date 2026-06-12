@@ -1,6 +1,6 @@
 # TDesign Skills
 
-面向普通业务项目的 TDesign 组件库使用引导 skills。当项目已安装 TDesign 组件依赖时，自动引导 AI 优先使用 TDesign 组件，覆盖 Web（React / Vue 2 / Vue 3）、移动端和小程序。
+面向普通业务项目的 TDesign 组件库使用引导 skills。当项目已安装 TDesign 组件依赖时，自动引导 AI 优先使用 TDesign 组件，覆盖 Web（React / Vue 2 / Vue 3）、移动端、小程序和 uni-app。
 
 ## 状态
 
@@ -26,9 +26,9 @@ npx skills add liweijie0812/tdesign-skills
 
 ### tdesign-skills
 
-根入口。用于普通业务项目安装 TDesign 依赖后，识别技术栈、判断任务类型，并路由到更窄的专项 skill。支持 React、Vue Next、Vue 2、移动端和小程序项目，但实现时必须使用对应框架的组件写法。
+根入口。用于普通业务项目安装 TDesign 依赖后，识别技术栈、判断任务类型，并路由到更窄的专项 skill。支持 React、Vue Next、Vue 2、移动端、小程序和 uni-app 项目，但实现时必须使用对应框架的组件写法。
 
-当普通业务项目 `package.json` 已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 等 TDesign 组件包时，应优先使用该 skill。
+当普通业务项目 `package.json` 已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`、`tdesign-uniapp` 等 TDesign 组件包时，应优先使用该 skill。
 
 在已安装或明确使用 TDesign 的项目中，推荐优先使用 TDesign 组件；只有 TDesign 组件无法满足需求时，再考虑原生 HTML、其他组件库组件或自定义组件。
 
@@ -50,6 +50,7 @@ npx skills add liweijie0812/tdesign-skills
 | `tdesign-mobile-react` | `tdesign-mobile-react` 的移动端 React API | `skills/tdesign-mobile-react/references/api/` |
 | `tdesign-mobile-vue` | `tdesign-mobile-vue` 的移动端 Vue API | `skills/tdesign-mobile-vue/references/api/` |
 | `tdesign-miniprogram` | `tdesign-miniprogram` 的 WXML、短横线属性、`bind` 事件、external classes | `skills/tdesign-miniprogram/references/api/` |
+| `tdesign-uniapp` | `tdesign-uniapp` 的 uni-app API、`@event` 事件、easycom 引入 | `skills/tdesign-uniapp/references/api/` |
 
 ## 适用场景（AI Agent）
 
@@ -65,10 +66,10 @@ npx skills add liweijie0812/tdesign-skills
 
 ## 使用指引（AI Agent）
 
-1. 先确认平台口径和项目技术栈，避免混用 Web、移动端、小程序、React、Vue 3 和 Vue 2 写法。
+1. 先确认平台口径和项目技术栈，避免混用 Web、移动端、小程序、uni-app、React、Vue 3 和 Vue 2 写法。
 2. 根 `tdesign-skills` 只做任务路由；资料入口用 `tdesign-docs`，选型和迁移评审用 `tdesign-usage-guide`，页面搭配用 `tdesign-composition`。
-3. 查询组件可用性先查 `skills/tdesign-docs/references/meta/stack-matrix.json`，按当前栈读取组件覆盖范围。
-4. 具体 API、事件、插槽和写法差异按当前依赖进入技术栈 skill：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue2`、`tdesign-mobile-react`、`tdesign-mobile-vue` 或 `tdesign-miniprogram`。
+3. 查询组件可用性先查 `skills/tdesign-docs/references/meta/stack-matrix.json`（全局概览），再按端查 `stack-matrix-web.json`、`stack-matrix-mobile.json` 或 `stack-matrix-miniprogram.json`。
+4. 具体 API、事件、插槽和写法差异按当前依赖进入技术栈 skill：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue2`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 或 `tdesign-uniapp`。
 5. 版本能力、新增、修复和废弃问题用 `tdesign-changelog`，查完后仍回到当前栈 API 文件确认真实写法。
 6. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 查 `skills/tdesign-composition/references/design/color.md`。
 7. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `skills/tdesign-composition/references/design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
@@ -84,14 +85,14 @@ npx skills add liweijie0812/tdesign-skills
 
 - `skills/tdesign-skills/SKILL.md`：总入口，定义 TDesign 依赖识别、技术栈识别、任务路由和强制约束。
 - `skills/`：skill collection，按文档、变更日志、使用指南、组件搭配和具体技术栈拆分。
-- `skills/tdesign-docs/references/meta/stack-matrix.json`：跨 Web、移动端和小程序的组件覆盖和已知写法差异。
+- `skills/tdesign-docs/references/meta/stack-matrix.json`：跨端组件覆盖全局概览和已知写法差异；按端明细见 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`。配套查询脚本：`skills/tdesign-docs/scripts/query-matrix.mjs`。
 - `skills/tdesign-docs/references/api/`：API 总入口和跨端共享契约。
 - `skills/tdesign-usage-guide/references/decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。
 - `skills/tdesign-composition/references/design/`：TDesign Color、Layout、中后台框架和高频任务设计方法。
 - `skills/tdesign-composition/references/scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
-- `skills/tdesign-react/references/api/`、`skills/tdesign-vue-next/references/api/`、`skills/tdesign-vue2/references/api/`、`skills/tdesign-mobile-react/references/api/`、`skills/tdesign-mobile-vue/references/api/`、`skills/tdesign-miniprogram/references/api/`：按技术栈拆分的 TDesign API；组件 API 位于 `references/api/<component>/index.md`。
-- `scripts/sync-api-docs.mjs`：同步 Web、移动端和小程序 API 文档。
-- `skills/tdesign-changelog/scripts/query-changelog.mjs`：查询 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 组件在各版本中的变更日志，支持按组件、版本和关键词过滤。
+- `skills/tdesign-react/references/api/`、`skills/tdesign-vue-next/references/api/`、`skills/tdesign-vue2/references/api/`、`skills/tdesign-mobile-react/references/api/`、`skills/tdesign-mobile-vue/references/api/`、`skills/tdesign-miniprogram/references/api/`、`skills/tdesign-uniapp/references/api/`：按技术栈拆分的 TDesign API；组件 API 位于 `references/api/<component>/index.md`。
+- `scripts/sync-api-docs.mjs`：同步 Web、移动端、小程序和 uni-app API 文档。
+- `skills/tdesign-changelog/scripts/query-changelog.mjs`：查询 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`、`tdesign-uniapp` 组件在各版本中的变更日志，支持按组件、版本和关键词过滤。
 
 ## 同步 API 文档
 
@@ -99,9 +100,9 @@ npx skills add liweijie0812/tdesign-skills
 node scripts/sync-api-docs.mjs
 ```
 
-该脚本同步 Web、移动端和小程序 API 文档。组件范围来自 `tdesign-common/js/components.ts`，输出目录为各技术栈 skill 的 `references/api/`。组件 API 写入 `references/api/<component>/index.md`；若上游存在 `type.ts`、`props.ts` 或公共 `common.ts`，会同步到对应技术栈目录，用于补充 API 表中不够精确的类型、默认值和 prop validator 信息。
+该脚本同步 Web、移动端、小程序和 uni-app API 文档。组件范围来自 `tdesign-common/js/components.ts`，输出目录为各技术栈 skill 的 `references/api/`。组件 API 写入 `references/api/<component>/index.md`；若上游存在 `type.ts`、`props.ts` 或公共 `common.ts`，会同步到对应技术栈目录，用于补充 API 表中不够精确的类型、默认值和 prop validator 信息。
 
-若仓库同级目录存在 `tdesign-common`、`tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`，脚本会优先切换到对应仓库的 `develop` 分支并执行 `git pull --ff-only` 后读取本地文件；本地仓库不存在或无法安全快进更新时回退到 GitHub raw URL。
+若仓库同级目录存在 `tdesign-common`、`tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`、`tdesign-uniapp`，脚本会优先切换到对应仓库的 `develop` 分支并执行 `git pull --ff-only` 后读取本地文件；本地仓库不存在或无法安全快进更新时回退到 GitHub raw URL。
 
 ## 验证
 
