@@ -1,5 +1,5 @@
 main:
-  push:
+  web_trigger:
     # 生成 CodeWiki 文档
     - stages:
         - name: 生成 Code Wiki
