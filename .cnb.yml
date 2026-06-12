@@ -1,7 +1,8 @@
 main:
   web_trigger:
     # 生成 CodeWiki 文档
-    - stages:
+    - name: 生成 Code Wiki
+      stages:
         - name: 生成 Code Wiki
           timeout: 4h
           image: cnbcool/codewiki:latest
