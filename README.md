@@ -25,7 +25,7 @@ npx skills add liweijie0812/tdesign-skills
 国内镜像：
 
 ```bash
-npx skills install https://cnb.cool/liweijie0812/tdesign-skills.git
+npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 ```
 
 安装后请重启对应工具，使新增 skills 生效。
