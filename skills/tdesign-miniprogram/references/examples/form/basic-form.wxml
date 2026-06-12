@@ -1,0 +1,36 @@
+<!--
+  TDesign 小程序示例：Form 表单页
+
+  覆盖组件：Form, FormItem, Input, Radio, Button, Message
+
+  说明：展示 TDesign 小程序的典型写法 —— WXML 模板、kebab-case 属性、
+  bind 事件、data 数据绑定、usingComponents 引入。
+
+  配套 JS 逻辑文件：basic-form.js
+  配套 JSON 配置：basic-form.json
+-->
+
+<view class="page">
+  <t-form bind:submit="onSubmit">
+    <t-form-item label="姓名" name="name">
+      <t-input placeholder="请输入姓名" value="{{formData.name}}" bind:change="onInputChange" data-field="name" />
+    </t-form-item>
+
+    <t-form-item label="邮箱" name="email">
+      <t-input placeholder="请输入邮箱" value="{{formData.email}}" bind:change="onInputChange" data-field="email" />
+    </t-form-item>
+
+    <t-form-item label="性别" name="gender">
+      <t-radio-group value="{{formData.gender}}" bind:change="onGenderChange">
+        <t-radio value="male" label="男" />
+        <t-radio value="female" label="女" />
+      </t-radio-group>
+    </t-form-item>
+
+    <t-form-item>
+      <t-button theme="primary" form-type="submit" loading="{{loading}}" block>提交</t-button>
+    </t-form-item>
+  </t-form>
+
+  <t-message id="t-message" />
+</view>

@@ -1,6 +1,6 @@
 ---
 name: tdesign-mobile-vue
-description: 当项目使用 tdesign-mobile-vue，且任务需要 Mobile Vue 组件 API、props、事件、插槽、v-model、类型、导入方式或实现/修复 TDesign 移动端 Vue UI 时使用。只读取 references/api/。
+description: 当项目使用 tdesign-mobile-vue，且任务需要 Mobile Vue 组件 API、props、事件、插槽、v-model、类型、导入方式、示例代码或实现/修复 TDesign 移动端 Vue UI 时使用。只读取 references/api/ 和 references/examples/。
 ---
 
 # TDesign Mobile Vue API
@@ -10,12 +10,13 @@ description: 当项目使用 tdesign-mobile-vue，且任务需要 Mobile Vue 组
 ## 查阅顺序
 
 1. 先确认项目安装 `tdesign-mobile-vue`，并查看已有代码的导入与写法。
-2. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-mobile.json` 的 `coverage.byStack.mobile-vue` 或移动端覆盖范围。
-3. 具体组件 API 查 `references/api/<component>/index.md`。
-4. API 表不够精确时，查同目录 `type.ts`、`props.ts`、`common.ts` 或子组件类型文件。
-5. 涉及跨端语义或端差异时，先看 `../tdesign-docs/references/api/shared/index.md`，再回到 `references/api/<component>/`。
-6. 涉及组件组合或页面搭建时，先使用 `tdesign-composition`。
-7. 涉及版本能力时，使用 `tdesign-changelog` 后再回到 Mobile Vue API 文件确认。
+2. 需要快速参考典型写法时，查 `references/examples/`（示例展示移动端 Composition API、Toast 反馈、移动端表单布局等典型模式）。
+3. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-mobile.json` 的 `coverage.byStack.mobile-vue` 或移动端覆盖范围。
+4. 具体组件 API 查 `references/api/<component>/index.md`。
+5. API 表不够精确时，查同目录 `type.ts`、`props.ts`、`common.ts` 或子组件类型文件。
+6. 涉及跨端语义或端差异时，先看 `../tdesign-docs/references/api/shared/index.md`，再回到 `references/api/<component>/`。
+7. 涉及组件组合或页面搭建时，先使用 `tdesign-composition`。
+8. 涉及版本能力时，使用 `tdesign-changelog` 后再回到 Mobile Vue API 文件确认。
 
 ## Mobile Vue 写法边界
 

@@ -1,6 +1,6 @@
 ---
 name: tdesign-vue2
-description: 当项目使用 tdesign-vue，且任务需要 Vue 2 Web 组件 API、props、事件、插槽、Options API、类型、导入方式或实现/修复 TDesign Vue 2 UI 时使用。只读取 references/api/。
+description: 当项目使用 tdesign-vue，且任务需要 Vue 2 Web 组件 API、props、事件、插槽、Options API、类型、导入方式、示例代码或实现/修复 TDesign Vue 2 UI 时使用。只读取 references/api/ 和 references/examples/。
 ---
 
 # TDesign Vue 2 API
@@ -10,12 +10,13 @@ description: 当项目使用 tdesign-vue，且任务需要 Vue 2 Web 组件 API�
 ## 查阅顺序
 
 1. 先确认项目安装 `tdesign-vue`，并查看已有代码的导入与写法。
-2. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-web.json` 的 `coverage.byStack.vue2` 或 Web 覆盖范围。
-3. 具体组件 API 查 `references/api/<component>/index.md`。
-4. API 表不够精确时，查同目录 `type.ts`、`props.ts`、`common.ts` 或子组件类型文件。
-5. 涉及跨端语义或端差异时，先看 `../tdesign-docs/references/api/shared/index.md`，再回到 `references/api/<component>/`。
-6. 涉及组件组合或页面搭建时，先使用 `tdesign-composition`。
-7. 涉及版本能力时，使用 `tdesign-changelog` 后再回到 Vue 2 API 文件确认。
+2. 需要快速参考典型写法时，查 `references/examples/`（示例展示 Options API、v-model、data/methods 组织等典型模式）。
+3. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-web.json` 的 `coverage.byStack.vue2` 或 Web 覆盖范围。
+4. 具体组件 API 查 `references/api/<component>/index.md`。
+5. API 表不够精确时，查同目录 `type.ts`、`props.ts`、`common.ts` 或子组件类型文件。
+6. 涉及跨端语义或端差异时，先看 `../tdesign-docs/references/api/shared/index.md`，再回到 `references/api/<component>/`。
+7. 涉及组件组合或页面搭建时，先使用 `tdesign-composition`。
+8. 涉及版本能力时，使用 `tdesign-changelog` 后再回到 Vue 2 API 文件确认。
 
 ## Vue 2 写法边界
 
