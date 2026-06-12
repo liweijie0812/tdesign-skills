@@ -36,22 +36,83 @@ function flattenIcons(manifest) {
   return result;
 }
 
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  let prev = Array.from({ length: n + 1 }, (_, i) => i);
+  let curr = new Array(n + 1);
+  for (let i = 1; i <= m; i++) {
+    curr[0] = i;
+    for (let j = 1; j <= n; j++) {
+      curr[j] = a[i - 1] === b[j - 1]
+        ? prev[j - 1]
+        : 1 + Math.min(prev[j], curr[j - 1], prev[j - 1]);
+    }
+    [prev, curr] = [curr, prev];
+  }
+  return prev[n];
+}
+
 function fuzzyMatch(query, candidates) {
   const lower = query.toLowerCase();
-  // exact name match
+
+  // 1) exact name match
   const exact = candidates.filter((c) => c.name.toLowerCase() === lower);
   if (exact.length) return exact;
-  // prefix match
+
+  // 2) prefix match
   const prefix = candidates.filter((c) => c.name.toLowerCase().startsWith(lower));
   if (prefix.length) return prefix.slice(0, 50);
-  // contained match
+
+  // 3) contained match
   const contains = candidates.filter((c) => c.name.toLowerCase().includes(lower));
   if (contains.length) return contains.slice(0, 50);
-  // keyword match (Chinese or English)
+
+  // 4) keyword match (Chinese substring)
   const kw = candidates.filter((c) =>
     c.keywords.some((k) => k.toLowerCase().includes(lower))
   );
-  return kw.slice(0, 50);
+  if (kw.length) return kw.slice(0, 50);
+
+  // 5) fuzzy: name contains most chars of query (typo-tolerant)
+  if (lower.length >= 2) {
+    const nameFuzzy = candidates
+      .map((c) => {
+        const name = c.name.toLowerCase();
+        // score by longest common subsequence ratio
+        let qi = 0, matches = 0;
+        for (let ni = 0; ni < name.length && qi < lower.length; ni++) {
+          if (name[ni] === lower[qi]) { matches++; qi++; }
+        }
+        return { icon: c, score: matches / lower.length };
+      })
+      .filter((r) => r.score >= 0.6)
+      .sort((a, b) => b.score - a.score)
+      .map((r) => r.icon);
+    if (nameFuzzy.length) return nameFuzzy.slice(0, 50);
+
+    // 6) keyword fuzzy: keyword contains most chars of query
+    const kwFuzzy = candidates
+      .map((c) => {
+        let best = 0;
+        for (const k of c.keywords) {
+          const kwLower = k.toLowerCase();
+          let qi = 0, matches = 0;
+          for (let ki = 0; ki < kwLower.length && qi < lower.length; ki++) {
+            if (kwLower[ki] === lower[qi]) { matches++; qi++; }
+          }
+          best = Math.max(best, matches / lower.length);
+        }
+        return { icon: c, score: best };
+      })
+      .filter((r) => r.score >= 0.6)
+      .sort((a, b) => b.score - a.score)
+      .map((r) => r.icon);
+    if (kwFuzzy.length) return kwFuzzy.slice(0, 50);
+  }
+
+  return [];
 }
 
 function printHelp() {
