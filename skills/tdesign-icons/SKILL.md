@@ -11,10 +11,31 @@ description: 当用户需要查找 TDesign 图标、搜索图标名称/关键词
 
 ## 查阅顺序
 
-1. 按关键词/分类/名称搜索图标：使用 `scripts/query-icons.mjs`。
-2. 找到图标名后，**优先推荐按需引入**（`import { XxxIcon } from 'tdesign-icons-xxx'`），不走网络 CDN。
-3. 图标组件 API（`size`、`onClick` 等）参考当前技术栈 skill 的 `references/api/icon/index.md`。
-4. 使用方式、多色图标、小程序适配等详细参考：查 `references/usage-guide.md`。
+### 场景 A：精确查找（用户已知图标名或想确认某图标是否存在）
+
+使用 `--name <图标名> --exact`，脚本直接遍历 manifest 结构做精确匹配，跳过 flatten 和模糊匹配阶段，结果精确、响应快。
+
+```bash
+node skills/tdesign-icons/scripts/query-icons.mjs --name logo-github --exact
+node skills/tdesign-icons/scripts/query-icons.mjs --name close --exact
+```
+
+适合：用户问"有没有 xxx 图标？"、"xxx 图标叫什么？"等确认性查询。
+
+### 场景 B：模糊搜索（用户不知道确切图标名，按关键词/分类查找）
+
+使用 `--search` 或 `--name`（不带 `--exact`），走 6 级模糊匹配：精确名 → 前缀 → 包含 → 中文关键词 → 名称模糊 → 关键词模糊。
+
+```bash
+node skills/tdesign-icons/scripts/query-icons.mjs --search <关键词>
+node skills/tdesign-icons/scripts/query-icons.mjs --category <分类名>
+```
+
+### 找到图标后的推荐方式
+
+找到图标名后，**优先推荐按需引入**（`import { XxxIcon } from 'tdesign-icons-xxx'`），不走网络 CDN。
+图标组件 API（`size`、`onClick` 等）参考当前技术栈 skill 的 `references/api/icon/index.md`。
+使用方式、多色图标、小程序适配等详细参考：查 `references/usage-guide.md`。
 
 ## 快速查询
 
@@ -42,6 +63,45 @@ node skills/tdesign-icons/scripts/query-icons.mjs --name chevron-down
 node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 ```
 
+## 常见品牌图标速查
+
+以下是 Brand 分类中常见的品牌图标（省略 `logo-` 前缀即为导入名，如 `logo-github` → `LogoGithubIcon`）：
+
+| 图标名 | 风格 |
+|--------|------|
+| `logo-github` / `logo-github-filled` | outline / filled |
+| `logo-gitlab` / `logo-gitlab-filled` | outline / filled |
+| `logo-chrome` / `logo-chrome-filled` | outline / filled |
+| `logo-firefox` / `logo-firefox-filled` | outline / filled |
+| `logo-apple` / `logo-apple-filled` | outline / filled |
+| `logo-android` / `logo-android-filled` | outline / filled |
+| `logo-windows` / `logo-windows-filled` | outline / filled |
+| `logo-figma` / `logo-figma-filled` | outline / filled |
+| `logo-codepen` / `logo-codepen-filled` | outline / filled |
+| `logo-codesandbox` / `logo-codesandbox-filled` | outline / filled |
+| `logo-alipay` / `logo-alipay-filled` | outline / filled |
+| `logo-wechatpay` / `logo-wechatpay-filled` | outline / filled |
+| `logo-wechat-stroke` / `logo-wechat-stroke-filled` | outline / filled |
+| `logo-qq` / `logo-qq-filled` | outline / filled |
+| `logo-wecom` / `logo-wecom-filled` | outline / filled |
+| `logo-facebook` / `logo-facebook-filled` | outline / filled |
+| `logo-twitter` / `logo-twitter-filled` | outline / filled |
+| `logo-instagram` / `logo-instagram-filled` | outline / filled |
+| `logo-youtube` / `logo-youtube-filled` | outline / filled |
+| `logo-behance` / `logo-behance-filled` | outline / filled |
+| `logo-dribbble` / `logo-dribbble-filled` | outline / filled |
+| `logo-framer` / `logo-framer-filled` | outline / filled |
+| `logo-adobe-photoshop` / `logo-adobe-photoshop-filled` | outline / filled |
+| `logo-adobe-illustrate` / `logo-adobe-illustrate-filled` | outline / filled |
+| `logo-adobe-lightroom` / `logo-adobe-lightroom-filled` | outline / filled |
+| `logo-cinema4d` / `logo-cinema4d-filled` | outline / filled |
+| `logo-ie` / `logo-ie-filled` | outline / filled |
+| `logo-stackblitz` / `logo-stackblitz-filled` | outline / filled |
+| `logo-cnb` / `logo-cnb-filled` | outline / filled |
+| `logo-miniprogram` / `logo-miniprogram-filled` | outline / filled |
+
+> 完整列表通过 `--category Brand` 获取。上表为常用品牌，查询时优先匹配此表。
+
 ## 图标命名规则
 
 - 格式：`{语义名}-{变体?}-{风格}`，如 `search-filled`、`chevron-down`、`logo-android-filled`
@@ -53,5 +113,6 @@ node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 
 - 图标名称以 manifest 数据为准，不要凭经验编造图标名。
 - **优先推荐按需引入**，不默认使用 `<Icon name="..." />` 走 CDN。
+- **精确查找优先用 `--name <名称> --exact`**（精确匹配，跳过模糊阶段）；模糊搜索用 `--search`。
 - 搜索不到图标时，可尝试放宽关键词、切换风格或使用 `--list-categories` 浏览。
 - 更新 manifest 数据：`node skills/tdesign-icons/scripts/convert-manifest.mjs`。

@@ -17,6 +17,37 @@ function readManifest() {
   }
 }
 
+/**
+ * Exact name lookup — still parses JSON but skips flatten() and fuzzyMatch().
+ * For the common "does icon X exist?" case, returns results immediately.
+ */
+function exactNameLookup(manifest, name, options) {
+  const lower = name.toLowerCase();
+  const results = [];
+  const styles = options.style ? [options.style] : ['filled', 'outline'];
+
+  for (const style of styles) {
+    const styleData = manifest[style];
+    if (!styleData) continue;
+    for (const [catKey, catData] of Object.entries(styleData)) {
+      for (const icon of catData.icons) {
+        if (icon.name.toLowerCase() === lower) {
+          results.push({
+            name: icon.name,
+            style,
+            category: catKey,
+            categoryCN: catData.labelCN,
+            categoryEN: catData.labelEn,
+            keywords: icon.keywords || [],
+          });
+        }
+      }
+    }
+  }
+
+  return results.slice(0, options.limit);
+}
+
 function flattenIcons(manifest) {
   const result = [];
   for (const style of ['filled', 'outline']) {
@@ -102,7 +133,7 @@ function printHelp() {
   node skills/tdesign-icons/scripts/query-icons.mjs --list-categories [--style filled|outline]
   node skills/tdesign-icons/scripts/query-icons.mjs --category Brand [--style filled|outline] [--limit 20]
   node skills/tdesign-icons/scripts/query-icons.mjs --search <keyword>
-  node skills/tdesign-icons/scripts/query-icons.mjs --name <icon-name>
+  node skills/tdesign-icons/scripts/query-icons.mjs --name <icon-name> [--exact]
   node skills/tdesign-icons/scripts/query-icons.mjs --stats
   node skills/tdesign-icons/scripts/query-icons.mjs --style filled --search <keyword>
 
@@ -110,7 +141,8 @@ Options:
   --style <filled|outline>  Filter by style (default: all)
   --category <name>         Filter by category (English name, e.g. Brand)
   --search <keyword>        Search icons by name or keyword (supports Chinese/English)
-  --name <icon-name>        Exact or prefix icon name lookup
+  --name <icon-name>        Icon name lookup (substring match by default; use --exact for exact match)
+  --exact                   When used with --name, do exact name match only (no substring/fuzzy)
   --list-categories         List all categories
   --limit <n>               Max results (default: 50)
   --stats                   Show icon statistics
@@ -138,6 +170,7 @@ function parseArgs(args) {
       case '--name': options.name = args[i]; break;
       case '--limit': options.limit = parseInt(args[i], 10) || 50; break;
       case '--list-categories': options.listCategories = true; break;
+      case '--exact': options.exact = true; break;
       case '--stats': options.stats = true; break;
       case '--json': options.json = true; break;
       default: throw new Error(`Unknown argument: ${arg}`);
@@ -181,7 +214,12 @@ function searchIcons(manifest, options) {
   }
   if (options.name) {
     const lower = options.name.toLowerCase();
-    icons = icons.filter((i) => i.name.toLowerCase().includes(lower));
+    if (options.exact) {
+      // Exact name match only — fast path, no fuzzy
+      icons = icons.filter((i) => i.name.toLowerCase() === lower);
+    } else {
+      icons = icons.filter((i) => i.name.toLowerCase().includes(lower));
+    }
   }
 
   return icons.slice(0, options.limit);
@@ -208,6 +246,20 @@ function main() {
   }
 
   const manifest = readManifest();
+
+  // Fast path: --name with --exact — skips flatten + fuzzyMatch, direct traversal
+  if (options.name && options.exact) {
+    const results = exactNameLookup(manifest, options.name, options);
+    if (options.json) {
+      console.log(JSON.stringify(results, null, 2));
+    } else if (!results.length) {
+      console.log('No icons found.');
+    } else {
+      console.log(`Found ${results.length} icon(s):`);
+      results.forEach((i) => console.log(formatIcon(i)));
+    }
+    return;
+  }
 
   if (options.stats) {
     showStats(manifest);
