@@ -1,0 +1,42 @@
+---
+name: tdesign-changelog
+description: 当用户询问 TDesign 某组件能力在哪个版本新增、修复、废弃、Breaking Changes、迁移提示，或需要按版本、组件、关键词查询 changelog 时使用。
+---
+
+# TDesign 变更日志查询
+
+本 skill 用于确认 TDesign 组件的版本变化，不替代当前技术栈 API 文件。
+
+## 适用问题
+
+- 某个组件能力是哪个版本新增的。
+- 某个属性、事件或行为在哪个版本修复了。
+- 是否存在 Breaking Changes、废弃提示或迁移提醒。
+- 指定版本区间内某组件经历了哪些变化。
+- 只查询 Features、Bug Fixes、Breaking Changes 等类别。
+
+## 查询命令
+
+```bash
+node scripts/query-changelog.mjs --stack react --component Button
+node scripts/query-changelog.mjs --stack vue-next --component Alert --version 1.14.0 --json
+node scripts/query-changelog.mjs --stack mobile-vue --component Form --keyword readonly
+node scripts/query-changelog.mjs --stack miniprogram --component Upload --since 1.13.0 --until 1.15.0
+node scripts/query-changelog.mjs --stack mobile-react --component Dialog --category breaking
+```
+
+## 参数
+
+- `--stack`：`react`、`vue-next`、`vue2`、`mobile-react`、`mobile-vue`、`miniprogram`。
+- `--component`：组件名，区分大小写，例如 `Button`、`Upload`。
+- `--version`：精确版本。
+- `--since` / `--until`：版本区间。
+- `--category`：按变更类别过滤。
+- `--keyword`：按关键词过滤 markdown 变更项。
+- `--json`：输出原始匹配 JSON。
+
+## 约束
+
+- 查到版本线索后，仍要回到对应技术栈 skill 的 `references/api/<component>/index.md` 确认真实写法。
+- 不要用 changelog 反推 API 形状、默认值或事件名。
+- 组件名查不到时，使用脚本返回的候选组件名重试。
