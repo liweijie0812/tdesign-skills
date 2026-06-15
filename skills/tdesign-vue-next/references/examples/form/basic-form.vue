@@ -6,10 +6,63 @@
   说明：展示 TDesign Vue Next 的典型写法 —— SFC 模板、v-model 双向绑定、
   Composition API、具名插槽、rules 校验。
 -->
+<script setup lang="ts">
+import { reactive, shallowRef } from 'vue';
+import { MessagePlugin } from 'tdesign-vue-next';
+
+const loading = shallowRef(false);
+
+interface BasicFormData {
+  name: string;
+  email: string;
+  age?: number;
+  department: string;
+  gender: string;
+  hireDate: string;
+}
+
+const formData = reactive<BasicFormData>({
+  name: '',
+  email: '',
+  age: undefined,
+  department: '',
+  gender: '',
+  hireDate: '',
+});
+
+const departmentOptions = [
+  { label: '技术部', value: 'tech' },
+  { label: '产品部', value: 'product' },
+  { label: '设计部', value: 'design' },
+];
+
+const rules = {
+  name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
+  email: [
+    { required: true, message: '请输入邮箱', trigger: 'blur' },
+    { email: true, message: '请输入正确的邮箱格式', trigger: 'blur' },
+  ],
+  age: [{ required: true, message: '请输入年龄', trigger: 'blur' }],
+};
+
+function onSubmit({ validateResult }: { validateResult: boolean | Record<string, unknown> }) {
+  if (validateResult !== true) return;
+
+  loading.value = true;
+  window.setTimeout(() => {
+    loading.value = false;
+    MessagePlugin.success('提交成功');
+  }, 1000);
+}
+
+function onReset() {
+  MessagePlugin.info('已重置');
+}
+</script>
+
 <template>
-  <div style="max-width: 600px; padding: 24px">
+  <div class="basic-form-example">
     <t-form
-      ref="formRef"
       :data="formData"
       :rules="rules"
       label-width="100px"
@@ -58,48 +111,11 @@
   </div>
 </template>
 
-<script setup>
-import { ref, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
-const formRef = ref(null);
-const loading = ref(false);
-
-const formData = reactive({
-  name: '',
-  email: '',
-  age: undefined,
-  department: '',
-  gender: '',
-  hireDate: '',
-});
-
-const departmentOptions = [
-  { label: '技术部', value: 'tech' },
-  { label: '产品部', value: 'product' },
-  { label: '设计部', value: 'design' },
-];
-
-const rules = {
-  name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
-  email: [
-    { required: true, message: '请输入邮箱', trigger: 'blur' },
-    { email: true, message: '请输入正确的邮箱格式', trigger: 'blur' },
-  ],
-  age: [{ required: true, message: '请输入年龄', trigger: 'blur' }],
-};
-
-const onSubmit = ({ validateResult }) => {
-  if (validateResult === true) {
-    loading.value = true;
-    setTimeout(() => {
-      loading.value = false;
-      MessagePlugin.success('提交成功');
-    }, 1000);
-  }
-};
-
-const onReset = () => {
-  MessagePlugin.info('已重置');
-};
-</script>
+<style scoped>
+.basic-form-example {
+  max-width: calc(var(--td-size-13) * 12);
+  padding: var(--td-size-8);
+  background: var(--td-bg-color-container);
+  color: var(--td-text-color-primary);
+}
+</style>

@@ -49,3 +49,9 @@
 - 全局反馈、弹层挂载点和 z-index 不与应用壳冲突。
 - Web 导航图标来自 TDesign Icons manifest，颜色继承文本或使用语义 Token；Mobile / Miniprogram 按当前端图标 API 和项目图标方案确认。
 - Mobile / Miniprogram 需要验证导航栏安全区、底部 TabBar 遮挡、滚动容器和平台返回行为。
+
+## 设计规范要点
+
+- 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-004`、`DS-005`、`DS-008`、`DS-012`。
+- Web `Header` / `t-layout__header` 必须使用 `var(--td-comp-size-xxxl)`，并同时设置 `height`、`min-height`、`flex-shrink: 0`。
+- Web 应用壳交付前按 `../design/checklist.json` 输出结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。

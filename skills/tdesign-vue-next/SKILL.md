@@ -11,12 +11,13 @@ description: 当项目使用 tdesign-vue-next，且任务需要 Vue 3 Web 单组
 
 1. 先确认项目安装 `tdesign-vue-next`，并查看已有代码的导入与写法。
 2. 需要快速参考典型写法时，查 `references/examples/`（示例展示 Composition API、v-model、具名插槽等典型模式）。
-3. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-web.json` 的 `coverage.byStack.vue-next` 或 Web 覆盖范围。
-4. 具体组件 API 查 `references/api/<component>/index.md`。
-5. API 表不够精确时，查同目录 `type.ts`、`props.ts`、`common.ts` 或子组件类型文件。
-6. 涉及跨端语义或端差异时，先看 `../tdesign-docs/references/api/shared/index.md`，再回到 `references/api/<component>/`。
-7. 涉及组件组合或页面搭建时，先使用 `tdesign-composition`。
-8. 涉及版本能力时，使用 `tdesign-changelog` 后再回到 Vue Next API 文件确认。
+3. 生成 Web 中后台完整页面时，先用 `tdesign-composition` 确认场景和设计自检项，再查 `references/examples/layout/` 或 `references/examples/pages/` 的完整模板。
+4. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-web.json` 的 `coverage.byStack.vue-next` 或 Web 覆盖范围。
+5. 具体组件 API 查 `references/api/<component>/index.md`。
+6. API 表不够精确时，查同目录 `type.ts`、`props.ts`、`common.ts` 或子组件类型文件。
+7. 涉及跨端语义或端差异时，先看 `../tdesign-docs/references/api/shared/index.md`，再回到 `references/api/<component>/`。
+8. 涉及组件组合或页面搭建时，先使用 `tdesign-composition`。
+9. 涉及版本能力时，使用 `tdesign-changelog` 后再回到 Vue Next API 文件确认。
 
 ## Vue Next 写法边界
 
@@ -27,8 +28,18 @@ description: 当项目使用 tdesign-vue-next，且任务需要 Vue 3 Web 单组
 - 组件选型转到 `tdesign-usage-guide`，页面组合转到 `tdesign-composition`。
 - 图标名称转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
 
+## 页面模板
+
+- 侧边导航应用壳：查 `references/examples/layout/side-layout.vue`。
+- 顶部导航应用壳：查 `references/examples/layout/top-layout.vue`。
+- 混合导航应用壳：查 `references/examples/layout/mix-layout.vue`。
+- 仪表盘：查 `references/examples/pages/dashboard.vue`。
+- 表格列表页：查 `references/examples/pages/table-list.vue`。
+- 表单页：查 `references/examples/pages/form-page.vue`。
+
 ## 约束
 
 - 只读取当前任务需要的单个组件目录，不整树加载 `references/api/`。
 - 优先用 TDesign 组件和 props 解决问题，最后才补最小 CSS。
+- Web 中后台页面生成后的 CSS 必须优先使用 TDesign Token；Header、危险操作、空态、加载态等按 `tdesign-composition` 的 checklist 自检。
 - 如果 Vue Next 当前组件不存在或能力不足，查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`。

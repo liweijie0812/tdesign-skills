@@ -2,6 +2,26 @@
 
 本文用于页面生成和样式改造时快速选择常用 `--td-*` 变量。完整组件级变量仍以当前技术栈 API 文档和项目主题文件为准。
 
+## 常用 Token 速查
+
+| 场景 | Token |
+| --- | --- |
+| 页面标题字号 | `var(--td-font-size-title-large)` |
+| 正文字号 | `var(--td-font-size-body-medium)` |
+| 主文字颜色 | `var(--td-text-color-primary)` |
+| 次要文字颜色 | `var(--td-text-color-secondary)` |
+| 占位文字颜色 | `var(--td-text-color-placeholder)` |
+| 页面背景 | `var(--td-bg-color-page)` |
+| 容器背景 | `var(--td-bg-color-container)` |
+| 内容区间距 | `var(--td-comp-paddingLR-xl)` |
+| 区块间距 | `var(--td-comp-margin-l)` |
+| 组件间距 | `var(--td-comp-margin-s)` |
+| Header 高度 | `var(--td-comp-size-xxxl)` |
+| 品牌色 | `var(--td-brand-color)` |
+| 分割线 | `var(--td-component-border)` |
+| 浅阴影 | `var(--td-shadow-1)` |
+| 默认圆角 | `var(--td-radius-default)` |
+
 ## 使用原则
 
 - 优先使用语义 Token，不直接写 hex、rgba、px 和任意圆角值。

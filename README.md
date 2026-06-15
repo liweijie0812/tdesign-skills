@@ -33,34 +33,9 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 
 ## Skills
 
-### tdesign-skills
+`tdesign-skills` 是总入口，负责识别 TDesign 依赖、技术栈和任务类型，并路由到更窄的专项 skill。
 
-根入口。用于普通业务项目安装 TDesign 依赖后，识别技术栈、判断任务类型，并路由到更窄的专项 skill。支持 React、Vue Next、Vue 2、移动端、小程序和 uni-app 项目，但实现时必须使用对应框架的组件写法。
-
-当普通业务项目 `package.json` 已安装 `tdesign-react`、`tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram`、`tdesign-uniapp` 等 TDesign 组件包时，应优先使用该 skill。
-
-在已安装或明确使用 TDesign 的项目中，推荐优先使用 TDesign 组件；只有 TDesign 组件无法满足需求时，再考虑原生 HTML、其他组件库组件或自定义组件。
-
-生成页面、搭建页面结构、实现表单页、列表页、详情页或后台管理页时，也应优先使用 TDesign 的布局、表单、数据展示、反馈和导航组件。
-
-页面实现目标是少写自定义 CSS，优先通过 TDesign 组件搭配、组件 props、布局组件和已有设计变量完成效果。
-
-### 专项 skills
-
-| Skill | 触发场景 | 主要资料 |
-| --- | --- | --- |
-| `tdesign-docs` | 文档入口、资料索引、组件覆盖矩阵、当前栈有哪些组件 | `skills/tdesign-docs/references/` |
-| `tdesign-changelog` | 新增、修复、废弃、Breaking Changes、版本区间查询 | `skills/tdesign-changelog/scripts/`、`skills/tdesign-changelog/references/` |
-| `tdesign-icons` | 图标名称、关键词、分类、是否存在、filled/outline 风格检索 | `skills/tdesign-icons/scripts/`、`skills/tdesign-icons/references/` |
-| `tdesign-usage-guide` | 使用指南、组件选型、何时使用、相似组件、迁移、评审、反模式 | `skills/tdesign-usage-guide/references/decisions/` |
-| `tdesign-composition` | 组件搭配、表单页、表格列表页、应用壳、后台页面骨架 | `skills/tdesign-composition/references/` |
-| `tdesign-react` | `tdesign-react` 的 React Web API、JSX 写法和示例代码 | `skills/tdesign-react/references/api/`、`skills/tdesign-react/references/examples/` |
-| `tdesign-vue-next` | `tdesign-vue-next` 的 Vue 3 API、插槽、`v-model` 和示例代码 | `skills/tdesign-vue-next/references/api/`、`skills/tdesign-vue-next/references/examples/` |
-| `tdesign-vue2` | `tdesign-vue` 的 Vue 2 API、插槽、Options API 和示例代码 | `skills/tdesign-vue2/references/api/`、`skills/tdesign-vue2/references/examples/` |
-| `tdesign-mobile-react` | `tdesign-mobile-react` 的移动端 React API 和示例代码 | `skills/tdesign-mobile-react/references/api/`、`skills/tdesign-mobile-react/references/examples/` |
-| `tdesign-mobile-vue` | `tdesign-mobile-vue` 的移动端 Vue API 和示例代码 | `skills/tdesign-mobile-vue/references/api/`、`skills/tdesign-mobile-vue/references/examples/` |
-| `tdesign-miniprogram` | `tdesign-miniprogram` 的 WXML、短横线属性、`bind` 事件、external classes 和示例代码 | `skills/tdesign-miniprogram/references/api/`、`skills/tdesign-miniprogram/references/examples/` |
-| `tdesign-uniapp` | `tdesign-uniapp` 的 uni-app API、`@event` 事件、easycom 引入和示例代码 | `skills/tdesign-uniapp/references/api/`、`skills/tdesign-uniapp/references/examples/` |
+完整 skill 列表和职责见 `skills/SKILL.md`；目录维护说明见 `skills/README.md`。
 
 ## 适用场景（AI Agent）
 
@@ -82,11 +57,12 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 4. 具体 API、事件、插槽和写法差异按当前依赖进入技术栈 skill：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue2`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 或 `tdesign-uniapp`。
 5. 版本能力、新增、修复和废弃问题用 `tdesign-changelog`，查完后仍回到当前栈 API 文件确认真实写法。
 6. 对话式页面生成、视觉规范、设计原则和交付前自检，查阅 `skills/tdesign-composition/references/design/design-spec.md`。
-7. 高频 Design Token、CSS Variables、颜色 / 字号 / 间距 / 圆角速查，查阅 `skills/tdesign-composition/references/design/tokens.md`。
-8. 色彩、品牌色、功能色、中性色、扩展色，查阅 `skills/tdesign-composition/references/design/color.md`。
-9. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `skills/tdesign-composition/references/design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
-10. Web 中后台框架、后台页面模板、整站/区域导航查 `skills/tdesign-composition/references/design/offices.md`。
-11. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `skills/tdesign-composition/references/design/offices-task.md`。
+7. Web 中后台页面生成前，查阅 `skills/tdesign-composition/references/design/checklist.json`；生成后按检查项自检，能运行脚本时执行 `node skills/tdesign-composition/scripts/check-quality.mjs <file-or-directory>`。
+8. 高频 Design Token、CSS Variables、颜色 / 字号 / 间距 / 圆角速查，查阅 `skills/tdesign-composition/references/design/tokens.md`。
+9. 色彩、品牌色、功能色、中性色、扩展色，查阅 `skills/tdesign-composition/references/design/color.md`。
+10. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `skills/tdesign-composition/references/design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
+11. Web 中后台框架、后台页面模板、整站/区域导航查 `skills/tdesign-composition/references/design/offices.md`。
+12. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `skills/tdesign-composition/references/design/offices-task.md`。
 
 ## 最小示例
 
@@ -97,11 +73,14 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 
 - `skills/tdesign-skills/SKILL.md`：总入口，定义 TDesign 依赖识别、技术栈识别、任务路由和强制约束。
 - `skills/SKILL.md`：skills 目录索引，仅用于询问 skill collection 本身；普通 TDesign 任务走 `skills/tdesign-skills/SKILL.md`。
+- `skills/README.md`：skill collection 内部目录说明、加载方式和维护规范；仓库不维护 `skills/` 外层的同名 skill 副本。
 - `skills/`：skill collection，按文档、变更日志、使用指南、组件搭配和具体技术栈拆分。
 - `skills/tdesign-docs/references/meta/stack-matrix.json`：跨端组件覆盖全局概览和已知写法差异；按端明细见 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`。配套查询脚本：`skills/tdesign-docs/scripts/query-matrix.mjs`。
 - `skills/tdesign-docs/references/api/`：API 总入口和跨端共享契约。
 - `skills/tdesign-usage-guide/references/decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。
 - `skills/tdesign-composition/references/design/`：TDesign 对话式设计规范、高频 Token、Color、Layout、中后台框架和高频任务设计方法。
+- `skills/tdesign-composition/references/design/checklist.json`：Web 中后台页面生成后的结构化设计自检规则。
+- `skills/tdesign-composition/references/quality-gate.md` 与 `skills/tdesign-composition/scripts/check-quality.mjs`：生成后质量门禁说明和静态扫描脚本。
 - `skills/tdesign-composition/references/scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
 - `skills/tdesign-react/references/api/`、`skills/tdesign-vue-next/references/api/`、`skills/tdesign-vue2/references/api/`、`skills/tdesign-mobile-react/references/api/`、`skills/tdesign-mobile-vue/references/api/`、`skills/tdesign-miniprogram/references/api/`、`skills/tdesign-uniapp/references/api/`：按技术栈拆分的 TDesign API；组件 API 位于 `references/api/<component>/index.md`。
 - `skills/tdesign-react/references/examples/`、`skills/tdesign-vue-next/references/examples/`、`skills/tdesign-vue2/references/examples/`、`skills/tdesign-mobile-react/references/examples/`、`skills/tdesign-mobile-vue/references/examples/`、`skills/tdesign-miniprogram/references/examples/`、`skills/tdesign-uniapp/references/examples/`：按技术栈拆分的示例代码，展示各技术栈的典型写法（表单页、组件搭配等）。
@@ -122,6 +101,7 @@ node scripts/sync-api-docs.mjs
 
 ```bash
 node scripts/validate.mjs
+node --check skills/tdesign-composition/scripts/check-quality.mjs
 node --check scripts/sync-api-docs.mjs
 git diff --check
 ```
