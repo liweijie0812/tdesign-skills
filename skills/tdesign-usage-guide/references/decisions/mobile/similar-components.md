@@ -10,6 +10,8 @@
 
 判断规则：触发业务动作优先 `Button`；跳转优先 `Link`；需要浮在内容上保持可达时才用 `Fab`。
 
+更多按钮优先级、吸底按钮、图标按钮、加载禁用和小程序开放能力规则见 `components/button.md`。
+
 ## Navbar、TabBar、Tabs、Segmented、SideBar、Indexes
 
 - `Navbar`：页面顶部导航，承载标题、返回、关闭或少量页面级操作。
@@ -34,6 +36,8 @@
 
 判断规则：轻反馈用 `Toast` / `Message`；强确认用 `Dialog`；操作集合用 `ActionSheet`；轻量解释用 `Popover`；标准组件无法满足的自定义内容再用 `Popup` / `Drawer` / `Overlay`。
 
+更多 Dialog 内容、按钮、关闭和移动端行为规则见 `components/dialog.md`。
+
 ## Cell、List、Table、Grid、QRCode、CountDown
 
 - `Cell` / `CellGroup`：移动端列表项、设置项、表单项或信息摘要。
@@ -44,6 +48,8 @@
 - `CountDown`：有明确截止时间的倒计时。
 
 判断规则：单列信息优先 `Cell` / `List`；少列结构化数据才考虑 `Table`；功能入口用 `Grid`；跨设备核验用 `QRCode`；时间敏感截止用 `CountDown`。小程序或 UniApp 缺少 `List` 时使用 `Cell` / `CellGroup` 或项目已有列表封装。
+
+更多 Table 移动端约束、替代方案和状态规则见 `components/table.md`。
 
 ## Typography、Link、Tag、Cell
 
@@ -67,14 +73,14 @@
 
 - `Search`：关键词检索是主要任务。
 - `DropdownMenu`：列表上方少量筛选或排序条件。
-- `DropdownItem`：`DropdownMenu` 中的单个筛选或排序项。
+- `DropdownItem` / `dropdown-item`：`DropdownMenu` 中的单个筛选或排序项。
 - `Picker`：单列或多列触控选择。
 - `Cascader`：逐级选择层级路径。
 - `TreeSelect`：紧凑空间选择树形数据。
 - `SideBar`：页面内分类导航。
 - `Indexes`：长列表快速定位。
 
-判断规则：关键词检索用 `Search`；列表筛选排序用 `DropdownMenu`，单个条件项由 `DropdownItem` 承载；值选择用 `Picker` / `Cascader` / `TreeSelect`；页面分类导航用 `SideBar`；长列表定位用 `Indexes`。
+判断规则：关键词检索用 `Search`；列表筛选排序用 `DropdownMenu`，单个条件项由 `DropdownItem` / `dropdown-item` 承载；值选择用 `Picker` / `Cascader` / `TreeSelect`；页面分类导航用 `SideBar`；长列表定位用 `Indexes`。
 
 ## Checkbox、Radio、Switch
 
@@ -115,7 +121,7 @@
 
 - `GridItem`、`CellGroup`、`TabPanel`、`TabBarItem`、`SideBarItem`、`StepItem`、`IndexesAnchor`、`SwiperNav` / `SwiperNavigation`：只在对应父组件内部使用。
 - `Text`、`Title`、`Paragraph`：归属 `Typography`，用于文本层级和段落语义。
-- `FormItem`、`PickerItem`：归属 `Form` 和 `Picker`，用于字段容器或选择项结构。
+- `FormItem`、`PickerItem`、`DropdownItem` / `dropdown-item`：归属 `Form`、`Picker` 和 `DropdownMenu`，用于字段容器或选择项结构。
 - `AvatarGroup`、`CollapsePanel`、`BaseTableCol`：归属 `Avatar`、`Collapse`、`Table` 的组合能力。
 
 判断规则：先选父组件，再决定是否需要子组件；不要把子组件当作独立页面能力替代父组件。

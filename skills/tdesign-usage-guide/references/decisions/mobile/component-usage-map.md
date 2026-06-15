@@ -8,39 +8,43 @@
 
 - 用于移动端栅格布局和轻量分栏，适合表单、卡片、指标和操作区对齐。
 - 不应照搬 Web 的密集列数或复杂栅格；小屏优先单列、分组和纵向阅读。
+- 详细规则见 `components/row-col.md`。
 
 ### Icon
 
 - 用于提升识别效率、表达状态，或承载紧凑型操作入口。
 - 图标含义不够通用时，应搭配文字、标题或可见说明。
-- 高风险、低频或陌生操作不应只依赖图标表达。
+- 详细规则见 `components/icon.md`。
 
 ### Typography
 
 - 用于移动端标题、正文、辅助说明、价格、强调文本等文本层级。
 - 当需要统一字号、颜色、截断、省略或可复制语义时，优先于零散自定义文本样式。
+- 详细规则见 `components/typography.md`。
 
 ### Divider
 
 - 用于分隔列表组、表单组、内容区块或底部操作区域。
 - 当 `CellGroup`、卡片留白或标题分组已能表达层级时，不要过度使用分割线。
+- 详细规则见 `components/divider.md`。
 
 ### Layout
 
 - 用于移动端基础行列布局、栅格对齐或页面内容容器。
 - 不应用它复刻 Web 后台的常驻侧栏、顶部栏和内容区应用壳。
+- 详细规则见 `components/layout.md`。
 
 ### Footer
 
 - 用于页面底部承载版权、协议链接、帮助入口或次要说明。
 - 不适合承载核心提交动作；关键操作优先使用 `Button` 或固定操作区。
+- 详细规则见 `components/footer.md`。
 
 ### 子组件与组合项
 
 - `GridItem`、`CellGroup`、`TabPanel`、`TabBarItem`、`SideBarItem`、`StepItem`、`IndexesAnchor`、`SwiperNav` / `SwiperNavigation` 等用于对应父组件内部结构，不作为独立组件选型入口。
 - `Text`、`Title`、`Paragraph` 属于 `Typography` 的排版语义；`AvatarGroup`、`CollapsePanel`、`BaseTableCol` 分别归属 `Avatar`、`Collapse`、`Table`。
-- `FormItem`、`RadioGroup`、`CheckboxGroup`、`CheckTag`、`PickerItem` 用于表单、选项和选择器内部组合，先按父组件语义选型，再查当前栈 API。
-- 子组件真实可用性、标签名、props、事件、插槽、external classes 和类型源必须查 `tdesign-docs/references/api/shared/sub-components/mobile.md` 或 `tdesign-docs/references/api/shared/sub-components/miniprogram.md`。
+- 详细规则见 `components/sub-components.md`。
 
 ## 操作
 
@@ -48,18 +52,19 @@
 
 - 当前流程结束或新流程开启需要用户点击触发时使用。
 - 表单或长页面中的主操作常需要吸底或吸顶，保证用户滚动后仍能完成操作。
-- 图标按钮可与输入框组合，用于触发辅助输入、扫码、选择等支流任务。
-- 不建议在同一区域放置多个主按钮；需要表达不同层级时使用主按钮、次按钮、文字按钮组合。
+- 详细规则见 `components/button.md`。
 
 ### Fab
 
 - 当某个操作是全局高频操作或业务强推操作时使用。
 - 适合浮在内容之上提供快速入口，不适合承载多个复杂流程。
+- 详细规则见 `components/fab.md`。
 
 ### Link
 
 - 当需要外链跳转、协议跳转或页面底部 footer 链接时使用。
 - 如果点击结果是提交、确认、删除或启动业务动作，优先使用 `Button`。
+- 详细规则见 `components/link.md`。
 
 ## 导航
 
@@ -67,50 +72,55 @@
 
 - 用于页面顶部导航，承载标题、返回、关闭或少量页面级操作。
 - 适合移动端页面层级切换，不应承载复杂菜单。
+- 详细规则见 `components/navbar.md`。
 
 ### TabBar
 
 - 用于应用主功能模块间的底部切换。
 - 适合少量高频、平级、全局模块，不适合临时分类筛选。
+- 详细规则见 `components/tab-bar.md`。
 
 ### Tabs
 
 - 用于同一页面或模块内，按分类维度快速切换内容。
 - 通常位于页面或模块顶部，可结合吸顶方便用户切换。
-- 不建议用 `Tabs` 表达应用主功能模块切换，主功能切换优先 `TabBar`。
+- 详细规则见 `components/tabs.md`。
 
 ### SideBar
 
 - 用于移动端分类导航，常见于商品分类、频道分类等左右分栏场景。
 - 适合分类数量较多且用户需要在同页快速切换内容的场景。
+- 详细规则见 `components/side-bar.md`。
 
 ### Indexes
 
 - 用于按字母、城市、联系人等索引快速定位长列表内容。
 - 适合列表很长且用户明确知道目标分组的场景。
+- 详细规则见 `components/indexes.md`。
 
 ### BackTop
 
 - 页面内容较长且用户有快速返回顶部诉求时使用。
 - 页面较短或滚动成本低时不需要使用。
+- 详细规则见 `components/back-top.md`。
 
 ### Steps
 
 - 用于展示移动端分步流程、当前步骤和完成进度。
 - 适合开户、申请、审批、下单等有明确顺序的流程。
-- 不适合普通分类切换，分类内容切换优先使用 `Tabs`。
+- 详细规则见 `components/steps.md`。
 
 ### Segmented
 
 - 用于同一区域内少量平级视图、状态或范围的快速切换。
 - 适合二到四个轻量选项，不适合承载应用主导航。
-- 主功能模块切换优先使用 `TabBar`，页面内内容分类优先使用 `Tabs`。
+- 详细规则见 `components/segmented.md`。
 
 ### DropdownMenu
 
 - 用于移动端顶部或列表区域的筛选、排序和条件切换。
 - 适合选项较少、与当前列表强相关的筛选项。
-- 复杂多字段筛选应使用 `Popup` / `Drawer` 承载表单，不要把所有条件塞进下拉菜单。
+- 详细规则见 `components/dropdown-menu.md`。
 
 ## 数据录入
 
@@ -118,91 +128,103 @@
 
 - 当移动端需要收集、校验并提交一组字段时使用。
 - 适合登录、地址、资料编辑、审批填写等有明确字段关系的场景。
-- 长表单应分组、分步或拆页面，避免在一个弹层内堆叠复杂表单。
+- 详细规则见 `components/form.md`。
 
 ### Input
 
 - 用于移动端短文本输入，常与 `Cell`、`Form` 或图标按钮组合。
 - 需要多行内容时使用 `Textarea`。
+- 详细规则见 `components/input.md`。
 
 ### Textarea
 
 - 用于备注、说明、评论等多行文本输入。
 - 短值、手机号、验证码、搜索词等场景优先使用 `Input`。
+- 详细规则见 `components/textarea.md`。
 
 ### Search
 
 - 当搜索是页面或列表的主要任务时使用。
 - 适合商品、联系人、城市、记录、帮助内容等关键词检索。
-- 只是在表单中输入一个普通字段时，不要用 `Search` 替代 `Input`。
+- 详细规则见 `components/search.md`。
 
 ### Checkbox
 
 - 用于多选或多个独立布尔选项。
 - 只允许选择一个时优先使用 `Radio`；即时状态切换优先使用 `Switch`。
+- 详细规则见 `components/checkbox.md`。
 
 ### Radio
 
 - 用于从少量互斥选项中选择一个。
 - 选项较多或需要多级选择时考虑 `Picker`、`Cascader` 或 `TreeSelect`。
+- 详细规则见 `components/radio.md`。
 
 ### Switch
 
 - 用于即时生效的开关状态。
 - 如果值需要随表单提交或用户最终确认后生效，优先使用 `Checkbox` 或表单控件。
+- 详细规则见 `components/switch.md`。
 
 ### Picker
 
 - 用于从移动端滚轮或面板中选择单列或多列值。
 - 适合选项有限、需要触控选择且不需要完整展开列表的场景。
+- 详细规则见 `components/picker.md`。
 
 ### Cascader
 
 - 用于逐级选择层级数据，例如地区、分类或组织路径。
 - 当层级数据需要在紧凑空间中完成路径选择时使用。
+- 详细规则见 `components/cascader.md`。
 
 ### TreeSelect
 
 - 用于在移动端紧凑空间中选择树形分类或层级节点。
 - 适合一级分类常驻、二级或多级选项随之切换的场景。
-- 只需要选择完整路径时优先使用 `Cascader`，页面分类浏览优先使用 `SideBar`。
+- 详细规则见 `components/tree-select.md`。
 
 ### DateTimePicker
 
 - 用于选择日期、时间或日期时间组合。
 - 日期时间格式正确性重要时，优先于普通文本输入。
+- 详细规则见 `components/date-time-picker.md`。
 
 ### Calendar
 
 - 用于选择日期、日期范围，或展示按日期组织的信息。
 - 适合酒店入住、行程、签到、预约、日程等以日期为核心的任务。
-- 简单日期时间选择优先使用 `DateTimePicker`。
+- 详细规则见 `components/calendar.md`。
 
 ### ColorPicker
 
 - 当用户需要选择或输入颜色值时使用。
 - 适合主题配置、视觉配置、标注颜色、图表颜色等低频配置场景。
-- 普通状态、标签或业务分类颜色不应要求用户手动选择。
+- 详细规则见 `components/color-picker.md`。
 
 ### Slider
 
 - 用于从连续范围中选择近似值。
 - 需要精确数字输入时，不应只依赖 `Slider`。
+- 详细规则见 `components/slider.md`。
 
 ### Stepper
 
 - 用于移动端数量加减。
 - 适合商品数量、人数、份数等小范围数值调整。
+- 详细规则见 `components/stepper.md`。
 
 ### Rate
 
 - 用于评分、满意度或偏好程度表达。
 - 适合主观评价，不适合精确数值输入。
+- 详细规则见 `components/rate.md`。
 
 ### Upload
 
 - 用于上传图片、视频或文件。
 - 小程序上传能力受微信平台 API 约束，具体配置必须查 `skills/tdesign-miniprogram/references/api/upload/index.md`。
+- 详细规则见 `components/upload.md`。
 
 ## 数据展示
 
@@ -210,75 +232,85 @@
 
 - 用于展示用户、组织或实体身份。
 - 没有头像时可使用首字母、图标或默认占位。
+- 详细规则见 `components/avatar.md`。
 
 ### Badge
 
 - 用于在图标、头像、导航项或列表项上展示未读数、状态点或提醒。
 - 不适合单独承载复杂信息。
+- 详细规则见 `components/badge.md`。
 
 ### Cell
 
 - 用于移动端列表项、设置项、表单项或信息摘要。
 - 适合单列页面中组织标题、说明、图标、右侧值和跳转提示。
+- 详细规则见 `components/cell.md`。
 
 ### Grid
 
 - 用于移动端宫格入口或功能快捷入口。
 - 适合多个平级功能以图标加文字方式展示。
+- 详细规则见 `components/grid.md`。
 
 ### List
 
 - 用于展示连续条目流，如消息、订单、资源、动态或轻量记录。
 - 适合纵向浏览、加载更多、下拉刷新等移动端列表场景。
-- 小程序或 UniApp 当前栈若缺少 `List`，优先使用 `Cell` / `CellGroup` 或项目已有列表封装。
+- 详细规则见 `components/list.md`。
 
 ### Table
 
 - 用于移动端展示少列、低密度的结构化数据。
 - 仅在横向字段对比确实必要时使用，并控制列数和信息密度。
-- 复杂宽表、批量编辑和多列筛选不适合直接搬到移动端，应改用列表、详情页或分步查看。
+- 详细规则见 `components/table.md`。
 
 ### Image
 
 - 用于图片展示、封面、头像之外的内容图片。
 - 需要预览多图或大图时使用 `ImageViewer`。
+- 详细规则见 `components/image.md`。
 
 ### ImageViewer
 
 - 用于移动端查看大图或图片组预览。
 - 适合点击缩略图后进入沉浸式图片浏览。
+- 详细规则见 `components/image-viewer.md`。
 
 ### Tag
 
 - 用于状态、属性、分类或轻量标记。
 - 不应承担复杂交互；需要点击操作时确认当前栈是否支持对应事件。
+- 详细规则见 `components/tag.md`。
 
 ### QRCode
 
 - 用于展示可被扫码识别的链接、凭证、订单、登录或分享信息。
 - 适合需要跨设备、线下核验或快速传递编码内容的场景。
-- 不应把复杂说明信息塞进二维码本身，需在周边提供可读说明。
+- 详细规则见 `components/qrcode.md`。
 
 ### CountDown
 
 - 用于展示有明确截止时间的倒计时。
 - 适合验证码重发、支付超时、活动结束、抢购开始等时间敏感场景。
-- 普通等待状态不应使用倒计时，加载等待优先使用 `Loading` 或 `Skeleton`。
+- 详细规则见 `components/count-down.md`。
 
 ### Collapse
 
 - 用于收纳可分组内容，降低页面纵向复杂度。
 - 重要信息不应默认隐藏在折叠面板中。
+- 详细规则见 `components/collapse.md`。
 
 ### Empty
 
 - 用于列表、搜索结果或页面无数据状态。
 - 应给出下一步建议或可恢复动作，避免只展示空图。
+- 详细规则见 `components/empty.md`。
 
 ### Result
 
 - 用于展示任务结果、成功、失败、异常或流程完成状态。
 - 比 `Empty` 更强调流程结果和后续动作。
+- 详细规则见 `components/result.md`。
 
 ## 反馈
 
@@ -286,70 +318,79 @@
 
 - 用于轻量反馈或提示，不需要用户操作，通常短时间后自动消失。
 - 不适合承载长文本、重要决策或危险确认。
+- 详细规则见 `components/toast.md`。
 
 ### Message
 
 - 用于较轻量的反馈或提示，可自动消失或点击关闭，通常由用户触发。
 - 比 `Toast` 更适合页面内连续操作反馈。
+- 详细规则见 `components/message.md`。
 
 ### Dialog
 
 - 用于需要用户决策，或需要用户提供完成任务所需额外信息的场景。
 - 重要提示、危险确认或短表单可使用 `Dialog`。
-- 不建议在一个对话框内放多种复杂输入组件。
+- 详细规则见 `components/dialog.md`。
 
 ### ActionSheet
 
 - 用于从底部弹出一组与当前上下文相关的操作。
 - 适合移动端操作选择，不适合复杂表单或长内容展示。
+- 详细规则见 `components/action-sheet.md`。
 
 ### Popover
 
 - 用于在触发元素附近展示轻量提示、解释或少量快捷操作。
 - 适合补充说明、状态解释、简短菜单等不需要强打断的场景。
-- 长内容、复杂筛选或需要用户确认的任务应使用 `Popup`、`Drawer` 或 `Dialog`。
+- 详细规则见 `components/popover.md`。
 
 ### Popup
 
 - 用于底部、顶部或中间弹出自定义内容。
 - 标准组件如 `Dialog`、`ActionSheet`、`Picker` 能满足时，不优先使用底层 `Popup`。
+- 详细规则见 `components/popup.md`。
 
 ### Overlay
 
 - 作为遮罩层或浮层底层能力，用于当前栈标准浮层无法满足的自定义场景。
 - 适合配合自定义弹层、引导遮罩或页面局部遮挡使用。
-- 标准反馈和选择场景优先使用 `Dialog`、`Popup`、`ActionSheet`、`Picker` 等组件。
+- 详细规则见 `components/overlay.md`。
 
 ### Drawer
 
 - 用于移动端侧向或边缘弹出内容。
 - 仅在需要保留页面上下文且内容体量适中时使用；简单确认优先 `Dialog`。
+- 详细规则见 `components/drawer.md`。
 
 ### Loading
 
 - 用于通用等待或加载中状态。
 - 内容结构已知时优先考虑 `Skeleton`。
+- 详细规则见 `components/loading.md`。
 
 ### Skeleton
 
 - 用于内容结构已知但数据未返回时的占位。
 - 适合列表、卡片、详情等页面加载，避免空白等待。
+- 详细规则见 `components/skeleton.md`。
 
 ### Progress
 
 - 用于可量化的完成进度。
 - 不确定时长的等待不要伪造百分比，使用 `Loading`。
+- 详细规则见 `components/progress.md`。
 
 ### NoticeBar
 
 - 用于页面顶部或内容区域展示通知、公告、营销或状态提醒。
 - 适合需要持续可见但不阻断用户的提示。
+- 详细规则见 `components/notice-bar.md`。
 
 ### Guide
 
 - 用于新功能、关键路径或复杂界面的分步引导。
 - 当用户需要被依次引导关注多个界面目标时使用。
-- 简单说明优先使用文案、空状态或轻提示，不要过度打断用户。
+- 详细规则见 `components/guide.md`。
 
 ## 手势与滚动
 
@@ -357,21 +398,25 @@
 
 - 用于移动端下拉刷新列表或页面内容。
 - 适合用户主动刷新内容，不适合自动轮询或后台同步提示。
+- 详细规则见 `components/pull-down-refresh.md`。
 
 ### SwipeCell
 
 - 用于列表项横滑暴露操作，例如删除、收藏、置顶。
 - 适合单条记录的上下文操作，不适合高风险操作直接执行；必要时二次确认。
+- 详细规则见 `components/swipe-cell.md`。
 
 ### Sticky
 
 - 用于将导航、筛选、操作区固定在滚动页面的某个位置。
 - 移动端常用于顶部分类、提交按钮或关键操作保持可达。
+- 详细规则见 `components/sticky.md`。
 
 ### Swiper
 
 - 用于轮播图片、卡片或少量内容页。
 - 不适合承载必须逐项完整阅读的重要信息。
+- 详细规则见 `components/swiper.md`。
 
 ## 系统与配置
 
@@ -379,4 +424,4 @@
 
 - 用于提供全局配置，如主题、语言、类名前缀或组件默认配置。
 - 通常放在应用根部，局部差异配置只作用于对应子树。
-- 不应用它替代业务状态管理或页面级参数传递。
+- 详细规则见 `components/config-provider.md`。

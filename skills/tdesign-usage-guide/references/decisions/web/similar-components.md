@@ -11,6 +11,8 @@
 
 判断规则：按点击结果选择。修改数据或启动任务用 `Button`；页面跳转用 `Link`；暴露多个上下文命令用 `Dropdown`；构成导航结构用 `Menu`。
 
+更多按钮优先级、状态、图标按钮、危险操作和组合规则见 `components/button.md`。
+
 ## Dialog、Popconfirm、Drawer、Popup
 
 - `Dialog`：用于需要聚焦处理的信息、确认或表单内容，会局部中断当前流程。
@@ -19,6 +21,8 @@
 - `Popup`：底层浮层能力，用于高阶组件不能满足的自定义浮层。
 
 判断规则：按中断强度和内容体量选择。小型确认用 `Popconfirm`；聚焦阻断决策用 `Dialog`；扩展型上下文任务用 `Drawer`；标准组件不适用时才使用 `Popup`。
+
+更多 Dialog 内容、按钮、关闭和异步规则见 `components/dialog.md`。
 
 ## Message、Notification、Alert
 
@@ -37,6 +41,8 @@
 
 判断规则：按信息结构选择。结构化数据集用 `Table`；条目流用 `List`；详情事实用 `Descriptions`；内容分组用 `Card`。
 
+更多 Table 数据列、状态、操作列和反模式规则见 `components/table.md`。
+
 ## Form、Descriptions、输入类组件
 
 - `Form`：用于收集、校验并提交一组信息。
@@ -44,6 +50,8 @@
 - `Input`、`Select`、`Checkbox` 等字段组件：用于收集单个值，通常放在 `Form` 中。
 
 判断规则：如果数据需要作为一组提交或校验，使用 `Form`；如果只是阅读信息，使用 `Descriptions`。
+
+更多 Form 布局、校验、提交和 JSON Schema 边界规则见 `components/form.md`。
 
 ## Select、Dropdown、Cascader、TreeSelect、Tree
 

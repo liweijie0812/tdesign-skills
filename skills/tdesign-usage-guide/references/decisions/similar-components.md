@@ -7,7 +7,7 @@
 1. 识别当前栈：Web、Mobile 或 Miniprogram。
 2. Web 查 `web/similar-components.md`。
 3. Mobile / Miniprogram 查 `mobile/similar-components.md`。
-4. 高频单项取舍按平台查 `web/when-to-use/` 或 `mobile/when-to-use/`；不要求文件名跨平台一一对应。
+4. 高频单项取舍按平台查 `web/components/<component>.md` 或 `mobile/components/<component>.md`。
 5. 具体组件是否存在按 `skills/tdesign-docs/references/meta/stack-matrix.json` 和当前技术栈 skill 的 `references/api/` 确认。
 
 ## 通用原则

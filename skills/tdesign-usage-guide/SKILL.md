@@ -10,9 +10,9 @@ description: 当用户需要 TDesign 使用指南、组件选型、何时使用�
 ## 查阅顺序
 
 1. 平台口径：查 `references/decisions/platform-design-policy.md`。
-2. 组件何时使用：查 `references/decisions/web/component-usage-map.md` 或 `references/decisions/mobile/component-usage-map.md`。
+2. 组件何时使用：先查 `references/decisions/web/component-usage-map.md` 或 `references/decisions/mobile/component-usage-map.md`，命中组件后再按需查平台下 `components/<component>.md`。
 3. 相似组件怎么选：先查 `references/decisions/similar-components.md`，再查平台细分文档。
-4. 高频单项取舍：查 `references/decisions/web/when-to-use/` 或 `references/decisions/mobile/when-to-use/`。
+4. 高频单项取舍：查平台下 `similar-components.md` 和 `components/<component>.md`。
 5. 反模式：先查 `references/decisions/anti-patterns.md`，再查平台细分文档。
 6. 当前栈缺组件或能力不够：查 `references/decisions/fallback-policy.md`。
 

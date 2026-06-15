@@ -21,7 +21,7 @@
 
 - 出现“顺手写一个弹窗 / 选择器 / 表格”但未确认当前栈是否有对应组件时，先停下来查 `skills/tdesign-docs/references/meta/stack-matrix.json` 和当前技术栈 API。
 - 出现 `onChange(value, option)`、`visible`、`overlay`、`slots.default` 这类跨库习惯写法时，不默认认为 TDesign 支持。
-- 看到需求里包含“像 Antd 那样”“参考 Element 的写法”时，只能借鉴任务语义，不能复用 API 名称。
+- 看到需求里包含“像某个其他 UI 框架那样”或“参考某个其他 UI 框架写法”时，只能借鉴任务语义，不能复用 API 名称。
 - 当用户只描述视觉样式，没有说明任务目标时，先补齐“选择值 / 承载操作 / 展示信息 / 页面导航 / 反馈确认”中的真实任务类型。
 
 ## 最小核对清单
@@ -34,5 +34,5 @@
 ## 推荐回答方式
 
 - 如果当前栈没有该组件，直接说明“当前 TDesign 栈无官方组件”，并跳转 `fallback-policy.md`。
-- 如果存在多个候选组件，先引用 `similar-components.md`，再按平台查 `web/when-to-use/` 或 `mobile/when-to-use/` 做取舍，然后给实现。
+- 如果存在多个候选组件，先引用 `similar-components.md`，再按平台查对应 `components/<component>.md` 做取舍，然后给实现。
 - 如果需求跨平台，分别给 Web 与 Mobile 系方案，不合并成一套伪通用答案。

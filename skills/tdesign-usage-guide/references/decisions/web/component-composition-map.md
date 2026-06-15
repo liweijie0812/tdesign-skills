@@ -35,7 +35,7 @@
 - 基础组合：`Dialog`、`Form`、`FormItem`、`Input`、`Select`、`Button`。
 - 轻量确认：低到中等风险且内容短时优先 `Popconfirm`。
 - 大体量任务：内容较长、需要保留页面上下文或侧边编辑时使用 `Drawer`。
-- 查阅：`web/when-to-use/dialog-vs-drawer.md`、`skills/tdesign-docs/references/api/shared/dialog/contract.md`。
+- 查阅：`web/components/dialog.md`、`web/components/drawer.md`、`skills/tdesign-docs/references/api/shared/dialog/contract.md`。
 
 ## 抽屉编辑 / 辅助详情
 
