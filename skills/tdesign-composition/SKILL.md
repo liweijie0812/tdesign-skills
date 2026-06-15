@@ -20,6 +20,8 @@ description: 当用户询问 TDesign 组件搭配、页面场景、表单页、�
 
 ## Web 中后台资料
 
+- 对话式页面生成、视觉规范、设计原则和交付前自检：查 `references/design/design-spec.md`。
+- 高频 Design Token、CSS Variables、颜色 / 字号 / 间距 / 圆角速查：查 `references/design/tokens.md`。
 - 色彩、品牌色、功能色、中性色、扩展色、Design Token：查 `references/design/color.md`。
 - Layout 布局、导航布局、栅格、断点和间距：查 `references/design/layout.md`。
 - 中后台整体框架、导航分类、页面布局和模板映射：查 `references/design/offices.md`。

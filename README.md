@@ -81,10 +81,12 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 3. 查询组件可用性先查 `skills/tdesign-docs/references/meta/stack-matrix.json`（全局概览），再按端查 `stack-matrix-web.json`、`stack-matrix-mobile.json` 或 `stack-matrix-miniprogram.json`。
 4. 具体 API、事件、插槽和写法差异按当前依赖进入技术栈 skill：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue2`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 或 `tdesign-uniapp`。
 5. 版本能力、新增、修复和废弃问题用 `tdesign-changelog`，查完后仍回到当前栈 API 文件确认真实写法。
-6. 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 查 `skills/tdesign-composition/references/design/color.md`。
-7. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `skills/tdesign-composition/references/design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
-8. Web 中后台框架、后台页面模板、整站/区域导航查 `skills/tdesign-composition/references/design/offices.md`。
-9. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `skills/tdesign-composition/references/design/offices-task.md`。
+6. 对话式页面生成、视觉规范、设计原则和交付前自检，查阅 `skills/tdesign-composition/references/design/design-spec.md`。
+7. 高频 Design Token、CSS Variables、颜色 / 字号 / 间距 / 圆角速查，查阅 `skills/tdesign-composition/references/design/tokens.md`。
+8. 色彩、品牌色、功能色、中性色、扩展色，查阅 `skills/tdesign-composition/references/design/color.md`。
+9. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `skills/tdesign-composition/references/design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
+10. Web 中后台框架、后台页面模板、整站/区域导航查 `skills/tdesign-composition/references/design/offices.md`。
+11. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `skills/tdesign-composition/references/design/offices-task.md`。
 
 ## 最小示例
 
@@ -99,7 +101,7 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 - `skills/tdesign-docs/references/meta/stack-matrix.json`：跨端组件覆盖全局概览和已知写法差异；按端明细见 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`。配套查询脚本：`skills/tdesign-docs/scripts/query-matrix.mjs`。
 - `skills/tdesign-docs/references/api/`：API 总入口和跨端共享契约。
 - `skills/tdesign-usage-guide/references/decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。
-- `skills/tdesign-composition/references/design/`：TDesign Color、Layout、中后台框架和高频任务设计方法。
+- `skills/tdesign-composition/references/design/`：TDesign 对话式设计规范、高频 Token、Color、Layout、中后台框架和高频任务设计方法。
 - `skills/tdesign-composition/references/scenarios/`：页面场景卡，包括表单页、表格列表页和应用壳。
 - `skills/tdesign-react/references/api/`、`skills/tdesign-vue-next/references/api/`、`skills/tdesign-vue2/references/api/`、`skills/tdesign-mobile-react/references/api/`、`skills/tdesign-mobile-vue/references/api/`、`skills/tdesign-miniprogram/references/api/`、`skills/tdesign-uniapp/references/api/`：按技术栈拆分的 TDesign API；组件 API 位于 `references/api/<component>/index.md`。
 - `skills/tdesign-react/references/examples/`、`skills/tdesign-vue-next/references/examples/`、`skills/tdesign-vue2/references/examples/`、`skills/tdesign-mobile-react/references/examples/`、`skills/tdesign-mobile-vue/references/examples/`、`skills/tdesign-miniprogram/references/examples/`、`skills/tdesign-uniapp/references/examples/`：按技术栈拆分的示例代码，展示各技术栈的典型写法（表单页、组件搭配等）。

@@ -11,7 +11,7 @@
 | 不确定项目使用哪个 TDesign 包，或任务横跨多个栈 | `tdesign-skills` | 识别依赖、判断技术栈、路由到专项 skill | 具体 API、完整实现 |
 | 文档入口、资料在哪里、当前栈有没有某组件 | `tdesign-docs` | 资料位置、覆盖矩阵、上游来源 | 组件选型理由、页面组合、props 写法 |
 | 该选哪个组件、为什么、有哪些反模式 | `tdesign-usage-guide` | 设计决策、相似组件取舍、迁移/评审口径 | 具体 props、事件、插槽和代码落地 |
-| 某类页面怎么搭、组件怎么组合 | `tdesign-composition` | 页面骨架、组件组合、场景校验点 | 单个组件 API 细节、版本来源 |
+| 设计规范、Design Token、某类页面怎么搭、组件怎么组合 | `tdesign-composition` | 页面骨架、组件组合、视觉规范、Token 速查和场景校验点 | 单个组件 API 细节、版本来源 |
 | 某组件 props、事件、插槽、类型和示例代码 | 对应技术栈 API skill | 当前技术栈的真实 API 和写法 | 跨栈推断、组件是否应该选用 |
 | 图标名称、关键词、分类、是否存在 | `tdesign-icons` | 图标检索和候选图标名 | 图标组件 API 细节、业务图标设计 |
 | 能力在哪个版本新增、修复、废弃 | `tdesign-changelog` | 版本历史、breaking changes、迁移线索 | 当前 API 形状和默认值 |
