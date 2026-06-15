@@ -8,6 +8,7 @@
 - 组件已有 `theme`、`status`、`variant`、`size`、`layout` 等 props 时，先用 props，不优先覆盖内部样式。
 - 自定义 CSS 只补组件组合无法覆盖的布局和局部样式。
 - Light / Dark 主题共用语义变量名，不在业务样式里分别写两套颜色值。
+- 字体、行高、间距、组件尺寸和圆角在 Light / Dark 下共用同一套 Token，不随主题分叉。
 - 不确定某组件是否暴露 CSS Variables 时，回到当前技术栈 `references/api/<component>/index.md` 查询。
 
 ## 颜色 Token
@@ -42,11 +43,16 @@
 | --- | --- | --- |
 | 品牌色 | `--td-brand-color` | 主按钮、选中态、主强调 |
 | 品牌 hover | `--td-brand-color-hover` | 主按钮 hover、可点击品牌态 |
+| 品牌 focus | `--td-brand-color-focus` | 焦点态、弱聚焦背景 |
 | 品牌 active | `--td-brand-color-active` | 主按钮按下态 |
+| 品牌 disabled | `--td-brand-color-disabled` | 品牌禁用态 |
 | 品牌浅底 | `--td-brand-color-light` | 弱选中背景、浅强调块 |
+| 品牌浅底 hover | `--td-brand-color-light-hover` | 浅强调 hover |
 | 成功色 | `--td-success-color` | 成功、通过、完成 |
 | 告警色 | `--td-warning-color` | 风险、注意、待处理 |
 | 错误色 | `--td-error-color` | 失败、危险、删除、阻断 |
+
+功能色也有同构状态变量：`--td-success-color-hover`、`--td-success-color-focus`、`--td-success-color-active`、`--td-success-color-disabled`、`--td-success-color-light`、`--td-warning-color-*`、`--td-error-color-*`。生成 hover / focus / active / disabled / light 状态时使用同语义状态变量，不要跨语义借色。
 
 ### 边框、分割与阴影
 
@@ -75,6 +81,7 @@
 | 页面头标题 | `--td-font-size-headline-small` | 仪表盘标题、页面头区域 |
 
 优先使用组件默认字号。只有页面标题、统计数字、说明信息等需要自定义层级时，再显式使用字体 Token。
+行高优先使用对应 `--td-line-height-*`，或直接使用已包含字号、字重与行高的 shorthand：`--td-font-body-*`、`--td-font-title-*`、`--td-font-headline-*`、`--td-font-display-*`。
 
 ## 间距 Token
 
@@ -99,6 +106,8 @@
 | 横向小内边距 | `--td-comp-paddingLR-s` | 小按钮、标签 |
 | 横向默认内边距 | `--td-comp-paddingLR-m` | 常规按钮、输入、容器 |
 | 横向大内边距 | `--td-comp-paddingLR-l` | 大按钮、卡片标题区 |
+
+Web 后台应用壳与标准导航组合时，`Header` / `t-layout__header` 默认使用 `--td-comp-size-xxxl`；侧栏品牌区使用同一高度 Token 保持基线一致。不要把顶部区域改成 `52px`、`60px` 等非组件尺寸阶梯值。
 
 ## 圆角 Token
 
@@ -144,10 +153,25 @@
 }
 ```
 
+### 应用壳 Header
+
+```css
+.t-layout__header.app-header {
+  height: var(--td-comp-size-xxxl);
+  min-height: var(--td-comp-size-xxxl);
+  flex-shrink: 0;
+  padding: 0 var(--td-size-8);
+  background: var(--td-bg-color-container);
+  border-bottom: 1px solid var(--td-component-stroke);
+}
+```
+
 ## 禁止组合
 
 - 禁止 `background: var(--td-warning-color)` 搭配 `color: var(--td-text-color-brand)`。
 - 禁止彩色实心底上使用 `--td-text-color-primary`、`--td-text-color-secondary` 作为主要前景。
 - 禁止把 `--td-success-color`、`--td-warning-color`、`--td-error-color` 当普通装饰色随意互换。
+- 禁止 hover / focus / active / disabled 状态跨语义借色，例如错误按钮 hover 使用品牌 hover。
 - 禁止在支持主题 props 的组件上优先写大段自定义颜色覆盖。
+- 禁止用硬编码 `56px` 优先于 `--td-comp-size-xxxl` 表达标准后台 Header 高度。
 - 禁止编造 `--td-*` 变量；不确定时查当前技术栈 API 或项目主题文件。
