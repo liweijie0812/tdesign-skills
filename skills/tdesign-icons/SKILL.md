@@ -65,42 +65,22 @@ node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 
 ## 常见品牌图标速查
 
-以下是 Brand 分类中常见的品牌图标（省略 `logo-` 前缀即为导入名，如 `logo-github` → `LogoGithubIcon`）：
+以下是 Brand 分类中的常用品牌图标示例（省略 `logo-` 前缀即为导入名，如 `logo-github` → `LogoGithubIcon`）：
 
 | 图标名 | 风格 |
 |--------|------|
 | `logo-github` / `logo-github-filled` | outline / filled |
 | `logo-gitlab` / `logo-gitlab-filled` | outline / filled |
 | `logo-chrome` / `logo-chrome-filled` | outline / filled |
-| `logo-firefox` / `logo-firefox-filled` | outline / filled |
 | `logo-apple` / `logo-apple-filled` | outline / filled |
 | `logo-android` / `logo-android-filled` | outline / filled |
 | `logo-windows` / `logo-windows-filled` | outline / filled |
 | `logo-figma` / `logo-figma-filled` | outline / filled |
-| `logo-codepen` / `logo-codepen-filled` | outline / filled |
-| `logo-codesandbox` / `logo-codesandbox-filled` | outline / filled |
 | `logo-alipay` / `logo-alipay-filled` | outline / filled |
 | `logo-wechatpay` / `logo-wechatpay-filled` | outline / filled |
-| `logo-wechat-stroke` / `logo-wechat-stroke-filled` | outline / filled |
 | `logo-qq` / `logo-qq-filled` | outline / filled |
-| `logo-wecom` / `logo-wecom-filled` | outline / filled |
-| `logo-facebook` / `logo-facebook-filled` | outline / filled |
-| `logo-twitter` / `logo-twitter-filled` | outline / filled |
-| `logo-instagram` / `logo-instagram-filled` | outline / filled |
-| `logo-youtube` / `logo-youtube-filled` | outline / filled |
-| `logo-behance` / `logo-behance-filled` | outline / filled |
-| `logo-dribbble` / `logo-dribbble-filled` | outline / filled |
-| `logo-framer` / `logo-framer-filled` | outline / filled |
-| `logo-adobe-photoshop` / `logo-adobe-photoshop-filled` | outline / filled |
-| `logo-adobe-illustrate` / `logo-adobe-illustrate-filled` | outline / filled |
-| `logo-adobe-lightroom` / `logo-adobe-lightroom-filled` | outline / filled |
-| `logo-cinema4d` / `logo-cinema4d-filled` | outline / filled |
-| `logo-ie` / `logo-ie-filled` | outline / filled |
-| `logo-stackblitz` / `logo-stackblitz-filled` | outline / filled |
-| `logo-cnb` / `logo-cnb-filled` | outline / filled |
-| `logo-miniprogram` / `logo-miniprogram-filled` | outline / filled |
 
-> 完整列表通过 `--category Brand` 获取。上表为常用品牌，查询时优先匹配此表。
+> 更多品牌图标通过 `--category Brand` 动态获取；不确定名称时用 `--search <关键词>`。
 
 ## 图标命名规则
 
