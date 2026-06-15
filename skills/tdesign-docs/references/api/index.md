@@ -24,6 +24,7 @@
 - mobile-react: 66 个成功，0 个未同步
 - mobile-vue: 66 个成功，0 个未同步
 - miniprogram: 65 个成功，1 个未同步
+- uniapp: 65 个成功，1 个未同步
 
 ## 使用约束
 

@@ -1,4 +1,4 @@
-# TDesign Miniprogram API 文档索引
+# TDesign UniApp API 文档索引
 
 来源仓库：Tencent/tdesign-miniprogram
 

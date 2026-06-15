@@ -1,6 +1,6 @@
 # table
 
-来源：TDesign Miniprogram
+来源：TDesign UniApp
 
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/table/README.md
 
