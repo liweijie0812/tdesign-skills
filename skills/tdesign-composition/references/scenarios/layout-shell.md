@@ -14,7 +14,10 @@
 
 ## 选型规则
 
-- 应用级导航使用 `Menu`，当前位置层级使用 `Breadcrumb`。
+- Web 应用级侧边导航优先使用官方 `Menu + Layout` 组合，顶部导航优先使用官方顶部导航 / `Menu.HeadMenu` 等价组合。
+- 当前位置层级使用 `Breadcrumb`，不替代整站主导航。
+- 侧边导航与顶部导航一般不要在同一页面同时完整并存；如业务必须并存，全页只能保留一个 Logo + 系统名称品牌位。
+- Web 与标准侧栏或顶部导航组合时，`Header` / `t-layout__header` 默认使用 `var(--td-comp-size-xxxl)` 高度；自定义时同时设置 `height`、`min-height` 和 `flex-shrink: 0`。
 - 页面内平级内容切换使用 `Tabs`，流程进度使用 `Steps`。
 - 固定快捷工具使用 `StickyTool`，返回顶部使用 `BackTop`。
 - 间距优先使用 `Space`、`Grid`、`Row`、`Col`，不要零散堆 margin。
@@ -39,7 +42,10 @@
 ## 验证清单
 
 - 侧栏折叠、路由激活、菜单权限和面包屑来源一致。
+- 侧栏和顶栏没有重复 Logo / 系统名称。
+- Web `Header` / `t-layout__header` 使用组件尺寸 Token，且不会被内部控件或 flex 布局压缩。
 - 内容区滚动容器明确，固定头部或侧栏不会遮挡内容。
 - 小屏幕下导航有折叠或抽屉式降级方案。
 - 全局反馈、弹层挂载点和 z-index 不与应用壳冲突。
+- Web 导航图标来自 TDesign Icons manifest，颜色继承文本或使用语义 Token；Mobile / Miniprogram 按当前端图标 API 和项目图标方案确认。
 - Mobile / Miniprogram 需要验证导航栏安全区、底部 TabBar 遮挡、滚动容器和平台返回行为。

@@ -10,6 +10,7 @@
 - 腾讯蓝 `Tencent Blue` 是默认主题色和主要交互色：`#0052d9` / `rgba(0, 82, 217, 1)`。
 - 功能色用于表达成功、失败、告警、链接等状态；不要为了“好看”把语义色混用。
 - 中性色用于文字、背景、分割、层级和深色模式适配；常用文字对比度需满足 WCAG2.0。
+- 彩色实心底上的文字、图标和头像缩写必须使用 `--td-text-color-anti`；禁止用 `--td-text-color-brand` / `--td-text-color-primary` 搭配饱和功能色实心底。
 - 更多颜色需求，例如图表、插画、标签分组，优先从扩展色取色，不要随机自造业务色。
 - 主题定制优先覆盖 TDesign Design Token / CSS Variables；不要直接覆盖组件内部 class 或硬改组件样式。
 
@@ -132,6 +133,8 @@ TDesign 使用“色板 -> 全局语义 Token -> 组件 Token”的关系管理�
 | 删除、失败、危险操作 | 使用 `danger` / `error` 语义，不用品牌蓝或橙色代替 |
 | 成功反馈 | 使用 `success` 语义，避免自造绿色 |
 | 告警、需注意但非失败 | 使用 `warning` 语义，避免与错误红混用 |
+| 彩色实心底文字 / 图标 | 使用 `--td-text-color-anti`，不要使用品牌色文字或主文字 |
+| 彩色 Avatar | 背景使用语义色时，同步设置 `color: var(--td-text-color-anti)` |
 | 普通正文和辅助文字 | 使用 `text-color-primary` / `text-color-secondary` 等文字 token |
 | 背景和分割层级 | 使用 `bg-color-*`、`border-*` 或灰阶 token |
 | 图表和多分类 | 使用扩展色或项目图表规范，不从功能色中随意抽取 |
@@ -139,6 +142,8 @@ TDesign 使用“色板 -> 全局语义 Token -> 组件 Token”的关系管理�
 ## 禁止行为
 
 - 禁止将错误、警告、成功、品牌色作为纯装饰色随意互换。
+- 禁止 `background: var(--td-warning-color)` / `--td-error-color` / `--td-success-color` / `--td-brand-color` 搭配 `color: var(--td-text-color-brand)` 或 `--td-text-color-primary`。
+- 禁止给 `Avatar` 设置自定义 `background` 后遗漏反色文字。
 - 禁止在 TDesign 组件已有 `theme` / `status` / CSS Variables 时，用大量自定义 CSS 覆盖内部结构。
 - 禁止只按 hex 判断语义；同一色值在不同主题、深色模式或组件状态下可能由不同 token 管理。
 - 禁止忽略无障碍对比度，尤其是文字、按钮、标签、提示和图表标注。

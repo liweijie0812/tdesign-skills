@@ -23,9 +23,12 @@
 ## 选型规则
 
 - 结构化行列数据用 `Table`，条目流或卡片流用 `List` 或 `Card`。
+- 禁止用 `table-filled`、表格截图、静态块或图标代替真实 `Table`。
 - 操作列只放高频动作，低频动作折叠到 `Dropdown`。
 - 破坏性行操作使用 `Popconfirm` 或 `Dialog`，文案说明后果。
 - 单元格内容过长时优先省略、悬浮说明或展开详情，不拉宽整表。
+- Web 筛选区、工具栏、表格、分页和状态反馈的颜色、间距和边框优先使用语义 Token；Mobile / Miniprogram 按当前端 Design Token 和组件变量确认。
+- Web 表格操作图标必须来自 TDesign Icons manifest；Mobile / Miniprogram 按当前端图标 API 和项目图标方案确认。任何端都不使用 Emoji、自绘 SVG、外部 iconfont 或临时网络图片。
 - Mobile / Miniprogram 数据密度更低，优先减少列数、拆详情页或使用条目流，不强行复刻 Web 宽表格。
 - 小程序当前未同步 `List` 组件 API 时，不要假定可用；简单条目优先用 `Cell` / `CellGroup` 或项目已有列表封装。
 
@@ -44,4 +47,6 @@
 - 空数据、加载中、加载失败和无权限状态都有明确呈现。
 - 批量操作需要选择状态、禁用条件和确认机制。
 - 表格横向滚动、固定列和移动端降级策略明确。
+- 批量操作完成后有当前端支持的 `Message` / `Notification` / `Toast` 等结果反馈，并刷新或更新表格数据。
+- 成功、告警、错误和禁用状态未跨语义用色。
 - Mobile / Miniprogram 需要验证触控选择、下拉刷新、加载更多、固定操作区和小屏幕溢出。

@@ -33,7 +33,9 @@
 
 实现建议：
 
-- Web React / Vue：应用壳优先使用 `Layout` / `Header` / `Aside` / `Content` / `Footer`，导航优先使用 `Menu`。
+- Web React / Vue：应用壳优先使用 `Layout` / `Header` / `Aside` / `Content` / `Footer`，侧边导航优先使用官方 `Menu + Layout` 组合，顶部导航优先使用官方顶部导航 / `Menu.HeadMenu` 等价组合。
+- 侧边导航与顶部导航一般不要在同一页面同时完整并存；如业务必须并存，全页只能保留一个 Logo + 系统名称品牌位。
+- 与标准侧栏或顶部导航组合时，`Header` / `t-layout__header` 默认使用 `var(--td-comp-size-xxxl)` 高度；自定义时同时设置 `height`、`min-height` 和 `flex-shrink: 0`，避免被内部控件或 flex 布局压缩。
 - Mobile / Miniprogram：不要复刻 Web 应用壳，按当前端优先选 `Navbar`、`TabBar`、`Tabs`、`SideBar`、`Row` / `Col`、`Grid`、`Cell` 等组件。
 - 顶部导航适合横向空间更重要、导航层级较浅的页面。
 - 侧边导航适合后台、控制台、系统管理等高频切换页面。
@@ -97,7 +99,8 @@ TDesign 基于不同显示设备设置 3 个断点，兼顾平板和 PC 设备�
 | 设计需求 | 优先组件或能力 |
 | --- | --- |
 | Web 应用壳 | `Layout`、`Header`、`Aside`、`Content`、`Footer` |
-| 侧边/顶部导航 | `Menu`，必要时结合 `Layout` |
+| 侧边导航 | `Menu + Layout` 侧栏组合 |
+| 顶部导航 | 官方顶部导航 / `Menu.HeadMenu` 等价组合 |
 | 内容区栅格 | `Row` / `Col` 或当前栈 Grid 能力 |
 | 元素间距 | `Space`、组件布局 props、设计变量 |
 | 卡片化内容区 | `Card` + 栅格布局 |
@@ -108,5 +111,7 @@ TDesign 基于不同显示设备设置 3 个断点，兼顾平板和 PC 设备�
 - 禁止把 Web `Layout` 应用壳概念直接套到 Mobile 或 Miniprogram。
 - 禁止忽略 `8px` 栅格基数，随意写 `margin: 13px`、`gap: 17px` 等无规律间距。
 - 禁止在 Web 侧边栏布局中不考虑 `232px` 展开、`64px` 收起和 `992px` 响应断点。
+- 禁止侧栏和顶栏各放一套 Logo / 系统名称。
+- 禁止把 `Header` / `t-layout__header` 改成非组件尺寸阶梯值，或只写 `height` 导致被 flex 布局压缩。
 - 禁止在内容区手写大段 flex/grid 样式复刻当前端 TDesign `Layout`、`Row`、`Col`、`Space` 已有能力。
 - 禁止为了填满屏幕牺牲固定宽度内容区的可读性和信息稳定性。
