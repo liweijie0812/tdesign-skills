@@ -12,7 +12,7 @@ description: 当项目使用 tdesign-vue-next，且任务需要 Vue 3 Web 单组
 1. 先确认项目安装 `tdesign-vue-next`，并查看已有代码的导入与写法。
 2. 需要快速参考典型写法时，查 `references/examples/`（示例展示 Composition API、v-model、具名插槽等典型模式）。
 3. 生成 Web 中后台完整页面时，先用 `tdesign-composition` 确认场景和设计自检项，再查 `references/examples/layout/` 或 `references/examples/pages/` 的完整模板。
-4. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-web.json` 的 `coverage.byStack.vue-next` 或 Web 覆盖范围。
+4. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-web.json` 的 `coverage.byStack.vue-next` 或 Web 覆盖范围；是否已有本地示例模板查 `coverage.hasExample.byStack.vue-next`。
 5. 具体组件 API 查 `references/api/<component>/index.md`。
 6. API 表不够精确时，查同目录 `type.ts`、`props.ts`、`common.ts` 或子组件类型文件。
 7. 涉及跨端语义或端差异时，先看 `../tdesign-docs/references/api/shared/index.md`，再回到 `references/api/<component>/`。
@@ -36,6 +36,15 @@ description: 当项目使用 tdesign-vue-next，且任务需要 Vue 3 Web 单组
 - 仪表盘：查 `references/examples/pages/dashboard.vue`。
 - 表格列表页：查 `references/examples/pages/table-list.vue`。
 - 表单页：查 `references/examples/pages/form-page.vue`。
+- 详情页：查 `references/examples/pages/details-page.vue`。
+- 登录页：查 `references/examples/pages/login-page.vue`。
+- 错误页：查 `references/examples/pages/error-page.vue`。
+
+## 导入方式建议
+
+- 快速原型、小型项目或内部 Demo：可在入口使用 `app.use(TDesign)` 全局注册，示例模板默认假定组件已全局可用。
+- 生产项目、体积敏感或组件使用面较窄：优先按需引入，并配合 `unplugin-auto-import` / `unplugin-vue-components` 自动导入；TDesign resolver 使用 `import { TDesignResolver } from '@tdesign-vue-next/auto-import-resolver';`。
+- 插件式 API 如 `MessagePlugin`、`DialogPlugin` 按需从 `tdesign-vue-next` 显式引入，不依赖模板标签注册方式。
 
 ## 约束
 

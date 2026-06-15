@@ -13,11 +13,15 @@
 | 仪表盘 | `pages/dashboard.vue` | Card, Row, Col, Statistic, Table, Tag, Empty | 指标卡、任务表格和图表占位状态模板 |
 | 表格列表页 | `pages/table-list.vue` | Card, Form, Input, Select, Button, Table, Tag, Popconfirm, Message | 筛选、表格、分页、空状态和危险操作确认模板 |
 | 表单页 | `pages/form-page.vue` | Card, Form, FormItem, Input, Select, DatePicker, Switch, Button, Message | 标准编辑表单，包含校验、提交 loading 和反馈 |
+| 详情页 | `pages/details-page.vue` | Card, Descriptions, Tag, Timeline, Button, Message | 对象详情、状态标识和操作历史模板 |
+| 登录页 | `pages/login-page.vue` | Form, FormItem, Input, Button, Alert, Message | 登录表单、错误提示和提交 loading 模板 |
+| 错误页 | `pages/error-page.vue` | Card, Empty, Button | 403 / 404 / 500 等错误结果页模板 |
 
 ## 使用说明
 
 - 示例使用 Vue 3 SFC + `<script setup lang="ts">` Composition API。
-- 组件使用 `<t-*>` 标签，依赖项目已全局注册 `tdesign-vue-next` 或配置组件自动导入；插件式 API 如 `MessagePlugin` 按需从 `tdesign-vue-next` 引入。
+- 快速原型或小项目可用 `app.use(TDesign)` 全局注册；生产项目或体积敏感场景优先按需引入，并配合 `unplugin-auto-import` / `unplugin-vue-components` 自动导入；TDesign resolver 使用 `import { TDesignResolver } from '@tdesign-vue-next/auto-import-resolver';`。
+- 示例组件使用 `<t-*>` 标签，依赖项目已全局注册 `tdesign-vue-next` 或已配置组件自动导入；插件式 API 如 `MessagePlugin` 按需从 `tdesign-vue-next` 引入。
 - 所有 props 名称均为真实 API，具体类型和默认值请回到 `../api/<component>/index.md` 确认。
 - 示例代码可独立复制到 `.vue` 文件中运行。
 - Web 中后台完整页面生成前先查 `skills/tdesign-composition/references/design/checklist.json`，交付前按检查项自检。

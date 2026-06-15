@@ -1,6 +1,6 @@
 ---
 name: tdesign-composition
-description: 当用户询问 TDesign 设计规范、Design Token、组件搭配、页面场景、表单页、表格列表页、详情页、弹窗页、后台管理页、应用壳、导航布局或页面骨架怎么组织时使用。只负责页面级组合、设计红线和场景校验；不负责组件选型理由、单组件 API 或版本来源。
+description: 当用户询问 TDesign 设计规范、Design Token、组件搭配、页面场景、表单页、表格列表页、详情页、登录页、错误页、移动端页面、弹窗页、后台管理页、应用壳、导航布局或页面骨架怎么组织时使用。只负责页面级组合、设计红线和场景校验；不负责组件选型理由、单组件 API 或版本来源。
 ---
 
 # TDesign 组件搭配与页面场景
@@ -17,8 +17,12 @@ description: 当用户询问 TDesign 设计规范、Design Token、组件搭配�
 6. 表单录入、编辑、配置、审批页：查 `references/scenarios/form-page.md`。
 7. 后台列表、资源列表、结构化数据浏览页：查 `references/scenarios/table-list-page.md`。
 8. 后台框架、控制台骨架、导航壳：查 `references/scenarios/layout-shell.md`。
-9. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认写法。
-10. 生成完成后必须按 `references/design/checklist.json` 逐项自检；可运行代码时按 `references/quality-gate.md` 调用 `scripts/check-quality.mjs` 做静态门禁。
+9. 详情页、对象档案、审批详情：查 `references/scenarios/detail-page.md`。
+10. 登录、注册、找回密码、身份入口：查 `references/scenarios/login-page.md`。
+11. 403、404、500、无权限、结果页：查 `references/scenarios/error-page.md`。
+12. 移动端表单、移动端列表和轻量移动页面：查 `references/scenarios/mobile-pages.md`。
+13. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认写法。
+14. 生成完成后必须按 `references/design/checklist.json` 逐项自检；可运行代码时按 `references/quality-gate.md` 调用 `scripts/check-quality.mjs` 做静态门禁。
 
 ## Web 中后台资料
 

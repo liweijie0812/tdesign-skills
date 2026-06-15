@@ -9,7 +9,11 @@
 3. 需要表单录入、编辑、配置、审批页时，查 `form-page.md`。
 4. 需要后台列表、资源列表、结构化数据浏览页时，查 `table-list-page.md`。
 5. 需要后台框架、控制台骨架、导航壳时，查 `layout-shell.md`。
-6. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认 props、事件、插槽和写法。
+6. 需要详情页、对象档案或审批详情时，查 `detail-page.md`。
+7. 需要登录、注册或身份入口时，查 `login-page.md`。
+8. 需要错误页、无权限页或结果页时，查 `error-page.md`。
+9. 需要移动端表单、移动端列表或轻量页面时，查 `mobile-pages.md`。
+10. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认 props、事件、插槽和写法。
 
 ## 与其他目录的边界
 

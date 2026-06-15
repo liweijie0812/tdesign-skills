@@ -17,7 +17,7 @@
 - Web 应用级侧边导航优先使用官方 `Menu + Layout` 组合，顶部导航优先使用官方顶部导航 / `Menu.HeadMenu` 等价组合。
 - 当前位置层级使用 `Breadcrumb`，不替代整站主导航。
 - 侧边导航与顶部导航一般不要在同一页面同时完整并存；如业务必须并存，全页只能保留一个 Logo + 系统名称品牌位。
-- Web 与标准侧栏或顶部导航组合时，`Header` / `t-layout__header` 默认使用 `var(--td-comp-size-xxxl)` 高度；自定义时同时设置 `height`、`min-height` 和 `flex-shrink: 0`。
+- Web 与标准侧栏或顶部导航组合时，`Header` / `t-layout__header` 在页面模板中优先使用 `var(--td-comp-size-xxxl)` 高度；TDesign Vue Next 官方样式默认值可为 `64px`，Token 优先用于生成一致的应用壳，不表示官方默认值错误。自定义时同时设置 `height`、`min-height` 和 `flex-shrink: 0`。
 - 页面内平级内容切换使用 `Tabs`，流程进度使用 `Steps`。
 - 固定快捷工具使用 `StickyTool`，返回顶部使用 `BackTop`。
 - 间距优先使用 `Space`、`Grid`、`Row`、`Col`，不要零散堆 margin。

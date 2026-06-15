@@ -9,7 +9,7 @@ description: 当用户询问 TDesign 文档入口、资料在哪里、当前技�
 
 ## 查阅顺序
 
-1. 技术栈和组件覆盖：查 `references/meta/stack-matrix.json`（全局概览），以及按端分文件 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`（各栈组件列表与类型源明细）。
+1. 技术栈、组件覆盖和本地示例模板标记：查 `references/meta/stack-matrix.json`（全局概览），以及按端分文件 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`（各栈组件列表、`coverage.hasExample` 与类型源明细）。
 2. 上游来源链接和同步信息：查 `references/meta/source-links.md`。
 3. API 资料入口：查 `references/api/README.md` 和 `references/api/index.md`。
 4. 选型资料入口：查 `../tdesign-usage-guide/references/decisions/README.md`。

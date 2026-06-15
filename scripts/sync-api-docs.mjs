@@ -170,6 +170,22 @@ const SKILL_BY_STACK = {
   uniapp: 'tdesign-uniapp',
 };
 
+const EXAMPLE_COMPONENT_ALIASES = {
+  aside: 'layout',
+  col: 'grid',
+  content: 'layout',
+  descriptionsitem: 'descriptions',
+  footer: 'layout',
+  formitem: 'form',
+  headmenu: 'menu',
+  header: 'layout',
+  layoutheader: 'layout',
+  menuitem: 'menu',
+  row: 'grid',
+  submenu: 'menu',
+  timelineitem: 'timeline',
+};
+
 function stackOutputDir(stack) {
   return new URL(`${SKILL_BY_STACK[stack.key]}/references/api/`, OUTPUT_ROOT);
 }
@@ -340,6 +356,64 @@ function kebabCase(name) {
 
 function unique(items) {
   return [...new Set(items)];
+}
+
+function normalizeExampleComponentName(name) {
+  const normalizedName = name.trim().replace(/[`*]/g, '');
+  if (!normalizedName) return '';
+  const aliasName = normalizedName.toLowerCase();
+  const componentName = normalizedName.replace(/^T(?=[A-Z])/, '');
+  const tPrefixAliasName = componentName.toLowerCase();
+  return EXAMPLE_COMPONENT_ALIASES[aliasName] ?? EXAMPLE_COMPONENT_ALIASES[tPrefixAliasName] ?? kebabCase(componentName);
+}
+
+async function walkExampleFiles(dirUrl) {
+  let entries;
+  try {
+    entries = await fs.readdir(dirUrl, { withFileTypes: true });
+  } catch (error) {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  }
+
+  const files = [];
+  for (const entry of entries) {
+    const entryUrl = new URL(entry.name, dirUrl);
+    if (entry.isDirectory()) {
+      files.push(...(await walkExampleFiles(new URL(`${entry.name}/`, dirUrl))));
+    } else if (entry.isFile() && /\.(vue|tsx|jsx|ts|js|md)$/.test(entry.name)) {
+      files.push(entryUrl);
+    }
+  }
+  return files;
+}
+
+function parseExampleComponents(content, stackComponents) {
+  const componentSet = new Set(stackComponents);
+  const covered = new Set();
+  const pattern = /覆盖组件[：:]\s*([^\n\r*]+)/g;
+  for (const match of content.matchAll(pattern)) {
+    for (const rawName of match[1].split(/[、,，]/)) {
+      const component = normalizeExampleComponentName(rawName);
+      if (componentSet.has(component)) {
+        covered.add(component);
+      }
+    }
+  }
+  return covered;
+}
+
+async function collectExampleComponents(stack, stackComponents) {
+  const examplesDir = new URL(`${SKILL_BY_STACK[stack]}/references/examples/`, OUTPUT_ROOT);
+  const files = await walkExampleFiles(examplesDir);
+  const covered = new Set();
+  for (const file of files) {
+    const content = await fs.readFile(file, 'utf8');
+    for (const component of parseExampleComponents(content, stackComponents)) {
+      covered.add(component);
+    }
+  }
+  return [...covered].sort((a, b) => a.localeCompare(b));
 }
 
 function githubUrl(stack, filePath, mode = 'blob') {
@@ -662,6 +736,14 @@ async function writeStackMatrix(summary, componentMaps) {
   const sourceFilesByStack = Object.fromEntries(summary.map((item) => [item.stack, item.sourceFilesByComponent]));
   const missingSourceFilesByStack = Object.fromEntries(summary.map((item) => [item.stack, item.missingSourceFilesByComponent]));
   const commonSourceFilesByStack = Object.fromEntries(summary.map((item) => [item.stack, item.commonSourceFiles]));
+  const hasExampleByStack = Object.fromEntries(
+    await Promise.all(
+      summary.map(async (item) => {
+        const exampleComponents = new Set(await collectExampleComponents(item.stack, item.okComponents));
+        return [item.stack, Object.fromEntries(item.okComponents.map((component) => [component, exampleComponents.has(component)]))];
+      })
+    )
+  );
   const webStacks = STACKS.filter((stack) => stack.group === 'web').map((stack) => stack.key);
   const mobileStacks = STACKS.filter((stack) => stack.group === 'mobile').map((stack) => stack.key);
   const miniprogramStacks = STACKS.filter((stack) => stack.group === 'miniprogram').map((stack) => stack.key);
@@ -731,6 +813,10 @@ async function writeStackMatrix(summary, componentMaps) {
       stacks,
       coverage: {
         byStack: pickStacks(componentsByStack),
+        hasExample: {
+          description: 'Whether each component has at least one local template under skills/<skill>/references/examples/.',
+          byStack: pickStacks(hasExampleByStack),
+        },
         missingByStack: pickStacks(missingByStack),
         commonSourceFilesByStack: pickStacks(commonSourceFilesByStack),
         sourceFilesByStack: pickStacks(sourceFilesByStack),

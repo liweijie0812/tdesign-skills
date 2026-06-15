@@ -19,12 +19,17 @@ node skills/tdesign-composition/scripts/check-quality.mjs src/pages/dashboard.vu
 
 | 编号 | 级别 | 检查 | 处理建议 |
 | --- | --- | --- | --- |
+| `DS-001` | warn | UI 文件未发现关键 TDesign 组件标签 | 优先使用 `Layout`、`Form`、`Table`、`Card`、`Menu` 等真实组件 |
 | `DS-002` | error | CSS 中出现硬编码 hex / rgba 颜色 | 改用 `--td-*` 语义 Token |
 | `DS-003` | warn | CSS 中出现硬编码 px 间距、字号、圆角 | 改用 `--td-size-*`、`--td-comp-*`、`--td-font-*`、`--td-radius-*` |
 | `DS-004` | error | Header 类样式缺少 `height`、`min-height`、`flex-shrink: 0` 任一项 | 使用 `var(--td-comp-size-xxxl)` 并补齐三项 |
+| `DS-005` | warn | `<t-aside>` 和 `<t-header>` 中同时出现 `logo` / `brand` | 确认全页只保留一个 Logo + 系统名称品牌位 |
 | `DS-006` | error | 出现删除 / 禁用 / 下线 / 清空等危险操作但没有确认组件 | 使用 `Popconfirm`、`Dialog` 或当前栈等价确认组件 |
 | `DS-007` | warn | 出现 `Table` / 列表数据区域但没有空状态或加载态线索 | 补 `Empty`、`loading`、`Skeleton` 或失败态 |
 | `DS-008` | error | 出现 Emoji、自绘 SVG、外部 iconfont 或临时图标图片 | 使用 TDesign Icons，并先查 manifest |
+| `DS-009` | warn | 彩色实心底缺少 `--td-text-color-anti` | 为品牌色、成功色、告警色、错误色实心背景补反色文字 |
+| `DS-010` | warn | 页面出现表格、列表或数据关键词但未发现真实 Table | 结构化行列数据使用 `Table` 与列配置 |
+| `DS-011` | warn | 出现 `success` / `warning` / `error` 但缺少组件状态表达 | 使用 `Tag`、`Alert`、`theme=`、`status=`、文字或图标辅助表达 |
 
 ## 与 checklist 的关系
 
@@ -36,4 +41,11 @@ node skills/tdesign-composition/scripts/check-quality.mjs src/pages/dashboard.vu
 
 - 脚本按静态文本扫描，不理解业务语义和运行时分支。
 - 误报时优先修正文档或代码表达，不建议直接绕过。
+- 当前脚本可自动扫描 `DS-001` 到 `DS-011`；`DS-012` 是生成后逐项自检的流程要求，只能人工确认。
 - Mobile / Miniprogram 不套用 Web Header、Table 和 Menu 规则；跨端页面按当前端组件 API 和项目规范确认。
+- `DS-001` 只能判断是否出现关键 TDesign 标签，不能证明所有模块都未用裸 DOM 伪装组件。
+- `DS-005` 只检测同一文件内 `<t-aside>` 与 `<t-header>` 文本块中的 `logo` / `brand`，无法跨组件追踪品牌位。
+- `DS-009` 只检查静态 CSS 声明块，无法解析运行时 class、内联对象样式或主题覆盖后的最终颜色。
+- `DS-010` 以「表格 / 列表 / 数据 / Table / table」关键词触发，条目流、卡片流或移动端列表需要人工判断是否适用 Table。
+- `DS-011` 只检查英文状态关键词和常见辅助组件 / props，中文状态文案与业务态需要人工复核。
+- `DS-012` 是交付流程元检查，无法由脚本自动证明，必须在最终交付中逐项说明通过、无需适用或需人工确认。
