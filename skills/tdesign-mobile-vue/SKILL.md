@@ -25,7 +25,7 @@ description: 当项目使用 tdesign-mobile-vue，且任务需要 Mobile Vue 单
 - 不要把 `tdesign-vue-next`、`tdesign-vue`、Mobile React 或 Miniprogram API 当作 Mobile Vue API。
 - 不要凭经验编造 props、事件、插槽或函数式调用。
 - 组件选型转到 `tdesign-usage-guide`，页面组合转到 `tdesign-composition`。
-- 图标名称转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
+- 图标名称、图标包和导入方式转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
 
 ## 约束
 

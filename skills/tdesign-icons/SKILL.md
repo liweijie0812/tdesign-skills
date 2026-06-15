@@ -1,11 +1,11 @@
 ---
 name: tdesign-icons
-description: 当用户需要查找 TDesign 图标、搜索图标名称/关键词、浏览图标分类、确认图标是否存在，或需要为 TDesign 项目选择合适的图标名时使用。只负责 manifest 图标检索；不负责图标组件 API、业务图标设计或版本历史。
+description: 当用户需要查找 TDesign 图标、搜索图标名称/关键词、浏览图标分类、确认图标是否存在，或需要确定 TDesign 图标包名、安装命令、导入方式和当前技术栈图标写法时使用。只负责 manifest 图标检索和官方图标包用法；不负责业务图标设计或版本历史。
 ---
 
 # TDesign Icons 图标检索
 
-本 skill 用于查找和检索 TDesign Icons 图标库中的图标，支持按名称、关键词、分类和风格进行搜索。
+本 skill 用于查找和检索 TDesign Icons 图标库中的图标，并锁定当前技术栈应使用的官方图标包、安装命令和导入方式。
 
 数据来源：`tdesign-icons` 官方 `manifest.js`，包含 2000+ 个图标的全量元数据。
 
@@ -29,12 +29,24 @@ node skills/tdesign-icons/scripts/query-icons.mjs --name close --exact
 ```bash
 node skills/tdesign-icons/scripts/query-icons.mjs --search <关键词>
 node skills/tdesign-icons/scripts/query-icons.mjs --category <分类名>
+node skills/tdesign-icons/scripts/query-icons.mjs --name search --exact --stack mobile-vue
 ```
 
 ### 找到图标后的推荐方式
 
-找到图标名后，**优先推荐按需引入**（`import { XxxIcon } from 'tdesign-icons-xxx'`），不走网络 CDN。
-图标组件 API（`size`、`onClick` 等）参考当前技术栈 skill 的 `references/api/icon/index.md`。
+找到图标名后，必须先确认当前技术栈，再使用下表中的官方包名和导入方式；不要写占位包名、猜包名或跨栈复用包名。
+
+| 技术栈 | 安装包 | 推荐写法 |
+| --- | --- | --- |
+| React Web / `tdesign-react` | `tdesign-icons-react` | `import { SearchIcon } from 'tdesign-icons-react';` |
+| Vue 3 Web / `tdesign-vue-next` | `tdesign-icons-vue-next` | `import { SearchIcon } from 'tdesign-icons-vue-next';` |
+| Vue 2 Web / `tdesign-vue` | `tdesign-icons-vue` | `import { SearchIcon } from 'tdesign-icons-vue';` |
+| Mobile React / `tdesign-mobile-react` | `tdesign-icons-react` | `import { SearchIcon } from 'tdesign-icons-react';` |
+| Mobile Vue / `tdesign-mobile-vue` | `tdesign-icons-vue-next` | `import { SearchIcon } from 'tdesign-icons-vue-next';` |
+| Miniprogram / `tdesign-miniprogram` | 使用组件库内置 `t-icon`，多色 / 可变粗细才按 `references/usage-guide.md` 评估 `@mp-svg-icons/*` | 不安装 React / Vue 图标包 |
+| UniApp / `tdesign-uniapp` | 使用组件库 Icon API，先查当前项目依赖和 `tdesign-uniapp` API | 不安装 React / Vue 图标包 |
+
+图标组件 API（`size`、事件、插槽等）参考当前技术栈 skill 的 `references/api/icon/index.md`。
 使用方式、多色图标、小程序适配等详细参考：查 `references/usage-guide.md`。
 
 ## 快速查询
@@ -58,6 +70,10 @@ node skills/tdesign-icons/scripts/query-icons.mjs --category Arrows --style outl
 
 # 精确查找图标名称
 node skills/tdesign-icons/scripts/query-icons.mjs --name chevron-down
+
+# 同时输出当前技术栈的图标包和按需导入
+node skills/tdesign-icons/scripts/query-icons.mjs --name search --exact --stack mobile-react
+node skills/tdesign-icons/scripts/query-icons.mjs --name search --exact --stack mobile-vue
 
 # JSON 输出（便于程序处理）
 node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
@@ -89,12 +105,22 @@ node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 - 变体（如 `-1`、`-2`）区分同语义不同形态
 - 导入名规则：`search` → `SearchIcon`（首字母大写 + `Icon` 后缀），`chevron-down` → `ChevronDownIcon`
 
+## 包名与导入红线
+
+- 禁止输出 `tdesign-icons-xxx`、`tdesign-icons-web`、`tdesign-icon`、`tdesign-icons` 等不存在或占位包名。
+- 禁止在 Vue 3 项目中安装或导入 `tdesign-icons-react`；禁止在 React 项目中安装或导入 `tdesign-icons-vue-next` / `tdesign-icons-vue`。
+- 禁止在 Vue 3 项目中使用 `tdesign-icons-vue`，除非项目实际依赖是 Vue 2 的 `tdesign-vue`。
+- Mobile React 使用 `tdesign-icons-react`，Mobile Vue 使用 `tdesign-icons-vue-next`；禁止把 Mobile Vue 写成 `tdesign-icons-vue`。
+- 禁止在小程序或 uni-app 任务中直接套用 React / Vue 图标包；必须先回到当前端 `Icon` API 或项目依赖确认。
+- Web 生产代码优先使用按需图标组件；`<Icon name="..." />` / `<t-icon name="..." />` 可能走默认图标加载机制，只有当前项目已确认可用时才使用。
+- 生成安装命令时必须同时给出当前技术栈组件包和图标包的对应关系，例如 `tdesign-vue-next` 对应 `tdesign-icons-vue-next`。
+
 ## 约束
 
 - 图标名称以 manifest 数据为准，不要凭经验编造图标名。
 - 不要直接读取 `references/manifest.json`；该文件很大，只通过 `query-icons.mjs` 按需查询。
-- **优先推荐按需引入**，不默认使用 `<Icon name="..." />` 走 CDN。
+- **优先推荐按需引入**，且包名必须来自“找到图标后的推荐方式”矩阵，不默认使用 `<Icon name="..." />` / `<t-icon name="..." />`。
 - **精确查找优先用 `--name <名称> --exact`**（精确匹配，跳过模糊阶段）；模糊搜索用 `--search`。
 - 搜索不到图标时，可尝试放宽关键词、切换风格或使用 `--list-categories` 浏览。
-- 图标组件 props、事件、导入包名和当前栈写法，必须转到对应技术栈 `Icon` API。
+- 图标组件 props、事件和当前栈写法，必须转到对应技术栈 `Icon` API；包名不得脱离本 skill 的官方包名矩阵。
 - 更新 manifest 数据：`node skills/tdesign-icons/scripts/convert-manifest.mjs`。

@@ -26,7 +26,7 @@ description: 当项目使用 tdesign-vue-next，且任务需要 Vue 3 Web 单组
 - 不要把 Vue 2、React、Mobile 或 Miniprogram API 当作 Vue Next API。
 - 不要凭经验编造 props、事件、插槽或函数式调用。
 - 组件选型转到 `tdesign-usage-guide`，页面组合转到 `tdesign-composition`。
-- 图标名称转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
+- 图标名称、图标包和导入方式转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
 
 ## 页面模板
 

@@ -4,14 +4,32 @@
 
 ## 安装
 
+先确认当前项目使用的 TDesign 技术栈，再安装对应图标包。不要把 React / Vue 2 / Vue 3 图标包混用。
+
+| 技术栈 | 组件包 | 图标包 |
+| --- | --- | --- |
+| React Web | `tdesign-react` | `tdesign-icons-react` |
+| Vue 3 Web | `tdesign-vue-next` | `tdesign-icons-vue-next` |
+| Vue 2 Web | `tdesign-vue` | `tdesign-icons-vue` |
+| Mobile React | `tdesign-mobile-react` | `tdesign-icons-react` |
+| Mobile Vue | `tdesign-mobile-vue` | `tdesign-icons-vue-next` |
+| Miniprogram | `tdesign-miniprogram` | 默认用内置 `t-icon`；多色 / 可变粗细才评估 `@mp-svg-icons/*` |
+| UniApp | `tdesign-uniapp` | 先查当前项目依赖和 `Icon` API，不直接套用 Web 包 |
+
 ```bash
 # React
 npm install tdesign-icons-react
+# Mobile React
+npm install tdesign-icons-react
 # Vue 3
+npm install tdesign-icons-vue-next
+# Mobile Vue
 npm install tdesign-icons-vue-next
 # Vue 2
 npm install tdesign-icons-vue
 ```
+
+禁止使用 `tdesign-icons-xxx`、`tdesign-icons-web`、`tdesign-icon`、`tdesign-icons` 作为安装包名。
 
 ## React 按需引入
 

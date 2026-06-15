@@ -26,7 +26,7 @@ description: 当项目使用 tdesign-uniapp，且任务需要 uni-app 单组件 
 - 不要把 React 点语法、Vue Web `v-model` 约定、小程序 `bind` 事件或 WXML 模板语法套到 uni-app。
 - 不要凭经验编造 props、事件、插槽或组件名。
 - 组件选型转到 `tdesign-usage-guide`，页面组合转到 `tdesign-composition`。
-- 图标名称转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
+- 图标名称、图标包和导入方式转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
 
 ## 与小程序的关键差异
 

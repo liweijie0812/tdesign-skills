@@ -13,13 +13,13 @@
 | 该选哪个组件、为什么、有哪些反模式 | `tdesign-usage-guide` | 设计决策、相似组件取舍、迁移/评审口径 | 具体 props、事件、插槽和代码落地 |
 | 设计规范、Design Token、某类页面怎么搭、组件怎么组合 | `tdesign-composition` | 页面骨架、组件组合、视觉规范、Token 速查和场景校验点 | 单个组件 API 细节、版本来源 |
 | 某组件 props、事件、插槽、类型和示例代码 | 对应技术栈 API skill | 当前技术栈的真实 API 和写法 | 跨栈推断、组件是否应该选用 |
-| 图标名称、关键词、分类、是否存在 | `tdesign-icons` | 图标检索和候选图标名 | 图标组件 API 细节、业务图标设计 |
+| 图标名称、关键词、分类、是否存在、包名和导入方式 | `tdesign-icons` | 图标检索、候选图标名、官方图标包和按需导入方式 | 图标组件 API 细节、业务图标设计 |
 | 能力在哪个版本新增、修复、废弃 | `tdesign-changelog` | 版本历史、breaking changes、迁移线索 | 当前 API 形状和默认值 |
 
 ## 交接规则
 
 - 选型结论需要落地代码时，从 `tdesign-usage-guide` 交接到对应技术栈 API skill。
 - 页面骨架确定后，从 `tdesign-composition` 交接到对应技术栈 API skill。
-- 图标名确定后，从 `tdesign-icons` 交接到对应技术栈的 `Icon` API。
+- 图标名、图标包和按需导入方式确定后，从 `tdesign-icons` 交接到对应技术栈的 `Icon` API。
 - changelog 查到版本线索后，必须回到对应技术栈 API skill 确认当前写法。
 - 组件缺失或能力不足时，先查 `tdesign-docs` 覆盖矩阵，再查 `tdesign-usage-guide` 降级策略。

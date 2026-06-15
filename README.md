@@ -52,7 +52,7 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 ## 使用指引（AI Agent）
 
 1. 先确认平台口径和项目技术栈，避免混用 Web、移动端、小程序、uni-app、React、Vue 3 和 Vue 2 写法。
-2. 根 `tdesign-skills` 只做任务路由；资料入口用 `tdesign-docs`，选型和迁移评审用 `tdesign-usage-guide`，页面搭配用 `tdesign-composition`，图标检索用 `tdesign-icons`。
+2. 根 `tdesign-skills` 只做任务路由；资料入口用 `tdesign-docs`，选型和迁移评审用 `tdesign-usage-guide`，页面搭配用 `tdesign-composition`，图标名、包名和导入方式用 `tdesign-icons`。
 3. 查询组件可用性先查 `skills/tdesign-docs/references/meta/stack-matrix.json`（全局概览），再按端查 `stack-matrix-web.json`、`stack-matrix-mobile.json` 或 `stack-matrix-miniprogram.json`。
 4. 具体 API、事件、插槽和写法差异按当前依赖进入技术栈 skill：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue2`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 或 `tdesign-uniapp`。
 5. 版本能力、新增、修复和废弃问题用 `tdesign-changelog`，查完后仍回到当前栈 API 文件确认真实写法。

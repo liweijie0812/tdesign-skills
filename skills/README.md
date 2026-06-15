@@ -10,7 +10,7 @@
 | `tdesign-docs/` | 文档入口、组件覆盖矩阵、跨端共享契约 |
 | `tdesign-usage-guide/` | 组件选型、相似组件、反模式和降级策略 |
 | `tdesign-composition/` | 页面级组合、设计规范、Design Token、场景卡和质量门禁 |
-| `tdesign-icons/` | 图标名、关键词、分类和 manifest 检索 |
+| `tdesign-icons/` | 图标名、关键词、分类、包名和导入方式 |
 | `tdesign-changelog/` | 版本能力、新增、修复、废弃和 Breaking Changes 查询 |
 | `tdesign-react/` | `tdesign-react` API、JSX 写法和示例 |
 | `tdesign-vue-next/` | `tdesign-vue-next` API、Vue 3 写法和示例 |

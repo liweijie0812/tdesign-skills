@@ -6,6 +6,68 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const MANIFEST_PATH = resolve(__dirname, '../references/manifest.json');
 
+const stackUsage = {
+  react: {
+    label: 'React Web / tdesign-react',
+    componentPackage: 'tdesign-react',
+    iconPackage: 'tdesign-icons-react',
+    importFrom: 'tdesign-icons-react',
+  },
+  'vue-next': {
+    label: 'Vue 3 Web / tdesign-vue-next',
+    componentPackage: 'tdesign-vue-next',
+    iconPackage: 'tdesign-icons-vue-next',
+    importFrom: 'tdesign-icons-vue-next',
+  },
+  vue2: {
+    label: 'Vue 2 Web / tdesign-vue',
+    componentPackage: 'tdesign-vue',
+    iconPackage: 'tdesign-icons-vue',
+    importFrom: 'tdesign-icons-vue',
+  },
+  'mobile-react': {
+    label: 'Mobile React / tdesign-mobile-react',
+    componentPackage: 'tdesign-mobile-react',
+    iconPackage: 'tdesign-icons-react',
+    importFrom: 'tdesign-icons-react',
+  },
+  'mobile-vue': {
+    label: 'Mobile Vue / tdesign-mobile-vue',
+    componentPackage: 'tdesign-mobile-vue',
+    iconPackage: 'tdesign-icons-vue-next',
+    importFrom: 'tdesign-icons-vue-next',
+  },
+  miniprogram: {
+    label: 'Miniprogram / tdesign-miniprogram',
+    componentPackage: 'tdesign-miniprogram',
+    tag: 't-icon',
+    note: 'Use built-in t-icon first. For multicolor or variable stroke width, evaluate @mp-svg-icons/* from references/usage-guide.md.',
+  },
+  uniapp: {
+    label: 'UniApp / tdesign-uniapp',
+    componentPackage: 'tdesign-uniapp',
+    note: 'Use the current project Icon API and dependency setup. Do not assume React or Vue Web icon packages.',
+  },
+};
+
+const stackAliases = {
+  react: 'react',
+  'tdesign-react': 'react',
+  'vue-next': 'vue-next',
+  vue3: 'vue-next',
+  'tdesign-vue-next': 'vue-next',
+  vue2: 'vue2',
+  'tdesign-vue': 'vue2',
+  'mobile-react': 'mobile-react',
+  'tdesign-mobile-react': 'mobile-react',
+  'mobile-vue': 'mobile-vue',
+  'tdesign-mobile-vue': 'mobile-vue',
+  miniprogram: 'miniprogram',
+  'tdesign-miniprogram': 'miniprogram',
+  uniapp: 'uniapp',
+  'tdesign-uniapp': 'uniapp',
+};
+
 function readManifest() {
   try {
     return JSON.parse(readFileSync(MANIFEST_PATH, 'utf-8'));
@@ -134,6 +196,7 @@ function printHelp() {
   node skills/tdesign-icons/scripts/query-icons.mjs --category Brand [--style filled|outline] [--limit 20]
   node skills/tdesign-icons/scripts/query-icons.mjs --search <keyword>
   node skills/tdesign-icons/scripts/query-icons.mjs --name <icon-name> [--exact]
+  node skills/tdesign-icons/scripts/query-icons.mjs --name search --exact --stack vue-next
   node skills/tdesign-icons/scripts/query-icons.mjs --stats
   node skills/tdesign-icons/scripts/query-icons.mjs --style filled --search <keyword>
 
@@ -143,6 +206,7 @@ Options:
   --search <keyword>        Search icons by name or keyword (supports Chinese/English)
   --name <icon-name>        Icon name lookup (substring match by default; use --exact for exact match)
   --exact                   When used with --name, do exact name match only (no substring/fuzzy)
+  --stack <stack>           Print package/import usage for react|vue-next|vue2|mobile-react|mobile-vue|miniprogram|uniapp
   --list-categories         List all categories
   --limit <n>               Max results (default: 50)
   --stats                   Show icon statistics
@@ -153,7 +217,7 @@ Options:
 
 function parseArgs(args) {
   const options = { limit: 50 };
-  const withValue = new Set(['--style', '--category', '--search', '--name', '--limit']);
+  const withValue = new Set(['--style', '--category', '--search', '--name', '--limit', '--stack']);
   for (let i = 0; i < args.length; i += 1) {
     const arg = args[i];
     if (arg === '--help') { options.help = true; break; }
@@ -169,6 +233,7 @@ function parseArgs(args) {
       case '--search': options.search = args[i]; break;
       case '--name': options.name = args[i]; break;
       case '--limit': options.limit = parseInt(args[i], 10) || 50; break;
+      case '--stack': options.stack = normalizeStack(args[i]); break;
       case '--list-categories': options.listCategories = true; break;
       case '--exact': options.exact = true; break;
       case '--stats': options.stats = true; break;
@@ -177,6 +242,14 @@ function parseArgs(args) {
     }
   }
   return options;
+}
+
+function normalizeStack(stack) {
+  const normalized = stackAliases[stack.toLowerCase()];
+  if (!normalized) {
+    throw new Error(`Unknown stack: ${stack}. Use react, vue-next, vue2, mobile-react, mobile-vue, miniprogram, or uniapp.`);
+  }
+  return normalized;
 }
 
 function listCategories(manifest, style) {
@@ -230,6 +303,50 @@ function formatIcon(icon) {
   return `  ${icon.name}  (${icon.style} / ${icon.category} / ${icon.categoryCN})${kw}`;
 }
 
+function toIconComponentName(iconName) {
+  return `${iconName
+    .split('-')
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('')}Icon`;
+}
+
+function stackUsageFor(stack, iconName) {
+  const usage = stackUsage[stack];
+  if (usage.importFrom) {
+    const componentName = iconName ? toIconComponentName(iconName) : undefined;
+    return {
+      stack,
+      label: usage.label,
+      componentPackage: usage.componentPackage,
+      iconPackage: usage.iconPackage,
+      install: `npm install ${usage.iconPackage}`,
+      importName: componentName,
+      importStatement: componentName ? `import { ${componentName} } from '${usage.importFrom}';` : undefined,
+    };
+  }
+  return {
+    stack,
+    label: usage.label,
+    componentPackage: usage.componentPackage,
+    usage: usage.tag && iconName ? `<${usage.tag} name="${iconName}" />` : undefined,
+    note: usage.note,
+  };
+}
+
+function printStackUsage(usage) {
+  console.log('\nStack usage:');
+  console.log(`  stack: ${usage.label}`);
+  console.log(`  component package: ${usage.componentPackage}`);
+  if (usage.iconPackage) {
+    console.log(`  icon package: ${usage.iconPackage}`);
+    console.log(`  install: ${usage.install}`);
+    if (usage.importStatement) console.log(`  import: ${usage.importStatement}`);
+  }
+  if (usage.usage) console.log(`  usage: ${usage.usage}`);
+  if (usage.note) console.log(`  note: ${usage.note}`);
+}
+
 function main() {
   let options;
   try {
@@ -245,18 +362,25 @@ function main() {
     return;
   }
 
+  if (options.stack && !options.search && !options.name && !options.category && !options.listCategories && !options.stats) {
+    printStackUsage(stackUsageFor(options.stack));
+    return;
+  }
+
   const manifest = readManifest();
 
   // Fast path: --name with --exact — skips flatten + fuzzyMatch, direct traversal
   if (options.name && options.exact) {
     const results = exactNameLookup(manifest, options.name, options);
+    const usage = options.stack && results.length ? stackUsageFor(options.stack, results[0].name) : undefined;
     if (options.json) {
-      console.log(JSON.stringify(results, null, 2));
+      console.log(JSON.stringify(usage ? { icons: results, usage } : results, null, 2));
     } else if (!results.length) {
       console.log('No icons found.');
     } else {
       console.log(`Found ${results.length} icon(s):`);
       results.forEach((i) => console.log(formatIcon(i)));
+      if (usage) printStackUsage(usage);
     }
     return;
   }
@@ -278,14 +402,16 @@ function main() {
 
   if (options.search || options.name || options.category) {
     const results = searchIcons(manifest, options);
+    const usage = options.stack && results.length ? stackUsageFor(options.stack, results[0].name) : undefined;
     if (options.json) {
-      console.log(JSON.stringify(results, null, 2));
+      console.log(JSON.stringify(usage ? { icons: results, usage } : results, null, 2));
     } else {
       if (!results.length) {
         console.log('No icons found.');
       } else {
         console.log(`Found ${results.length} icon(s):`);
         results.forEach((i) => console.log(formatIcon(i)));
+        if (usage) printStackUsage(usage);
       }
     }
     return;

@@ -36,7 +36,7 @@ description: 当 TDesign 任务尚未明确技术栈、横跨多个 TDesign 包�
 - 组件选型、相似组件、何时使用、反模式 → `tdesign-usage-guide`
 - 页面搭建、组件搭配、场景骨架 → `tdesign-composition`
 - 具体 props/事件/插槽/类型/代码落地 → 对应技术栈专项 skill
-- 图标名称、关键词、分类、是否存在 → `tdesign-icons`
+- 图标名称、关键词、分类、是否存在、包名、导入方式 → `tdesign-icons`
 - 版本能力、新增、修复、废弃 → `tdesign-changelog`
 - 设计规范、视觉校验、Design Token、色彩、布局 → `tdesign-composition/references/design/`
 
@@ -44,7 +44,7 @@ description: 当 TDesign 任务尚未明确技术栈、横跨多个 TDesign 包�
 
 - 选型先 `tdesign-usage-guide`，落地代码再进入对应技术栈 API skill。
 - 页面组合先 `tdesign-composition`，单组件写法再进入对应技术栈 API skill。
-- 图标检索先 `tdesign-icons`，图标组件 props 再进入对应技术栈 API skill。
+- 图标名、图标包和按需导入先 `tdesign-icons`，图标组件 props 再进入对应技术栈 API skill。
 - 版本线索先 `tdesign-changelog`，当前 API 形状再进入对应技术栈 API skill。
 - 组件是否存在先 `tdesign-docs` 覆盖矩阵，缺失时再查 `tdesign-usage-guide` 降级策略。
 
