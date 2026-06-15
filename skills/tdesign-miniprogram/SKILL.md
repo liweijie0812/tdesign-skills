@@ -1,6 +1,6 @@
 ---
 name: tdesign-miniprogram
-description: 当项目使用 tdesign-miniprogram，且任务需要小程序组件 API、WXML 写法、短横线属性、bind 事件、external classes、usingComponents、示例代码或实现/修复 TDesign 小程序 UI 时使用。只读取 references/api/ 和 references/examples/。
+description: 当项目使用 tdesign-miniprogram，且任务需要小程序单组件 API、WXML 写法、短横线属性、bind 事件、external classes、usingComponents、示例代码或已确定组件后的代码落地/修复时使用。只负责当前栈 API；组件选型、页面组合、图标检索和版本历史转到对应专项 skill。
 ---
 
 # TDesign Miniprogram API
@@ -24,6 +24,8 @@ description: 当项目使用 tdesign-miniprogram，且任务需要小程序组�
 - external classes、插槽、子组件和事件 payload 必须以 `references/api/` 为准。
 - 不要把 React、Vue、Mobile Web 写法套到小程序。
 - 不要凭经验编造 props、事件、插槽、CSS Variables 或 external classes。
+- 组件选型转到 `tdesign-usage-guide`，页面组合转到 `tdesign-composition`。
+- 图标名称转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
 
 ## 约束
 

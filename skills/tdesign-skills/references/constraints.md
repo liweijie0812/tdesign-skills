@@ -8,6 +8,12 @@
 4. 禁止用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力。
 5. 禁止凭经验猜 props、事件、插槽、函数式调用或小程序 external classes。
 
+## 职责边界
+
+- 每次只选择 1 个主责 skill，职责划分见 `responsibility-map.md`。
+- 不要把总入口、选型、页面组合和 API skill 同时当作主入口。
+- 当用户问题已经明确落在某个专项 skill 时，跳过总入口，直接进入该 skill。
+
 ## 跨栈隔离
 
 - 禁止混用 React 点语法、Vue 标签写法、小程序短横线属性、uni-app `@event` 语法和不同端默认值。

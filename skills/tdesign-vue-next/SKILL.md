@@ -1,6 +1,6 @@
 ---
 name: tdesign-vue-next
-description: 当项目使用 tdesign-vue-next，且任务需要 Vue 3 Web 组件 API、props、事件、插槽、v-model、类型、导入方式、示例代码或实现/修复 TDesign Vue Next UI 时使用。只读取 references/api/ 和 references/examples/。
+description: 当项目使用 tdesign-vue-next，且任务需要 Vue 3 Web 单组件 API、props、事件、插槽、v-model、类型、导入方式、示例代码或已确定组件后的代码落地/修复时使用。只负责当前栈 API；组件选型、页面组合、图标检索和版本历史转到对应专项 skill。
 ---
 
 # TDesign Vue Next API
@@ -24,6 +24,8 @@ description: 当项目使用 tdesign-vue-next，且任务需要 Vue 3 Web 组件
 - 事件名、插槽名、受控字段和子组件必须以 `references/api/` 为准。
 - 不要把 Vue 2、React、Mobile 或 Miniprogram API 当作 Vue Next API。
 - 不要凭经验编造 props、事件、插槽或函数式调用。
+- 组件选型转到 `tdesign-usage-guide`，页面组合转到 `tdesign-composition`。
+- 图标名称转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
 
 ## 约束
 

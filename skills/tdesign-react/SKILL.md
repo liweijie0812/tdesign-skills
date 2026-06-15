@@ -1,6 +1,6 @@
 ---
 name: tdesign-react
-description: 当项目使用 tdesign-react，且任务需要 React Web 组件 API、props、事件、子组件、类型、导入方式、JSX 写法、示例代码或实现/修复 TDesign React UI 时使用。只读取 references/api/ 和 references/examples/。
+description: 当项目使用 tdesign-react，且任务需要 React Web 单组件 API、props、事件、子组件、类型、导入方式、JSX 写法、示例代码或已确定组件后的代码落地/修复时使用。只负责当前栈 API；组件选型、页面组合、图标检索和版本历史转到对应专项 skill。
 ---
 
 # TDesign React Web API
@@ -24,6 +24,8 @@ description: 当项目使用 tdesign-react，且任务需要 React Web 组件 AP
 - 事件、受控字段、子组件和渲染函数必须以 `references/api/` 为准。
 - 不要把 `tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react` 的 API 当作 React Web API。
 - 不要凭经验编造 props、事件、插槽或函数式调用。
+- 组件选型转到 `tdesign-usage-guide`，页面组合转到 `tdesign-composition`。
+- 图标名称转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
 
 ## 约束
 

@@ -1,6 +1,6 @@
 ---
 name: tdesign-uniapp
-description: 当项目使用 tdesign-uniapp，且任务需要 uni-app 组件 API、easycom 引入、短横线属性、事件绑定、插槽、示例代码或实现/修复 TDesign uni-app UI 时使用。只读取 references/api/ 和 references/examples/。
+description: 当项目使用 tdesign-uniapp，且任务需要 uni-app 单组件 API、easycom 引入、短横线属性、事件绑定、插槽、示例代码或已确定组件后的代码落地/修复时使用。只负责当前栈 API；组件选型、页面组合、图标检索和版本历史转到对应专项 skill。
 ---
 
 # TDesign UniApp API
@@ -25,6 +25,8 @@ description: 当项目使用 tdesign-uniapp，且任务需要 uni-app 组件 API
 - 样式使用 `<style>` 或 `<style scoped>`，不使用小程序的 `@import` WXSS 路径。
 - 不要把 React 点语法、Vue Web `v-model` 约定、小程序 `bind` 事件或 WXML 模板语法套到 uni-app。
 - 不要凭经验编造 props、事件、插槽或组件名。
+- 组件选型转到 `tdesign-usage-guide`，页面组合转到 `tdesign-composition`。
+- 图标名称转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
 
 ## 与小程序的关键差异
 

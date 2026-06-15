@@ -1,0 +1,25 @@
+# TDesign Skills 职责边界
+
+## 单一主责
+
+每次处理 TDesign 任务时，只选择 1 个主责 skill，再按需读取其他 skill 的少量参考资料。不要把多个 skill 当作并列主入口同时展开。
+
+## 职责速查
+
+| 用户意图 | 主责 skill | 只回答什么 | 不回答什么 |
+| --- | --- | --- | --- |
+| 不确定项目使用哪个 TDesign 包，或任务横跨多个栈 | `tdesign-skills` | 识别依赖、判断技术栈、路由到专项 skill | 具体 API、完整实现 |
+| 文档入口、资料在哪里、当前栈有没有某组件 | `tdesign-docs` | 资料位置、覆盖矩阵、上游来源 | 组件选型理由、页面组合、props 写法 |
+| 该选哪个组件、为什么、有哪些反模式 | `tdesign-usage-guide` | 设计决策、相似组件取舍、迁移/评审口径 | 具体 props、事件、插槽和代码落地 |
+| 某类页面怎么搭、组件怎么组合 | `tdesign-composition` | 页面骨架、组件组合、场景校验点 | 单个组件 API 细节、版本来源 |
+| 某组件 props、事件、插槽、类型和示例代码 | 对应技术栈 API skill | 当前技术栈的真实 API 和写法 | 跨栈推断、组件是否应该选用 |
+| 图标名称、关键词、分类、是否存在 | `tdesign-icons` | 图标检索和候选图标名 | 图标组件 API 细节、业务图标设计 |
+| 能力在哪个版本新增、修复、废弃 | `tdesign-changelog` | 版本历史、breaking changes、迁移线索 | 当前 API 形状和默认值 |
+
+## 交接规则
+
+- 选型结论需要落地代码时，从 `tdesign-usage-guide` 交接到对应技术栈 API skill。
+- 页面骨架确定后，从 `tdesign-composition` 交接到对应技术栈 API skill。
+- 图标名确定后，从 `tdesign-icons` 交接到对应技术栈的 `Icon` API。
+- changelog 查到版本线索后，必须回到对应技术栈 API skill 确认当前写法。
+- 组件缺失或能力不足时，先查 `tdesign-docs` 覆盖矩阵，再查 `tdesign-usage-guide` 降级策略。

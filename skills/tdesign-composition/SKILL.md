@@ -1,6 +1,6 @@
 ---
 name: tdesign-composition
-description: 当用户询问 TDesign 组件搭配、页面场景、表单页、表格列表页、详情页、弹窗页、后台管理页、应用壳、导航布局或页面骨架怎么组织时使用。
+description: 当用户询问 TDesign 组件搭配、页面场景、表单页、表格列表页、详情页、弹窗页、后台管理页、应用壳、导航布局或页面骨架怎么组织时使用。只负责页面级组合和场景校验；不负责组件选型理由、单组件 API 或版本来源。
 ---
 
 # TDesign 组件搭配与页面场景
@@ -36,5 +36,7 @@ description: 当用户询问 TDesign 组件搭配、页面场景、表单页、�
 ## 约束
 
 - 场景卡只提供默认组合和校验点，不替代当前项目业务约束。
+- 组件选型争议先转到 `tdesign-usage-guide`，不要在场景卡里重新做选型规则。
 - 如果场景卡里的默认组件当前栈不存在，先查 `../tdesign-docs/references/meta/stack-matrix.json` 和 `../tdesign-usage-guide/references/decisions/fallback-policy.md`。
+- 场景组合确定后，单组件 props、事件、插槽必须回到对应技术栈 API skill。
 - 只有组件组合和 props 无法满足时，才补最小 CSS。

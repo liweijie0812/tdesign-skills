@@ -1,6 +1,6 @@
 ---
 name: tdesign-changelog
-description: 当用户询问 TDesign 某组件能力在哪个版本新增、修复、废弃、Breaking Changes、迁移提示，或需要按版本、组件、关键词查询 changelog 时使用。
+description: 当用户询问 TDesign 某组件能力在哪个版本新增、修复、废弃、Breaking Changes、迁移提示，或需要按版本、组件、关键词查询 changelog 时使用。只负责版本历史线索；不负责当前 API 形状、默认值或代码写法。
 ---
 
 # TDesign 变更日志查询
@@ -18,11 +18,11 @@ description: 当用户询问 TDesign 某组件能力在哪个版本新增、修�
 ## 查询命令
 
 ```bash
-node scripts/query-changelog.mjs --stack react --component Button
-node scripts/query-changelog.mjs --stack vue-next --component Alert --version 1.14.0 --json
-node scripts/query-changelog.mjs --stack mobile-vue --component Form --keyword readonly
-node scripts/query-changelog.mjs --stack miniprogram --component Upload --since 1.13.0 --until 1.15.0
-node scripts/query-changelog.mjs --stack mobile-react --component Dialog --category breaking
+node skills/tdesign-changelog/scripts/query-changelog.mjs --stack react --component Button
+node skills/tdesign-changelog/scripts/query-changelog.mjs --stack vue-next --component Alert --version 1.14.0 --json
+node skills/tdesign-changelog/scripts/query-changelog.mjs --stack mobile-vue --component Form --keyword readonly
+node skills/tdesign-changelog/scripts/query-changelog.mjs --stack miniprogram --component Upload --since 1.13.0 --until 1.15.0
+node skills/tdesign-changelog/scripts/query-changelog.mjs --stack mobile-react --component Dialog --category breaking
 ```
 
 ## 参数
@@ -39,4 +39,5 @@ node scripts/query-changelog.mjs --stack mobile-react --component Dialog --categ
 
 - 查到版本线索后，仍要回到对应技术栈 skill 的 `references/api/<component>/index.md` 确认真实写法。
 - 不要用 changelog 反推 API 形状、默认值或事件名。
+- 只判断版本变化，不替代 `tdesign-docs` 的组件覆盖矩阵。
 - 组件名查不到时，使用脚本返回的候选组件名重试。

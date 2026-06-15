@@ -1,6 +1,6 @@
 ---
 name: tdesign-usage-guide
-description: 当用户需要 TDesign 使用指南、组件选型、何时使用、相似组件比较、迁移到 TDesign、评审 TDesign 代码、反模式或降级策略时使用。不负责具体 props/API 写法。
+description: 当用户需要 TDesign 使用指南、组件选型、何时使用、相似组件比较、迁移到 TDesign、评审 TDesign 代码、反模式或降级策略时使用。只负责选型和设计决策；不负责页面骨架、具体 props/API 写法或图标检索。
 ---
 
 # TDesign 使用指南与选型
@@ -39,3 +39,5 @@ description: 当用户需要 TDesign 使用指南、组件选型、何时使用�
 - 评审时优先检查跨栈 API、伪造组件能力、过度自定义样式和重复造轮子。
 - 需要页面级组合时，转到 `tdesign-composition`。
 - 需要落地 API 时，转到对应技术栈 skill。
+- 需要确认组件是否存在时，转到 `tdesign-docs` 覆盖矩阵。
+- 需要图标名称或分类时，转到 `tdesign-icons`。

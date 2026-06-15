@@ -1,6 +1,6 @@
 ---
 name: tdesign-skills
-description: 当用户项目安装或明确使用 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram、tdesign-uniapp，且任务涉及 TDesign 组件选型、实现、API、组件搭配、文档、变更日志、迁移或评审时使用。作为总入口，只做技术栈识别和专项 skill 路由。
+description: 当 TDesign 任务尚未明确技术栈、横跨多个 TDesign 包，或需要先识别 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram、tdesign-uniapp 并路由到专项 skill 时使用。只做技术栈识别和职责路由；已明确 API、选型、页面组合、图标或 changelog 时优先使用对应专项 skill。
 ---
 
 # TDesign Skills 总入口
@@ -29,12 +29,24 @@ description: 当用户项目安装或明确使用 tdesign-react、tdesign-vue-ne
 
 ## 路由规则
 
+优先查 `references/responsibility-map.md`。只选择 1 个主责 skill，再按需读取其他 skill 的少量参考资料。
+
+- 技术栈不明确、跨多个 TDesign 包、需要路由 → `tdesign-skills`
 - 文档入口、组件覆盖、资料索引 → `tdesign-docs`
 - 组件选型、相似组件、何时使用、反模式 → `tdesign-usage-guide`
 - 页面搭建、组件搭配、场景骨架 → `tdesign-composition`
-- 具体 props/事件/插槽/类型 → 对应技术栈专项 skill
+- 具体 props/事件/插槽/类型/代码落地 → 对应技术栈专项 skill
+- 图标名称、关键词、分类、是否存在 → `tdesign-icons`
 - 版本能力、新增、修复、废弃 → `tdesign-changelog`
 - 色彩、Design Token、布局 → `tdesign-composition/references/design/`
+
+## 交接规则
+
+- 选型先 `tdesign-usage-guide`，落地代码再进入对应技术栈 API skill。
+- 页面组合先 `tdesign-composition`，单组件写法再进入对应技术栈 API skill。
+- 图标检索先 `tdesign-icons`，图标组件 props 再进入对应技术栈 API skill。
+- 版本线索先 `tdesign-changelog`，当前 API 形状再进入对应技术栈 API skill。
+- 组件是否存在先 `tdesign-docs` 覆盖矩阵，缺失时再查 `tdesign-usage-guide` 降级策略。
 
 ## Token 节约规则
 

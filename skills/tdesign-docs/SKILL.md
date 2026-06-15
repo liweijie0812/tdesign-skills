@@ -1,6 +1,6 @@
 ---
 name: tdesign-docs
-description: 当用户询问 TDesign 文档入口、资料在哪里、当前技术栈有哪些组件可用、组件覆盖矩阵、上游来源链接，或需要决定先读哪个目录时使用。只做资料检索路由，不展开具体组件 API。
+description: 当用户询问 TDesign 文档入口、资料在哪里、当前技术栈有哪些组件可用、组件覆盖矩阵、上游来源链接，或需要决定先读哪个目录时使用。只做资料检索、覆盖确认和来源路由；不做组件选型、页面组合或具体 API 实现。
 ---
 
 # TDesign 文档与资料入口
@@ -32,6 +32,7 @@ node skills/tdesign-docs/scripts/query-matrix.mjs --group web --json     # 按�
 
 ## 边界
 
+- 只回答资料在哪里、当前栈是否覆盖某组件、应先读哪个目录。
 - 回答"当前栈有没有某组件"：用 `references/meta/stack-matrix.json`（全局覆盖）和对应端的 `stack-matrix-<端>.json`。
 - 回答"该选什么组件、为什么"：转到 `tdesign-usage-guide`。
 - 回答"页面通常怎么搭"：转到 `tdesign-composition`。

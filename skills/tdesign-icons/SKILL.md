@@ -1,6 +1,6 @@
 ---
 name: tdesign-icons
-description: 当用户需要查找 TDesign 图标、搜索图标名称/关键词、浏览图标分类、确认图标是否存在，或需要为 TDesign 项目选择合适的图标时使用。使用 manifest 数据提供图标检索能力。
+description: 当用户需要查找 TDesign 图标、搜索图标名称/关键词、浏览图标分类、确认图标是否存在，或需要为 TDesign 项目选择合适的图标名时使用。只负责 manifest 图标检索；不负责图标组件 API、业务图标设计或版本历史。
 ---
 
 # TDesign Icons 图标检索
@@ -115,4 +115,5 @@ node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 - **优先推荐按需引入**，不默认使用 `<Icon name="..." />` 走 CDN。
 - **精确查找优先用 `--name <名称> --exact`**（精确匹配，跳过模糊阶段）；模糊搜索用 `--search`。
 - 搜索不到图标时，可尝试放宽关键词、切换风格或使用 `--list-categories` 浏览。
+- 图标组件 props、事件、导入包名和当前栈写法，必须转到对应技术栈 `Icon` API。
 - 更新 manifest 数据：`node skills/tdesign-icons/scripts/convert-manifest.mjs`。
