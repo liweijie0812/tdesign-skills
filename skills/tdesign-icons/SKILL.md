@@ -92,6 +92,7 @@ node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 ## 约束
 
 - 图标名称以 manifest 数据为准，不要凭经验编造图标名。
+- 不要直接读取 `references/manifest.json`；该文件很大，只通过 `query-icons.mjs` 按需查询。
 - **优先推荐按需引入**，不默认使用 `<Icon name="..." />` 走 CDN。
 - **精确查找优先用 `--name <名称> --exact`**（精确匹配，跳过模糊阶段）；模糊搜索用 `--search`。
 - 搜索不到图标时，可尝试放宽关键词、切换风格或使用 `--list-categories` 浏览。
