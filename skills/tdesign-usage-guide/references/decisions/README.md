@@ -22,5 +22,5 @@
 
 - 所有规则先按平台理解，再按当前技术栈确认是否真实可用。
 - 不跨端复用组件结论，不从设计规则反推 API。
-- 为节省上下文，优先读平台 `component-usage-map.md`（即 `web/component-usage-map.md` 或 `mobile/component-usage-map.md`），只有需要更细规则时才读平台 `components/` 下单组件文档。
+- 为节省上下文，优先读平台轻量索引：`web/component-usage-map.md` 或 `mobile/component-usage-map.md`，只有需要更细规则时才读平台 `components/` 下单组件文档。
 - 组件级细则统一放在平台 `components/` 下，单项取舍也并入对应组件文档。
