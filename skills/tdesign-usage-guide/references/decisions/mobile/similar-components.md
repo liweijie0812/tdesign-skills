@@ -1,6 +1,6 @@
 # TDesign Mobile 与小程序相似组件选型
 
-适用于 `tdesign-mobile-react`、`tdesign-mobile-vue` 和 `tdesign-miniprogram`。具体 props、事件、插槽和小程序 external classes 必须查当前技术栈 skill 的 `references/api/<component>/index.md`。
+适用于 `tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 和 `tdesign-uniapp`。具体 props、事件、插槽和小程序 external classes 必须查当前技术栈 skill 的 `references/api/<component>/index.md`。
 
 ## Button、Link、Fab
 
@@ -10,45 +10,71 @@
 
 判断规则：触发业务动作优先 `Button`；跳转优先 `Link`；需要浮在内容上保持可达时才用 `Fab`。
 
-## Navbar、TabBar、Tabs、SideBar、Indexes
+## Navbar、TabBar、Tabs、Segmented、SideBar、Indexes
 
 - `Navbar`：页面顶部导航，承载标题、返回、关闭或少量页面级操作。
 - `TabBar`：应用主功能模块的底部切换。
 - `Tabs`：同一页面或模块内按分类维度切换。
+- `Segmented`：同一区域内少量平级视图、状态或范围切换。
 - `SideBar`：移动端左右分栏分类导航。
 - `Indexes`：按字母、城市、联系人等索引定位长列表。
 
-判断规则：按导航层级选择。全局主模块用 `TabBar`；页面标题和返回用 `Navbar`；页面内分类用 `Tabs` / `SideBar`；超长索引用 `Indexes`。
+判断规则：按导航层级选择。全局主模块用 `TabBar`；页面标题和返回用 `Navbar`；页面内分类用 `Tabs` / `SideBar`；少量轻量状态切换用 `Segmented`；超长索引用 `Indexes`。
 
-## Toast、Message、Dialog、ActionSheet、Popup、Drawer
+## Toast、Message、Dialog、ActionSheet、Popover、Popup、Drawer、Overlay
 
 - `Toast`：短暂轻反馈，不需要用户操作。
 - `Message`：较轻量提示，可用于连续操作反馈。
 - `Dialog`：需要用户决策、危险确认或短表单。
 - `ActionSheet`：底部弹出一组上下文操作。
+- `Popover`：触发点附近的轻量提示或少量快捷操作。
 - `Popup`：底部、顶部或中间弹出自定义内容。
 - `Drawer`：边缘弹出内容，保留页面上下文。
+- `Overlay`：遮罩或自定义浮层底层能力。
 
-判断规则：轻反馈用 `Toast` / `Message`；强确认用 `Dialog`；操作集合用 `ActionSheet`；标准组件无法满足的自定义内容再用 `Popup` / `Drawer`。
+判断规则：轻反馈用 `Toast` / `Message`；强确认用 `Dialog`；操作集合用 `ActionSheet`；轻量解释用 `Popover`；标准组件无法满足的自定义内容再用 `Popup` / `Drawer` / `Overlay`。
 
-## Cell、List、Table、Grid
+## Cell、List、Table、Grid、QRCode、CountDown
 
 - `Cell` / `CellGroup`：移动端列表项、设置项、表单项或信息摘要。
 - `List`：连续条目流，适合消息、资源或轻量记录。
 - `Table`：结构化少列数据，能力和密度不等同 Web。
 - `Grid`：宫格入口或功能快捷入口。
+- `QRCode`：可扫码识别的链接、凭证、订单或分享信息。
+- `CountDown`：有明确截止时间的倒计时。
 
-判断规则：单列信息优先 `Cell` / `List`；少列结构化数据才考虑 `Table`；功能入口用 `Grid`。小程序缺少 `List` 时使用 `Cell` / `CellGroup` 或项目已有列表封装。
+判断规则：单列信息优先 `Cell` / `List`；少列结构化数据才考虑 `Table`；功能入口用 `Grid`；跨设备核验用 `QRCode`；时间敏感截止用 `CountDown`。小程序或 UniApp 缺少 `List` 时使用 `Cell` / `CellGroup` 或项目已有列表封装。
 
-## Picker、Cascader、TreeSelect、SideBar、Indexes
+## Typography、Link、Tag、Cell
 
+- `Typography`：标题、正文、说明、强调文本等文本层级展示。
+- `Link`：跳转、协议、页脚链接或轻量文本入口。
+- `Tag`：状态、属性、分类或轻量标记。
+- `Cell`：移动端列表项、设置项、表单项或信息摘要容器。
+
+判断规则：纯文本层级用 `Typography`；可跳转文本用 `Link`；状态和分类标记用 `Tag`；文本需要与图标、右侧值或跳转提示组成一行信息时用 `Cell`。
+
+## Tag、CheckTag、Checkbox、Radio
+
+- `Tag`：展示状态、属性、分类或轻量元信息。
+- `CheckTag`：轻量标签选择，适合兴趣、偏好、筛选条件或状态切换。
+- `Checkbox` / `CheckboxGroup`：多选项，适合明确表单值或批量选择。
+- `Radio` / `RadioGroup`：少量互斥选项中单选一个。
+
+判断规则：只展示用 `Tag`；轻量点选标签用 `CheckTag`；需要表单语义和明确多选值用 `Checkbox`；互斥单选用 `Radio`。
+
+## Search、DropdownMenu、Picker、Cascader、TreeSelect、SideBar、Indexes
+
+- `Search`：关键词检索是主要任务。
+- `DropdownMenu`：列表上方少量筛选或排序条件。
+- `DropdownItem`：`DropdownMenu` 中的单个筛选或排序项。
 - `Picker`：单列或多列触控选择。
 - `Cascader`：逐级选择层级路径。
 - `TreeSelect`：紧凑空间选择树形数据。
 - `SideBar`：页面内分类导航。
 - `Indexes`：长列表快速定位。
 
-判断规则：值选择用 `Picker` / `Cascader` / `TreeSelect`；页面分类导航用 `SideBar`；长列表定位用 `Indexes`。
+判断规则：关键词检索用 `Search`；列表筛选排序用 `DropdownMenu`，单个条件项由 `DropdownItem` 承载；值选择用 `Picker` / `Cascader` / `TreeSelect`；页面分类导航用 `SideBar`；长列表定位用 `Indexes`。
 
 ## Checkbox、Radio、Switch
 
@@ -58,15 +84,22 @@
 
 判断规则：随表单提交的布尔值优先 `Checkbox`；互斥选择用 `Radio`；切换立即生效才用 `Switch`。
 
-## Input、Textarea、Search、Stepper、Slider
+## Input、Textarea、Stepper、Slider
 
 - `Input`：短文本、手机号、验证码等输入。
 - `Textarea`：备注、说明、评论等多行输入。
-- `Search`：搜索是主要任务时使用。
 - `Stepper`：数量加减。
 - `Slider`：连续范围近似选择。
 
-判断规则：按输入值类型选择。搜索不要默认手写输入框；数量加减用 `Stepper`；需要精确数字时不要只依赖 `Slider`。
+判断规则：按输入值类型选择。普通短文本用 `Input`；多行内容用 `Textarea`；数量加减用 `Stepper`；需要精确数字时不要只依赖 `Slider`。
+
+## DateTimePicker、Calendar、ColorPicker
+
+- `DateTimePicker`：选择日期、时间或日期时间组合。
+- `Calendar`：日期或日期范围是任务主体，或需要查看日期分布。
+- `ColorPicker`：主题、视觉、标注或图表颜色配置。
+
+判断规则：简单日期时间值用 `DateTimePicker`；以日期浏览或范围选择为核心用 `Calendar`；真实需要用户配置颜色才用 `ColorPicker`。
 
 ## Loading、Skeleton、Progress、Empty、Result
 
@@ -77,3 +110,12 @@
 - `Result`：成功、失败、异常或流程完成结果。
 
 判断规则：列表和详情加载优先 `Skeleton`；没有数据用 `Empty`；流程结果用 `Result`；不确定时长不要伪造 `Progress` 百分比。
+
+## 父组件与子组件
+
+- `GridItem`、`CellGroup`、`TabPanel`、`TabBarItem`、`SideBarItem`、`StepItem`、`IndexesAnchor`、`SwiperNav` / `SwiperNavigation`：只在对应父组件内部使用。
+- `Text`、`Title`、`Paragraph`：归属 `Typography`，用于文本层级和段落语义。
+- `FormItem`、`PickerItem`：归属 `Form` 和 `Picker`，用于字段容器或选择项结构。
+- `AvatarGroup`、`CollapsePanel`、`BaseTableCol`：归属 `Avatar`、`Collapse`、`Table` 的组合能力。
+
+判断规则：先选父组件，再决定是否需要子组件；不要把子组件当作独立页面能力替代父组件。
