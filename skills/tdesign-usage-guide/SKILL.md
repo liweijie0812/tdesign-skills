@@ -13,8 +13,9 @@ description: 当用户需要 TDesign 使用指南、组件选型、何时使用�
 2. 组件何时使用：先查 `references/decisions/web/component-usage-map.md` 或 `references/decisions/mobile/component-usage-map.md`，命中组件后再按需查平台下 `components/<component>.md`。
 3. 相似组件怎么选：先查 `references/decisions/similar-components.md`，再查平台细分文档。
 4. 高频单项取舍：查平台下 `similar-components.md` 和 `components/<component>.md`。
-5. 反模式：先查 `references/decisions/anti-patterns.md`，再查平台细分文档。
-6. 当前栈缺组件或能力不够：查 `references/decisions/fallback-policy.md`。
+5. 组件搭配：先查 `references/decisions/component-composition-map.md`，再查平台下 `component-composition-map.md`。页面级细节转到 `tdesign-composition`。
+6. 反模式：先查 `references/decisions/anti-patterns.md`，再查平台细分文档。
+7. 当前栈缺组件或能力不够：查 `references/decisions/fallback-policy.md`。
 
 ## 核心原则
 
@@ -37,7 +38,7 @@ description: 当用户需要 TDesign 使用指南、组件选型、何时使用�
 - 迁移时先识别原 UI 语义，再映射到 TDesign 组件，不逐标签替换。
 - 不继承来源库的 props 名、事件名、弹层挂载习惯和样式覆盖方式。
 - 评审时优先检查跨栈 API、伪造组件能力、过度自定义样式和重复造轮子。
-- 需要页面级组合时，转到 `tdesign-composition`。
+- 需要组件搭配时，查 `references/decisions/component-composition-map.md`；需要页面级组合时，转到 `tdesign-composition`。
 - 需要落地 API 时，转到对应技术栈 skill。
 - 需要确认组件是否存在时，转到 `tdesign-docs` 覆盖矩阵。
 - 需要图标名称或分类时，转到 `tdesign-icons`。
