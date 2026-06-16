@@ -9,6 +9,7 @@ node ../scripts/query-changelog.mjs --stack react --component Button
 node ../scripts/query-changelog.mjs --stack vue-next --component Alert --version 1.14.0 --json
 node ../scripts/query-changelog.mjs --stack mobile-vue --component Form --keyword readonly
 node ../scripts/query-changelog.mjs --stack miniprogram --component Upload --since 1.13.0 --until 1.15.0
+node ../scripts/query-changelog.mjs --stack uniapp --component Upload --since 0.5.0 --until 0.10.0
 node ../scripts/query-changelog.mjs --stack mobile-react --component Dialog --category breaking
 ```
 

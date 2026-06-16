@@ -22,12 +22,13 @@ node skills/tdesign-changelog/scripts/query-changelog.mjs --stack react --compon
 node skills/tdesign-changelog/scripts/query-changelog.mjs --stack vue-next --component Alert --version 1.14.0 --json
 node skills/tdesign-changelog/scripts/query-changelog.mjs --stack mobile-vue --component Form --keyword readonly
 node skills/tdesign-changelog/scripts/query-changelog.mjs --stack miniprogram --component Upload --since 1.13.0 --until 1.15.0
+node skills/tdesign-changelog/scripts/query-changelog.mjs --stack uniapp --component Upload --since 0.5.0 --until 0.10.0
 node skills/tdesign-changelog/scripts/query-changelog.mjs --stack mobile-react --component Dialog --category breaking
 ```
 
 ## 参数
 
-- `--stack`：`react`、`vue-next`、`vue2`、`mobile-react`、`mobile-vue`、`miniprogram`。
+- `--stack`：`react`、`vue-next`、`vue2`、`mobile-react`、`mobile-vue`、`miniprogram`、`uniapp`。
 - `--component`：组件名，区分大小写，例如 `Button`、`Upload`。
 - `--version`：精确版本。
 - `--since` / `--until`：版本区间。
