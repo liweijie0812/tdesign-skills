@@ -1,7 +1,7 @@
 {
-  "name": "tdesign-web-admin-design-checklist",
-  "description": "TDesign Web 中后台页面生成后的结构化设计自检。用于把 design-spec.md 的人类规则转成可复用检查项。",
-  "scope": "Web 中后台、控制台、运营后台、配置页、数据列表、表单录入、详情页和仪表盘页面。",
+  "name": "tdesign-composition-design-checklist",
+  "description": "TDesign 页面生成后的结构化设计自检。用于把 design-spec.md 的人类规则转成可复用检查项，并按 platforms 区分 Web、Mobile 和 Miniprogram。",
+  "scope": "Web 中后台、控制台、运营后台、配置页、数据列表、表单录入、详情页、仪表盘，以及 Mobile / Miniprogram 轻量页面。",
   "checks": [
     {
       "id": "DS-001",
@@ -9,25 +9,83 @@
       "severity": "critical",
       "category": "component",
       "description": "页面骨架、表单、表格、分页、弹层、反馈和导航必须优先使用 TDesign 组件，不用裸 div 或静态块伪装。",
-      "mustIncludeAny": ["<t-layout", "<t-form", "<t-table", "<t-card", "<t-menu", "<t-dialog", "<t-popconfirm"],
-      "rejectPattern": "(table-filled|表格截图|静态块代替|icon.*代替.*table|div.*模拟.*(table|form|dialog|pagination))"
+      "mustIncludeAny": [
+        "<t-layout",
+        "<t-form",
+        "<t-table",
+        "<t-card",
+        "<t-menu",
+        "<t-dialog",
+        "<t-popconfirm",
+        "<t-button",
+        "<t-pagination",
+        "<t-empty",
+        "<t-tag",
+        "<t-navbar",
+        "<t-tab-bar",
+        "<t-cell",
+        "<t-cell-group",
+        "<t-list",
+        "<t-toast",
+        "<Layout",
+        "<Form",
+        "<Table",
+        "<Card",
+        "<Menu",
+        "<Dialog",
+        "<Popconfirm",
+        "<Button",
+        "<Pagination",
+        "<Empty",
+        "<Tag",
+        "<Navbar",
+        "<TabBar",
+        "<Cell",
+        "<CellGroup",
+        "<List",
+        "<Toast"
+      ],
+      "rejectPattern": "(table-filled|表格截图|静态块代替|icon.*代替.*table|div.*模拟.*(table|form|dialog|pagination))",
+      "platforms": [
+        "web",
+        "mobile",
+        "miniprogram"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-002",
-      "title": "颜色使用语义 Token",
+      "title": "颜色优先使用 CSS Variables",
       "severity": "critical",
       "category": "token",
-      "description": "业务 CSS 不直接写零散 hex / rgba，颜色应使用 --td-* 语义 Token。",
-      "rejectPattern": "(?<![-\\w])#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\\b|rgba?\\("
+      "description": "业务 CSS 颜色优先使用 TDesign CSS Variables / Design Token；确需硬值时必须属于允许例外，例如 var() fallback、第三方图表配置或项目主题配置。",
+      "rejectPattern": "(?<![-\\w])#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\\b|rgba?\\(",
+      "platforms": [
+        "web",
+        "mobile",
+        "miniprogram"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-003",
-      "title": "间距、字号、圆角使用 Token",
+      "title": "尺寸优先使用 CSS Variables",
       "severity": "major",
       "category": "token",
-      "description": "自定义样式中的间距、字号、圆角和高度优先使用 --td-size-*、--td-comp-*、--td-font-*、--td-radius-*。",
-      "expectedTokenAny": ["--td-size-", "--td-comp-", "--td-font-", "--td-radius-"],
-      "rejectPattern": "(?:margin|padding|gap|font-size|border-radius)\\s*:\\s*\\d+px"
+      "description": "自定义样式中的间距、字号、行高、圆角、高宽和定位尺寸优先使用 TDesign CSS Variables / Design Token；1px 边框、断点、安全区和 API 要求的硬值可人工确认。",
+      "expectedTokenAny": [
+        "--td-size-",
+        "--td-comp-",
+        "--td-font-",
+        "--td-radius-"
+      ],
+      "rejectPattern": "(?:margin|padding|gap|font-size|border-radius)\\s*:\\s*\\d+px",
+      "platforms": [
+        "web",
+        "mobile",
+        "miniprogram"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-004",
@@ -35,8 +93,18 @@
       "severity": "critical",
       "category": "layout",
       "description": "Web 应用壳 Header 使用 var(--td-comp-size-xxxl)，并同时设置 height、min-height、flex-shrink: 0。",
-      "expectedTokenAny": ["var(--td-comp-size-xxxl)"],
-      "mustIncludeAll": ["height", "min-height", "flex-shrink: 0"]
+      "expectedTokenAny": [
+        "var(--td-comp-size-xxxl)"
+      ],
+      "mustIncludeAll": [
+        "height",
+        "min-height",
+        "flex-shrink: 0"
+      ],
+      "platforms": [
+        "web"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-005",
@@ -44,7 +112,11 @@
       "severity": "major",
       "category": "layout",
       "description": "侧边导航与顶部导航一般不要完整并存；必须并存时，全页只能保留一个 Logo + 系统名称品牌位。",
-      "rejectPattern": "(side|aside|sider).*(logo|brand)[\\s\\S]*(head|top|header).*(logo|brand)|(head|top|header).*(logo|brand)[\\s\\S]*(side|aside|sider).*(logo|brand)"
+      "rejectPattern": "(side|aside|sider).*(logo|brand)[\\s\\S]*(head|top|header).*(logo|brand)|(head|top|header).*(logo|brand)[\\s\\S]*(side|aside|sider).*(logo|brand)",
+      "platforms": [
+        "web"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-006",
@@ -53,7 +125,18 @@
       "category": "interaction",
       "description": "删除、禁用、下线、清空等破坏性操作必须使用 Popconfirm、Dialog 或当前栈等价确认组件。",
       "triggerPattern": "(删除|移除|禁用|下线|清空|delete|remove|disable)",
-      "mustIncludeAny": ["<t-popconfirm", "<t-dialog", "DialogPlugin.confirm", "Popconfirm"]
+      "mustIncludeAny": [
+        "<t-popconfirm",
+        "<t-dialog",
+        "DialogPlugin.confirm",
+        "Popconfirm"
+      ],
+      "platforms": [
+        "web",
+        "mobile",
+        "miniprogram"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-007",
@@ -61,7 +144,21 @@
       "severity": "major",
       "category": "state",
       "description": "表格、列表、图表等数据区域必须处理空数据、加载中、加载失败或无权限状态。",
-      "mustIncludeAny": ["<t-empty", "empty", "loading", "Loading", "Skeleton", "error", "无权限"]
+      "mustIncludeAny": [
+        "<t-empty",
+        "empty",
+        "loading",
+        "Loading",
+        "Skeleton",
+        "error",
+        "无权限"
+      ],
+      "platforms": [
+        "web",
+        "mobile",
+        "miniprogram"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-008",
@@ -69,17 +166,35 @@
       "severity": "major",
       "category": "icon",
       "description": "常规 UI 图标必须来自 TDesign Icons manifest，不使用 Emoji、自绘 SVG、外部 iconfont 或临时网络图片。",
-      "mustIncludeAny": ["<t-icon", "tdesign-icons", "Icon"],
-      "rejectPattern": "(emoji|iconfont|<svg|\\.svg|twemoji|cdn.*icon)"
+      "mustIncludeAny": [
+        "<t-icon",
+        "tdesign-icons",
+        "Icon"
+      ],
+      "rejectPattern": "(emoji|iconfont|<svg|\\.svg|twemoji|cdn.*icon)",
+      "platforms": [
+        "web",
+        "mobile",
+        "miniprogram"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-009",
       "title": "彩色实心底使用反色文字",
       "severity": "major",
       "category": "color",
-      "description": "品牌色、成功色、告警色、错误色实心底上的文字、图标和 Avatar 缩写必须使用 --td-text-color-anti。",
+      "description": "品牌色、成功色、告警色、错误色实心底上的文字、图标和 Avatar 缩写必须使用 --td-text-color-anti，不能搭配 --td-text-color-brand / primary / secondary。",
       "triggerPattern": "background(?:-color)?\\s*:\\s*var\\(--td-(?:brand|success|warning|error)-color\\)",
-      "mustIncludeAny": ["--td-text-color-anti"]
+      "mustIncludeAny": [
+        "--td-text-color-anti"
+      ],
+      "platforms": [
+        "web",
+        "mobile",
+        "miniprogram"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-010",
@@ -88,8 +203,15 @@
       "category": "component",
       "description": "结构化行列数据必须使用 Table 和列配置，不使用截图、图标、静态卡片或 table-filled 占位。",
       "triggerPattern": "(表格|列表|数据|Table|table)",
-      "mustIncludeAny": ["<t-table", "Table"],
-      "rejectPattern": "(table-filled|表格截图|静态块|图片.*表格|icon.*表格)"
+      "mustIncludeAny": [
+        "<t-table",
+        "Table"
+      ],
+      "rejectPattern": "(table-filled|表格截图|静态块|图片.*表格|icon.*表格)",
+      "platforms": [
+        "web"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-011",
@@ -97,7 +219,22 @@
       "severity": "major",
       "category": "accessibility",
       "description": "成功、告警、错误、禁用、加载和无权限状态需要文字、组件状态或图标辅助，不只靠颜色区分。",
-      "mustIncludeAny": ["<t-tag", "<t-alert", "<t-message", "MessagePlugin", "theme=", "status=", "loading", "disabled"]
+      "mustIncludeAny": [
+        "<t-tag",
+        "<t-alert",
+        "<t-message",
+        "MessagePlugin",
+        "theme=",
+        "status=",
+        "loading",
+        "disabled"
+      ],
+      "platforms": [
+        "web",
+        "mobile",
+        "miniprogram"
+      ],
+      "autoCheck": true
     },
     {
       "id": "DS-012",
@@ -105,7 +242,32 @@
       "severity": "critical",
       "category": "process",
       "description": "交付前按本 checklist 逐项说明通过、无需适用或需人工确认，不能只说已参考规范。",
-      "mustMention": ["DS-001", "DS-002", "DS-004", "DS-006", "DS-007"]
+      "mustMention": [
+        "DS-001",
+        "DS-002",
+        "DS-004",
+        "DS-006",
+        "DS-007"
+      ],
+      "platforms": [
+        "web",
+        "mobile",
+        "miniprogram"
+      ],
+      "autoCheck": false
     }
-  ]
+  ],
+  "outputTemplate": {
+    "title": "TDesign 场景自检",
+    "itemFormat": "DS-编号：通过 / 不适用 / 需人工确认 - 简要原因",
+    "requiredFor": [
+      "代码生成",
+      "页面改造",
+      "视觉走查"
+    ],
+    "optionalFor": [
+      "纯咨询",
+      "资料路由"
+    ]
+  }
 }

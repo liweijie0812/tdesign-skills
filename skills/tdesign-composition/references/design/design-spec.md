@@ -18,13 +18,13 @@
 ## 生成流程
 
 1. 先确认平台和技术栈，避免混用 Web、Mobile、Miniprogram、React、Vue 3 和 Vue 2 写法。
-2. Web 中后台生成前必须读取 `checklist.json`，明确本次适用的检查项 ID。
+2. Web 中后台生成前必须读取 `checklist.json`，按 `platforms` 明确本次适用的检查项 ID。
 3. 先定页面结构，再定组件组合，最后补最小样式。
 4. Web 中后台优先用 `Layout`、`Menu`、`Header`、`Aside`、`Content`、`Breadcrumb`、`Card`、`Form`、`Table`、`Pagination`、`Dialog`、`Drawer` 等组件组织页面。
 5. 涉及具体组件 props、事件、插槽和类型时，必须回到当前技术栈 API skill，不凭经验编造。
 6. 需要图标时先用 `tdesign-icons` 查询图标名，再按当前技术栈写法使用图标组件。
 7. 生成独立 HTML / CDN 示例时，除 TDesign UI CSS / JS 外，必须同时引入对应框架的 TDesign Icons 包；图标包不可用时不要用 Emoji、自绘 SVG 或外部 iconfont 兜底。
-8. 交付前按 `checklist.json` 逐项自检；有可访问代码文件时优先运行 `node <tdesign-composition-skill-dir>/scripts/check-quality.mjs <file-or-directory>`。
+8. 交付前按 `checklist.json` 的 `outputTemplate` 逐项自检；有可访问代码文件时优先运行 `node <tdesign-composition-skill-dir>/scripts/check-quality.mjs --platform web <file-or-directory>`。
 
 ## 页面结构
 
@@ -40,7 +40,7 @@
 
 ## 视觉层级
 
-- 页面背景、卡片背景、分割线和文字颜色使用 TDesign 语义 Token，不直接写零散 hex。
+- 页面背景、卡片背景、分割线和文字颜色优先使用 TDesign CSS Variables / Design Token，不把零散 hex 当业务视觉规范。
 - 标题、正文、辅助信息、占位说明和禁用态要有明确层级，避免所有文案同色同粗细。
 - 表单项、表格列、操作区和卡片标题保持左对齐；金额、数量等数值列可右对齐。
 - 空状态、加载态、错误态和无权限态必须明确，不留空白页面。
@@ -49,7 +49,7 @@
 
 ## 间距与密度
 
-- 页面外边距、区块间距和组件间距优先使用 `--td-size-*` 或 TDesign 组件自带 spacing 能力。
+- 页面外边距、区块间距和组件间距优先使用 TDesign 组件自带 spacing 能力或 `--td-size-*` CSS Variables。
 - Web 中后台内容区常用 24px 水平安全边距，区块间距优先 16px、24px、32px。
 - Web 中后台内容区常用 12 列栅格；侧栏展开 / 收起时需保证内容区最小宽度可读。
 - 表单、表格和筛选区以可读性优先，不为紧凑牺牲点击区域和行高。
@@ -93,8 +93,8 @@
 
 ## 交付前自检
 
-- 结构化自检是否按 `checklist.json` 输出检查项 ID、结果和不适用原因。
-- 能运行脚本时是否已执行 `node <tdesign-composition-skill-dir>/scripts/check-quality.mjs <file-or-directory>`。
+- 结构化自检是否按 `checklist.json` 的 `outputTemplate` 输出检查项 ID、结果和不适用原因。
+- 能运行脚本时是否已执行 `node <tdesign-composition-skill-dir>/scripts/check-quality.mjs --platform web <file-or-directory>`。
 - 页面是否优先使用 TDesign 组件和布局能力。
 - 颜色、文字、边框、背景、间距和圆角是否优先使用 Token。
 - 后台导航是否使用 `Menu + Layout` / 顶部导航等标准组合，且没有双 Logo。

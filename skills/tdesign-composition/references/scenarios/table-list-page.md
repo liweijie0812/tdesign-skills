@@ -55,4 +55,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-006`、`DS-007`、`DS-008`、`DS-010`、`DS-011`、`DS-012`。
 - 结构化行列数据必须使用真实 `Table` 与列配置；禁止截图、静态块、图标或 `table-filled` 伪装。
-- Web 筛选区、工具栏、表格、分页和状态反馈交付前按 `../design/checklist.json` 输出结果。
+- Web 筛选区、工具栏、表格、分页和状态反馈交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果。

@@ -46,4 +46,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-009`、`DS-011`、`DS-012`。
 - Web 登录页如使用品牌色背景，文字、图标和 Avatar 缩写必须使用 `--td-text-color-anti` 或等价反色 Token。
-- 认证页交付前按 `../design/checklist.json` 输出结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。
+- 认证页交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。

@@ -86,4 +86,4 @@ function onSubmit({ validateResult }: { validateResult: boolean | Record<string,
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-006`、`DS-007`、`DS-008`、`DS-011`、`DS-012`。
 - `DS-004`、`DS-005` 和 Web `DS-010` 不默认套用移动端；只有明确使用移动端 `Table` 展示结构化行列数据时才人工追加 `DS-010`。
-- 移动端页面交付前仍需按 `../design/checklist.json` 逐项说明适用、不适用或需人工确认。
+- 移动端页面交付前按 `../design/checklist.json` 中 `platforms` 包含 `mobile` / `miniprogram` 的检查项说明适用、不适用或需人工确认；运行脚本时使用 `--platform mobile` 或 `--platform miniprogram`。

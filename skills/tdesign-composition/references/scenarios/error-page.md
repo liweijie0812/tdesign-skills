@@ -44,4 +44,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-008`、`DS-011`、`DS-012`。
 - 如果错误页包含数据表格、错误列表或操作日志，追加 `DS-007` 和 `DS-010`。
-- 错误/结果页交付前按 `../design/checklist.json` 输出结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。
+- 错误/结果页交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。

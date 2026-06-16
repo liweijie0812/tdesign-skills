@@ -2,12 +2,34 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const targets = process.argv.slice(2);
+const rawArgs = process.argv.slice(2);
 const failures = [];
 const warnings = [];
+const targets = [];
+let platform = 'auto';
 
 const supportedExtensions = new Set(['.vue', '.css', '.scss', '.less', '.html', '.tsx', '.jsx', '.ts', '.js']);
 const uiExtensions = new Set(['.vue', '.html', '.tsx', '.jsx']);
+const supportedPlatforms = new Set(['auto', 'web', 'mobile', 'miniprogram']);
+
+for (let index = 0; index < rawArgs.length; index += 1) {
+  const arg = rawArgs[index];
+  if (arg === '--platform') {
+    platform = rawArgs[index + 1] || platform;
+    index += 1;
+    continue;
+  }
+  if (arg.startsWith('--platform=')) {
+    platform = arg.slice('--platform='.length);
+    continue;
+  }
+  targets.push(arg);
+}
+
+if (!supportedPlatforms.has(platform)) {
+  console.error(`Unsupported platform "${platform}". Use auto, web, mobile, or miniprogram.`);
+  process.exit(1);
+}
 
 function addFailure(filePath, line, message) {
   failures.push(`${filePath}:${line}: ${message}`);
@@ -71,6 +93,18 @@ function isUiFile(filePath) {
   return uiExtensions.has(path.extname(filePath));
 }
 
+function isMobileLike(filePath, text) {
+  return /mobile|mini-?program|uniapp|navbar|tab-?bar|pull-down-refresh|side-bar/i.test(filePath)
+    || /<t-(?:navbar|tab-bar|pull-down-refresh|side-bar|cell-group|cell\b|toast\b)/i.test(text)
+    || /<(?:Navbar|TabBar|PullDownRefresh|SideBar|CellGroup|Cell|Toast)\b/.test(text);
+}
+
+function shouldRunWebOnlyRule(filePath, text) {
+  if (platform === 'web') return true;
+  if (platform === 'mobile' || platform === 'miniprogram') return false;
+  return !isMobileLike(filePath, text);
+}
+
 function tagBlocks(text, tagName) {
   const blocks = [];
   const pattern = new RegExp(`<${tagName}\\b[\\s\\S]*?<\\/${tagName}>`, 'gi');
@@ -90,32 +124,60 @@ function declarationBlockAt(cssText, index) {
   return cssText.slice(start + 1, end);
 }
 
+function stripCssComments(text) {
+  return text.replace(/\/\*[\s\S]*?\*\//g, (comment) => ' '.repeat(comment.length));
+}
+
+function stripStyleBlocks(text) {
+  return text.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, (block) => ' '.repeat(block.length));
+}
+
+function isInsideVarFallback(text, index) {
+  const before = text.slice(Math.max(0, index - 120), index);
+  const varStart = before.lastIndexOf('var(');
+  if (varStart === -1) return false;
+  const afterStart = before.slice(varStart);
+  if (!afterStart.includes(',')) return false;
+  return !afterStart.includes(')');
+}
+
+function isAllowedHardcodedPx(matchText) {
+  return /(?:border|outline)(?:-[\w-]+)?\s*:\s*[^;{}]*\b1px\b/i.test(matchText)
+    || /(?:transition|transform|translate|translateX|translateY|box-shadow)\s*:/i.test(matchText)
+    || /(?:min-width|max-width|width)\s*:\s*100%/i.test(matchText);
+}
+
 function checkRealTDesignComponents(filePath, text) {
   if (!isUiFile(filePath)) return;
-  if (hasAny(text, [/<t-(?:layout|form|table|card|menu|dialog|popconfirm|button|pagination|empty|tag)\b/i, /<(?:Layout|Form|Table|Card|Menu|Dialog|Popconfirm|Button|Pagination|Empty|Tag)\b/])) return;
+  if (hasAny(text, [/<t-(?:layout|form|table|card|menu|dialog|popconfirm|button|pagination|empty|tag|navbar|tab-bar|cell|cell-group|list|toast)\b/i, /<(?:Layout|Form|Table|Card|Menu|Dialog|Popconfirm|Button|Pagination|Empty|Tag|Navbar|TabBar|Cell|CellGroup|List|Toast)\b/])) return;
 
-  addWarning(filePath, 1, 'DS-001 页面未发现关键 TDesign 组件标签，优先使用真实 Layout、Form、Table、Card、Menu 等组件');
+  addFailure(filePath, 1, 'DS-001 页面未发现关键 TDesign 组件标签，优先使用真实 Layout、Form、Table、Card、Menu 等组件');
 }
 
 function checkHardcodedColor(filePath, text) {
   for (const block of cssBlocks(filePath, text)) {
-    scanRegex(block.text, /(?<![-\w])#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b|rgba?\(/g, (match, line) => {
-      addFailure(filePath, lineNumberAt(text, block.offset + match.index), `DS-002 硬编码颜色 ${match[0]}，应使用 TDesign 语义 Token`);
+    const cssText = stripCssComments(block.text);
+    scanRegex(cssText, /(?<![-\w])#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b|rgba?\(/g, (match) => {
+      if (isInsideVarFallback(cssText, match.index)) return;
+      addFailure(filePath, lineNumberAt(text, block.offset + match.index), `DS-002 硬编码颜色 ${match[0]}，优先使用 TDesign CSS Variables / Design Token`);
     });
   }
 }
 
 function checkHardcodedPx(filePath, text) {
-  const propertyPattern = /(?:margin|padding|gap|font-size|border-radius)\s*:\s*[^;{}]*?\b\d+px\b/gi;
+  const propertyPattern = /(?:margin|padding|gap|row-gap|column-gap|font-size|line-height|border-radius|height|min-height|max-height|width|min-width|max-width|top|right|bottom|left|inset)\s*:\s*[^;{}]*?\b\d+(?:\.\d+)?px\b/gi;
   for (const block of cssBlocks(filePath, text)) {
-    scanRegex(block.text, propertyPattern, (match, line) => {
-      if (match[0].includes('var(--td-')) return;
-      addWarning(filePath, lineNumberAt(text, block.offset + match.index), `DS-003 硬编码 px 样式 ${match[0].trim()}，优先使用 TDesign Token`);
+    const cssText = stripCssComments(block.text);
+    scanRegex(cssText, propertyPattern, (match) => {
+      if (isInsideVarFallback(cssText, match.index)) return;
+      if (isAllowedHardcodedPx(match[0])) return;
+      addWarning(filePath, lineNumberAt(text, block.offset + match.index), `DS-003 硬编码 px 样式 ${match[0].trim()}，优先使用 TDesign CSS Variables / Design Token`);
     });
   }
 }
 
 function checkHeaderContract(filePath, text) {
+  if (!shouldRunWebOnlyRule(filePath, text)) return;
   if (!/(<t-header\b|t-layout__header|app-header|<Header\b)/.test(text)) return;
   const hasToken = /var\(--td-comp-size-xxxl\)/.test(text);
   const hasHeight = /height\s*:\s*var\(--td-comp-size-xxxl\)/.test(text);
@@ -128,6 +190,7 @@ function checkHeaderContract(filePath, text) {
 }
 
 function checkDuplicateBrand(filePath, text) {
+  if (!shouldRunWebOnlyRule(filePath, text)) return;
   const asideBlocks = tagBlocks(text, 't-aside');
   const headerBlocks = tagBlocks(text, 't-header');
   if (!asideBlocks.length || !headerBlocks.length) return;
@@ -155,9 +218,15 @@ function checkDataStates(filePath, text) {
 
 function checkSolidColorContrast(filePath, text) {
   const solidColorPattern = /background(?:-color)?\s*:\s*[^;{}]*var\(--td-(?:brand|success|warning|error)-color(?:-(?!light\b)[\w-]+)?\)/gi;
+  const badForegroundPattern = /color\s*:\s*var\(--td-text-color-(?:brand|primary|secondary)\)/i;
   for (const block of cssBlocks(filePath, text)) {
-    scanRegex(block.text, solidColorPattern, (match) => {
-      const declarationBlock = declarationBlockAt(block.text, match.index);
+    const cssText = stripCssComments(block.text);
+    scanRegex(cssText, solidColorPattern, (match) => {
+      const declarationBlock = declarationBlockAt(cssText, match.index);
+      if (badForegroundPattern.test(declarationBlock)) {
+        addWarning(filePath, lineNumberAt(text, block.offset + match.index), `DS-009 彩色实心底 ${match[0].trim()} 搭配了错误前景色，应使用 --td-text-color-anti`);
+        return;
+      }
       if (/--td-text-color-anti/.test(declarationBlock)) return;
       addWarning(filePath, lineNumberAt(text, block.offset + match.index), `DS-009 彩色实心底 ${match[0].trim()} 缺少 --td-text-color-anti 反色文字`);
     });
@@ -166,6 +235,7 @@ function checkSolidColorContrast(filePath, text) {
 
 function checkTableComponentUsage(filePath, text) {
   if (!isUiFile(filePath)) return;
+  if (!shouldRunWebOnlyRule(filePath, text)) return;
   if (!/(表格|列表|数据|Table|table)/.test(text)) return;
   if (/(<t-table\b|<Table\b)/.test(text)) return;
 
@@ -174,15 +244,16 @@ function checkTableComponentUsage(filePath, text) {
 
 function checkStatusExpression(filePath, text) {
   if (!isUiFile(filePath)) return;
-  if (!/(success|warning|error)/i.test(text)) return;
-  if (hasAny(text, [/<t-tag\b/i, /<Tag\b/, /<t-alert\b/i, /<Alert\b/, /<t-empty\b/i, /<Empty\b/, /<t-message\b/i, /MessagePlugin\./, /\btheme\s*=/, /\bstatus\s*=/, /\btype\s*=/, /\bloading\s*=/, /\bdisabled\s*=/])) return;
+  const markupAndScript = stripStyleBlocks(text);
+  if (!/(success|warning|error)/i.test(markupAndScript)) return;
+  if (hasAny(markupAndScript, [/<t-tag\b/i, /<Tag\b/, /<t-alert\b/i, /<Alert\b/, /<t-empty\b/i, /<Empty\b/, /<t-message\b/i, /MessagePlugin\./, /\btheme\s*=/, /\bstatus\s*=/, /\btype\s*=/, /\bloading\s*=/, /\bdisabled\s*=/])) return;
 
   addWarning(filePath, 1, 'DS-011 出现 success/warning/error 状态关键词，但缺少 Tag、theme/status、文本或组件状态等辅助表达');
 }
 
 function checkIconSource(filePath, text) {
   if (/(emoji|iconfont|<svg\b|\.svg\b|twemoji|cdn[^\n]*(icon|png|jpg|webp))/i.test(text)) {
-    addFailure(filePath, 1, 'DS-008 UI 图标应来自 TDesign Icons，不使用 Emoji、自绘 SVG、外部 iconfont 或临时网络图片');
+    addWarning(filePath, 1, 'DS-008 UI 图标应来自 TDesign Icons，不使用 Emoji、自绘 SVG、外部 iconfont 或临时网络图片');
   }
 }
 
@@ -203,7 +274,7 @@ function checkFile(filePath) {
 }
 
 if (!targets.length) {
-  console.error('Usage: node <path-to-tdesign-composition>/scripts/check-quality.mjs <file-or-directory> [...more]');
+  console.error('Usage: node <path-to-tdesign-composition>/scripts/check-quality.mjs [--platform web|mobile|miniprogram] <file-or-directory> [...more]');
   process.exit(1);
 }
 

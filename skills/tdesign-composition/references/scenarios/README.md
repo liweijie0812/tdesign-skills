@@ -12,8 +12,11 @@
 6. 需要详情页、对象档案或审批详情时，查 `detail-page.md`。
 7. 需要登录、注册或身份入口时，查 `login-page.md`。
 8. 需要错误页、无权限页或结果页时，查 `error-page.md`。
-9. 需要移动端表单、移动端列表或轻量页面时，查 `mobile-pages.md`。
-10. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认 props、事件、插槽和写法。
+9. 需要仪表盘、数据概览或图表页面时，查 `dashboard-page.md`。
+10. 需要弹窗、抽屉或临时任务流时，查 `dialog-drawer-flow.md`。
+11. 需要 CRUD、批量导入、批量操作或状态流转时，查 `crud-task-flow.md`。
+12. 需要移动端表单、移动端列表或轻量页面时，查 `mobile-pages.md`。
+13. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认 props、事件、插槽和写法。
 
 ## 与其他目录的边界
 
@@ -26,6 +29,6 @@
 - 场景卡只提供默认组合和常见校验点，不替代当前项目的业务约束。
 - Web 中后台场景必须遵守 `../design/design-spec.md` 的真实组件、图标、表格、图表、导航和状态反馈红线。
 - Web 自定义样式优先使用 `../design/tokens.md` 中的语义 Token，不写零散硬编码颜色、间距、圆角或高度。
-- Web 代码生成后必须按 `../design/checklist.json` 输出适用检查项结果；能运行脚本时按 `../quality-gate.md` 执行质量门禁。
+- Web 代码生成或页面改造后必须按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 执行质量门禁。
 - Web 与 Mobile / Miniprogram 页面结构不直接互相复用，必须按平台降密或调整导航方式。
 - 如果场景卡里的默认组件当前栈不存在，先回到 `skills/tdesign-docs/references/meta/stack-matrix.json` 与 `skills/tdesign-usage-guide/references/decisions/fallback-policy.md` 处理降级。

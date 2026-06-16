@@ -54,4 +54,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-004`、`DS-005`、`DS-008`、`DS-012`。
 - Web `Header` / `t-layout__header` 必须使用 `var(--td-comp-size-xxxl)`，并同时设置 `height`、`min-height`、`flex-shrink: 0`。
-- Web 应用壳交付前按 `../design/checklist.json` 输出结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。
+- Web 应用壳交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。

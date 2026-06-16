@@ -50,4 +50,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-007`、`DS-011`、`DS-012`。
 - 涉及删除、禁用、清空、撤销等危险提交时追加 `DS-006`，必须使用二次确认组件。
-- Web 自定义样式查 `../design/tokens.md` 的常用 Token 速查；交付前按 `../design/checklist.json` 输出结果。
+- Web 自定义样式查 `../design/tokens.md` 的常用 Token 速查；交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果。

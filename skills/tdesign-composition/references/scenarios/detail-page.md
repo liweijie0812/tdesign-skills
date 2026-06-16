@@ -46,4 +46,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-006`、`DS-007`、`DS-008`、`DS-011`、`DS-012`。
 - 涉及结构化日志表格时追加 `DS-010`，必须使用真实 `Table` 与列配置。
-- Web 详情页交付前按 `../design/checklist.json` 输出结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。
+- Web 详情页交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。
