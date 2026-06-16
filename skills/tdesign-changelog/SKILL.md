@@ -5,7 +5,7 @@ description: 当用户询问 TDesign 某组件能力在哪个版本新增、修�
 
 # TDesign 变更日志查询
 
-本 skill 用于确认 TDesign 组件的版本变化，不替代当前技术栈 API 文件。
+本 skill 用于确认 TDesign 组件的版本变化，不替代当前技术栈 API 文件。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
 ## 适用问题
 
@@ -44,3 +44,4 @@ node skills/tdesign-changelog/scripts/query-changelog.mjs --stack mobile-react -
 - 不要用 changelog 反推 API 形状、默认值或事件名。
 - 只判断版本变化，不替代 `tdesign-docs` 的组件覆盖矩阵。
 - 组件名查不到时，使用脚本返回的候选组件名重试。
+- 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。

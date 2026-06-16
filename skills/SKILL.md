@@ -5,7 +5,7 @@ description: 当用户询问 TDesign skills 集合本身、skills 目录索引�
 
 # TDesign Skills 索引
 
-本文件是 TDesign skill collection 的目录索引，同时也是合法的根索引 skill。普通业务项目的 TDesign 任务应从 `tdesign-skills/SKILL.md` 进入，再按任务路由到更窄的专项 skill；路由规则与职责边界单点维护在 `tdesign-skills/references/responsibility-map.md` 与 `tdesign-skills/references/constraints.md`，本文件不重复。
+本文件是 TDesign skill collection 的目录索引，同时也是合法的根索引 skill。完整安装 collection 时，普通业务项目的 TDesign 任务优先从 `tdesign-skills/SKILL.md` 进入，再按任务路由到更窄的专项 skill；选择性安装时，已安装的专项 skill 必须依靠自身内联护栏独立工作。完整 collection 下的路由规则与职责边界维护在 `tdesign-skills/references/responsibility-map.md` 与 `tdesign-skills/references/constraints.md`，本文件不重复。
 
 ## 入口
 

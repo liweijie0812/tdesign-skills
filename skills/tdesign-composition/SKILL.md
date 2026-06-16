@@ -5,7 +5,7 @@ description: 当用户询问 TDesign 页面级组合、页面骨架、后台管�
 
 # TDesign 组件搭配与页面场景
 
-本 skill 用于回答“某类页面通常怎么组织、默认怎么搭”。它不替代组件选型理由、组件覆盖确认或具体组件 API。
+本 skill 用于回答“某类页面通常怎么组织、默认怎么搭”。它不替代组件选型理由、组件覆盖确认或具体组件 API。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
 ## 查阅顺序
 
@@ -59,3 +59,4 @@ description: 当用户询问 TDesign 页面级组合、页面骨架、后台管�
 - 如果场景卡里的默认组件当前栈不存在，先查 `../tdesign-docs/references/meta/stack-matrix.json`（全局概览）和按端的 `stack-matrix-<端>.json`，再查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`。
 - 场景组合确定后，单组件 props、事件、插槽必须回到对应技术栈 API skill。
 - 只有组件组合和 props 无法满足时，才补最小 CSS。
+- 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。

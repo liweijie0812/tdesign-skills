@@ -5,7 +5,7 @@ description: 当用户需要查找 TDesign 图标、搜索图标名称/关键词
 
 # TDesign Icons 图标检索
 
-本 skill 用于查找和检索 TDesign Icons 图标库中的图标，并锁定当前技术栈应使用的官方图标包、安装命令和导入方式。通用约束、跨栈隔离和路由交接见 `../tdesign-skills/references/constraints.md`。
+本 skill 用于查找和检索 TDesign Icons 图标库中的图标，并锁定当前技术栈应使用的官方图标包、安装命令和导入方式。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
 数据来源：`tdesign-icons` 官方 `manifest.js`，包含 2000+ 个图标的全量元数据。命名规则、品牌图标速查、6 级模糊匹配流程、多色 / 可变粗细写法和分类参考查 `references/usage-guide.md`。
 
@@ -80,5 +80,7 @@ node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 - 搜索不到图标时，可尝试放宽关键词、切换风格或使用 `--list-categories` 浏览。
 - 图标组件 props、事件和当前栈写法，必须转到对应技术栈 `Icon` API；包名不得脱离本 skill 的官方包名矩阵。
 - 不要用 `tdesign-changelog` 查询图标包版本：它只覆盖组件库栈，不包含 `tdesign-icons-*`。
-- 路由交接：图标组件 props/事件/写法→当前技术栈 `Icon` API；选型→`tdesign-usage-guide`。图标包（`tdesign-icons-*`）是独立 npm 包，版本独立于组件库，`tdesign-changelog` **不覆盖**图标包，图标版本需查 npm 或对应图标包的 GitHub release。未安装对应栈 skill 时跳过写法查询，建议补装，完整职责表见 `../tdesign-skills/references/constraints.md`。
+- 路由交接：图标组件 props/事件/写法→当前技术栈 `Icon` API；选型→`tdesign-usage-guide`。
+- 图标包（`tdesign-icons-*`）是独立 npm 包，版本独立于组件库，`tdesign-changelog` **不覆盖**图标包，图标版本需查 npm 或对应图标包的 GitHub release。
+- 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。
 - 更新 manifest 数据：`node skills/tdesign-icons/scripts/convert-manifest.mjs`。

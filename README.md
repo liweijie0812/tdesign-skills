@@ -98,6 +98,7 @@ npx skills add liweijie0812/tdesign-skills --skill tdesign-react --skill tdesign
 - `skills/tdesign-skills/SKILL.md`：总入口，定义 TDesign 依赖识别、技术栈识别、任务路由和强制约束。
 - `skills/SKILL.md`：skills 目录索引，说明完整 skill 列表、加载方式和维护规范；仅用于询问 skill collection 本身，普通 TDesign 任务走 `skills/tdesign-skills/SKILL.md`。
 - `skills/`：skill collection，按文档、变更日志、使用指南、组件搭配和具体技术栈拆分。
+- `skills/tdesign-skills/references/constraints.md`：完整安装时的跨 skill 详细约束、技术栈 skill 统一模板、兜底边界和路由交接参考源；选择性安装时，各专项 `SKILL.md` 必须依靠自身内联护栏独立工作。
 - `skills/tdesign-docs/references/meta/stack-matrix.json`：跨端组件覆盖全局概览和已知写法差异；按端明细见 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`。配套查询脚本：`skills/tdesign-docs/scripts/query-matrix.mjs`。
 - `skills/tdesign-docs/references/api/`：API 总入口和跨端共享契约。
 - `skills/tdesign-usage-guide/references/decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。

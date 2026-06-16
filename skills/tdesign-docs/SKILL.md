@@ -5,7 +5,7 @@ description: 当用户询问 TDesign 文档入口、资料在哪里、当前技�
 
 # TDesign 文档与资料入口
 
-本 skill 用于回答"资料在哪里、当前栈有什么、应该先读什么"。它不替代组件选型、场景搭配或具体 API 实现。
+本 skill 用于回答"资料在哪里、当前栈有什么、应该先读什么"。它不替代组件选型、场景搭配或具体 API 实现。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
 ## 查阅顺序
 
@@ -44,3 +44,4 @@ node skills/tdesign-docs/scripts/query-matrix.mjs --group web --json     # 按�
 - 不要一次性读取所有技术栈的 `references/api/` 树。
 - 不要从目录存在推断组件可用性，必须以 `references/meta/stack-matrix.json` 或对应端文件为准。
 - 不要把 Web only 组件默认用于 Mobile 或 Miniprogram。
+- 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。

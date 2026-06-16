@@ -13,6 +13,7 @@
 - 每次只选择 1 个主责 skill，职责划分见 `responsibility-map.md`。
 - 不要把总入口、选型、页面组合和 API skill 同时当作主入口。
 - 当用户问题已经明确落在某个专项 skill 时，跳过总入口，直接进入该 skill。
+- 各专项 skill 必须在自身 `SKILL.md` 内联最小护栏，确保选择性安装且未安装 `tdesign-skills` 时仍可独立工作；本文件只作为完整 collection 模式下的详细补充。
 
 ## 跨栈隔离
 
@@ -37,6 +38,19 @@
 - 只读取当前任务需要的单个组件目录，不整树加载 `references/api/`。
 - API 表不够精确时，再读取同目录 `type.ts`、`props.ts`、`common.ts`。
 - 组件是否存在必须以 `references/meta/stack-matrix.json` 或对应端文件为准，不从目录存在推断。
+
+## 技术栈 skill 统一模板
+
+各技术栈 skill（react / vue-next / vue2 / mobile-react / mobile-vue / miniprogram / uniapp）的 `SKILL.md` 统一维护以下结构：
+
+1. 简介：声明只服务当前 TDesign 包，并说明本文件仅在完整 collection 模式下作为详细参考。
+2. `查阅顺序`：依赖确认 → 示例 → 覆盖矩阵 → 单组件 API → 类型源 → 跨端共享契约 → 页面组合 / 版本回流。
+3. `<技术栈> 写法边界`：只写当前栈语法、导入、事件、插槽或平台差异。
+4. `约束`：只保留当前栈执行红线、降级策略和路由交接。
+
+- 平台差异应放在 `写法边界` 内，不新增并列大章节，避免各栈结构漂移。
+- Web 完整页面、Mobile 页面骨架、小程序 / uni-app 差异可以在对应步骤或边界中说明，但仍需回到统一路由链路。
+- 技术栈 skill 必须内联“目标 skill 未安装时跳过查询并建议补装”的兜底；support skill 只做自身职责，不扩展为通用兜底入口。
 
 ## 路由交接（技术栈 skill 共用）
 
