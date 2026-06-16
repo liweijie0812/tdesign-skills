@@ -11,6 +11,19 @@ let platform = 'auto';
 const supportedExtensions = new Set(['.vue', '.css', '.scss', '.less', '.html', '.tsx', '.jsx', '.ts', '.js']);
 const uiExtensions = new Set(['.vue', '.html', '.tsx', '.jsx']);
 const supportedPlatforms = new Set(['auto', 'web', 'mobile', 'miniprogram']);
+const usage = 'Usage: node <path-to-tdesign-composition>/scripts/check-quality.mjs [--platform web|mobile|miniprogram] <file-or-directory> [...more]';
+
+function printUsage() {
+  console.log(usage);
+  console.log('Options:');
+  console.log('  --platform <platform>  Set platform: auto, web, mobile, or miniprogram');
+  console.log('  -h, --help             Show this help message');
+}
+
+if (rawArgs.includes('--help') || rawArgs.includes('-h')) {
+  printUsage();
+  process.exit(0);
+}
 
 for (let index = 0; index < rawArgs.length; index += 1) {
   const arg = rawArgs[index];
@@ -22,6 +35,11 @@ for (let index = 0; index < rawArgs.length; index += 1) {
   if (arg.startsWith('--platform=')) {
     platform = arg.slice('--platform='.length);
     continue;
+  }
+  if (arg.startsWith('-')) {
+    console.error(`Unknown option "${arg}".`);
+    printUsage();
+    process.exit(1);
   }
   targets.push(arg);
 }
@@ -274,7 +292,7 @@ function checkFile(filePath) {
 }
 
 if (!targets.length) {
-  console.error('Usage: node <path-to-tdesign-composition>/scripts/check-quality.mjs [--platform web|mobile|miniprogram] <file-or-directory> [...more]');
+  console.error(usage);
   process.exit(1);
 }
 
