@@ -1,40 +1,37 @@
 ---
 name: tdesign-icons
-description: 当用户需要查找 TDesign 图标、搜索图标名称/关键词、浏览图标分类、确认图标是否存在，或需要确定 TDesign 图标包名、安装命令、导入方式和当前技术栈图标写法时使用。只负责 manifest 图标检索和官方图标包用法；不负责业务图标设计或版本历史。
+description: 当用户需要查找 TDesign 图标、搜索图标名称/关键词、浏览图标分类、确认图标是否存在，或需要确定 TDesign 图标包名、安装命令和导入方式时使用。
 ---
 
 # TDesign Icons 图标检索
 
-本 skill 用于查找和检索 TDesign Icons 图标库中的图标，并锁定当前技术栈应使用的官方图标包、安装命令和导入方式。
+本 skill 用于查找和检索 TDesign Icons 图标库中的图标，并锁定当前技术栈应使用的官方图标包、安装命令和导入方式。通用约束、跨栈隔离和路由交接见 `../tdesign-skills/references/constraints.md`。
 
-数据来源：`tdesign-icons` 官方 `manifest.js`，包含 2000+ 个图标的全量元数据。
+数据来源：`tdesign-icons` 官方 `manifest.js`，包含 2000+ 个图标的全量元数据。命名规则、品牌图标速查、6 级模糊匹配流程、多色 / 可变粗细写法和分类参考查 `references/usage-guide.md`。
 
 ## 查阅顺序
 
 ### 场景 A：精确查找（用户已知图标名或想确认某图标是否存在）
 
-使用 `--name <图标名> --exact`，脚本直接遍历 manifest 结构做精确匹配，跳过 flatten 和模糊匹配阶段，结果精确、响应快。
+使用 `--name <图标名> --exact`，直接精确匹配，跳过模糊匹配阶段，响应最快。
 
 ```bash
 node skills/tdesign-icons/scripts/query-icons.mjs --name logo-github --exact
-node skills/tdesign-icons/scripts/query-icons.mjs --name close --exact
+node skills/tdesign-icons/scripts/query-icons.mjs --name search --exact --stack mobile-react
 ```
-
-适合：用户问"有没有 xxx 图标？"、"xxx 图标叫什么？"等确认性查询。
 
 ### 场景 B：模糊搜索（用户不知道确切图标名，按关键词/分类查找）
 
-使用 `--search` 或 `--name`（不带 `--exact`），走 6 级模糊匹配：精确名 → 前缀 → 包含 → 中文关键词 → 名称模糊 → 关键词模糊。
+使用 `--search` 或 `--name`（不带 `--exact`），走 6 级模糊匹配（流程见 `references/usage-guide.md`）。
 
 ```bash
 node skills/tdesign-icons/scripts/query-icons.mjs --search <关键词>
-node skills/tdesign-icons/scripts/query-icons.mjs --category <分类名>
-node skills/tdesign-icons/scripts/query-icons.mjs --name search --exact --stack mobile-vue
+node skills/tdesign-icons/scripts/query-icons.mjs --category Brand
 ```
 
 ### 找到图标后的推荐方式
 
-找到图标名后，必须先确认当前技术栈，再使用下表中的官方包名和导入方式；不要写占位包名、猜包名或跨栈复用包名。
+找到图标名后，必须先确认当前技术栈，再使用下表中的官方包名和导入方式；不要写占位包名、猜包名或跨栈复用包名。多色 / 可变粗细、CDN 用法和小程序适配详见 `references/usage-guide.md`。
 
 | 技术栈 | 安装包 | 推荐写法 |
 | --- | --- | --- |
@@ -47,7 +44,6 @@ node skills/tdesign-icons/scripts/query-icons.mjs --name search --exact --stack 
 | UniApp / `tdesign-uniapp` | 使用组件库 Icon API，先查当前项目依赖和 `tdesign-uniapp` API | 不安装 React / Vue 图标包 |
 
 图标组件 API（`size`、事件、插槽等）参考当前技术栈 skill 的 `references/api/icon/index.md`。
-使用方式、多色图标、小程序适配等详细参考：查 `references/usage-guide.md`。
 
 ## 快速查询
 
@@ -57,53 +53,13 @@ node skills/tdesign-icons/scripts/query-icons.mjs --stats
 
 # 列出所有分类
 node skills/tdesign-icons/scripts/query-icons.mjs --list-categories
-node skills/tdesign-icons/scripts/query-icons.mjs --list-categories --style outline
 
-# 按关键词搜索（支持中文/英文）
-node skills/tdesign-icons/scripts/query-icons.mjs --search 搜索
-node skills/tdesign-icons/scripts/query-icons.mjs --search close
-node skills/tdesign-icons/scripts/query-icons.mjs --style filled --search 箭头
+# 精确查找（最快，确认某图标是否存在）
+node skills/tdesign-icons/scripts/query-icons.mjs --name chevron-down --exact
 
-# 按分类浏览图标
-node skills/tdesign-icons/scripts/query-icons.mjs --category Brand
-node skills/tdesign-icons/scripts/query-icons.mjs --category Arrows --style outline --limit 10
-
-# 精确查找图标名称
-node skills/tdesign-icons/scripts/query-icons.mjs --name chevron-down
-
-# 同时输出当前技术栈的图标包和按需导入
-node skills/tdesign-icons/scripts/query-icons.mjs --name search --exact --stack mobile-react
-node skills/tdesign-icons/scripts/query-icons.mjs --name search --exact --stack mobile-vue
-
-# JSON 输出（便于程序处理）
+# 模糊搜索 + JSON 输出
 node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 ```
-
-## 常见品牌图标速查
-
-以下是 Brand 分类中的常用品牌图标示例（省略 `logo-` 前缀即为导入名，如 `logo-github` → `LogoGithubIcon`）：
-
-| 图标名 | 风格 |
-|--------|------|
-| `logo-github` / `logo-github-filled` | outline / filled |
-| `logo-gitlab` / `logo-gitlab-filled` | outline / filled |
-| `logo-chrome` / `logo-chrome-filled` | outline / filled |
-| `logo-apple` / `logo-apple-filled` | outline / filled |
-| `logo-android` / `logo-android-filled` | outline / filled |
-| `logo-windows` / `logo-windows-filled` | outline / filled |
-| `logo-figma` / `logo-figma-filled` | outline / filled |
-| `logo-alipay` / `logo-alipay-filled` | outline / filled |
-| `logo-wechatpay` / `logo-wechatpay-filled` | outline / filled |
-| `logo-qq` / `logo-qq-filled` | outline / filled |
-
-> 更多品牌图标通过 `--category Brand` 动态获取；不确定名称时用 `--search <关键词>`。
-
-## 图标命名规则
-
-- 格式：`{语义名}-{变体?}-{风格}`，如 `search-filled`、`chevron-down`、`logo-android-filled`
-- `filled`（实心/填充）以 `-filled` 结尾；`outline`（线性/描边）不带风格后缀
-- 变体（如 `-1`、`-2`）区分同语义不同形态
-- 导入名规则：`search` → `SearchIcon`（首字母大写 + `Icon` 后缀），`chevron-down` → `ChevronDownIcon`
 
 ## 包名与导入红线
 
@@ -120,7 +76,9 @@ node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 - 图标名称以 manifest 数据为准，不要凭经验编造图标名。
 - 不要直接读取 `references/manifest.json`；该文件很大，只通过 `query-icons.mjs` 按需查询。
 - **优先推荐按需引入**，且包名必须来自“找到图标后的推荐方式”矩阵，不默认使用 `<Icon name="..." />` / `<t-icon name="..." />`。
-- **精确查找优先用 `--name <名称> --exact`**（精确匹配，跳过模糊阶段）；模糊搜索用 `--search`。
+- **精确查找优先用 `--name <名称> --exact`**；模糊搜索用 `--search`。
 - 搜索不到图标时，可尝试放宽关键词、切换风格或使用 `--list-categories` 浏览。
 - 图标组件 props、事件和当前栈写法，必须转到对应技术栈 `Icon` API；包名不得脱离本 skill 的官方包名矩阵。
+- 不要用 `tdesign-changelog` 查询图标包版本：它只覆盖组件库栈，不包含 `tdesign-icons-*`。
+- 路由交接：图标组件 props/事件/写法→当前技术栈 `Icon` API；选型→`tdesign-usage-guide`。图标包（`tdesign-icons-*`）是独立 npm 包，版本独立于组件库，`tdesign-changelog` **不覆盖**图标包，图标版本需查 npm 或对应图标包的 GitHub release。未安装对应栈 skill 时跳过写法查询，建议补装，完整职责表见 `../tdesign-skills/references/constraints.md`。
 - 更新 manifest 数据：`node skills/tdesign-icons/scripts/convert-manifest.mjs`。

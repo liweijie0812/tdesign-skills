@@ -212,3 +212,42 @@ npx mp-svg-icons-clear \
 | Letters | 字母 | - | ✓ |
 | Numbers | 数字 | - | ✓ |
 | Else | 其他 | - | ✓ |
+
+## 图标命名规则
+
+- 格式：`{语义名}-{变体?}-{风格}`，如 `search-filled`、`chevron-down`、`logo-android-filled`
+- `filled`（实心/填充）以 `-filled` 结尾；`outline`（线性/描边）不带风格后缀
+- 变体（如 `-1`、`-2`）区分同语义不同形态
+- 导入名规则：`search` → `SearchIcon`（首字母大写 + `Icon` 后缀），`chevron-down` → `ChevronDownIcon`
+
+## 常见品牌图标速查
+
+以下是 Brand 分类中的常用品牌图标示例（省略 `logo-` 前缀即为导入名，如 `logo-github` → `LogoGithubIcon`）：
+
+| 图标名 | 风格 |
+|--------|------|
+| `logo-github` / `logo-github-filled` | outline / filled |
+| `logo-gitlab` / `logo-gitlab-filled` | outline / filled |
+| `logo-chrome` / `logo-chrome-filled` | outline / filled |
+| `logo-apple` / `logo-apple-filled` | outline / filled |
+| `logo-android` / `logo-android-filled` | outline / filled |
+| `logo-windows` / `logo-windows-filled` | outline / filled |
+| `logo-figma` / `logo-figma-filled` | outline / filled |
+| `logo-alipay` / `logo-alipay-filled` | outline / filled |
+| `logo-wechatpay` / `logo-wechatpay-filled` | outline / filled |
+| `logo-qq` / `logo-qq-filled` | outline / filled |
+
+> 更多品牌图标通过 `--category Brand` 动态获取；不确定名称时用 `--search <关键词>`。
+
+## 模糊匹配流程（`--search` / `--name` 不带 `--exact`）
+
+按以下 6 级依次尝试命中，命中即返回：
+
+1. 精确名匹配
+2. 名称前缀匹配
+3. 名称包含匹配
+4. 中文关键词匹配
+5. 名称模糊匹配
+6. 关键词模糊匹配
+
+精确查找（`--name <名称> --exact`）跳过上述流程，直接遍历精确匹配，响应最快。

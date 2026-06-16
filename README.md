@@ -31,6 +31,30 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 
 安装后请重启对应工具，使新增 skills 生效。
 
+## 选择性安装
+
+本仓库的 skill 之间有协作引用关系。完整安装（默认 `--all` 或不传 `--skill`）时所有跨 skill 引用均可解析。
+
+通过 `--skill <name>` 按需安装时，建议组合：
+
+| 目标 | 建议组合 |
+| --- | --- |
+| 只用 React Web 组件 | `tdesign-react` + `tdesign-docs` + `tdesign-usage-guide` |
+| 完整 Web 开发 | `tdesign-react` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
+| Vue 3 Web | 将上述组合中的 `tdesign-react` 换为 `tdesign-vue-next` |
+| Vue 2 Web | 将上述组合中的 `tdesign-react` 换为 `tdesign-vue2` |
+| 移动端 React | `tdesign-mobile-react` + `tdesign-docs` + `tdesign-composition` + `tdesign-icons` |
+| 移动端 Vue | `tdesign-mobile-vue` + `tdesign-docs` + `tdesign-composition` + `tdesign-icons` |
+| 小程序 | `tdesign-miniprogram` + `tdesign-docs` + `tdesign-composition` |
+| uni-app | `tdesign-uniapp` + `tdesign-docs` + `tdesign-composition` |
+
+单独安装某个技术栈 skill 也可工作：护栏规则与路由地图已内联在各栈 `SKILL.md`，跨 skill 查询会在目标 skill 未安装时自动降级为兜底策略，并在回复中建议补装。
+
+```bash
+# 示例：只装 React Web 栈 + 文档 + 选型
+npx skills add liweijie0812/tdesign-skills --skill tdesign-react --skill tdesign-docs --skill tdesign-usage-guide
+```
+
 ## Skills
 
 `tdesign-skills` 是总入口，负责识别 TDesign 依赖、技术栈和任务类型，并路由到更窄的专项 skill。

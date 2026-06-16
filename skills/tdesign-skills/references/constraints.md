@@ -28,7 +28,7 @@
 
 ## 场景卡约束
 
-- 涉及 `Dialog`、`Form`、`Table` 的页面搭建、组件组合或交互流程设计，必须先查 `../tdesign-composition/references/scenarios/README.md` 并进入对应场景卡。
+- 涉及 `Dialog`、`Form`、`Table` 的页面搭建、组件组合或交互流程设计，必须先查 `../../tdesign-composition/references/scenarios/README.md` 并进入对应场景卡。
 - 纯 API 查询或局部修复可直接查当前技术栈组件 API。
 - 场景卡只提供默认组合和校验点，不替代当前项目业务约束。
 
@@ -37,3 +37,27 @@
 - 只读取当前任务需要的单个组件目录，不整树加载 `references/api/`。
 - API 表不够精确时，再读取同目录 `type.ts`、`props.ts`、`common.ts`。
 - 组件是否存在必须以 `references/meta/stack-matrix.json` 或对应端文件为准，不从目录存在推断。
+
+## 路由交接（技术栈 skill 共用）
+
+> **定位**：本文件是**完整 collection 模式下的详细单一源**，聚合所有跨 skill 的强制约束与路由职责表。各技术栈 `SKILL.md` 已内联最小护栏与路由摘要，可在单 skill 隔离或跨 skill 文件缺失时独立生效；本文件在此基础上提供去重的完整版。
+>
+> **路径**：本文件位于 `skills/tdesign-skills/references/`，比技术栈 `SKILL.md` 深一层；因此下表跨 skill 路径用 `../../`（从本文件出发）。技术栈 `SKILL.md` 引用其他 skill 仍用 `../`。
+
+各技术栈 skill（react / vue-next / vue2 / mobile-react / mobile-vue / miniprogram / uniapp）只负责当前栈单组件 API 与代码落地，其余职责按下表交接，不要在正文重复展开：
+
+| 任务类型 | 主责 skill | 关键资料 |
+| --- | --- | --- |
+| 组件选型、相似组件、何时使用、反模式、降级 | `tdesign-usage-guide` | `../../tdesign-usage-guide/references/decisions/README.md` |
+| 页面级组合、应用壳、场景卡、设计规范、质量门禁 | `tdesign-composition` | `../../tdesign-composition/references/scenarios/README.md` |
+| 移动端 / 小程序 / uni-app 页面骨架 | `tdesign-composition` | `../../tdesign-composition/references/scenarios/mobile-pages.md` |
+| 组件是否存在、覆盖矩阵、资料入口 | `tdesign-docs` | `../../tdesign-docs/references/meta/stack-matrix.json` |
+| 图标名称、关键词、分类、包名、导入方式 | `tdesign-icons` | `../../tdesign-icons/SKILL.md` |
+| 版本能力、新增、修复、废弃、Breaking Changes | `tdesign-changelog` | `../../tdesign-changelog/SKILL.md` |
+
+- 查到选型、组合、图标或版本线索后，仍要回到当前技术栈 `references/api/<component>/index.md` 确认真实写法。
+- 当前栈组件不存在或能力不足，统一查 `../../tdesign-usage-guide/references/decisions/fallback-policy.md`。
+
+### 单 skill 选择性安装的兜底
+
+通过 `npx skills add --skill <name>` 选择性安装时，上表跨 skill 资料可能不在磁盘。各技术栈 `SKILL.md` 已为每类跨 skill 引用内联兜底（未安装时跳过查询、按兜底执行、并在回复中建议补装），单 skill 模式下仍可独立工作。本表作为完整 collection 模式下的精确路由表，单 skill 模式下不强制可读。

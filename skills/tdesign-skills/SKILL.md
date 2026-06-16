@@ -1,11 +1,11 @@
 ---
 name: tdesign-skills
-description: 当 TDesign 任务尚未明确技术栈、横跨多个 TDesign 包，或需要先识别 tdesign-react、tdesign-vue-next、tdesign-vue、tdesign-mobile-react、tdesign-mobile-vue、tdesign-miniprogram、tdesign-uniapp 并路由到专项 skill 时使用。只做技术栈识别和职责路由；已明确 API、选型、页面组合、图标或 changelog 时优先使用对应专项 skill。
+description: 当 TDesign 任务尚未明确技术栈或横跨多个 TDesign 包，需要先识别技术栈并路由到专项 skill 时使用。
 ---
 
 # TDesign Skills 总入口
 
-本 skill 是 TDesign 多 skill 结构的轻量路由入口。先确认项目是否使用 TDesign、识别当前技术栈和任务类型，然后进入更窄的专项 skill 或资料目录。
+本 skill 是 TDesign 多 skill 结构的轻量路由入口。先确认项目是否使用 TDesign、识别当前技术栈和任务类型，然后进入更窄的专项 skill 或资料目录。通用强制约束见 `references/constraints.md`。
 
 ## 适用范围
 
@@ -26,6 +26,12 @@ description: 当 TDesign 任务尚未明确技术栈、横跨多个 TDesign 包�
 | `tdesign-mobile-vue` | Vue Mobile | `tdesign-mobile-vue` |
 | `tdesign-miniprogram` | Miniprogram | `tdesign-miniprogram` |
 | `tdesign-uniapp` | UniApp | `tdesign-uniapp` |
+
+易混栈判别（miniprogram vs uniapp 都用 `t-*` 组件）：
+
+- 出现 `usingComponents`（`*.json`）和 `bind:event` → `tdesign-miniprogram`。
+- 出现 `.vue` SFC + `easycom` + `@event`，或 `manifest.json` 带 `uni-app` 标识 → `tdesign-uniapp`。
+- 不确定时回到项目 `package.json` 与 `pages.json` / `app.json` 确认。
 
 ## 路由规则
 

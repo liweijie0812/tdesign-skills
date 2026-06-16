@@ -1,17 +1,18 @@
 ---
 name: skills
-description: Use ONLY when the user asks about the TDesign skills collection itself, the skills directory index, available TDesign skills, or how these skills are organized. Do not use for normal TDesign component implementation; route those tasks through tdesign-skills or a narrower TDesign skill.
+description: 当用户询问 TDesign skills 集合本身、skills 目录索引或可用 skill 列表时使用。普通 TDesign 组件任务走 tdesign-skills 或更窄的专项 skill。
 ---
 
 # TDesign Skills 索引
 
-本文件是 TDesign skill collection 的目录索引，同时也是合法的根索引 skill。普通业务项目的 TDesign 任务应从 `tdesign-skills/SKILL.md` 进入，再按任务路由到更窄的专项 skill。
+本文件是 TDesign skill collection 的目录索引，同时也是合法的根索引 skill。普通业务项目的 TDesign 任务应从 `tdesign-skills/SKILL.md` 进入，再按任务路由到更窄的专项 skill；路由规则与职责边界单点维护在 `tdesign-skills/references/responsibility-map.md` 与 `tdesign-skills/references/constraints.md`，本文件不重复。
 
 ## 入口
 
 - 总入口：`tdesign-skills/SKILL.md`
 - 仓库总说明：`../README.md`
 - 职责边界：`tdesign-skills/references/responsibility-map.md`
+- 强制约束：`tdesign-skills/references/constraints.md`
 
 ## 技能列表
 
@@ -37,19 +38,8 @@ description: Use ONLY when the user asks about the TDesign skills collection its
 - `skills/SKILL.md` 是集合索引，只在用户询问 collection 本身时使用。
 - 仓库不维护 `skills/` 外层的同名 skill 副本；若安装工具在目标目录生成副本，应以本目录内容为源并通过本文件说明同步关系。
 
-## 选择规则
-
-- 普通 TDesign 任务先用 `tdesign-skills` 识别技术栈和任务类型。
-- 资料位置、覆盖矩阵和来源链接用 `tdesign-docs`。
-- 组件选型、相似组件、迁移和代码评审用 `tdesign-usage-guide`。
-- 页面搭建、后台页面骨架、设计规范和生成后自检用 `tdesign-composition`。
-- 图标名检索用 `tdesign-icons`；版本历史和 changelog 用 `tdesign-changelog`。
-- 具体 props、事件、插槽和代码写法回到当前技术栈 skill。
-
 ## 约束
 
 - 本索引文件保留为 `SKILL.md`，因此必须带合法 frontmatter，且 `name` 必须等于目录名 `skills`。
 - 每个 skill 的 `name` 必须与目录名一致。
-- 每次只选择 1 个主责 skill，再按需读取其他 skill 的少量参考资料。
-- 页面生成先走 `tdesign-composition` 的场景卡和设计规范，再回到当前技术栈 API skill 落地代码。
-- Web 中后台页面生成必须读取 `tdesign-composition/references/design/checklist.json`，生成后按 `tdesign-composition/references/quality-gate.md` 执行自检。
+- 选择规则与交接流程见 `tdesign-skills/SKILL.md` 和 `tdesign-skills/references/constraints.md`，不在本文件重复。

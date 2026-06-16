@@ -25,13 +25,7 @@ description: 当用户需要 TDesign 使用指南、组件选型、何时使用�
 - 禁止用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力。
 - 禁止把 Web、Mobile、Miniprogram 的组件结论直接互相套用。
 
-## 常见取舍
-
-- `Button` vs `Link`：跳转用 `Link`，触发操作用 `Button`。
-- `Dialog` vs `Drawer`：强打断确认用 `Dialog`，保留上下文编辑或详情用 `Drawer`。
-- `Table` vs `List`：结构化多列数据用 `Table`，简单条目用 `List`。
-- Web `Select` / Mobile `Picker` vs `Cascader`：单层值选择用 `Select` 或 `Picker`，层级路径选择用 `Cascader`。
-- `Message` vs `Notification`：短反馈用 `Message`，较完整通知用 `Notification`。
+> 常见取舍（Button vs Link、Dialog vs Drawer、Table vs List、Select/Picker vs Cascader、Message vs Notification 等）见 `references/decisions/similar-components.md` 与平台下 `similar-components.md`，不在本文件重复维护。
 
 ## 迁移与评审
 

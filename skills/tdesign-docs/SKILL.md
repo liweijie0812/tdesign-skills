@@ -11,10 +11,10 @@ description: 当用户询问 TDesign 文档入口、资料在哪里、当前技�
 
 1. 技术栈、组件覆盖和本地示例模板标记：查 `references/meta/stack-matrix.json`（全局概览），以及按端分文件 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`（各栈组件列表、`coverage.hasExample` 与类型源明细）。
 2. 上游来源链接和同步信息：查 `references/meta/source-links.md`。
-3. API 资料入口：查 `references/api/README.md` 和 `references/api/index.md`。
+3. API 资料入口：`references/api/README.md` 是 API 资料索引与读取约定，`references/api/index.md` 是跨端共享契约（`shared/` 目录）入口；先读 README 再按需进 index。
 4. 选型资料入口：查 `../tdesign-usage-guide/references/decisions/README.md`。
 5. 场景卡入口：查 `../tdesign-composition/references/scenarios/README.md`。
-6. 色彩、布局、中后台指南：查 `../tdesign-composition/references/design/color.md`、`../tdesign-composition/references/design/layout.md`、`../tdesign-composition/references/design/offices.md`、`../tdesign-composition/references/design/offices-task.md`。
+6. 色彩、布局、Token、中后台框架等设计资料：转到 `tdesign-composition` 的 `references/design/` 目录（docs 只负责指路，不展开设计细则）。
 
 ## 快速查询
 

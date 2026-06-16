@@ -25,7 +25,7 @@ description: 当用户询问 TDesign 页面级组合、页面骨架、后台管�
 14. CRUD、批量导入、批量操作、状态流转：查 `references/scenarios/crud-task-flow.md`。
 15. 移动端表单、移动端列表和轻量移动页面：查 `references/scenarios/mobile-pages.md`。
 16. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认写法。
-17. 代码生成或页面改造完成后，按 `references/design/checklist.json` 的适用项自检；可运行代码时按 `references/quality-gate.md` 调用 `scripts/check-quality.mjs` 做静态门禁。
+17. 代码生成或页面改造完成后，按 `references/design/checklist.json` 的适用项自检，质量门禁细则见 `references/quality-gate.md`。
 
 ## Web 中后台资料
 
@@ -53,10 +53,9 @@ description: 当用户询问 TDesign 页面级组合、页面骨架、后台管�
 
 - Web 中后台页面生成必须先遵守 `references/design/design-spec.md` 的设计红线；Token 使用查 `references/design/tokens.md`。
 - Web 中后台代码生成或页面改造必须在动手前读取 `references/design/checklist.json`，交付前按检查项 ID 简要说明通过、无需适用或需人工确认；纯咨询不强制逐项输出。
-- 交付自检输出遵守 `references/design/checklist.json` 的 `outputTemplate.itemFormat`：`DS-编号：通过 / 不适用 / 需人工确认 - 简要原因`。
-- 能运行脚本的代码生成任务，交付前运行 `node <tdesign-composition-skill-dir>/scripts/check-quality.mjs [--platform web|mobile|miniprogram] <file-or-directory>`；在本仓库内可用 `node skills/tdesign-composition/scripts/check-quality.mjs --platform web <file-or-directory>`；不能运行时在最终说明中列出未运行原因。
+- 交付自检输出格式与静态门禁命令统一见 `references/quality-gate.md`（含 `check-quality.mjs` 用法与 `DS-编号：通过 / 不适用 / 需人工确认 - 简要原因` 模板）。
 - 场景卡只提供默认组合和校验点，不替代当前项目业务约束。
 - 组件选型争议先转到 `tdesign-usage-guide`，不要在场景卡里重新做选型规则。
-- 如果场景卡里的默认组件当前栈不存在，先查 `../tdesign-docs/references/meta/stack-matrix.json` 和 `../tdesign-usage-guide/references/decisions/fallback-policy.md`。
+- 如果场景卡里的默认组件当前栈不存在，先查 `../tdesign-docs/references/meta/stack-matrix.json`（全局概览）和按端的 `stack-matrix-<端>.json`，再查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`。
 - 场景组合确定后，单组件 props、事件、插槽必须回到对应技术栈 API skill。
 - 只有组件组合和 props 无法满足时，才补最小 CSS。

@@ -36,6 +36,8 @@ node skills/tdesign-changelog/scripts/query-changelog.mjs --stack mobile-react -
 - `--keyword`：按关键词过滤 markdown 变更项。
 - `--json`：输出原始匹配 JSON。
 
+更多典型查询示例查 `references/changelog-queries.md`。
+
 ## 约束
 
 - 查到版本线索后，仍要回到对应技术栈 skill 的 `references/api/<component>/index.md` 确认真实写法。

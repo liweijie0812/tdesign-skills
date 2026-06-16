@@ -1,22 +1,21 @@
 ---
 name: tdesign-miniprogram
-description: 当项目使用 tdesign-miniprogram，且任务需要小程序单组件 API、WXML 写法、短横线属性、bind 事件、external classes、usingComponents、示例代码或已确定组件后的代码落地/修复时使用。只负责当前栈 API；组件选型、页面组合、图标检索和版本历史转到对应专项 skill。
+description: 当项目使用 tdesign-miniprogram 且需要小程序单组件 API、WXML 写法、bind 事件、usingComponents 或代码落地时使用。
 ---
 
 # TDesign Miniprogram API
 
-本 skill 只服务 `tdesign-miniprogram`。实现时使用 WXML / JS、小程序短横线属性、`bind` 事件和 `usingComponents` 引入。
+本 skill 只服务 `tdesign-miniprogram`。实现时使用 WXML / JS、小程序短横线属性、`bind` 事件和 `usingComponents` 引入。通用约束、跨栈隔离和路由交接见 `../tdesign-skills/references/constraints.md`。
 
 ## 查阅顺序
 
 1. 先确认项目安装或引入 `tdesign-miniprogram`，并查看已有 WXML、JSON 和 JS 写法。
-2. 需要快速参考典型写法时，查 `references/examples/`（示例展示 WXML 模板、bind 事件、kebab-case 属性、usingComponents 等典型模式）。
-3. 组件是否存在先查 `../tdesign-docs/references/meta/stack-matrix-miniprogram.json` 的 `coverage.byStack.miniprogram` 或移动端覆盖范围。
+2. 典型写法参考查 `references/examples/README.md`（WXML 模板、bind 事件、kebab-case 属性、usingComponents 等）。
+3. 组件是否存在：已安装 `tdesign-docs` 时查 `../tdesign-docs/references/meta/stack-matrix-miniprogram.json` 的 `coverage.byStack.miniprogram`；未安装时以当前栈 `references/api/` 目录实际存在的组件为准，不从记忆推断，建议补装 `tdesign-docs` 获得准确覆盖矩阵。
 4. 具体组件 API 查 `references/api/<component>/index.md`。
 5. API 表不够精确时，查同目录 `type.ts`、`props.ts`、`common.ts` 或子组件类型文件。
-6. 涉及跨端语义或端差异时，先看 `../tdesign-docs/references/api/shared/index.md`，再回到 `references/api/<component>/`。
-7. 涉及组件组合或页面搭建时，先使用 `tdesign-composition`。
-8. 涉及版本能力时，使用 `tdesign-changelog` 后再回到 Miniprogram API 文件确认。
+6. 涉及跨端语义或端差异时：已安装 `tdesign-docs` 时先看 `../tdesign-docs/references/api/shared/index.md`；未安装时以当前栈 `references/api/<component>/` 为准，不确定的差异明确告知用户需人工确认，建议补装 `tdesign-docs` 获得跨端共享契约。
+7. 移动端页面骨架与组合：已安装 `tdesign-composition` 时查 `../tdesign-composition/references/scenarios/mobile-pages.md`；未安装时只用本栈组件按移动端惯例（导航 + Cell/Form/List + 反馈）组织，不照搬 Web 中后台骨架，建议补装 `tdesign-composition` 获得标准场景卡。版本能力先 `tdesign-changelog`，未安装时跳过，查完回本栈 API 文件确认。
 
 ## 小程序写法边界
 
@@ -24,11 +23,12 @@ description: 当项目使用 tdesign-miniprogram，且任务需要小程序单�
 - external classes、插槽、子组件和事件 payload 必须以 `references/api/` 为准。
 - 不要把 React、Vue、Mobile Web 写法套到小程序。
 - 不要凭经验编造 props、事件、插槽、CSS Variables 或 external classes。
-- 组件选型转到 `tdesign-usage-guide`，页面组合转到 `tdesign-composition`。
-- 图标名称、图标包和导入方式转到 `tdesign-icons`，版本线索转到 `tdesign-changelog`。
 
 ## 约束
 
 - 只读取当前任务需要的单个组件目录，不整树加载 `references/api/`。
 - 优先用 TDesign Miniprogram 组件和 props 解决问题，最后才补最小 WXSS。
-- 如果 Miniprogram 当前组件不存在或能力不足，查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`。
+- 禁止引入其他组件库；禁止用 `div` / `ul > li` / `window.confirm()` 重复实现 TDesign 已有能力。
+- 当前栈组件不存在或能力不足：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`；未安装时优先换相似 TDesign 组件，再考虑原生 HTML + 最小 CSS，并在回复中说明这是非 TDesign 官方能力，建议补装 `tdesign-usage-guide` 获得完整降级策略。
+- 路由交接：选型→`tdesign-usage-guide`、页面组合→`tdesign-composition`、图标→`tdesign-icons`、版本→`tdesign-changelog`；查完线索回本栈 `references/api/<component>/index.md` 确认写法。
+- 完整职责表、跨栈隔离细则和强制约束见 `../tdesign-skills/references/constraints.md`（完整 collection 模式下作为详细参考）。
