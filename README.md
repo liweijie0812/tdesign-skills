@@ -35,7 +35,7 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 
 `tdesign-skills` 是总入口，负责识别 TDesign 依赖、技术栈和任务类型，并路由到更窄的专项 skill。
 
-完整 skill 列表和职责见 `skills/SKILL.md`；目录维护说明见 `skills/README.md`。
+完整 skill 列表、职责、加载方式和维护规范见 `skills/SKILL.md`。
 
 ## 适用场景（AI Agent）
 
@@ -72,8 +72,7 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 ## 目录结构
 
 - `skills/tdesign-skills/SKILL.md`：总入口，定义 TDesign 依赖识别、技术栈识别、任务路由和强制约束。
-- `skills/SKILL.md`：skills 目录索引，仅用于询问 skill collection 本身；普通 TDesign 任务走 `skills/tdesign-skills/SKILL.md`。
-- `skills/README.md`：skill collection 内部目录说明、加载方式和维护规范；仓库不维护 `skills/` 外层的同名 skill 副本。
+- `skills/SKILL.md`：skills 目录索引，说明完整 skill 列表、加载方式和维护规范；仅用于询问 skill collection 本身，普通 TDesign 任务走 `skills/tdesign-skills/SKILL.md`。
 - `skills/`：skill collection，按文档、变更日志、使用指南、组件搭配和具体技术栈拆分。
 - `skills/tdesign-docs/references/meta/stack-matrix.json`：跨端组件覆盖全局概览和已知写法差异；按端明细见 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`。配套查询脚本：`skills/tdesign-docs/scripts/query-matrix.mjs`。
 - `skills/tdesign-docs/references/api/`：API 总入口和跨端共享契约。

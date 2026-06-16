@@ -5,12 +5,11 @@ description: Use ONLY when the user asks about the TDesign skills collection its
 
 # TDesign Skills 索引
 
-本文件是 TDesign skill collection 的目录索引，同时也是合法的根索引 skill。普通 TDesign 组件实现任务应优先进入 `tdesign-skills/SKILL.md` 或更窄的专项 skill。
+本文件是 TDesign skill collection 的目录索引，同时也是合法的根索引 skill。普通业务项目的 TDesign 任务应从 `tdesign-skills/SKILL.md` 进入，再按任务路由到更窄的专项 skill。
 
 ## 入口
 
 - 总入口：`tdesign-skills/SKILL.md`
-- 目录维护说明：`README.md`
 - 仓库总说明：`../README.md`
 - 职责边界：`tdesign-skills/references/responsibility-map.md`
 
@@ -32,6 +31,12 @@ description: Use ONLY when the user asks about the TDesign skills collection its
 | `tdesign-miniprogram` | `tdesign-miniprogram` API、WXML 写法和示例 | `tdesign-miniprogram/SKILL.md` |
 | `tdesign-uniapp` | `tdesign-uniapp` API、easycom 写法和示例 | `tdesign-uniapp/SKILL.md` |
 
+## 加载方式
+
+- 所有可加载 skill 都位于 `skills/<name>/SKILL.md`。
+- `skills/SKILL.md` 是集合索引，只在用户询问 collection 本身时使用。
+- 仓库不维护 `skills/` 外层的同名 skill 副本；若安装工具在目标目录生成副本，应以本目录内容为源并通过本文件说明同步关系。
+
 ## 选择规则
 
 - 普通 TDesign 任务先用 `tdesign-skills` 识别技术栈和任务类型。
@@ -44,4 +49,7 @@ description: Use ONLY when the user asks about the TDesign skills collection its
 ## 约束
 
 - 本索引文件保留为 `SKILL.md`，因此必须带合法 frontmatter，且 `name` 必须等于目录名 `skills`。
+- 每个 skill 的 `name` 必须与目录名一致。
 - 每次只选择 1 个主责 skill，再按需读取其他 skill 的少量参考资料。
+- 页面生成先走 `tdesign-composition` 的场景卡和设计规范，再回到当前技术栈 API skill 落地代码。
+- Web 中后台页面生成必须读取 `tdesign-composition/references/design/checklist.json`，生成后按 `tdesign-composition/references/quality-gate.md` 执行自检。
