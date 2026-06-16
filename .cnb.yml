@@ -1,11 +1,3 @@
-main:
-  push:
-    - stages:
-      - name: build knowledge base
-        image: cnbcool/knowledge-base
-        settings:                    
-          include: "**/**.md"
-
 $:
   push:
     # 导入密钥仓库文件为环境变量
