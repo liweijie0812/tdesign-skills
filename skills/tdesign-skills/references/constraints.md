@@ -20,6 +20,7 @@
 - 禁止混用 React 点语法、Vue 标签写法、小程序短横线属性、uni-app `@event` 语法和不同端默认值。
 - 禁止把 Web、Mobile、Miniprogram 的组件结论直接互相套用。
 - 不要把 `tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react` 的 API 当作 React Web API。
+- `tdesign-uniapp` 受控组件统一用 `value` 做双向绑定属性名；使用 `v-model` 时必须写 `v-model:value`，不要套用 Vue 3 默认 `modelValue`。
 
 ## 样式约束
 

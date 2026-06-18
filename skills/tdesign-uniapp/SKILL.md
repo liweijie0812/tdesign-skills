@@ -10,7 +10,7 @@ description: 当项目使用 tdesign-uniapp 且需要 uni-app 单组件 API、ea
 ## 查阅顺序
 
 1. 先确认项目安装或引入 `tdesign-uniapp`，并查看已有 `.vue` 文件中的写法。
-2. 典型写法参考查 `references/examples/README.md`（Vue SFC 模板、easycom 自动引入、@event 事件绑定、v-model 等）。
+2. 典型写法参考查 `references/examples/README.md`（Vue SFC 模板、easycom 自动引入、@event 事件绑定、`v-model:value` 等）。
 3. 组件是否存在：已安装 `tdesign-docs` 时查 `../tdesign-docs/references/meta/stack-matrix-miniprogram.json` 的 `coverage.byStack.uniapp`（uni-app 组件范围与小程序一致）；未安装时以当前栈 `references/api/` 目录实际存在的组件为准，不从记忆推断，建议补装 `tdesign-docs` 获得准确覆盖矩阵。
 4. 具体组件 API 查 `references/api/<component>/index.md`。
 5. API 表不够精确时，查同目录 `type.ts`、`props.ts`（如存在）、`common.ts` 或子组件类型文件。
@@ -20,9 +20,10 @@ description: 当项目使用 tdesign-uniapp 且需要 uni-app 单组件 API、ea
 ## UniApp 写法边界
 
 - 使用 `t-*` 组件标签，属性使用短横线（kebab-case），事件使用 `@event` 语法（非小程序 `bind:event`）。
+- 所有受控组件统一使用 `value` 作为双向绑定属性名，不使用 Vue 3 默认的 `modelValue`；使用 `v-model` 时必须写成 `v-model:value`，不要写裸 `v-model` 或 `v-model:modelValue`。
 - 组件通过 `easycom` 自动引入，无需手动 `usingComponents`；也可手动 `import` 后注册。
 - 样式使用 `<style>` 或 `<style scoped>`，不使用小程序的 `@import` WXSS 路径。
-- 不要把 React 点语法、Vue Web `v-model` 约定、小程序 `bind` 事件或 WXML 模板语法套到 uni-app。
+- 不要把 React 点语法、Vue Web 裸 `v-model` 约定、小程序 `bind` 事件或 WXML 模板语法套到 uni-app。
 - 不要凭经验编造 props、事件、插槽或组件名。
 
 ### 与小程序的关键差异
@@ -43,6 +44,7 @@ description: 当项目使用 tdesign-uniapp 且需要 uni-app 单组件 API、ea
 - 只读取当前任务需要的单个组件目录，不整树加载 `references/api/`。
 - 优先用 TDesign UniApp 组件和 props 解决问题，最后才补最小 CSS。
 - UniApp 组件 API 参考小程序组件文档，但事件写法必须使用 `@event` Vue 语法。
+- UniApp 受控组件双向绑定必须使用 `v-model:value`，与 React 版和原生小程序版的 `value` 命名保持一致。
 - 禁止引入其他组件库；禁止用 `div` / `ul > li` / `window.confirm()` 重复实现 TDesign 已有能力。
 - 当前栈组件不存在或能力不足：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`；未安装时优先换相似 TDesign 组件，再考虑 uni-app 原生能力 + 最小 CSS，并在回复中说明这是非 TDesign 官方能力，建议补装 `tdesign-usage-guide` 获得完整降级策略。
 - 路由交接：选型→`tdesign-usage-guide`、页面组合→`tdesign-composition`、图标→`tdesign-icons`、版本→`tdesign-changelog`；查完线索回本栈 `references/api/<component>/index.md` 确认写法。
