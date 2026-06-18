@@ -63,7 +63,7 @@
 | 任务类型 | 主责 skill | 关键资料 |
 | --- | --- | --- |
 | 组件选型、相似组件、何时使用、反模式、降级 | `tdesign-usage-guide` | `../../tdesign-usage-guide/references/decisions/README.md` |
-| 页面级组合、应用壳、场景卡、设计规范、质量门禁 | `tdesign-composition` | `../../tdesign-composition/references/scenarios/README.md` |
+| 组件搭配设计指南、页面级组合、应用壳、场景卡、设计规范、质量门禁 | `tdesign-composition` | `../../tdesign-composition/references/scenarios/README.md` |
 | 移动端 / 小程序 / uni-app 页面骨架 | `tdesign-composition` | `../../tdesign-composition/references/scenarios/mobile-pages.md` |
 | 组件是否存在、覆盖矩阵、资料入口 | `tdesign-docs` | `../../tdesign-docs/references/meta/stack-matrix.json` |
 | 图标名称、关键词、分类、包名、导入方式 | `tdesign-icons` | `../../tdesign-icons/SKILL.md` |

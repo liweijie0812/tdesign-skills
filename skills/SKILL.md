@@ -20,8 +20,8 @@ description: 当用户询问 TDesign skills 集合本身、skills 目录索引�
 | --- | --- | --- |
 | `tdesign-skills` | 总入口、依赖识别、技术栈识别、任务路由 | `tdesign-skills/SKILL.md` |
 | `tdesign-docs` | 文档入口、组件覆盖矩阵、跨端共享契约 | `tdesign-docs/SKILL.md` |
-| `tdesign-usage-guide` | 组件选型、相似组件、反模式和降级策略 | `tdesign-usage-guide/SKILL.md` |
-| `tdesign-composition` | 页面级组合、设计规范、Design Token、场景卡和质量门禁 | `tdesign-composition/SKILL.md` |
+| `tdesign-usage-guide` | 组件使用指南、组件选型、相似组件、反模式和降级策略 | `tdesign-usage-guide/SKILL.md` |
+| `tdesign-composition` | 组件搭配设计指南、页面级组合、设计规范、Design Token、场景卡和质量门禁 | `tdesign-composition/SKILL.md` |
 | `tdesign-icons` | 图标名、关键词、分类、包名和导入方式 | `tdesign-icons/SKILL.md` |
 | `tdesign-changelog` | 版本能力、新增、修复、废弃和 Breaking Changes 查询 | `tdesign-changelog/SKILL.md` |
 | `tdesign-react` | `tdesign-react` API、JSX 写法和示例 | `tdesign-react/SKILL.md` |

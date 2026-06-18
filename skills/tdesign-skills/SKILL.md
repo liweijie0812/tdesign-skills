@@ -10,7 +10,7 @@ description: 当 TDesign 任务尚未明确技术栈或横跨多个 TDesign 包�
 ## 适用范围
 
 - 适用：项目已安装或明确使用 TDesign（react/vue-next/vue2/mobile-react/mobile-vue/miniprogram/uniapp）。
-- 适用：组件选型、API 查询、页面搭建、组件搭配、使用指南、迁移、评审、变更日志或版本能力确认。
+- 适用：组件选型、API 查询、页面搭建、组件搭配设计指南、使用指南、迁移、评审、变更日志或版本能力确认。
 - 不适用：未使用 TDesign 的项目，或纯 Node、构建工具、数据处理等非 UI 任务。
 
 ## 技术栈识别
@@ -40,7 +40,7 @@ description: 当 TDesign 任务尚未明确技术栈或横跨多个 TDesign 包�
 - 技术栈不明确、跨多个 TDesign 包、需要路由 → `tdesign-skills`
 - 文档入口、组件覆盖、资料索引 → `tdesign-docs`
 - 组件选型、相似组件、何时使用、反模式 → `tdesign-usage-guide`
-- 页面搭建、组件搭配、场景骨架 → `tdesign-composition`
+- 组件搭配设计指南、页面搭建、场景骨架 → `tdesign-composition`
 - 具体 props/事件/插槽/类型/代码落地 → 对应技术栈专项 skill
 - 图标名称、关键词、分类、是否存在、包名、导入方式 → `tdesign-icons`
 - 版本能力、新增、修复、废弃 → `tdesign-changelog`
@@ -49,7 +49,7 @@ description: 当 TDesign 任务尚未明确技术栈或横跨多个 TDesign 包�
 ## 交接规则
 
 - 选型先 `tdesign-usage-guide`，落地代码再进入对应技术栈 API skill。
-- 页面组合先 `tdesign-composition`，单组件写法再进入对应技术栈 API skill。
+- 组件搭配设计指南和页面组合先 `tdesign-composition`，单组件写法再进入对应技术栈 API skill。
 - 图标名、图标包和按需导入先 `tdesign-icons`，图标组件 props 再进入对应技术栈 API skill。
 - 版本线索先 `tdesign-changelog`，当前 API 形状再进入对应技术栈 API skill。
 - 组件是否存在先 `tdesign-docs` 覆盖矩阵，缺失时再查 `tdesign-usage-guide` 降级策略。

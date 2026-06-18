@@ -1,11 +1,11 @@
 ---
 name: tdesign-composition
-description: 当用户询问 TDesign 页面级组合、页面骨架、后台管理页、应用壳、导航布局、表单页、表格列表页、详情页、登录页、错误页、仪表盘、弹窗/抽屉任务流、CRUD 任务流或移动端页面怎么组织时使用。只负责页面结构、场景默认组合、设计红线和交付自检；组件选型理由转 tdesign-usage-guide，单组件 API 转当前技术栈 skill，资料入口和覆盖确认转 tdesign-docs。
+description: 当用户询问 TDesign 组件搭配使用指南、组件搭配设计指南、页面级组合、页面骨架、后台管理页、应用壳、导航布局、表单页、表格列表页、详情页、登录页、错误页、仪表盘、弹窗/抽屉任务流、CRUD 任务流或移动端页面怎么组织时使用。只负责组件搭配、页面结构、场景默认组合、设计红线和交付自检；组件选型理由转 tdesign-usage-guide，单组件 API 转当前技术栈 skill，资料入口和覆盖确认转 tdesign-docs。
 ---
 
-# TDesign 组件搭配与页面场景
+# TDesign 组件搭配设计指南与页面场景
 
-本 skill 用于回答“某类页面通常怎么组织、默认怎么搭”。它不替代组件选型理由、组件覆盖确认或具体组件 API。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
+本 skill 用于回答“组件怎么搭配、某类页面通常怎么组织、默认怎么搭”。它不替代组件选型理由、组件覆盖确认或具体组件 API。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
 ## 查阅顺序
 
