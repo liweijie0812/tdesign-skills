@@ -23,6 +23,8 @@
 
 判断规则：按导航层级选择。全局主模块用 `TabBar`；页面标题和返回用 `Navbar`；页面内分类用 `Tabs` / `SideBar`；少量轻量状态切换用 `Segmented`；超长索引用 `Indexes`。
 
+误判修正：不要把所有“切换”都做成 `Tabs`。应用主模块切换属于 `TabBar`；页面标题和返回属于 `Navbar`；二到四个轻量状态适合 `Segmented`；长列表快速定位才使用 `Indexes`。
+
 ## Toast、Message、Dialog、ActionSheet、Popover、Popup、Drawer、Overlay
 
 - `Toast`：短暂轻反馈，不需要用户操作。
@@ -36,6 +38,8 @@
 
 判断规则：轻反馈用 `Toast` / `Message`；强确认用 `Dialog`；操作集合用 `ActionSheet`；轻量解释用 `Popover`；标准组件无法满足的自定义内容再用 `Popup` / `Drawer` / `Overlay`。
 
+误判修正：不要把成功提示默认做成 `Dialog`；危险确认不要只用 `Toast`；多个上下文操作不要塞进 `Dialog` 按钮；标准选择器、操作面板或确认框能满足时，不优先使用底层 `Popup` / `Overlay`。
+
 更多 Dialog 内容、按钮、关闭和移动端行为规则见 `components/dialog.md`。
 
 ## Cell、List、Table、Grid、QRCode、CountDown
@@ -48,6 +52,8 @@
 - `CountDown`：有明确截止时间的倒计时。
 
 判断规则：单列信息优先 `Cell` / `List`；少列结构化数据才考虑 `Table`；功能入口用 `Grid`；跨设备核验用 `QRCode`；时间敏感截止用 `CountDown`。小程序或 UniApp 缺少 `List` 时使用 `Cell` / `CellGroup` 或项目已有列表封装。
+
+误判修正：移动端不要照搬 Web 高密度表格；设置项、资料项和表单项优先 `Cell`；功能入口宫格不要用普通列表模拟；二维码只用于真实扫码传递，不用于普通编号展示。
 
 更多 Table 移动端约束、替代方案和状态规则见 `components/table.md`。
 
@@ -81,6 +87,8 @@
 - `Indexes`：长列表快速定位。
 
 判断规则：关键词检索用 `Search`；列表筛选排序用 `DropdownMenu`，单个条件项由 `DropdownItem` / `dropdown-item` 承载；值选择用 `Picker` / `Cascader` / `TreeSelect`；页面分类导航用 `SideBar`；长列表定位用 `Indexes`。
+
+误判修正：`DropdownMenu` 适合列表上方少量筛选排序，不适合承载复杂表单；`Picker` 适合有限选项的触控选择，不适合搜索大量远程数据；页面分类导航不要误用成表单值选择。
 
 ## Checkbox、Radio、Switch
 
@@ -116,6 +124,8 @@
 - `Result`：成功、失败、异常或流程完成结果。
 
 判断规则：列表和详情加载优先 `Skeleton`；没有数据用 `Empty`；流程结果用 `Result`；不确定时长不要伪造 `Progress` 百分比。
+
+误判修正：无数据不是异常结果，优先 `Empty`；提交成功、失败、异常或流程结束才用 `Result`；结构已知的加载不要只显示转圈；没有真实进度不要使用百分比进度条。
 
 ## 父组件与子组件
 

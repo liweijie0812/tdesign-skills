@@ -5,7 +5,22 @@ description: 当用户需要 TDesign 组件使用指南、组件选型、何时�
 
 # TDesign 使用指南与选型
 
-本 skill 用于回答“该选什么、为什么、什么不能做”。组件搭配设计指南、页面场景和设计规范交给 `tdesign-composition`；具体 props、事件、插槽和导入方式必须回到当前技术栈 API skill。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
+本 skill 用于回答“该选什么、什么时候用、为什么、什么不能做”。组件搭配设计指南、页面场景和设计规范交给 `tdesign-composition`；具体 props、事件、插槽和导入方式必须回到当前技术栈 API skill。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
+
+## 何时使用本 skill
+
+- 用户问“用哪个 TDesign 组件”“这个场景该用什么组件”“什么时候用某组件”“某组件适不适合当前场景”。
+- 用户在多个相似组件之间犹豫，例如 `Dialog` / `Drawer`、`Table` / `List`、`Select` / `Cascader`、`Toast` / `Message`。
+- 用户要把已有 UI、原生 HTML、其他组件库或设计稿迁移到 TDesign，需要判断语义映射和替代方案。
+- 用户要求评审 TDesign 代码中的选型、反模式、跨端套用、重复造轮子或降级策略。
+- 用户只需要设计选型口径，不需要当前技术栈的 props、事件、插槽、导入方式或完整页面组合。
+
+## 不使用本 skill
+
+- 需要确认某技术栈是否存在组件、API、事件、插槽、类型或导入路径时，转到 `tdesign-docs` 或对应技术栈 skill。
+- 需要组件搭配设计指南、页面骨架、场景默认组合、交付自检或页面级方案时，转到 `tdesign-composition`。
+- 需要图标名称、图标分类、图标包名或图标导入方式时，转到 `tdesign-icons`。
+- 需要直接生成具体业务页面代码时，只能先给选型口径；落地代码必须结合当前技术栈 API skill。
 
 ## 查阅顺序
 
@@ -16,6 +31,20 @@ description: 当用户需要 TDesign 组件使用指南、组件选型、何时�
 5. 组件搭配选型口径：先查 `references/decisions/component-composition-map.md`，再查平台下 `component-composition-map.md`。组件搭配设计指南、页面级组合和场景细节转到 `tdesign-composition`。
 6. 反模式：先查 `references/decisions/anti-patterns.md`，再查平台细分文档。
 7. 当前栈缺组件或能力不够：查 `references/decisions/fallback-policy.md`。
+
+## 判断流程
+
+1. 先识别平台：Web、Mobile、Miniprogram 或 UniApp；平台不明确时先说明假设，不跨端套用结论。
+2. 再识别任务：操作、导航、数据录入、数据展示、反馈、布局、系统配置或手势滚动。
+3. 再识别数据与交互：值选择还是执行动作、短反馈还是强确认、平级切换还是流程进度、结构化表格还是条目流。
+4. 最后选择组件：优先使用平台组件索引，必要时补查相似组件规则和单组件细则。
+
+## 回答格式
+
+- 先给结论：推荐组件和适用平台。
+- 再给依据：任务类型、数据结构、交互强度、信息密度或移动端触控约束。
+- 再给替代：什么条件下应换成相似组件或组合方案。
+- 最后给边界：不要写具体 props/API；需要落地时转到当前技术栈 API skill。
 
 ## 核心原则
 
