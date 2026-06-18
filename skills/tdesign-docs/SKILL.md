@@ -12,9 +12,9 @@ description: 当用户询问 TDesign 文档入口、资料在哪里、当前技�
 1. 技术栈、组件覆盖和本地示例模板标记：查 `references/meta/stack-matrix.json`（全局概览），以及按端分文件 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`（各栈组件列表、`coverage.hasExample` 与类型源明细）。
 2. 上游来源链接和同步信息：查 `references/meta/source-links.md`。
 3. API 资料入口：`references/api/README.md` 是 API 资料索引与读取约定，`references/api/index.md` 是跨端共享契约（`shared/` 目录）入口；先读 README 再按需进 index。
-4. 选型资料入口：查 `../tdesign-usage-guide/references/decisions/README.md`。
-5. 场景卡入口：查 `../tdesign-composition/references/scenarios/README.md`。
-6. 色彩、布局、Token、中后台框架等设计资料：转到 `tdesign-composition` 的 `references/design/` 目录（docs 只负责指路，不展开设计细则）。
+4. 选型资料入口：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/README.md`；未安装时只说明应补装该 skill，不在 docs 内替代选型判断。
+5. 场景卡入口：已安装 `tdesign-composition` 时查 `../tdesign-composition/references/scenarios/README.md`；未安装时只说明应补装该 skill，不在 docs 内替代页面组合判断。
+6. 色彩、布局、Token、中后台框架等设计资料：转到 `tdesign-composition` 的 `references/design/` 目录（docs 只负责指路，不展开设计细则）。未安装时提示补装 `tdesign-composition`。
 
 ## 快速查询
 
@@ -44,4 +44,5 @@ node skills/tdesign-docs/scripts/query-matrix.mjs --group web --json     # 按�
 - 不要一次性读取所有技术栈的 `references/api/` 树。
 - 不要从目录存在推断组件可用性，必须以 `references/meta/stack-matrix.json` 或对应端文件为准。
 - 不要把 Web only 组件默认用于 Mobile 或 Miniprogram。
+- 选择性安装且目标辅助 skill 不存在时，只回答本 skill 能确认的资料入口和覆盖矩阵；不要凭记忆补齐选型、页面组合或设计规范结论。
 - 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。

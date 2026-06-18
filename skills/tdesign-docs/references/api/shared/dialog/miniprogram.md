@@ -1,14 +1,16 @@
-# Dialog 小程序差异
+# Dialog 小程序 / uni-app 差异
 
-本文只说明小程序 Dialog 的查阅入口和平台差异，不替代具体 API。实现前必须查小程序 API 与类型源。
+本文只说明小程序与 uni-app Dialog 的查阅入口和平台差异，不替代具体 API。实现前必须查当前栈 API 与类型源。
 
 ## 查阅入口
 
 - 小程序：`skills/tdesign-miniprogram/references/api/dialog/index.md`，类型源为 `skills/tdesign-miniprogram/references/api/dialog/type.ts`、`skills/tdesign-miniprogram/references/api/dialog/props.ts` 和 `skills/tdesign-miniprogram/references/api/common/common.ts`。
+- uni-app：`skills/tdesign-uniapp/references/api/dialog/index.md`，类型源为 `skills/tdesign-uniapp/references/api/dialog/type.ts`、`skills/tdesign-uniapp/references/api/dialog/props.ts` 和 `skills/tdesign-uniapp/references/api/common/common.ts`。
 
 ## 平台差异
 
 - 小程序属性使用短横线命名，例如 `button-layout`、`cancel-btn`、`close-btn`、`close-on-overlay-click`、`show-overlay`、`z-index`。
+- uni-app 使用 Vue template 与 `@event` 事件，属性仍按短横线命名；受控写法优先查 `tdesign-uniapp` API，不套用 Web Vue 的裸 `v-model`。
 - 小程序 Dialog 有明确的 slots 和 external classes，样式定制优先使用文档列出的 slot、`t-class-*` 与 CSS Variables。
 - 小程序事件参数和 Web / Mobile 不一致，例如 `close` 事件传入触发源，`confirm` 和 `cancel` 不等同于 React/Vue 的 MouseEvent 回调。
 - 小程序层级默认值、导航栏适配和平台行为不同，不要复用 Web 或 Mobile React/Vue 的 `attach`、ESC 关闭、React 回调命名或 Vue 插槽写法。
@@ -36,6 +38,6 @@
 
 ## 使用边界
 
-- 小程序 Dialog 适合短确认、提示和轻量内容，不适合承载复杂表单、长列表和多步骤配置。
-- 涉及平台返回、页面滚动、自定义导航栏和键盘输入时，要按小程序真机行为验证。
-- 不能把 React 的 `onConfirm`、Vue 的 `@confirm` 参数形态、Web 的 `attach` 或 Mobile Vue 的 `beforeClose` 直接套到小程序。
+- 小程序 / uni-app Dialog 适合短确认、提示和轻量内容，不适合承载复杂表单、长列表和多步骤配置。
+- 涉及平台返回、页面滚动、自定义导航栏和键盘输入时，要按小程序或 uni-app 真机行为验证。
+- 不能把 React 的 `onConfirm`、Web Vue 的裸 `v-model`、Web 的 `attach` 或 Mobile Vue 的 `beforeClose` 直接套到小程序或 uni-app。

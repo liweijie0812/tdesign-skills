@@ -10,10 +10,10 @@ description: 当用户询问 TDesign 组件搭配使用指南、组件搭配设�
 ## 查阅顺序
 
 1. 涉及 Web 中后台页面生成、页面改造或视觉走查时，动手前先查 `references/design/design-spec.md`、`references/design/tokens.md` 和 `references/design/checklist.json`；简单咨询只按问题命中必要资料。
-2. 先按 `../tdesign-usage-guide/references/decisions/README.md` 和 `../tdesign-usage-guide/references/decisions/platform-design-policy.md` 确认平台与组件选型口径。
-3. 组件搭配入口：查 `../tdesign-usage-guide/references/decisions/component-composition-map.md`。
-4. Web 搭配细节：查 `../tdesign-usage-guide/references/decisions/web/component-composition-map.md`。
-5. Mobile / Miniprogram 搭配细节：查 `../tdesign-usage-guide/references/decisions/mobile/component-composition-map.md`。
+2. 已安装 `tdesign-usage-guide` 时，先按 `../tdesign-usage-guide/references/decisions/README.md` 和 `../tdesign-usage-guide/references/decisions/platform-design-policy.md` 确认平台与组件选型口径；未安装时按用户已给出的平台和组件假设继续，不重新发明选型规则，并建议补装 `tdesign-usage-guide`。
+3. 组件搭配入口：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/component-composition-map.md`；未安装时直接使用本 skill 的场景卡和设计资料。
+4. Web 搭配细节：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/web/component-composition-map.md`；未安装时使用 Web 场景卡默认组合。
+5. Mobile / Miniprogram 搭配细节：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/mobile/component-composition-map.md`；未安装时使用移动端场景卡默认组合。
 6. 表单录入、编辑、配置、审批页：查 `references/scenarios/form-page.md`。
 7. 后台列表、资源列表、结构化数据浏览页：查 `references/scenarios/table-list-page.md`。
 8. 后台框架、控制台骨架、导航壳：查 `references/scenarios/layout-shell.md`。
@@ -56,7 +56,8 @@ description: 当用户询问 TDesign 组件搭配使用指南、组件搭配设�
 - 交付自检输出格式与静态门禁命令统一见 `references/quality-gate.md`（含 `check-quality.mjs` 用法与 `DS-编号：通过 / 不适用 / 需人工确认 - 简要原因` 模板）。
 - 场景卡只提供默认组合和校验点，不替代当前项目业务约束。
 - 组件选型争议先转到 `tdesign-usage-guide`，不要在场景卡里重新做选型规则。
-- 如果场景卡里的默认组件当前栈不存在，先查 `../tdesign-docs/references/meta/stack-matrix.json`（全局概览）和按端的 `stack-matrix-<端>.json`，再查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`。
+- 如果场景卡里的默认组件当前栈不存在，已安装 `tdesign-docs` 时先查 `../tdesign-docs/references/meta/stack-matrix.json`（全局概览）和按端的 `stack-matrix-<端>.json`；已安装 `tdesign-usage-guide` 时再查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`。目标 skill 未安装时，优先换当前栈已有的相似 TDesign 组件，再考虑最小原生能力，并说明需补装缺失 skill 获得完整覆盖或降级策略。
 - 场景组合确定后，单组件 props、事件、插槽必须回到对应技术栈 API skill。
 - 只有组件组合和 props 无法满足时，才补最小 CSS。
+- 选择性安装且缺少 `tdesign-usage-guide` 或 `tdesign-docs` 时，不要凭记忆断言组件覆盖、反模式或降级策略；只基于本 skill 场景卡、当前项目依赖和已安装技术栈 API 文件做保守方案。
 - 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。

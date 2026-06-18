@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const failures = [];
+const cnbDisplaySkillPath = 'skills/SKILL.md';
 
 function fail(message) {
   failures.push(message);
@@ -61,6 +62,10 @@ function validateSkillFrontmatter() {
   }
 
   for (const skillPath of skillPaths) {
+    if (skillPath === cnbDisplaySkillPath) {
+      continue;
+    }
+
     const frontmatter = parseSkillFrontmatter(skillPath);
     if (!frontmatter) continue;
 

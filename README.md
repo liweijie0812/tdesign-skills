@@ -5,7 +5,7 @@
 ## 状态
 
 - **成熟度**：早期可用，持续通过真实项目任务校准命中率、读取深度和 token 成本。
-- **覆盖范围**：只要用户项目安装或明确使用 TDesign 组件依赖，就引导 AI 优先使用组件库；覆盖 Web、移动端和小程序；具体 API 必须回到对应技术栈 skill 的 `references/api/` 文件确认。
+- **覆盖范围**：只要用户项目安装或明确使用 TDesign 组件依赖，就引导 AI 优先使用组件库；覆盖 Web、移动端、小程序和 uni-app；具体 API 必须回到对应技术栈 skill 的 `references/api/` 文件确认。
 - **Token 策略**：根 skill 只做技术栈识别和任务路由，专项 skills 按文档、变更日志、组件使用指南、组件搭配设计指南和具体技术栈拆分；组件 API 按需读取单个组件目录，不建议整树加载。
 - **职责边界**：每次只选择 1 个主责 skill。完整职责表见 `skills/tdesign-skills/references/responsibility-map.md`。
 
@@ -43,10 +43,12 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 | 完整 Web 开发 | `tdesign-react` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
 | Vue 3 Web | 将上述组合中的 `tdesign-react` 换为 `tdesign-vue-next` |
 | Vue 2 Web | 将上述组合中的 `tdesign-react` 换为 `tdesign-vue2` |
-| 移动端 React | `tdesign-mobile-react` + `tdesign-docs` + `tdesign-composition` + `tdesign-icons` |
-| 移动端 Vue | `tdesign-mobile-vue` + `tdesign-docs` + `tdesign-composition` + `tdesign-icons` |
-| 小程序 | `tdesign-miniprogram` + `tdesign-docs` + `tdesign-composition` |
-| uni-app | `tdesign-uniapp` + `tdesign-docs` + `tdesign-composition` |
+| 移动端 React | `tdesign-mobile-react` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
+| 移动端 Vue | `tdesign-mobile-vue` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
+| 小程序 | `tdesign-miniprogram` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
+| uni-app | `tdesign-uniapp` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
+| 只查图标 | `tdesign-icons` + 当前技术栈 skill |
+| 只查版本变化 | `tdesign-changelog` + 当前技术栈 skill |
 
 单独安装某个技术栈 skill 也可工作：护栏规则与路由地图已内联在各栈 `SKILL.md`，跨 skill 查询会在目标 skill 未安装时自动降级为兜底策略，并在回复中建议补装。
 
@@ -59,7 +61,7 @@ npx skills add liweijie0812/tdesign-skills --skill tdesign-react --skill tdesign
 
 `tdesign-skills` 是总入口，负责识别 TDesign 依赖、技术栈和任务类型，并路由到更窄的专项 skill。
 
-完整 skill 列表、职责、加载方式和维护规范见 `skills/SKILL.md`。
+CNB 平台展示摘要见 `skills/SKILL.md`；该文件只说明 skill 数量、技能列表和安装方式，不作为普通 TDesign 任务入口。
 
 ## 适用场景（AI Agent）
 
@@ -70,7 +72,7 @@ npx skills add liweijie0812/tdesign-skills --skill tdesign-react --skill tdesign
 - 查询某个 TDesign 组件有哪些 props、事件、插槽、类型或函数式 API。
 - 询问组件搭配设计指南，或页面、表单、列表、弹窗、抽屉、上传、导航等场景中组件怎么搭配。
 - 生成页面、搭建页面结构，或实现表单页、列表页、详情页、弹窗页、后台管理页。
-- 项目已安装或明确使用 TDesign Web、移动端或小程序组件包。
+- 项目已安装或明确使用 TDesign Web、移动端、小程序或 uni-app 组件包。
 - 将原生 HTML、其他组件库或自定义 UI 迁移到 TDesign。
 
 ## 使用指引（AI Agent）
@@ -96,7 +98,7 @@ npx skills add liweijie0812/tdesign-skills --skill tdesign-react --skill tdesign
 ## 目录结构
 
 - `skills/tdesign-skills/SKILL.md`：总入口，定义 TDesign 依赖识别、技术栈识别、任务路由和强制约束。
-- `skills/SKILL.md`：skills 目录索引，说明完整 skill 列表、加载方式和维护规范；仅用于询问 skill collection 本身，普通 TDesign 任务走 `skills/tdesign-skills/SKILL.md`。
+- `skills/SKILL.md`：CNB 平台展示用的安装摘要，只说明 skill 数量、技能列表和安装方式；普通 TDesign 任务走 `skills/tdesign-skills/SKILL.md`。
 - `skills/`：skill collection，按文档、变更日志、组件使用指南、组件搭配设计指南和具体技术栈拆分。
 - `skills/tdesign-skills/references/constraints.md`：完整安装时的跨 skill 详细约束、技术栈 skill 统一模板、兜底边界和路由交接参考源；选择性安装时，各专项 `SKILL.md` 必须依靠自身内联护栏独立工作。
 - `skills/tdesign-docs/references/meta/stack-matrix.json`：跨端组件覆盖全局概览和已知写法差异；按端明细见 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`。配套查询脚本：`skills/tdesign-docs/scripts/query-matrix.mjs`。

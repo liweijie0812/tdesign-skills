@@ -1,13 +1,16 @@
-# 小程序子组件与组合项何时使用
+# 小程序 / uni-app 子组件与组合项何时使用
 
-本文补充 `tdesign-miniprogram` 常见子组件、插槽、external classes 和组合配置项的使用场景。它不是完整 API 清单；真实属性名、事件名、插槽名、external classes 和类型必须回到小程序 API 与本地类型源确认。
+本文补充 `tdesign-miniprogram` 与 `tdesign-uniapp` 常见子组件、插槽、external classes 和组合配置项的使用场景。它不是完整 API 清单；真实属性名、事件名、插槽名、external classes 和类型必须回到当前栈 API 与本地类型源确认。
 
 ## 查阅边界
 
 - 小程序 API 入口是 `skills/tdesign-miniprogram/references/api/<component>/index.md`。
+- uni-app API 入口是 `skills/tdesign-uniapp/references/api/<component>/index.md`，实现时使用 Vue template、easycom 和 `@event` 事件。
 - 小程序类型源位于对应组件或子组件目录，例如 `skills/tdesign-miniprogram/references/api/avatar-group/type.ts`、`skills/tdesign-miniprogram/references/api/grid-item/type.ts`、`skills/tdesign-miniprogram/references/api/tab-panel/type.ts`。
+- uni-app 类型源位于对应组件或子组件目录，例如 `skills/tdesign-uniapp/references/api/avatar-group/type.ts`、`skills/tdesign-uniapp/references/api/grid-item/type.ts`、`skills/tdesign-uniapp/references/api/tab-panel/type.ts`。
 - 公共类型读 `skills/tdesign-miniprogram/references/api/common/common.ts`。
-- 小程序属性使用短横线命名，不能套用 React 回调命名或 Vue 插槽写法。
+- 公共类型也可按当前栈读取 `skills/tdesign-uniapp/references/api/common/common.ts`。
+- 小程序和 uni-app 属性使用短横线命名；小程序不能套用 React 回调命名或 Vue 插槽写法，uni-app 不能套用小程序 `bind` 事件或 Web Vue 裸 `v-model`。
 
 ## 常见组合项
 
@@ -67,8 +70,8 @@
 
 ## 使用约束
 
-- 小程序样式定制优先使用文档列出的 slots、external classes 和 CSS Variables。
+- 小程序样式定制优先使用文档列出的 slots、external classes 和 CSS Variables；uni-app 样式能力必须回到 `tdesign-uniapp` API 与项目样式约定确认。
 - 子组件如果没有独立 API 表，也可能有独立 `type.ts` / `props.ts`，按真实目录查类型源。
-- 事件参数、平台能力、层级和滚动行为与 Web / Mobile React / Mobile Vue 不同，必须按 `skills/tdesign-miniprogram/references/api/` 确认。
-- 小程序没有 React 点语法和 Vue 插槽语法，文档里的子组件语义要转换成小程序真实标签、属性、事件和 slot。
+- 事件参数、平台能力、层级和滚动行为与 Web / Mobile React / Mobile Vue 不同，必须按当前栈 `references/api/` 确认。
+- 小程序没有 React 点语法和 Vue 插槽语法，文档里的子组件语义要转换成小程序真实标签、属性、事件和 slot；uni-app 要转换成 Vue template、easycom、`@event` 和 `v-model:value`。
 - external classes 是小程序样式定制的重要入口，优先使用 `t-class-*`，不要依赖 Web className 或深层选择器。

@@ -1,12 +1,12 @@
 # Dialog 通用契约
 
-本文件描述跨 Web、移动端和小程序都成立的 Dialog 语义。它不是 API 权威来源；具体 props、事件名、插槽、函数式调用和类型必须回到当前端与当前栈 API 文档确认。
+本文件描述跨 Web、移动端、小程序和 uni-app 都成立的 Dialog 语义。它不是 API 权威来源；具体 props、事件名、插槽、函数式调用和类型必须回到当前端与当前栈 API 文档确认。
 
 ## 端差异入口
 
 - Web：见 [dialog/web.md](./web.md)，覆盖 React、Vue Next 和 Vue 2。
 - 移动端：见 [dialog/mobile.md](./mobile.md)，覆盖 Mobile React 和 Mobile Vue。
-- 小程序：见 [dialog/miniprogram.md](./miniprogram.md)，覆盖 `tdesign-miniprogram`。
+- 小程序 / uni-app：见 [dialog/miniprogram.md](./miniprogram.md)，覆盖 `tdesign-miniprogram` 和 `tdesign-uniapp` 的平台差异入口。
 
 ## 适用场景
 
@@ -48,7 +48,7 @@
 - 关闭事件表示对话框正在关闭，触发来源可能是取消、关闭按钮、遮罩、ESC 或平台返回行为。
 - 动画生命周期事件并非所有端都完整支持，使用前查当前端 API。
 - 遮罩点击事件和关闭事件不是同一语义；只需要埋点遮罩点击时不要替代关闭处理。
-- 关闭来源类型在不同端不同，不能把 Web 的 `esc`、移动端的 `overlay` 或小程序的触发源互相套用。
+- 关闭来源类型在不同端不同，不能把 Web 的 `esc`、移动端的 `overlay`、小程序的触发源或 uni-app 的 `@event` 参数互相套用。
 
 ## 交互约束
 
