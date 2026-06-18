@@ -19,8 +19,6 @@ direction | String | - | 【开发中】布局方向。可选项：vertical/hori
 -- | -- | -- | -- | --
 height | String | - | 顶栏高度。样式表（class）中定义的默认高度为：64px | N
 
-> TDesign Vue Next 官方样式默认高度为 `64px`。在 Web 中后台页面模板或 `tdesign-composition` 场景中，推荐用 `var(--td-comp-size-xxxl)` 约束 `Header` / `t-layout__header` 高度，并同时设置 `height`、`min-height`、`flex-shrink: 0`；Token 优先用于生成一致的应用壳，不表示官方 `64px` 默认值错误。
-
 
 ### Aside Props
 
