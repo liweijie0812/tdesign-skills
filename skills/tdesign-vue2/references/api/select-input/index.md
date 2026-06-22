@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：结合下拉选择与文本输入功能。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/select-input/select-input.md
 
 ## API

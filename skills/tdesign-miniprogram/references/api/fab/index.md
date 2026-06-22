@@ -2,6 +2,8 @@
 
 来源：TDesign Miniprogram
 
+组件简介：当功能使用图标即可表意清楚时，可使用纯图标悬浮按钮，例如：添加、发布。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/fab/README.md
 
 ## API

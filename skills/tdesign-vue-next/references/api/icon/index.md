@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：Icon 作为 UI 构成中重要的元素，一定程度上影响 UI 界面整体呈现出的风格。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/icon/icon.md
 
 ## API

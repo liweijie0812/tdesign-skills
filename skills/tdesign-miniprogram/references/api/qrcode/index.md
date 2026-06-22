@@ -2,6 +2,8 @@
 
 来源：TDesign Miniprogram
 
+组件简介：能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/qrcode/README.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：警告条用于承载需要用户注意的信息。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/alert/alert.md
 
 ## API

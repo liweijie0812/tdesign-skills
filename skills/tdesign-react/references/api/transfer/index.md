@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：以直观的方式在两栏中移动选项元素，是对选项进行单个或批量移动从而完成挑选的数据容器。左栏是“源”，右边是“目标”。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/transfer/transfer.md
 
 ## API

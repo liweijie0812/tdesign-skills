@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：列表用一个连续的列来显示多行元素，常用于具有相同构成及内容的模块批量展示，可承载多样化的信息内容，从纯文字到复杂的图文组合。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/list/list.md
 
 ## API

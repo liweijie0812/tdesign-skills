@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：用于时间轴展示
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/timeline/timeline.md
 
 ## API

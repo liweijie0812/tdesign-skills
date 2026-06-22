@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile Vue
 
+组件简介：由其他控件触发，屏幕滑出或弹出一块自定义内容区域。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-vue/develop/src/popup/popup.md
 
 ## API

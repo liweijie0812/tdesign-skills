@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：可以将较多或较复杂的内容进行分组，分组内容区可以折叠展开或隐藏。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/collapse/collapse.md
 
 ## API

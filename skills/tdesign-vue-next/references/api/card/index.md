@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：最基础的卡片容器，可承载文字、列表、图片、段落，常用于后台概览页面。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/card/card.md
 
 ## API

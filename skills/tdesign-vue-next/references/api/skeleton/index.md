@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：当网络较慢时，在页面真实数据加载之前，给用户展示出页面的大致结构。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/skeleton/skeleton.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：用于承载有父子关系的结构化内容，提供内容层级的展示。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/tree/tree.md
 
 ## API

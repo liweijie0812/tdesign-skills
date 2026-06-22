@@ -331,7 +331,58 @@ function parseComponentMap(source, mapName) {
   return [...new Set(components)].sort((a, b) => a.localeCompare(b));
 }
 
-function normalizeMarkdown(content, stack, component, stackComponents, sourceFiles) {
+function parseFrontmatterDescription(content) {
+  const frontmatterMatch = content.replace(/\r\n?/g, '\n').match(/^---\n([\s\S]*?)\n---/);
+  if (!frontmatterMatch) {
+    return '';
+  }
+
+  const descriptionMatch = frontmatterMatch[1].match(/^description:\s*(.*?)\s*$/m);
+  if (!descriptionMatch) {
+    return '';
+  }
+
+  const description = descriptionMatch[1].trim();
+  if (!description) {
+    return '';
+  }
+
+  const quote = description[0];
+  if ((quote === '"' || quote === "'") && description.endsWith(quote)) {
+    return description.slice(1, -1).trim();
+  }
+
+  return description;
+}
+
+async function collectComponentDescriptions(source, componentMaps) {
+  const descriptions = {
+    web: {},
+    mobile: {},
+  };
+  const groups = {
+    web: componentMaps.WEB_COMPONENT_MAP,
+    mobile: componentMaps.MOBILE_COMPONENT_MAP,
+  };
+
+  for (const [group, components] of Object.entries(groups)) {
+    await mapLimit(components, CONCURRENCY, async (component) => {
+      const content = await readOptionalSource(source, `docs/${group}/api/${component}.md`);
+      const description = content ? parseFrontmatterDescription(content) : '';
+      if (description) {
+        descriptions[group][component] = description;
+      }
+    });
+  }
+
+  return descriptions;
+}
+
+function commonDocsGroup(stack) {
+  return stack.group === 'web' ? 'web' : 'mobile';
+}
+
+function normalizeMarkdown(content, stack, component, stackComponents, sourceFiles, componentDescription) {
   const source = rawUrl(stack, stack.docPath(component));
   const apiContent = extractApiSection(content, source);
   const rewrittenApiContent = rewriteApiLinks(rewriteSourceLinks(rewriteCommonLinks(apiContent, stack), stack, component, sourceFiles), component, stackComponents);
@@ -340,6 +391,7 @@ function normalizeMarkdown(content, stack, component, stackComponents, sourceFil
     '',
     `来源：${stack.name}`,
     '',
+    ...(componentDescription ? [`组件简介：${componentDescription}`, ''] : []),
     `上游文档：${source}`,
     '',
     rewrittenApiContent,
@@ -649,7 +701,7 @@ async function mapLimit(items, limit, mapper) {
   return results;
 }
 
-async function syncStack(stack, componentMaps) {
+async function syncStack(stack, componentMaps, componentDescriptions) {
   const outDir = stackOutputDir(stack);
   const source = await resolveSource(stack);
   await fs.rm(outDir, { recursive: true, force: true });
@@ -657,6 +709,7 @@ async function syncStack(stack, componentMaps) {
   const commonSourceFiles = await syncCommonSourceFiles(stack, source, outDir);
 
   const components = componentMaps[stack.mapName];
+  const descriptions = componentDescriptions[commonDocsGroup(stack)] ?? {};
   const results = await mapLimit(components, CONCURRENCY, async (component) => {
     const sourcePath = stack.docPath(component);
     const sourceUrl = rawUrl(stack, sourcePath);
@@ -666,7 +719,7 @@ async function syncStack(stack, componentMaps) {
       const outputPath = new URL('index.md', componentOutDir);
       const { sourceFiles, missingSourceFiles } = await syncComponentSourceFiles(stack, source, component, content, outDir);
       await fs.mkdir(componentOutDir, { recursive: true });
-      await fs.writeFile(outputPath, normalizeMarkdown(content, stack, component, components, sourceFiles));
+      await fs.writeFile(outputPath, normalizeMarkdown(content, stack, component, components, sourceFiles, descriptions[component]));
       return { component, status: 'ok', sourceFiles, missingSourceFiles };
     } catch (error) {
       return { component, status: 'missing', error: error.message };
@@ -835,9 +888,10 @@ async function main() {
     WEB_COMPONENT_MAP: parseComponentMap(commonSource, 'WEB_COMPONENT_MAP'),
     MOBILE_COMPONENT_MAP: parseComponentMap(commonSource, 'MOBILE_COMPONENT_MAP'),
   };
+  const componentDescriptions = await collectComponentDescriptions(await resolveSource(COMMON_COMPONENTS_SOURCE), componentMaps);
   const summary = [];
   for (const stack of STACKS) {
-    summary.push(await syncStack(stack, componentMaps));
+    summary.push(await syncStack(stack, componentMaps, componentDescriptions));
   }
   const summaryContent = [
     '# TDesign API 文档索引',

@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：弹出层组件是其他弹窗类组件如气泡确认框实现的基础，当这些组件提供的能力不能满足定制需求时，可以在弹出层组件基础上封装。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/popup/popup.md
 
 ## API

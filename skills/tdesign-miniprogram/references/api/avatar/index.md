@@ -2,6 +2,8 @@
 
 来源：TDesign Miniprogram
 
+组件简介：用于展示用户头像信息，除了纯展示也可点击进入个人详情等操作。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/avatar/README.md
 
 ## API

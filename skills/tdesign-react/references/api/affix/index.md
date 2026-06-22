@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：在指定的范围内，将元素固定不动
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/affix/affix.md
 
 ## API

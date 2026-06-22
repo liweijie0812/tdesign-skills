@@ -2,6 +2,8 @@
 
 来源：TDesign Miniprogram
 
+组件简介：用于承载列表中的更多操作，通过左右滑动来展示，按钮的宽度固定高度根据列表高度而变化。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/swipe-cell/README.md
 
 ## API

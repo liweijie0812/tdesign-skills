@@ -2,6 +2,8 @@
 
 来源：TDesign Miniprogram
 
+组件简介：用于等待加载内容所展示的占位图形组合，有动态效果加载效果，减少用户等待焦虑。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/skeleton/README.md
 
 ## API

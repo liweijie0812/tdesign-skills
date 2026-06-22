@@ -2,6 +2,8 @@
 
 来源：TDesign Miniprogram
 
+组件简介：用于实时展示倒计时数值。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/count-down/README.md
 
 ## API

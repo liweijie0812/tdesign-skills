@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：用于装饰输入类组件的装饰器
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/input-adornment/input-adornment.md
 
 ## API

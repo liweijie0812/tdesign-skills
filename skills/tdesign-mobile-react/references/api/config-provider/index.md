@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：全局特性配置包含各个组件的文本语言配置及其他通用配置，可以减少重复的通用配置。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/config-provider/config-provider.md
 
 ## API

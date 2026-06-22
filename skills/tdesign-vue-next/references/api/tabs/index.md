@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：用于承载同一层级下不同页面或类别的组件，方便用户在同一个页面框架下进行快速切换。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/tabs/tabs.md
 
 ## API

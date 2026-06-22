@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：分割线是一个呈线状的轻量化组件，起到分隔、组织、细化的作用，用于有逻辑的组织元素内容和页面结构。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/divider/divider.md
 
 ## API

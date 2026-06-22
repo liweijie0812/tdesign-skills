@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：栅格是以规则的网格阵列来指导和规范网页中的版面布局以及信息分布，提高界面内布局的一致性，节约成本。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/grid/grid.md
 
 ## API

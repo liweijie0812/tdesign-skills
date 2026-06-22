@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：用于展示图片素材。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/image/image.md
 
 ## API

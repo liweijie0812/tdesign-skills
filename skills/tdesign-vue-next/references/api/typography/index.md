@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：排版用于文本基础编排和样式，使用排版组件，可以快速完成页面中的文本内容制作，同时配合其他组件完成深色与浅色模式切换等风格统一的需求
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/typography/typography.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：用于收纳大量选项的信息录入类组件。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/rate/rate.md
 
 ## API

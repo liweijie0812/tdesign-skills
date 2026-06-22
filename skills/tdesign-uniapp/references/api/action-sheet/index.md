@@ -2,6 +2,8 @@
 
 来源：TDesign UniApp
 
+组件简介：从底部弹出的模态框，提供和当前场景相关的操作动作，也支持提供信息输入和描述。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/action-sheet/README.md
 
 ## API

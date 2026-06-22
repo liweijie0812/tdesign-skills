@@ -2,6 +2,8 @@
 
 来源：TDesign UniApp
 
+组件简介：用于不同页面之间切换或者跳转，位于内容区的上方，系统状态栏的下方。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/navbar/README.md
 
 ## API

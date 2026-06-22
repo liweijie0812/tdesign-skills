@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：用于选择某一具体日期或某一段日期区间。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/date-picker/date-picker.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：对用户的操作作出轻量的全局反馈。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/message/message.md
 
 ## API

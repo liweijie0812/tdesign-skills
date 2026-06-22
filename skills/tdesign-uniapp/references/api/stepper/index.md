@@ -2,6 +2,8 @@
 
 来源：TDesign UniApp
 
+组件简介：用于数量的增减。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/stepper/README.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：用于输入文本标签。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/tag-input/tag-input.md
 
 ## API

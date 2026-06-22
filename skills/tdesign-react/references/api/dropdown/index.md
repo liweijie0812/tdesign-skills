@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：用于承载过多的操作集合，通过下拉拓展的形式，收纳更多的操作。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/dropdown/dropdown.md
 
 ## API

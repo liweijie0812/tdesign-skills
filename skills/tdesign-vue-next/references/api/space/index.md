@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：控制组件之间的间距。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/space/space.md
 
 ## API

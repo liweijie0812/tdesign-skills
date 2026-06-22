@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：对话框是一种临时窗口，通常在不想中断整体任务流程，但又需要为用户展示信息或获得用户响应时，在页面中打开一个对话框承载相应的信息及操作。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/dialog/dialog.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：侧边栏组件用于常驻页面侧边的信息、操作展示。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/sticky-tool/sticky-tool.md
 
 ## API

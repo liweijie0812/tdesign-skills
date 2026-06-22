@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：用于承载用户信息录入的文本框，常用于表单、对话框等场景，对不同内容的信息录入，可拓展形成多种信息录入形式。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/input/input.md
 
 ## API

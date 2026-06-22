@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：出现在图标或文字右上角的徽标标识。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/badge/badge.md
 
 ## API

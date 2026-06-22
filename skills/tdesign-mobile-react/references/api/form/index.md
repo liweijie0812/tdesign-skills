@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用以收集、校验和提交数据，一般由输入框、单选框、复选框、选择器等控件组成。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/form/form.md
 
 ## API

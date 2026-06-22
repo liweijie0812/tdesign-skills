@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：级联选择器适用于有清晰层级结构的数据集合，用户可以通过逐级查看并选择。一般而言，级联选择器包括：选择器和级联。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/cascader/cascader.md
 
 ## API

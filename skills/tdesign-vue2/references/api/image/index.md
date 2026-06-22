@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：用于展示图片素材。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/image/image.md
 
 ## API

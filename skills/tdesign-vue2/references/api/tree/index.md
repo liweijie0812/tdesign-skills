@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：用于承载有父子关系的结构化内容，提供内容层级的展示。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/tree/tree.md
 
 ## API

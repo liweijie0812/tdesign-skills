@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile Vue
 
+组件简介：用于选择一个时间点或者一个时间段。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-vue/develop/src/date-time-picker/date-time-picker.md
 
 ## API

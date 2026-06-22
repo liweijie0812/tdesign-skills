@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：用图标、图片、字符的形式展示用户或事物信息
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/avatar/avatar.md
 
 ## API

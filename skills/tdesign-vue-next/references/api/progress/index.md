@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：展示操作的当前进度。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/progress/progress.md
 
 ## API

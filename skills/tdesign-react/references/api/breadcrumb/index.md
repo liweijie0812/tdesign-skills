@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：显示当前页面在系统层级结构的位置，并能返回之前任意层级的页面。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/breadcrumb/breadcrumb.md
 
 ## API

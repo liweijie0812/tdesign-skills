@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于不同页面之间切换或者跳转，位于内容区的上方，系统状态栏的下方。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/navbar/navbar.md
 
 ## API

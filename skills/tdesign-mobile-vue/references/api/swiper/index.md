@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile Vue
 
+组件简介：用于循环轮播一组图片或内容，也可以滑动进行切换，轮播动效时间可以设置。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-vue/develop/src/swiper/swiper.md
 
 ## API

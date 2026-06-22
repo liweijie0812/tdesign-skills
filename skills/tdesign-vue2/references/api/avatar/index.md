@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：用图标、图片、字符的形式展示用户或事物信息
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/avatar/avatar.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign UniApp
 
+组件简介：用于多层级数据的逐级选择。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/cascader/README.md
 
 ## API

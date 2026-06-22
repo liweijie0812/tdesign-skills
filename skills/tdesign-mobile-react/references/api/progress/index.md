@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于展示任务当前的进度。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/progress/progress.md
 
 ## API

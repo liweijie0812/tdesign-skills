@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：用于输入文本标签。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/tag-input/tag-input.md
 
 ## API

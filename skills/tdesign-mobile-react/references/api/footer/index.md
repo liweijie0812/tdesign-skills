@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于展示网站的版权声明、联系信息、重要页面链接和其他相关内容等信息。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/footer/footer.md
 
 ## API

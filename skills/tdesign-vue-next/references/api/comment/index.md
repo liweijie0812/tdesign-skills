@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：评论用于对页面内容的反馈、评价、讨论等，如对文章的评价，对话题的讨论等。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/comment/comment.md
 
 ## API

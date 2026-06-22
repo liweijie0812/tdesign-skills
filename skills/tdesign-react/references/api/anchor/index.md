@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：页面内的超级链接，用于跳转到页面内指定位置
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/anchor/anchor.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：提示用户进度以及当前的步骤，用于引导用户按照步骤完成任务的导航条。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/steps/steps.md
 
 ## API

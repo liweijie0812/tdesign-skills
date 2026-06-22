@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：用于颜色选择，支持多种格式。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/color-picker/color-picker.md
 
 ## API

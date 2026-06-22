@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于表明主体的类目，属性或状态。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/tag/tag.md
 
 ## API

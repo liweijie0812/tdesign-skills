@@ -2,6 +2,8 @@
 
 来源：TDesign UniApp
 
+组件简介：用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/button/README.md
 
 ## API

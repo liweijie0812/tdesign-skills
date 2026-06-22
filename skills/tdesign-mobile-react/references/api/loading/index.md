@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于表示页面或操作的加载状态，给予用户反馈的同时减缓等待的焦虑感，由一个或一组反馈动效组成。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/loading/loading.md
 
 ## API

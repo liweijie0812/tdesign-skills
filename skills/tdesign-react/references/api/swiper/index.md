@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：轮播视图容器。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/swiper/swiper.md
 
 ## API

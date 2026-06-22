@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：给页面的某个区域加上水印
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/watermark/watermark.md
 
 ## API

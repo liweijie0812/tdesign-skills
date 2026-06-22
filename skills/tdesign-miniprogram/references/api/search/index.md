@@ -2,6 +2,8 @@
 
 来源：TDesign Miniprogram
 
+组件简介：用于用户输入搜索信息，并进行页面内容搜索。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/search/README.md
 
 ## API

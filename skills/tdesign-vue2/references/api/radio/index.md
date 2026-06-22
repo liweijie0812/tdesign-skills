@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：单选框代表从一组互斥的选项中仅选择一个选项。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/radio/radio.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：抽屉常通过单击临近的按钮控件打开，从屏幕边缘滑入的浮层面板，又称半屏弹窗。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/drawer/drawer.md
 
 ## API

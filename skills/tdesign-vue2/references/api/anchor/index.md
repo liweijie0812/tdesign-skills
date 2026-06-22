@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：页面内的超级链接，用于跳转到页面内指定位置
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/anchor/anchor.md
 
 ## API

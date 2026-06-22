@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：上传组件允许用户传输文件或提交自己的内容。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/upload/upload.md
 
 ## API

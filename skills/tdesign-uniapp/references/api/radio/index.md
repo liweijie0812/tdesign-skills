@@ -2,6 +2,8 @@
 
 来源：TDesign UniApp
 
+组件简介：用于在预设的一组选项中执行单项选择，并呈现选择结果。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/radio/README.md
 
 ## API

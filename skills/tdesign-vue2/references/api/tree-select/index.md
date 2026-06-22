@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：类似 Select 的信息录入控件，适用于选择树形的数据结构。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/tree-select/tree-select.md
 
 ## API

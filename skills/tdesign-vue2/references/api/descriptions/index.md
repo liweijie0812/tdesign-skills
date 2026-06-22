@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：一般用于详情页的信息展示。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/descriptions/descriptions.md
 
 ## API

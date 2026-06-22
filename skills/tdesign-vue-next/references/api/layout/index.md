@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：用于组织网页的框架结构。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/layout/layout.md
 
 ## API

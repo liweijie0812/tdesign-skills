@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：在网络较慢或数据较多时，表示数据正在加载的状态。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/loading/loading.md
 
 ## API

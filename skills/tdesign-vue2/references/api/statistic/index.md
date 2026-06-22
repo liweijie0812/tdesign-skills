@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：突出展示某个或某组数字、带描述的统计类数据。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/statistic/statistic.md
 
 ## API

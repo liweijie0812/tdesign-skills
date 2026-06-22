@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：用于选择某一具体时间点或某一时间段。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/time-picker/time-picker.md
 
 ## API

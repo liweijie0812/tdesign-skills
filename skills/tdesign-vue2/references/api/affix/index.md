@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：在指定的范围内，将元素固定不动
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/affix/affix.md
 
 ## API

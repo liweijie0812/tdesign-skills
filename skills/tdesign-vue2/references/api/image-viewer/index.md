@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：当需要展示图片，并要进行部分操作时。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/image-viewer/image-viewer.md
 
 ## API

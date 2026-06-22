@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：用于承载网站的架构，并提供跳转的菜单列表。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/menu/menu.md
 
 ## API

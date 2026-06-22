@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于显示重要提示或请求用户进行重要操作，一种打断当前操作的模态视图。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/dialog/dialog.md
 
 ## API

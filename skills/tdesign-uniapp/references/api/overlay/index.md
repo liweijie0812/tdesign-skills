@@ -2,6 +2,8 @@
 
 来源：TDesign UniApp
 
+组件简介：通过遮罩层，可以强调部分内容。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/overlay/README.md
 
 ## API

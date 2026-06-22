@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile Vue
 
+组件简介：用于分割、组织、细化有一定逻辑的组织元素内容和页面结构。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-vue/develop/src/divider/divider.md
 
 ## API

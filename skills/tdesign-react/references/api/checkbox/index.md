@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：多选框是一个选择控件，允许用户通过单击在选中和未选中之间切换。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/checkbox/checkbox.md
 
 ## API

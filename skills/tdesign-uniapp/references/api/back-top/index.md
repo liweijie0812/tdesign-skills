@@ -2,6 +2,8 @@
 
 来源：TDesign UniApp
 
+组件简介：用于当页面过长往下滑动时，帮助用户快速回到页面顶部。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/back-top/README.md
 
 ## API

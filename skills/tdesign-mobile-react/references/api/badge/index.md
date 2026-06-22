@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于告知用户，该区域的状态变化或者待处理任务的数量。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/badge/badge.md
 
 ## API

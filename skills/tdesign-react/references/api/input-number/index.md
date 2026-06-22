@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：数字输入框由增加、减少按钮、数值输入组成。每次点击增加按钮（或减少按钮），数字增长（或减少）的量是恒定的。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/input-number/input-number.md
 
 ## API

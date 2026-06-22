@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile Vue
 
+组件简介：用于展示效果，主要为上下左右居中裁切、拉伸、平铺等方式。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-vue/develop/src/image/image.md
 
 ## API

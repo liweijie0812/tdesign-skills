@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile Vue
 
+组件简介：用于展示用户头像信息，除了纯展示也可点击进入个人详情等操作。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-vue/develop/src/avatar/avatar.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign Miniprogram
 
+组件简介：菜单呈现数个并列的选项类目，用于整个页面的内容筛选，由菜单面板和菜单选项组成。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/dropdown-menu/README.md
 
 ## API

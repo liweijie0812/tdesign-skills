@@ -2,6 +2,8 @@
 
 来源：TDesign UniApp
 
+组件简介：用于选择一个时间点或者一个时间段。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/date-time-picker/README.md
 
 ## API

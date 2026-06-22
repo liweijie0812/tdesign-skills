@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于页面中信息快速检索，可以根据目录中的页码快速找到所需的内容。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/indexes/indexes.md
 
 ## API

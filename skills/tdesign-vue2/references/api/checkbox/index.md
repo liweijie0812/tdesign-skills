@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：多选框是一个选择控件，允许用户通过单击在选中和未选中之间切换。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/checkbox/checkbox.md
 
 ## API

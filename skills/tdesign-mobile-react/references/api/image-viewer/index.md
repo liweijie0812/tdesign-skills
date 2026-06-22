@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于图片内容的缩略展示与查看。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/image-viewer/image-viewer.md
 
 ## API

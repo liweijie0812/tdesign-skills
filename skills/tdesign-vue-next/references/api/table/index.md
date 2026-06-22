@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：表格常用于展示同类结构下的多种数据，易于组织、对比和分析等，并可对数据进行搜索、筛选、排序等操作。一般包括表头、数据行和表尾三部分。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/table/table.md
 
 ## API

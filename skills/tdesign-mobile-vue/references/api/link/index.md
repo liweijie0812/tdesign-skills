@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile Vue
 
+组件简介：文字超链接用于跳转一个新页面，如当前项目跳转，友情链接等。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-vue/develop/src/link/link.md
 
 ## API

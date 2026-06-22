@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：按照日历形式展示数据或日期的容器。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/calendar/calendar.md
 
 ## API

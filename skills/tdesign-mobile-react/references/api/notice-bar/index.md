@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：在导航栏下方，用于给用户显示提示消息。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/notice-bar/notice-bar.md
 
 ## API

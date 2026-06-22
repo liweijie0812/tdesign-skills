@@ -2,6 +2,8 @@
 
 来源：TDesign Vue 2
 
+组件简介：定义：标签常用于标记、分类和选择。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue/develop/src/tag/tag.md
 
 ## API

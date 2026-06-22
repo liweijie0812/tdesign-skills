@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile React
 
+组件简介：用于轻量级反馈或提示，不会打断用户操作。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-react/develop/src/toast/toast.md
 
 ## API

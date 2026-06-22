@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：气泡确认框通常用于不会造成严重后果的二次确认场景，其会在点击元素上弹出浮层进行提示确认。气泡确认框没有蒙层，点击确认框以外的区域即可关闭。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/popconfirm/popconfirm.md
 
 ## API

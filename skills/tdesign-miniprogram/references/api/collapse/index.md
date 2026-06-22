@@ -2,6 +2,8 @@
 
 来源：TDesign Miniprogram
 
+组件简介：可以折叠/展开的内容区域。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-miniprogram/develop/packages/components/collapse/README.md
 
 ## API

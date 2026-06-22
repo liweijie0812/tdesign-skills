@@ -2,6 +2,8 @@
 
 来源：TDesign Mobile Vue
 
+组件简介：用于功能入口布局，将页面或特定区域切分成若干等大的区块，形成若干功能入口。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-mobile-vue/develop/src/grid/grid.md
 
 ## API

@@ -2,6 +2,8 @@
 
 来源：TDesign Vue Next
 
+组件简介：逐步骤进行指引或解释说明的组件，常用于用户不熟悉的或需进行特别强调的页面。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-vue-next/develop/packages/components/guide/guide.md
 
 ## API

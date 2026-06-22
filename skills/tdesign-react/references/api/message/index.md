@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：对用户的操作作出轻量的全局反馈。
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/message/message.md
 
 ## API

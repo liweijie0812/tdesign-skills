@@ -2,6 +2,8 @@
 
 来源：TDesign React
 
+组件简介：用于根据用户输入内容提示更多联想词场景
+
 上游文档：https://raw.githubusercontent.com/Tencent/tdesign-react/develop/packages/components/auto-complete/auto-complete.md
 
 ## API
