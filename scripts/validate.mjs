@@ -4,6 +4,8 @@ import path from 'node:path';
 const root = process.cwd();
 const failures = [];
 const cnbDisplaySkillPath = 'skills/SKILL.md';
+const descriptionTriggerPattern = /(当|Use|use|询问|查询|需要|组件|文档|图标|changelog|API|props|事件|插槽|代码|页面|选型|版本)/;
+const descriptionScopePattern = /(TDesign|tdesign-[a-z-]+|tdesign\b)/i;
 
 function fail(message) {
   failures.push(message);
@@ -73,15 +75,62 @@ function validateSkillFrontmatter() {
       fail(`${skillPath}: invalid skill name: ${frontmatter.name ?? '(missing)'}`);
     }
 
+    if ((frontmatter.name ?? '').length > 64) {
+      fail(`${skillPath}: skill name is too long: ${frontmatter.name.length}`);
+    }
+
     const description = frontmatter.description ?? '';
-    if (description.length < 1 || description.length > 1024) {
+    if (description.length < 1 || description.length > 512) {
       fail(`${skillPath}: invalid description length: ${description.length}`);
+    }
+    if (description !== description.trim()) {
+      fail(`${skillPath}: description must not have leading or trailing whitespace`);
+    }
+    if (!descriptionScopePattern.test(description)) {
+      fail(`${skillPath}: description must mention TDesign or a tdesign package`);
+    }
+    if (!descriptionTriggerPattern.test(description)) {
+      fail(`${skillPath}: description must include concrete trigger keywords`);
     }
 
     const expectedName = path.basename(path.dirname(skillPath));
     if (frontmatter.name !== expectedName) {
       fail(`${skillPath}: skill name '${frontmatter.name}' does not match directory '${expectedName}'`);
     }
+  }
+}
+
+function validateMarkdownScriptReferences() {
+  const scriptPattern = /\bnode\s+(?:--[\w-]+\s+)*(skills\/[\w./-]+\.mjs|scripts\/[\w./-]+\.mjs)\b/g;
+  walk('.', (relativePath) => {
+    if (!relativePath.endsWith('.md')) return;
+    if (relativePath === cnbDisplaySkillPath) return;
+
+    const text = readText(relativePath);
+    let match;
+    while ((match = scriptPattern.exec(text))) {
+      if (!fs.existsSync(path.join(root, match[1]))) {
+        fail(`${relativePath}: missing script referenced by command: ${match[1]}`);
+      }
+    }
+  });
+}
+
+function validateReadmeSkillCount() {
+  const readme = readText('README.md');
+  const match = readme.match(/本仓库提供\s*(\d+)\s*个\s*TDesign\s*skills/i);
+  if (!match) return;
+
+  const skillPaths = [];
+  walk('skills', (relativePath) => {
+    if (path.basename(relativePath) === 'SKILL.md' && relativePath !== cnbDisplaySkillPath) {
+      skillPaths.push(relativePath);
+    }
+  });
+
+  const expectedCount = Number(match[1]);
+  if (skillPaths.length !== expectedCount) {
+    fail(`README.md: skill count is ${expectedCount}, but found ${skillPaths.length} real skills`);
   }
 }
 
@@ -192,6 +241,8 @@ function validateMatrixSourcePaths() {
 
 validateSkillFrontmatter();
 validateMarkdownLinks();
+validateMarkdownScriptReferences();
+validateReadmeSkillCount();
 validateNoOldApiReferences();
 validateNoRootReferenceDirectories();
 validateMatrixSourcePaths();
