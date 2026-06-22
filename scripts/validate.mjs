@@ -134,6 +134,30 @@ function validateReadmeSkillCount() {
   }
 }
 
+function validateSmokePromptCoverage() {
+  const smokePromptPath = 'skills/tdesign-skills/references/minimal-skill.md';
+  const text = readText(smokePromptPath);
+  const requiredPatterns = [
+    ['tdesign-react', /tdesign-react/],
+    ['tdesign-vue-next', /tdesign-vue-next/],
+    ['tdesign-mobile-vue', /tdesign-mobile-vue/],
+    ['tdesign-miniprogram', /tdesign-miniprogram/],
+    ['tdesign-uniapp', /tdesign-uniapp/],
+    ['tdesign-usage-guide route', /tdesign-usage-guide|选型决策/],
+    ['tdesign-composition route', /tdesign-composition|页面组合/],
+    ['tdesign-docs route', /tdesign-docs|覆盖矩阵/],
+    ['tdesign-icons route', /tdesign-icons|图标检索/],
+    ['tdesign-changelog route', /tdesign-changelog|版本查询/],
+    ['cross-stack negative case', /跨栈误用|不要套用/],
+  ];
+
+  for (const [label, pattern] of requiredPatterns) {
+    if (!pattern.test(text)) {
+      fail(`${smokePromptPath}: smoke prompts must cover ${label}`);
+    }
+  }
+}
+
 function validateMarkdownLinks() {
   walk('.', (relativePath) => {
     if (!relativePath.endsWith('.md')) return;
@@ -243,6 +267,7 @@ validateSkillFrontmatter();
 validateMarkdownLinks();
 validateMarkdownScriptReferences();
 validateReadmeSkillCount();
+validateSmokePromptCoverage();
 validateNoOldApiReferences();
 validateNoRootReferenceDirectories();
 validateMatrixSourcePaths();

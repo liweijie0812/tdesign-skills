@@ -54,11 +54,15 @@ Use this when a normal business project has `tdesign-react`, `tdesign-vue-next`,
 
 ## Smoke Prompts
 
-- "把这个 `window.confirm()` 删除确认改成项目当前 TDesign 栈写法。"
-- "实现一个带校验的姓名输入表单，项目使用 `tdesign-vue-next`。"
-- "给后台页面搭一个左侧导航 + 内容区布局，项目使用 `tdesign-react`。"
-- "项目安装了 `tdesign-react`，查一下能不能用 `Table`、`Popconfirm` 和 `Pagination` 做列表页。"
-- "项目安装了 `tdesign-mobile-vue`，实现一个移动端搜索列表页，优先使用 TDesign 组件。"
-- "项目安装了 `tdesign-uniapp`，实现一个带删除确认的列表页，优先使用 TDesign 组件。"
+- API 落地："实现一个带校验的姓名输入表单，项目使用 `tdesign-vue-next`。"
+- API 落地："把这个 `window.confirm()` 删除确认改成项目当前 `tdesign-react` 写法。"
+- 页面组合："给后台页面搭一个左侧导航 + 内容区布局，项目使用 `tdesign-react`。"
+- 覆盖矩阵："项目安装了 `tdesign-react`，查一下能不能用 `Table`、`Popconfirm` 和 `Pagination` 做列表页。"
+- 选型决策："`Dialog` 和 `Drawer` 都能编辑信息时，TDesign Web 项目该怎么选？"
+- 移动端组合："项目安装了 `tdesign-mobile-vue`，实现一个移动端搜索列表页，优先使用 TDesign 组件。"
+- UniApp 写法："项目安装了 `tdesign-uniapp`，实现一个带删除确认的列表页，优先使用 TDesign 组件。"
+- 图标检索："TDesign React 项目里想用 GitHub 图标，查图标名和正确图标包导入方式。"
+- 版本查询："查询 `tdesign-changelog` 里 Upload 组件在 `tdesign-vue-next` 近期是否有 breaking changes。"
+- 跨栈误用："项目是 `tdesign-miniprogram`，不要套用 Vue 的 `v-model`，实现一个表单提交页。"
 
-期望行为：agent 先识别技术栈，确认当前栈组件是否可用，选择 TDesign 组件组合，只有需要 props / events 时才读取对应 API 文件，并避免跨栈写法。
+期望行为：agent 先识别技术栈，确认当前栈组件是否可用，再选择唯一主责 skill；选型走 `tdesign-usage-guide`，页面组合走 `tdesign-composition`，覆盖确认走 `tdesign-docs`，图标走 `tdesign-icons`，版本走 `tdesign-changelog`，代码落地回当前技术栈 API 文件，并避免跨栈写法。

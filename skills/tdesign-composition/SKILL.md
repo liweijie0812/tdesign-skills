@@ -1,6 +1,6 @@
 ---
 name: tdesign-composition
-description: 当用户询问 TDesign 组件搭配使用指南、组件搭配设计指南、页面级组合、页面骨架、后台管理页、应用壳、导航布局、表单页、表格列表页、详情页、登录页、错误页、仪表盘、弹窗/抽屉任务流、CRUD 任务流或移动端页面怎么组织时使用。只负责组件搭配、页面结构、场景默认组合、设计红线和交付自检；组件选型理由转 tdesign-usage-guide，单组件 API 转当前技术栈 skill，资料入口和覆盖确认转 tdesign-docs。
+description: 当用户需要 TDesign 组件搭配、页面骨架、设计规范、Design Token、质量门禁或表单/列表/详情/应用壳/移动端页面组合方案时使用。只负责页面级组合和场景校验；组件选型转 tdesign-usage-guide，单组件 API 转当前技术栈 skill，资料入口转 tdesign-docs。
 ---
 
 # TDesign 组件搭配设计指南与页面场景
