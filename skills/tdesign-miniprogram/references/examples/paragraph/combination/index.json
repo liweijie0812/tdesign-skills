@@ -1,0 +1,15 @@
+<!--
+  TDesign TDesign Miniprogram 示例：paragraph - index
+  覆盖组件：Paragraph
+  来源：组件库源码 packages/components/paragraph/_example/index.wxml
+-->
+
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "t-typography-text": "tdesign-miniprogram/text/text",
+    "t-typography-title": "tdesign-miniprogram/title/title",
+    "t-typography-paragraph": "tdesign-miniprogram/paragraph/paragraph"
+  }
+}

@@ -1,0 +1,12 @@
+<!--
+  TDesign TDesign UniApp 示例：swiper - index
+  覆盖组件：Swiper
+  来源：组件库源码 packages/components/swiper/_example/index.vue
+-->
+
+{
+  "component": true,
+  "usingComponents": {
+    "t-swiper": "tdesign-miniprogram/swiper/swiper"
+  }
+}

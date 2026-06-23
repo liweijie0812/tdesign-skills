@@ -1,0 +1,31 @@
+/**
+ * TDesign TDesign React 示例：comment - reply-form
+ * 覆盖组件：Comment
+ * 来源：组件库源码 packages/components/comment/_example/reply-form.tsx
+ */
+
+import React, { useState } from 'react';
+import { Button, Comment, NotificationPlugin, Space, Textarea } from 'tdesign-react';
+
+export default function BasicComment() {
+  const [replyData, setReplayData] = useState('');
+
+  function submitReply() {
+    NotificationPlugin.info({
+      title: '回复内容',
+      content: replyData,
+      duration: 3000,
+    });
+  }
+
+  const replyForm = (
+    <Space direction="vertical" align="end" style={{ width: '100%' }}>
+      <Textarea placeholder="请输入内容" value={replyData} onChange={setReplayData} />
+      <Button style={{ float: 'right' }} onClick={submitReply}>
+        回复
+      </Button>
+    </Space>
+  );
+
+  return <Comment avatar="https://tdesign.gtimg.com/site/avatar.jpg" content={replyForm} />;
+}

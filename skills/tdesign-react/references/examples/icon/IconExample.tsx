@@ -1,0 +1,82 @@
+/**
+ * TDesign TDesign React 示例：icon - IconExample
+ * 覆盖组件：Icon
+ * 来源：组件库源码 packages/components/icon/_example/IconExample.tsx
+ */
+
+import React, { useState } from 'react';
+import {
+  ComponentBreadcrumbIcon,
+  ComponentCheckboxIcon,
+  ComponentDropdownIcon,
+  ComponentInputIcon,
+  ComponentRadioIcon,
+  ComponentStepsIcon,
+  ComponentSwitchIcon,
+  LettersDIcon,
+  LettersEIcon,
+  LettersGIcon,
+  LettersIIcon,
+  LettersNIcon,
+  LettersSIcon,
+  LettersTIcon,
+} from 'tdesign-icons-react';
+import { Slider, Space } from 'tdesign-react';
+
+export default function IconExample() {
+  const [strokeWidth, setStrokeWidth] = useState(2);
+  const handleClick = () => {
+    console.log('icon is clicked');
+  };
+  return (
+    <Space direction="vertical">
+      <Slider value={strokeWidth} onChange={(v) => setStrokeWidth(Number(v))} min={0.5} max={2.5} step={0.5} />
+      <Space breakLine style={{ color: `var(--td-brand-color)` }}>
+        <LettersTIcon strokeWidth={strokeWidth} onClick={handleClick} />
+        <LettersDIcon strokeWidth={strokeWidth} />
+        <LettersEIcon strokeWidth={strokeWidth} />
+        <LettersSIcon strokeWidth={strokeWidth} />
+        <LettersIIcon strokeWidth={strokeWidth} />
+        <LettersGIcon strokeWidth={strokeWidth} />
+        <LettersNIcon strokeWidth={strokeWidth} />
+      </Space>
+      <Space breakLine>
+        <ComponentCheckboxIcon
+          strokeWidth={strokeWidth}
+          strokeColor={['currentColor', '#0052d9']}
+          fillColor={['#bbd3fb', '#f78d94']}
+        />
+        <ComponentBreadcrumbIcon
+          strokeWidth={strokeWidth}
+          strokeColor={['currentColor', '#0052d9']}
+          fillColor={['#bbd3fb', '#f78d94']}
+        />
+        <ComponentInputIcon
+          strokeWidth={strokeWidth}
+          strokeColor={['currentColor', '#0052d9']}
+          fillColor={['#bbd3fb', '#f78d94']}
+        />
+        <ComponentSwitchIcon
+          strokeWidth={strokeWidth}
+          strokeColor={['currentColor', '#0052d9']}
+          fillColor={['#bbd3fb', '#f78d94']}
+        />
+        <ComponentDropdownIcon
+          strokeWidth={strokeWidth}
+          strokeColor={['currentColor', '#0052d9']}
+          fillColor={['#bbd3fb', '#f78d94']}
+        />
+        <ComponentRadioIcon
+          strokeWidth={strokeWidth}
+          strokeColor={['currentColor', '#0052d9']}
+          fillColor={['#bbd3fb', '#f78d94']}
+        />
+        <ComponentStepsIcon
+          strokeWidth={strokeWidth}
+          strokeColor={['currentColor', '#0052d9']}
+          fillColor={['#bbd3fb', '#f78d94']}
+        />
+      </Space>
+    </Space>
+  );
+}

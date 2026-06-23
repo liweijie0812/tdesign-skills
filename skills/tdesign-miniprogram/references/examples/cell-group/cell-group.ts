@@ -1,0 +1,9 @@
+<!--
+  TDesign TDesign Miniprogram 示例：cell-group - cell-group
+  覆盖组件：Cell-group
+  来源：组件库源码 packages/components/cell-group/_example/cell-group.wxml
+-->
+
+Page({
+  data: {},
+});

@@ -1,0 +1,53 @@
+/**
+ * TDesign TDesign React 示例：list - asyncLoading
+ * 覆盖组件：List
+ * 来源：组件库源码 packages/components/list/_example/asyncLoading.tsx
+ */
+
+import React, { useState } from 'react';
+import { List, Radio } from 'tdesign-react';
+
+import type { ReactNode } from 'react';
+import type { ListProps } from 'tdesign-react';
+
+const { ListItem } = List;
+
+export default function BasicList() {
+  const [asyncLoading, setAsyncLoading] = useState<ReactNode>('');
+
+  const listData = [
+    { id: 1, content: '列表内容列表内容列表内容' },
+    { id: 2, content: '列表内容列表内容列表内容' },
+    { id: 3, content: '列表内容列表内容列表内容' },
+    { id: 4, content: '列表内容列表内容列表内容' },
+  ];
+  const handleAsyncLoading = (val: string) => {
+    if (val === 'loading-custom') {
+      setAsyncLoading(<div style={{ textAlign: 'center', marginTop: 12 }}> 没有更多数据了 </div>);
+    } else {
+      setAsyncLoading(val);
+    }
+  };
+
+  const onLoadMore: ListProps['onLoadMore'] = ({ e }) => {
+    console.log(e);
+    handleAsyncLoading('loading');
+  };
+
+  return (
+    <>
+      <Radio.Group size="large" onChange={(value: string) => handleAsyncLoading(value)}>
+        <Radio.Button value="load-more">加载更多</Radio.Button>
+        <Radio.Button value="loading">加载中</Radio.Button>
+        <Radio.Button value="loading-custom">自定义加载更多</Radio.Button>
+        <Radio.Button value="">加载完成</Radio.Button>
+      </Radio.Group>
+      <div style={{ marginBottom: '16px' }}></div>
+      <List asyncLoading={asyncLoading} onLoadMore={({ e }) => onLoadMore({ e })}>
+        {listData.map((item) => (
+          <ListItem key={item.id}>{item.content}</ListItem>
+        ))}
+      </List>
+    </>
+  );
+}

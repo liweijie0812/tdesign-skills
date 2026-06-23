@@ -1,0 +1,20 @@
+<!--
+  TDesign TDesign UniApp 示例：button - button
+  覆盖组件：Button
+  来源：组件库源码 packages/components/button/_example/button.vue
+-->
+
+{
+  "navigationBarTitleText": "Button",
+  "usingComponents": {
+    "base": "./base",
+    "size": "./size",
+    "icon-btn": "./icon-btn",
+    "group-btn": "./group-btn",
+    "block-btn": "./block-btn",
+    "ghost-btn": "./ghost-btn",
+    "shape": "./shape",
+    "theme": "./theme",
+    "disabled": "./disabled"
+  }
+}

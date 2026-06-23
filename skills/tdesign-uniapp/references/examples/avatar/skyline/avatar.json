@@ -1,0 +1,16 @@
+<!--
+  TDesign TDesign UniApp 示例：avatar - avatar
+  覆盖组件：Avatar
+  来源：组件库源码 packages/components/avatar/_example/avatar.vue
+-->
+
+{
+  "navigationStyle": "custom",
+  "renderer": "skyline",
+  "componentFramework": "glass-easel",
+  "disableScroll": true,
+  "usingComponents": {
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "demo-avatar": "../avatar"
+  }
+}

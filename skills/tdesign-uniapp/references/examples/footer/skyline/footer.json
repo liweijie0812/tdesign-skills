@@ -1,0 +1,18 @@
+<!--
+  TDesign TDesign UniApp 示例：footer - footer
+  覆盖组件：Footer
+  来源：组件库源码 packages/components/footer/_example/footer.vue
+-->
+
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "base": "../base",
+    "link": "../link",
+    "logo": "../logo"
+  },
+  "renderer": "skyline",
+  "componentFramework": "glass-easel",
+  "disableScroll": true
+}

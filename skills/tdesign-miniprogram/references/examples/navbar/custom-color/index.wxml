@@ -1,0 +1,7 @@
+<!--
+  TDesign TDesign Miniprogram 示例：navbar - index
+  覆盖组件：Navbar
+  来源：组件库源码 packages/components/navbar/_example/index.wxml
+-->
+
+<t-navbar class="custom-navbar" fixed="{{false}}" left-arrow title="标题文字" />

@@ -1,0 +1,27 @@
+<!--
+  TDesign TDesign Miniprogram 示例：dialog - index
+  覆盖组件：Dialog
+  来源：组件库源码 packages/components/dialog/_example/index.wxml
+-->
+
+.wrapper {
+  margin-bottom: 32rpx;
+}
+
+.placeholder {
+  color: var(--td-text-color-placeholder);
+  line-height: 96rpx;
+  height: 96rpx !important;
+  display: flex;
+  align-items: center;
+}
+
+.dialog-input {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  margin-top: 32rpx;
+  border-radius: 8rpx;
+  background-color: var(--td-bg-color-page);
+  box-sizing: border-box;
+}

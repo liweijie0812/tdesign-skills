@@ -1,0 +1,12 @@
+<!--
+  TDesign TDesign Miniprogram 示例：button - index
+  覆盖组件：Button
+  来源：组件库源码 packages/components/button/_example/index.wxml
+-->
+
+{
+  "component": true,
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

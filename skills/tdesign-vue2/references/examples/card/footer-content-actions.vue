@@ -1,0 +1,56 @@
+<!--
+  TDesign TDesign Vue 2 示例：card - footer-content-actions
+  覆盖组件：Card
+  来源：组件库源码 src/card/_example/footer-content-actions.vue
+-->
+
+<template>
+  <t-card :cover="cover" theme="poster2" :style="{ width: '400px' }">
+    <template #footer>
+      <t-comment avatar="https://tdesign.gtimg.com/site/avatar-boy.jpg" author="标题" content="卡片内容" />
+    </template>
+    <template #actions>
+      <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
+        <t-button variant="text" shape="square">
+          <more-icon />
+        </t-button>
+      </t-dropdown>
+    </template>
+  </t-card>
+</template>
+<script>
+import { MessagePlugin } from 'tdesign-vue';
+import { MoreIcon } from 'tdesign-icons-vue';
+
+export default {
+  components: {
+    MoreIcon,
+  },
+  data() {
+    return {
+      options: [
+        {
+          content: '操作一',
+          value: 1,
+        },
+        {
+          content: '操作二',
+          value: 2,
+        },
+      ],
+      cover: 'https://tdesign.gtimg.com/site/source/card-demo.png',
+    };
+  },
+  methods: {
+    clickHandler(data) {
+      MessagePlugin.success(`选中【${data.content}】`);
+    },
+  },
+};
+</script>
+<style scoped>
+.tdesign-demo-block /deep/ .t-card__actions {
+  display: flex;
+  align-items: center;
+}
+</style>

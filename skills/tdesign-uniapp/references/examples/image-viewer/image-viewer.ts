@@ -1,0 +1,7 @@
+<!--
+  TDesign TDesign UniApp 示例：image-viewer - image-viewer
+  覆盖组件：Image-viewer
+  来源：组件库源码 packages/components/image-viewer/_example/image-viewer.vue
+-->
+
+Page({});

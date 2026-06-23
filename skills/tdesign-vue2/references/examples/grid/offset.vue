@@ -1,0 +1,33 @@
+<!--
+  TDesign TDesign Vue 2 示例：grid - offset
+  覆盖组件：Grid
+  来源：组件库源码 src/grid/_example/offset.vue
+-->
+
+<template>
+  <t-space direction="vertical">
+    <t-row>
+      <t-col :span="4">
+        <div>col-4</div>
+      </t-col>
+      <t-col :span="4" :offset="4">
+        <div>col-4 col-offset-4</div>
+      </t-col>
+    </t-row>
+
+    <t-row>
+      <t-col :span="3" :offset="3">
+        <div>col-3 col-offset-3</div>
+      </t-col>
+      <t-col :span="3" :offset="3">
+        <div>col-3 col-offset-3</div>
+      </t-col>
+    </t-row>
+
+    <t-row>
+      <t-col :span="6" :offset="3">
+        <div>col-6 col-offset-3</div>
+      </t-col>
+    </t-row>
+  </t-space>
+</template>

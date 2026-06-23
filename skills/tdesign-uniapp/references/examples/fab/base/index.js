@@ -1,0 +1,13 @@
+<!--
+  TDesign TDesign UniApp 示例：fab - index
+  覆盖组件：Fab
+  来源：组件库源码 packages/components/fab/_example/index.vue
+-->
+
+Component({
+  methods: {
+    handleClick(e) {
+      console.log(e);
+    },
+  },
+});

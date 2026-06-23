@@ -1,0 +1,54 @@
+/**
+ * TDesign TDesign React 示例：input-adornment - select
+ * 覆盖组件：Input-adornment
+ * 来源：组件库源码 packages/components/input-adornment/_example/select.tsx
+ */
+
+import React from 'react';
+import { Input, InputAdornment, Select, Space } from 'tdesign-react';
+
+export default function BaseExample() {
+  const protocolSelect = (
+    <Select
+      autoWidth
+      options={['http://', 'https://'].map((value) => ({
+        label: value,
+        value,
+      }))}
+      defaultValue="http://"
+    />
+  );
+
+  const tldSelect = (
+    <Select
+      autoWidth
+      options={['.com', '.cn', '.net', '.org'].map((value) => ({
+        label: value,
+        value,
+      }))}
+      defaultValue=".cn"
+    />
+  );
+
+  return (
+    <Space direction="vertical" className="adornment-select">
+      <InputAdornment prepend={protocolSelect}>
+        <Input />
+      </InputAdornment>
+
+      <InputAdornment append={tldSelect}>
+        <Input />
+      </InputAdornment>
+
+      <InputAdornment prepend={protocolSelect} append={tldSelect}>
+        <Select
+          options={['tencent', 'qq', 'cloud.tencent'].map((value) => ({
+            label: value,
+            value,
+          }))}
+          defaultValue="tencent"
+        />
+      </InputAdornment>
+    </Space>
+  );
+}

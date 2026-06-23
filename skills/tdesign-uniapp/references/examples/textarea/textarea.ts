@@ -1,0 +1,7 @@
+<!--
+  TDesign TDesign UniApp 示例：textarea - textarea
+  覆盖组件：Textarea
+  来源：组件库源码 packages/components/textarea/_example/textarea.vue
+-->
+
+Page({});

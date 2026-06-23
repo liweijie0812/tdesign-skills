@@ -1,0 +1,23 @@
+/**
+ * TDesign TDesign React 示例：avatar - base
+ * 覆盖组件：Avatar
+ * 来源：组件库源码 packages/components/avatar/_example/base.tsx
+ */
+
+import React from 'react';
+import { UserIcon } from 'tdesign-icons-react';
+import { Avatar, Space } from 'tdesign-react';
+
+export default function BasicAvatar() {
+  return (
+    <Space>
+      <Avatar icon={<UserIcon />} style={{ marginRight: '40px' }} />
+      <Avatar
+        image="https://tdesign.gtimg.com/site/avatar.jpg"
+        hideOnLoadFailed={false}
+        style={{ marginRight: '40px' }}
+      />
+      <Avatar style={{ marginRight: '40px' }}>W</Avatar>
+    </Space>
+  );
+}

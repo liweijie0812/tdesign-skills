@@ -1,0 +1,7 @@
+<!--
+  TDesign TDesign UniApp 示例：radio - index
+  覆盖组件：Radio
+  来源：组件库源码 packages/components/radio/_example/index.vue
+-->
+
+<t-radio-group bind:change="onChange" allow-uncheck value="{{current}}" options="{{options}}" />

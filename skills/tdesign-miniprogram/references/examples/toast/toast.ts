@@ -1,0 +1,7 @@
+<!--
+  TDesign TDesign Miniprogram 示例：toast - toast
+  覆盖组件：Toast
+  来源：组件库源码 packages/components/toast/_example/toast.wxml
+-->
+
+Page({});

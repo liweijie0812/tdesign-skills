@@ -1,0 +1,17 @@
+<!--
+  TDesign TDesign UniApp 示例：config-provider - index
+  覆盖组件：Config-provider
+  来源：组件库源码 packages/components/config-provider/_example/index.vue
+-->
+
+<t-config-provider global-config="{{globalConfig}}" themeVars="{{themeVars}}">
+  <view class="chat-demo">
+    <t-chat-thinking
+      content="{{content}}"
+      layout="block"
+      status="{{status}}"
+      animation="moving"
+      bind:expandChange="handleExpandChange"
+    />
+  </view>
+</t-config-provider>

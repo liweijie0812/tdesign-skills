@@ -1,0 +1,15 @@
+<!--
+  TDesign TDesign UniApp 示例：tabs - index
+  覆盖组件：Tabs
+  来源：组件库源码 packages/components/tabs/_example/index.vue
+-->
+
+<t-tabs defaultValue="{{0}}" theme="tag">
+  <t-tab-panel wx:for="{{4}}" wx:key="index" label="选项" value="{{index}}" />
+</t-tabs>
+
+<view style="height: 16px" />
+
+<t-tabs defaultValue="{{0}}" theme="card">
+  <t-tab-panel wx:for="{{4}}" wx:key="index" label="选项" value="{{index}}" />
+</t-tabs>

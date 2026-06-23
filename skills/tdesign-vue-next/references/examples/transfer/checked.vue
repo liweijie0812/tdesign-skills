@@ -1,0 +1,23 @@
+<!--
+  TDesign TDesign Vue Next 示例：transfer - checked
+  覆盖组件：Transfer
+  来源：组件库源码 packages/components/transfer/_example/checked.vue
+-->
+
+<template>
+  <t-transfer v-model:checked="checked" :data="list" />
+</template>
+<script lang="ts" setup>
+import { ref } from 'vue';
+import type { TransferProps } from 'tdesign-vue-next';
+
+const list: TransferProps['data'] = [];
+for (let i = 0; i < 20; i++) {
+  list.push({
+    value: i,
+    label: `内容${i + 1}`,
+    disabled: i % 4 < 1,
+  });
+}
+const checked = ref<TransferProps['checked']>(list.map((item) => item.value).filter((v) => v % 2 === 0));
+</script>

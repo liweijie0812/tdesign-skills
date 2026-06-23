@@ -1,0 +1,17 @@
+<!--
+  TDesign TDesign UniApp 示例：switch - switch
+  覆盖组件：Switch
+  来源：组件库源码 packages/components/switch/_example/switch.vue
+-->
+
+{
+  "navigationBarTitleText": "Switch",
+  "usingComponents": {
+    "t-demo": "../../components/demo-block",
+    "base": "./base",
+    "label": "./label",
+    "color": "./color",
+    "status": "./status",
+    "size": "./size"
+  }
+}

@@ -1,0 +1,23 @@
+/**
+ * TDesign TDesign Mobile React 示例：textarea - card
+ * 覆盖组件：Textarea
+ * 来源：组件库源码 src/textarea/_example/card.tsx
+ */
+
+import React from 'react';
+import { Textarea } from 'tdesign-mobile-react';
+
+export default function TextareaCard() {
+  return (
+    <div className="card textarea-example__card">
+      <Textarea
+        style={{ height: '156px' }}
+        className="card"
+        label="标签文字"
+        placeholder="请输入文字"
+        maxlength={500}
+        indicator
+      />
+    </div>
+  );
+}

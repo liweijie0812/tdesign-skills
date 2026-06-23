@@ -1,0 +1,29 @@
+/**
+ * TDesign TDesign React 示例：message - close-function
+ * 覆盖组件：Message
+ * 来源：组件库源码 packages/components/message/_example/close-function.tsx
+ */
+
+import React, { useState } from 'react';
+import { Button, MessagePlugin } from 'tdesign-react';
+
+export default function () {
+  const [instance, setInstance] = useState(null);
+  const isMessageOpen = instance === null;
+  const buttonTips = isMessageOpen ? '打开' : '关闭';
+  return (
+    <Button
+      onClick={() => {
+        if (isMessageOpen) {
+          const ins = MessagePlugin.info('调用关闭函数关闭信息提示框', 0);
+          setInstance(ins);
+        } else {
+          MessagePlugin.close(instance);
+          setInstance(null);
+        }
+      }}
+    >
+      自由控制关闭时机（{buttonTips}）
+    </Button>
+  );
+}

@@ -1,0 +1,17 @@
+<!--
+  TDesign TDesign Miniprogram 示例：picker - picker
+  覆盖组件：Picker
+  来源：组件库源码 packages/components/picker/_example/picker.wxml
+-->
+
+<t-navbar title="Picker" leftArrow placeholder />
+<view class="area-picker-demo">
+  <t-demo-header title="Picker 选择器" desc="用于一组预设数据中的选择。" notice="渲染框架支持情况：WebView" />
+  <t-demo title="01 组件类型" desc="基础选择器">
+    <base />
+    <area />
+  </t-demo>
+  <t-demo title="02 组件样式" desc="是否带标题">
+    <with-title />
+  </t-demo>
+</view>

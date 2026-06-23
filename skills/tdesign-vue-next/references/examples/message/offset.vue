@@ -1,0 +1,25 @@
+<!--
+  TDesign TDesign Vue Next 示例：message - offset
+  覆盖组件：Message
+  来源：组件库源码 packages/components/message/_example/offset.vue
+-->
+
+<template>
+  <t-space direction="vertical">
+    <p>偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。</p>
+    <t-button @click="showOffsetMsg">带 offset 信息位置</t-button>
+  </t-space>
+</template>
+
+<script lang="ts" setup>
+import { MessagePlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
+
+const showOffsetMsg: ButtonProps['onClick'] = () => {
+  MessagePlugin.info({
+    content: '用户表示普通操作信息提示',
+    placement: 'top',
+    offset: ['50px', '-300px'],
+  });
+};
+</script>

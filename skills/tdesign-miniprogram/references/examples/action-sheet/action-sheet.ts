@@ -1,0 +1,7 @@
+<!--
+  TDesign TDesign Miniprogram 示例：action-sheet - action-sheet
+  覆盖组件：Action-sheet
+  来源：组件库源码 packages/components/action-sheet/_example/action-sheet.wxml
+-->
+
+Page({});

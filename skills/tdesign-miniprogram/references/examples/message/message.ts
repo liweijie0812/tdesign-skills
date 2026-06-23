@@ -1,0 +1,7 @@
+<!--
+  TDesign TDesign Miniprogram 示例：message - message
+  覆盖组件：Message
+  来源：组件库源码 packages/components/message/_example/message.wxml
+-->
+
+Page({});

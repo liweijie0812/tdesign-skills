@@ -1,0 +1,14 @@
+<!--
+  TDesign TDesign Miniprogram 示例：image-viewer - index
+  覆盖组件：Image-viewer
+  来源：组件库源码 packages/components/image-viewer/_example/index.wxml
+-->
+
+{
+  "component": true,
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-action-sheet": "tdesign-miniprogram/action-sheet/action-sheet",
+    "t-image-viewer": "tdesign-miniprogram/image-viewer/image-viewer"
+  }
+}

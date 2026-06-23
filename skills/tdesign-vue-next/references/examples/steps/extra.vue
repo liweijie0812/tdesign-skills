@@ -1,0 +1,46 @@
+<!--
+  TDesign TDesign Vue Next 示例：steps - extra
+  覆盖组件：Steps
+  来源：组件库源码 packages/components/steps/_example/extra.vue
+-->
+
+<template>
+  <t-steps layout="vertical" :current="current" status="process" class="steps-demos-extra">
+    <t-step-item title="步骤1" content="这里是提示文字">
+      <template v-if="current === 0" #extra>
+        <t-button size="small" variant="base" @click="current++"> 下一步 </t-button>
+      </template>
+    </t-step-item>
+    <t-step-item title="步骤2" content="这里是提示文字">
+      <template v-if="current === 1" #extra>
+        <t-button size="small" variant="text" @click="current--"> 上一步 </t-button>
+        <t-button size="small" variant="base" @click="current++"> 下一步 </t-button>
+      </template>
+    </t-step-item>
+    <t-step-item title="步骤3" content="这里是提示文字">
+      <template v-if="current === 2" #extra>
+        <t-button size="small" variant="text" @click="current--"> 上一步 </t-button>
+        <t-button size="small" variant="base" @click="current++"> 下一步 </t-button>
+      </template>
+    </t-step-item>
+    <t-step-item title="步骤4" content="这里是提示文字">
+      <template v-if="current === 3" #extra>
+        <t-button size="small" @click="current--"> 上一步 </t-button>
+      </template>
+    </t-step-item>
+  </t-steps>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue';
+import type { StepsProps } from 'tdesign-vue-next';
+
+const current = ref<StepsProps['current']>(0);
+</script>
+<style lang="less" scoped>
+.steps-demos-extra {
+  .t-button + .t-button {
+    margin-left: 4px;
+  }
+}
+</style>

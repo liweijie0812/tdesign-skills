@@ -1,0 +1,11 @@
+<!--
+  TDesign TDesign Miniprogram 示例：sticky - index
+  覆盖组件：Sticky
+  来源：组件库源码 packages/components/sticky/_example/index.wxml
+-->
+
+<view class="wrapper">
+  <t-sticky container="{{ container }}" offset-top="{{navbarHeight}}">
+    <t-button size="large" t-class="external-class green-button" hover-class="hover-class ">指定容器</t-button>
+  </t-sticky>
+</view>

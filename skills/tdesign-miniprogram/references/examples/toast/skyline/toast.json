@@ -1,0 +1,19 @@
+<!--
+  TDesign TDesign Miniprogram 示例：toast - toast
+  覆盖组件：Toast
+  来源：组件库源码 packages/components/toast/_example/toast.wxml
+-->
+
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "base": "../base",
+    "theme": "../theme",
+    "cover": "../cover",
+    "close": "../close"
+  },
+  "renderer": "skyline",
+  "componentFramework": "glass-easel",
+  "disableScroll": true
+}

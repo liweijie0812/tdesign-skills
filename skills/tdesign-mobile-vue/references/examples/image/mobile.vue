@@ -1,0 +1,33 @@
+<!--
+  TDesign TDesign Mobile Vue 示例：image - mobile
+  覆盖组件：Image
+  来源：组件库源码 src/image/demos/mobile.vue
+-->
+
+<template>
+  <div class="tdesign-mobile-demo">
+    <h1 class="title">Image 图片</h1>
+    <p class="summary">用于展示效果，主要为上下左右居中裁切、拉伸、平铺等方式。</p>
+    <tdesign-demo-block title="01 组件类型" :padding="true">
+      <BaseDemo />
+      <PositionDemo />
+      <ShapeDemo />
+    </tdesign-demo-block>
+    <tdesign-demo-block title="02 组件状态">
+      <StatusDemo />
+    </tdesign-demo-block>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import BaseDemo from './base.vue';
+import PositionDemo from './position.vue';
+import ShapeDemo from './shape.vue';
+import StatusDemo from './status.vue';
+</script>
+
+<style scoped>
+.tdesign-mobile-demo {
+  background-color: #fff;
+}
+</style>

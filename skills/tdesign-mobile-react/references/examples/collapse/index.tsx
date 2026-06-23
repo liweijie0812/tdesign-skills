@@ -1,0 +1,37 @@
+/**
+ * TDesign TDesign Mobile React 示例：collapse - index
+ * 覆盖组件：Collapse
+ * 来源：组件库源码 src/collapse/_example/index.tsx
+ */
+
+import React from 'react';
+import TDemoBlock from '../../../site/mobile/components/DemoBlock';
+import TDemoHeader from '../../../site/mobile/components/DemoHeader';
+import Base from './base';
+import Action from './action';
+import Accordion from './accordion';
+import Card from './card';
+
+export default function CheckboxDemo() {
+  return (
+    <div className="tdesign-mobile-demo">
+      <TDemoHeader title="Collapse 折叠面板" summary="可以折叠/展开的内容区域。" />
+
+      <TDemoBlock title="01 类型" summary="基础折叠面板">
+        <Base />
+      </TDemoBlock>
+
+      <TDemoBlock summary="带操作说明">
+        <Action />
+      </TDemoBlock>
+
+      <TDemoBlock summary="手风琴式">
+        <Accordion />
+      </TDemoBlock>
+
+      <TDemoBlock title="02 组件样式" summary="卡片折叠面板">
+        <Card />
+      </TDemoBlock>
+    </div>
+  );
+}

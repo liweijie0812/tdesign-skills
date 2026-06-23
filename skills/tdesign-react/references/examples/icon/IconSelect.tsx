@@ -1,0 +1,30 @@
+/**
+ * TDesign TDesign React 示例：icon - IconSelect
+ * 覆盖组件：Icon
+ * 来源：组件库源码 packages/components/icon/_example/IconSelect.tsx
+ */
+
+import React, { useState } from 'react';
+import { Icon, manifest } from 'tdesign-icons-react';
+import { Select } from 'tdesign-react';
+
+const { Option } = Select;
+function IconSelect() {
+  const [value, setValue] = useState('edit-1');
+  return (
+    <Select value={value} onChange={setValue} prefixIcon={<Icon name={value} style={{ marginRight: '8px' }} />}>
+      {manifest.map((item) => (
+        <Option
+          key={item.stem}
+          value={item.stem}
+          label={item.stem}
+          style={{ display: 'inline-block', fontSize: '20px' }}
+        >
+          <Icon name={item.stem} />
+        </Option>
+      ))}
+    </Select>
+  );
+}
+
+export default IconSelect;

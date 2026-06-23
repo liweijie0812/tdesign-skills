@@ -1,0 +1,19 @@
+<!--
+  TDesign TDesign UniApp 示例：date-time-picker - index
+  覆盖组件：Date-time-picker
+  来源：组件库源码 packages/components/date-time-picker/_example/index.vue
+-->
+
+<t-cell title="选择时间" hover note="{{text || ''}}" arrow bindtap="showPicker" t-class="panel-item" />
+
+<t-date-time-picker
+  title="选择时间"
+  visible="{{visible}}"
+  value="{{value}}"
+  format="HH:mm:ss"
+  mode="{{['null', 'second']}}"
+  steps="{{ { minute: 5 } }}"
+  bindchange="onConfirm"
+  bindpick="onColumnChange"
+  bindcancel="hidePicker"
+/>

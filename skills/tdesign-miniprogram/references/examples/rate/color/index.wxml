@@ -1,0 +1,14 @@
+<!--
+  TDesign TDesign Miniprogram 示例：rate - index
+  覆盖组件：Rate
+  来源：组件库源码 packages/components/rate/_example/index.wxml
+-->
+
+<view class="demo-rate custom-color">
+  <view class="demo-rate__title">填充评分</view>
+  <t-rate default-value="{{3}}" allowHalf />
+</view>
+<view class="demo-rate">
+  <view class="demo-rate__title">线描评分</view>
+  <t-rate default-value="{{3}}" icon="{{ ['star-filled', 'star'] }}" color="#00a870" />
+</view>

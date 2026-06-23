@@ -1,0 +1,42 @@
+<!--
+  TDesign TDesign UniApp 示例：picker - index
+  覆盖组件：Picker
+  来源：组件库源码 packages/components/picker/_example/index.vue
+-->
+
+<t-cell class="mb-16" title="选择城市" arrow hover note="{{cityText}}" bind:click="onCityPicker" />
+
+<t-cell class="mb-16" title="选择时间" arrow hover note="{{dateText}}" bind:click="onSeasonPicker" />
+
+<t-picker
+  visible="{{cityVisible}}"
+  value="{{cityValue}}"
+  data-key="city"
+  title="选择城市"
+  usingCustomNavbar
+  bindchange="onPickerChange"
+  bindpick="onColumnChange"
+  bindcancel="onPickerCancel"
+>
+  <t-picker-item options="{{citys}}" format="{{formatter}}">
+    <block wx:for="{{citys}}" wx:key="index" wx:for-item="option">
+      <view wx:if="{{option.tag}}" slot="label-suffix--{{index}}" class="label-suffix">
+        <t-tag size="small" theme="primary">{{option.tag}}</t-tag>
+      </view>
+    </block>
+  </t-picker-item>
+</t-picker>
+
+<t-picker
+  visible="{{dateVisible}}"
+  value="{{dateValue}}"
+  data-key="date"
+  title="选择时间"
+  usingCustomNavbar
+  bindchange="onPickerChange"
+  bindpick="onColumnChange"
+  bindcancel="onPickerCancel"
+>
+  <t-picker-item options="{{years}}"></t-picker-item>
+  <t-picker-item options="{{seasons}}"></t-picker-item>
+</t-picker>

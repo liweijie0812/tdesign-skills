@@ -1,0 +1,17 @@
+<!--
+  TDesign TDesign Miniprogram 示例：tag - tag
+  覆盖组件：Tag
+  来源：组件库源码 packages/components/tag/_example/tag.wxml
+-->
+
+{
+  "navigationBarTitleText": "Tag",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "theme": "./theme",
+    "size": "./size",
+    "type": "./type",
+    "closable": "./closable",
+    "checkable": "./checkable"
+  }
+}

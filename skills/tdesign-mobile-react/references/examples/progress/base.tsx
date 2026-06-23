@@ -1,0 +1,35 @@
+/**
+ * TDesign TDesign Mobile React 示例：progress - base
+ * 覆盖组件：Progress
+ * 来源：组件库源码 src/progress/_example/base.tsx
+ */
+
+import React from 'react';
+import { Progress } from 'tdesign-mobile-react';
+
+import './style/index.less';
+
+export default function Base() {
+  return (
+    <div className="example-progress">
+      <div className="example-progress__item">
+        <Progress percentage={80} />
+      </div>
+
+      <div className="summary">百分比内显</div>
+      <div className="example-progress__item">
+        <Progress theme="plump" percentage={80} />
+      </div>
+
+      <div className="summary">环形进度条</div>
+      <div className="example-progress__item">
+        <Progress theme="circle" percentage={30} />
+      </div>
+
+      <div className="summary">微型环形进度条</div>
+      <div className="example-progress__item">
+        <Progress theme="circle" size={'micro'} percentage={30} label={false} />
+      </div>
+    </div>
+  );
+}

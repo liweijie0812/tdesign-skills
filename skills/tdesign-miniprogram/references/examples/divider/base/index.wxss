@@ -1,0 +1,20 @@
+<!--
+  TDesign TDesign Miniprogram 示例：divider - index
+  覆盖组件：Divider
+  来源：组件库源码 packages/components/divider/_example/index.wxml
+-->
+
+.divider-demo__title {
+  font-size: 28rpx;
+  color: var(--bg-color-demo-desc);
+  padding: 16rpx 32rpx;
+  line-height: 40rpx;
+}
+
+.divider-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: var(--td-text-color-primary);
+  padding-left: 32rpx;
+}

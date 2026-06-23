@@ -1,0 +1,27 @@
+/**
+ * TDesign TDesign React 示例：image-viewer - modeless
+ * 覆盖组件：Image-viewer
+ * 来源：组件库源码 packages/components/image-viewer/_example/modeless.tsx
+ */
+
+import React from 'react';
+import { ImageViewer, Space } from 'tdesign-react';
+
+const img = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
+
+export default function BasicImageViewer() {
+  return (
+    <Space
+      breakLine
+      size={16}
+      style={{
+        width: 160,
+        height: 160,
+        border: '4px solid var(--td-bg-color-secondarycontainer)',
+        borderRadius: 'var(--td-radius-medium)',
+      }}
+    >
+      <ImageViewer draggable mode="modeless" title="预览单张图片" images={[img]} />
+    </Space>
+  );
+}

@@ -1,0 +1,11 @@
+<!--
+  TDesign TDesign UniApp 示例：checkbox - index
+  覆盖组件：Checkbox
+  来源：组件库源码 packages/components/checkbox/_example/index.vue
+-->
+
+<t-checkbox value="1" label="多选" default-checked />
+
+<view class="box" style="height: 32rpx" />
+
+<t-checkbox value="2" label="多选" placement="right" default-checked />

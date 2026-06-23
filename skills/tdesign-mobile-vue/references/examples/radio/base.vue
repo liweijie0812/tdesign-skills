@@ -1,0 +1,46 @@
+<!--
+  TDesign TDesign Mobile Vue 示例：radio - base
+  覆盖组件：Radio
+  来源：组件库源码 src/radio/demos/base.vue
+-->
+
+<template>
+  <div>
+    <t-radio-group :default-value="radio" class="radio-group-demo" @change="groupChangeFn">
+      <t-radio name="radio" value="1" label="单选" />
+      <t-radio name="radio" value="2" label="单选" />
+      <t-radio
+        name="radio"
+        value="3"
+        label="单选单选单选单选单选单选单选单选单选单选单选单选单选单选单选单选单选单选"
+      />
+      <t-radio
+        name="radio"
+        value="4"
+        label="单选"
+        content="描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息"
+      />
+    </t-radio-group>
+  </div>
+</template>
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const radio = ref('3');
+const groupChangeFn = (value: any, context: { e: Event }) => {
+  console.log(value, context);
+};
+</script>
+<style>
+.radio-group-demo {
+  background: #fff;
+
+  &:last-child {
+    .t-radio {
+      .t-radio__border {
+        display: none;
+      }
+    }
+  }
+}
+</style>

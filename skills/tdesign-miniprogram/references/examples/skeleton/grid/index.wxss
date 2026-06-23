@@ -1,0 +1,10 @@
+<!--
+  TDesign TDesign Miniprogram 示例：skeleton - index
+  覆盖组件：Skeleton
+  来源：组件库源码 packages/components/skeleton/_example/index.wxml
+-->
+
+.wrapper {
+  --td-skeleton-row-spacing: 20rpx;
+  margin-top: 32rpx;
+}

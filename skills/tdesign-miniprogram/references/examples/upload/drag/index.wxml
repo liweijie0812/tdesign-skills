@@ -1,0 +1,19 @@
+<!--
+  TDesign TDesign Miniprogram 示例：upload - index
+  覆盖组件：Upload
+  来源：组件库源码 packages/components/upload/_example/index.wxml
+-->
+
+<view class="wrapper">
+  <t-upload
+    draggable
+    disabled
+    media-type="{{['video','image']}}"
+    files="{{originFiles}}"
+    gridConfig="{{gridConfig}}"
+    bind:success="handleSuccess"
+    bind:remove="handleRemove"
+    bind:click="handleClick"
+    bind:drop="handleDrop"
+  />
+</view>

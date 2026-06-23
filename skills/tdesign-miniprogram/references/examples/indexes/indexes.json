@@ -1,0 +1,13 @@
+<!--
+  TDesign TDesign Miniprogram 示例：indexes - indexes
+  覆盖组件：Indexes
+  来源：组件库源码 packages/components/indexes/_example/indexes.wxml
+-->
+
+{
+  "navigationBarTitleText": "Indexes",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

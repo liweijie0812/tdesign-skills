@@ -1,0 +1,13 @@
+<!--
+  TDesign TDesign Miniprogram 示例：toast - index
+  覆盖组件：Toast
+  来源：组件库源码 packages/components/toast/_example/index.wxml
+-->
+
+<t-toast id="t-toast" />
+
+<view class="box">
+  <t-button theme="primary" size="large" variant="outline" bind:tap="showSuccessToast" block>成功提示</t-button>
+  <t-button theme="primary" size="large" variant="outline" bind:tap="showWarningToast" block>警告提示</t-button>
+  <t-button theme="primary" size="large" variant="outline" bind:tap="showErrorToast" block>错误提示</t-button>
+</view>

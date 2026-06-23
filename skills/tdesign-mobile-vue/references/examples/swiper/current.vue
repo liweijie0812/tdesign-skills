@@ -1,0 +1,55 @@
+<!--
+  TDesign TDesign Mobile Vue 示例：swiper - current
+  覆盖组件：Swiper
+  来源：组件库源码 src/swiper/demos/current.vue
+-->
+
+<template>
+  <div style="padding: 0 16px">
+    <t-swiper :autoplay="true" :current="current" @click="handleClick" @change="handleChange">
+      <t-swiper-item v-for="(item, index) in swiperList" :key="index" style="height: 192px">
+        <img :src="item" class="img" />
+      </t-swiper-item>
+    </t-swiper>
+    <div class="tdesign-demo-block-row">
+      <t-button size="small" theme="primary" @click="changeCurrent">
+        跳转到第 {{ current + 2 >= 6 ? 1 : current + 2 }} 项
+      </t-button>
+    </div>
+  </div>
+</template>
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const imageCdn = 'https://tdesign.gtimg.com/mobile/demos';
+const swiperList = [
+  `${imageCdn}/swiper1.png`,
+  `${imageCdn}/swiper2.png`,
+  `${imageCdn}/swiper1.png`,
+  `${imageCdn}/swiper2.png`,
+  `${imageCdn}/swiper1.png`,
+];
+const current = ref(0);
+
+const handleChange = (index: number, context: any) => {
+  console.log('基础示例,页数变化到》》》', index, context);
+  current.value = index;
+};
+
+const handleClick = (value: number) => {
+  console.log('click: ', value);
+  current.value = value;
+};
+
+const changeCurrent = () => {
+  current.value = current.value + 2 > 5 ? 0 : current.value + 1;
+};
+</script>
+
+<style>
+img {
+  display: block;
+  width: 100%;
+  height: 192px;
+}
+</style>

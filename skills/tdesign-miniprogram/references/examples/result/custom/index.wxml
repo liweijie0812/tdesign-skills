@@ -1,0 +1,10 @@
+<!--
+  TDesign TDesign Miniprogram 示例：result - index
+  覆盖组件：Result
+  来源：组件库源码 packages/components/result/_example/index.wxml
+-->
+
+<t-result t-class-image="external-class-image" image="https://tdesign.gtimg.com/mobile/demos/result1.png">
+  <view slot="title"> 自定义结果 </view>
+  <view slot="description"> 描述文字 </view>
+</t-result>

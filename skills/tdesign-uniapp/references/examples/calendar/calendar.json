@@ -1,0 +1,19 @@
+<!--
+  TDesign TDesign UniApp 示例：calendar - calendar
+  覆盖组件：Calendar
+  来源：组件库源码 packages/components/calendar/_example/calendar.vue
+-->
+
+{
+  "navigationBarTitleText": "Calendar",
+  "usingComponents": {
+    "base": "./base",
+    "multiple": "./multiple",
+    "range": "./range",
+    "custom-text": "./custom-text",
+    "custom-range": "./custom-range",
+    "local-text": "./local-text",
+    "without-popup": "./without-popup",
+    "switch-mode": "./switch-mode"
+  }
+}

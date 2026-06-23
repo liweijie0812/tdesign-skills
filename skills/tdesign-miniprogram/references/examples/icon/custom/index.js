@@ -1,0 +1,18 @@
+<!--
+  TDesign TDesign Miniprogram 示例：icon - index
+  覆盖组件：Icon
+  来源：组件库源码 packages/components/icon/_example/index.wxml
+-->
+
+Component({
+  data: {
+    prefixIcons: ['a-0', 'a-1h', 'a-2h', 'a-3h'],
+  },
+  methods: {
+    onIconTap(event) {
+      const { name, type } = event.currentTarget.dataset;
+      if (type === 'prefix') return;
+      wx.showToast({ title: name, icon: 'none', duration: 1000 });
+    },
+  },
+});

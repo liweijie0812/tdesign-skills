@@ -1,0 +1,18 @@
+{
+  "name": "extract-examples",
+  "leadAgentId": "8148eccfed6b4e769b06bd07cc8e0501",
+  "workspacePath": "/workspace",
+  "createdAt": "2026-06-23T09:16:56.497Z",
+  "options": {
+    "workspacePath": "/workspace",
+    "isAutoTeam": false
+  },
+  "members": [
+    {
+      "memberId": "team-lead@extract-examples",
+      "name": "team-lead",
+      "role": "Team Lead - coordinates the team and interacts with the user"
+    }
+  ],
+  "isAutoTeam": false
+}

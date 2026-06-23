@@ -1,0 +1,36 @@
+<!--
+  TDesign TDesign Vue Next 示例：popconfirm - describe
+  覆盖组件：Popconfirm
+  来源：组件库源码 packages/components/popconfirm/_example/describe.vue
+-->
+
+<template>
+  <t-space :size="120">
+    <t-popconfirm theme="default">
+      <template #content>
+        <p class="title">带描述的气泡确认框文字按钮</p>
+        <p class="describe">带描述的气泡确认框在主要说明之外增加了操作相关的详细描述</p>
+      </template>
+      <t-button theme="primary">自定义浮层内容</t-button>
+    </t-popconfirm>
+    <t-popconfirm theme="warning">
+      <template #content>
+        <p class="title">带描述的气泡确认框文字按钮</p>
+        <p class="describe">带描述的气泡确认框在主要说明之外增加了操作相关的详细描述</p>
+      </template>
+      <t-button theme="warning">自定义浮层内容</t-button>
+    </t-popconfirm>
+  </t-space>
+</template>
+
+<style lang="less" scoped>
+.title {
+  font-weight: 500;
+  font-size: 14px;
+}
+.describe {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--td-text-color-secondary);
+}
+</style>

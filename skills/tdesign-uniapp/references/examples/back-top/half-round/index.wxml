@@ -1,0 +1,12 @@
+<!--
+  TDesign TDesign UniApp 示例：back-top - index
+  覆盖组件：Back-top
+  来源：组件库源码 packages/components/back-top/_example/index.vue
+-->
+
+<t-back-top
+  theme="{{backTopTheme}}"
+  text="{{backTopText}}"
+  scroll-top="{{scrollTop}}"
+  bind:to-top="onToTop"
+></t-back-top>

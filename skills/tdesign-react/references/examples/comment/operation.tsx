@@ -1,0 +1,32 @@
+/**
+ * TDesign TDesign React 示例：comment - operation
+ * 覆盖组件：Comment
+ * 来源：组件库源码 packages/components/comment/_example/operation.tsx
+ */
+
+import React from 'react';
+import { ChatIcon, ThumbUpIcon } from 'tdesign-icons-react';
+import { Comment } from 'tdesign-react';
+
+export default function OperationComment() {
+  const actions = [
+    <React.Fragment key="ThumbUp">
+      <ThumbUpIcon size="16px" />
+      <span>6</span>
+    </React.Fragment>,
+    <React.Fragment key="Chat">
+      <ChatIcon size="16px" />
+      <span>回复</span>
+    </React.Fragment>,
+  ];
+
+  return (
+    <Comment
+      avatar="https://tdesign.gtimg.com/site/avatar.jpg"
+      author="评论作者名"
+      datetime="今天16:38"
+      content="评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容。"
+      actions={actions}
+    />
+  );
+}

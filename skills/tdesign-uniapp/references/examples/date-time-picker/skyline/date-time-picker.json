@@ -1,0 +1,21 @@
+<!--
+  TDesign TDesign UniApp 示例：date-time-picker - date-time-picker
+  覆盖组件：Date-time-picker
+  来源：组件库源码 packages/components/date-time-picker/_example/date-time-picker.vue
+-->
+
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "year-month-date": "../year-month-date",
+    "year-month": "../year-month",
+    "time": "../time",
+    "date-all": "../date-all",
+    "steps": "../steps",
+    "without-popup": "../without-popup"
+  },
+  "renderer": "skyline",
+  "componentFramework": "glass-easel",
+  "disableScroll": true
+}

@@ -1,0 +1,13 @@
+<!--
+  TDesign TDesign Miniprogram 示例：search - index
+  覆盖组件：Search
+  来源：组件库源码 packages/components/search/_example/index.wxml
+-->
+
+<view class="example-search">
+  <t-search placeholder="搜索预设文案" />
+</view>
+
+<view class="example-search">
+  <t-search placeholder="输入tdesign，有预览结果" resultList="{{resultList}}" bind:change="onChangeValue" />
+</view>

@@ -1,0 +1,28 @@
+<!--
+  TDesign TDesign UniApp 示例：popup - index
+  覆盖组件：Popup
+  来源：组件库源码 packages/components/popup/_example/index.vue
+-->
+
+<t-popup
+  visible="{{visible}}"
+  usingCustomNavbar
+  bind:visible-change="onVisibleChange"
+  placement="{{cur.value || 'top'}}"
+>
+  <view class="block block--{{cur.value}}">{{cur.text}}</view>
+</t-popup>
+
+<t-button
+  wx:for="{{position}}"
+  wx:key="index"
+  block
+  size="large"
+  variant="outline"
+  theme="primary"
+  bind:tap="handlePopup"
+  data-item="{{item}}"
+  t-class="wrapper"
+>
+  {{item.text}}
+</t-button>

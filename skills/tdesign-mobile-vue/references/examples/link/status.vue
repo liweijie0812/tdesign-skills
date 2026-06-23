@@ -1,0 +1,54 @@
+<!--
+  TDesign TDesign Mobile Vue 示例：link - status
+  覆盖组件：Link
+  来源：组件库源码 src/link/demos/status.vue
+-->
+
+<template>
+  <div class="tdesign-mobile-link-demo">
+    <t-link disabled theme="primary">
+      <template #suffixIcon>
+        <jump-icon />
+      </template>
+      跳转链接
+    </t-link>
+    <t-link disabled>
+      <template #suffixIcon>
+        <jump-icon />
+      </template>
+      跳转链接
+    </t-link>
+    <t-link disabled theme="danger">
+      <template #suffixIcon>
+        <jump-icon />
+      </template>
+      跳转链接
+    </t-link>
+  </div>
+  <div class="tdesign-mobile-link-demo">
+    <t-link disabled theme="success">
+      <template #suffixIcon>
+        <jump-icon />
+      </template>
+      跳转链接
+    </t-link>
+    <t-link disabled theme="warning">
+      <template #suffixIcon>
+        <jump-icon />
+      </template>
+      跳转链接
+    </t-link>
+  </div>
+</template>
+<script lang="ts" setup>
+import { JumpIcon } from 'tdesign-icons-vue-next';
+</script>
+<style scoped>
+.tdesign-mobile-link-demo {
+  height: 48px;
+  background-color: var(--bg-color-demo, #fff);
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 6.4vw;
+}
+</style>

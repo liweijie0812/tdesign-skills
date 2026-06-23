@@ -1,0 +1,23 @@
+<!--
+  TDesign TDesign Miniprogram 示例：textarea - index
+  覆盖组件：Textarea
+  来源：组件库源码 packages/components/textarea/_example/index.wxml
+-->
+
+.textarea-example {
+  padding: 32rpx 32rpx 48rpx;
+  background-color: var(--bg-color-demo);
+}
+
+.external-class {
+  padding-top: 24rpx !important;
+  padding-bottom: 24rpx !important;
+}
+
+.textarea-example__label {
+  display: block;
+  color: var(--td-text-color-primary);
+  font-size: 24rpx;
+  line-height: 40rpx;
+  padding-bottom: 16rpx;
+}

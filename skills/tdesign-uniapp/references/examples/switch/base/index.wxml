@@ -1,0 +1,9 @@
+<!--
+  TDesign TDesign UniApp 示例：switch - index
+  覆盖组件：Switch
+  来源：组件库源码 packages/components/switch/_example/index.vue
+-->
+
+<t-cell title="基础开关" bordered="{{false}}">
+  <t-switch defaultValue="{{true}}" slot="note" />
+</t-cell>

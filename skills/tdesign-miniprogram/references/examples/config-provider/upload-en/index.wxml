@@ -1,0 +1,19 @@
+<!--
+  TDesign TDesign Miniprogram 示例：config-provider - index
+  覆盖组件：Config-provider
+  来源：组件库源码 packages/components/config-provider/_example/index.wxml
+-->
+
+<t-config-provider global-config="{{globalConfig}}">
+  <view class="upload-demo">
+    <t-upload
+      disabled
+      media-type="{{['video','image']}}"
+      files="{{originFiles}}"
+      gridConfig="{{gridConfig}}"
+      bind:success="handleSuccess"
+      bind:remove="handleRemove"
+      bind:click="handleClick"
+    />
+  </view>
+</t-config-provider>

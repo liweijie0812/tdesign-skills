@@ -1,0 +1,46 @@
+<!--
+  TDesign TDesign Mobile Vue 示例：tag - theme
+  覆盖组件：Tag
+  来源：组件库源码 src/tag/demos/theme.vue
+-->
+
+<template>
+  <div>
+    <div class="summary">展示型标签</div>
+    <div class="tag-demo">
+      <div>
+        <div class="tag-block">
+          <t-tag variant="light">默认</t-tag>
+          <t-tag variant="light" theme="primary">主要</t-tag>
+          <t-tag variant="light" theme="warning">警告</t-tag>
+          <t-tag variant="light" theme="danger">危险</t-tag>
+          <t-tag variant="light" theme="success">成功</t-tag>
+        </div>
+
+        <div class="tag-block">
+          <t-tag theme="default">默认</t-tag>
+          <t-tag theme="primary">主要</t-tag>
+          <t-tag theme="warning">警告</t-tag>
+          <t-tag theme="danger">危险</t-tag>
+          <t-tag theme="success">成功</t-tag>
+        </div>
+
+        <div class="tag-block">
+          <t-tag variant="outline">默认</t-tag>
+          <t-tag variant="outline" theme="primary">主要</t-tag>
+          <t-tag variant="outline" theme="warning">警告</t-tag>
+          <t-tag variant="outline" theme="danger">危险</t-tag>
+          <t-tag variant="outline" theme="success">成功</t-tag>
+        </div>
+
+        <div class="tag-block">
+          <t-tag variant="light-outline">默认</t-tag>
+          <t-tag variant="light-outline" theme="primary">主要</t-tag>
+          <t-tag variant="light-outline" theme="warning">警告</t-tag>
+          <t-tag variant="light-outline" theme="danger">危险</t-tag>
+          <t-tag variant="light-outline" theme="success">成功</t-tag>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

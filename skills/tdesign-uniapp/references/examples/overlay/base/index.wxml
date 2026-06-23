@@ -1,0 +1,9 @@
+<!--
+  TDesign TDesign UniApp 示例：overlay - index
+  覆盖组件：Overlay
+  来源：组件库源码 packages/components/overlay/_example/index.vue
+-->
+
+<t-overlay visible="{{visible}}" duration="{{500}}" bind:click="handleOverlayClick" />
+
+<t-button block size="large" theme="primary" variant="outline" bind:tap="handleClick">基础用法</t-button>

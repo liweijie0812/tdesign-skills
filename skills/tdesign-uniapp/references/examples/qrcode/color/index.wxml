@@ -1,0 +1,11 @@
+<!--
+  TDesign TDesign UniApp 示例：qrcode - index
+  覆盖组件：Qrcode
+  来源：组件库源码 packages/components/qrcode/_example/index.vue
+-->
+
+<t-qrcode value="https://tdesign.tencent.com/" level="M" status="active" color="#0052D9" bgColor="#fff" />
+
+<view class="demo-summary"> 二维码背景颜色 </view>
+
+<t-qrcode value="https://tdesign.tencent.com/" level="M" status="active" color="#0052D9" bgColor="#D9E1FF" />

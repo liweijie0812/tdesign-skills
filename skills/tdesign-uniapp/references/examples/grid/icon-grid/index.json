@@ -1,0 +1,14 @@
+<!--
+  TDesign TDesign UniApp 示例：grid - index
+  覆盖组件：Grid
+  来源：组件库源码 packages/components/grid/_example/index.vue
+-->
+
+{
+  "component": true,
+  "usingComponents": {
+    "t-grid": "tdesign-miniprogram/grid/grid",
+    "t-grid-item": "tdesign-miniprogram/grid-item/grid-item",
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

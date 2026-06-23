@@ -1,0 +1,20 @@
+<!--
+  TDesign TDesign Miniprogram 示例：navbar - index
+  覆盖组件：Navbar
+  来源：组件库源码 packages/components/navbar/_example/index.wxml
+-->
+
+<view class="block">
+  <t-navbar fixed="{{false}}" left-arrow title="标题居中" />
+</view>
+
+<t-navbar fixed="{{false}}" left-arrow>
+  <view slot="left" class="custom-title">标题左对齐</view>
+</t-navbar>
+
+<view class="demo-desc">标题尺寸</view>
+
+<t-navbar fixed="{{false}}" left-arrow>
+  <text class="left-text" slot="left" bind:tap="onBack">返回</text>
+</t-navbar>
+<view class="header-title">大标题尺寸</view>

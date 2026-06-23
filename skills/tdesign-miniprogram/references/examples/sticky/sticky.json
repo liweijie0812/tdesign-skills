@@ -1,0 +1,14 @@
+<!--
+  TDesign TDesign Miniprogram 示例：sticky - sticky
+  覆盖组件：Sticky
+  来源：组件库源码 packages/components/sticky/_example/sticky.wxml
+-->
+
+{
+  "navigationBarTitleText": "Sticky",
+  "usingComponents": {
+    "base": "./base",
+    "offset": "./offset",
+    "container": "./container"
+  }
+}

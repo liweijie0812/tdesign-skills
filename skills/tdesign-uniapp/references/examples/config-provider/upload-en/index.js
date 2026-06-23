@@ -1,0 +1,61 @@
+<!--
+  TDesign TDesign UniApp 示例：config-provider - index
+  覆盖组件：Config-provider
+  来源：组件库源码 packages/components/config-provider/_example/index.vue
+-->
+
+import enUS from 'tdesign-miniprogram/locale/en_US';
+
+Component({
+  data: {
+    globalConfig: enUS,
+    originFiles: [
+      {
+        url: 'https://tdesign.gtimg.com/mobile/demos/example4.png',
+        name: 'uploaded1.png',
+        type: 'image',
+        status: 'loading',
+      },
+      {
+        url: 'https://tdesign.gtimg.com/mobile/demos/example5.png',
+        name: 'uploaded2.png',
+        type: 'image',
+        percent: 68,
+        status: 'loading',
+      },
+      {
+        url: 'https://tdesign.gtimg.com/mobile/demos/example5.png',
+        name: 'uploaded4.png',
+        type: 'image',
+        status: 'failed',
+      },
+    ],
+    gridConfig: {
+      column: 4,
+      width: 160,
+      height: 160,
+    },
+    config: {
+      count: 1,
+    },
+  },
+  methods: {
+    handleSuccess(e) {
+      const { files } = e.detail;
+      this.setData({
+        originFiles: files,
+      });
+    },
+    handleRemove(e) {
+      const { index } = e.detail;
+      const { originFiles } = this.data;
+      originFiles.splice(index, 1);
+      this.setData({
+        originFiles,
+      });
+    },
+    handleClick(e) {
+      console.log(e.detail.file);
+    },
+  },
+});

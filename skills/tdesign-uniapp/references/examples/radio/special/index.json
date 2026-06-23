@@ -1,0 +1,15 @@
+<!--
+  TDesign TDesign UniApp 示例：radio - index
+  覆盖组件：Radio
+  来源：组件库源码 packages/components/radio/_example/index.vue
+-->
+
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "t-radio-group": "tdesign-miniprogram/radio-group/radio-group",
+    "t-radio": "tdesign-miniprogram/radio/radio",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  }
+}

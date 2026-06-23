@@ -1,0 +1,19 @@
+<!--
+  TDesign TDesign Miniprogram 示例：image-viewer - index
+  覆盖组件：Image-viewer
+  来源：组件库源码 packages/components/image-viewer/_example/index.wxml
+-->
+
+<t-button theme="primary" size="large" variant="outline" block bind:tap="onClick">基础图片预览</t-button>
+<t-toast id="t-toast" />
+<t-image-viewer
+  usingCustomNavbar
+  deleteBtn="{{deleteBtn}}"
+  closeBtn="{{closeBtn}}"
+  showIndex="{{showIndex}}"
+  visible="{{visible}}"
+  images="{{images}}"
+  bind:change="onChange"
+  bind:delete="onDelete"
+  bind:close="onClose"
+></t-image-viewer>

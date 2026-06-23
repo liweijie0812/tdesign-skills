@@ -1,0 +1,30 @@
+<!--
+  TDesign TDesign Mobile Vue 示例：textarea - custom
+  覆盖组件：Textarea
+  来源：组件库源码 src/textarea/demos/custom.vue
+-->
+
+<template>
+  <div class="textarea-example">
+    <div class="textarea-example__label">标签文字</div>
+    <t-textarea class="textarea" placeholder="请输入文字" bordered :maxlength="100" indicator style="{{style}}" />
+  </div>
+</template>
+
+<style lang="less" scoped>
+.textarea-example {
+  padding: 16px 16px 24px;
+  background-color: var(--bg-color-demo, #fff);
+}
+.textarea-example__label {
+  display: block;
+  color: var(--td-text-color-primary, rgba(0, 0, 0, 0.9));
+  font-size: 12px;
+  line-height: 20px;
+  padding-bottom: 8px;
+}
+.textarea {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+</style>

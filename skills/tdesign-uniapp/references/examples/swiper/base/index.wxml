@@ -1,0 +1,18 @@
+<!--
+  TDesign TDesign UniApp 示例：swiper - index
+  覆盖组件：Swiper
+  来源：组件库源码 packages/components/swiper/_example/index.vue
+-->
+
+<t-swiper
+  current="{{current}}"
+  autoplay="{{autoplay}}"
+  duration="{{duration}}"
+  interval="{{interval}}"
+  navigation="{{ { type: 'dots' } }}"
+  list="{{swiperList}}"
+  bind:click="onTap"
+  bind:change="onChange"
+  bind:image-load="onImageLoad"
+>
+</t-swiper>

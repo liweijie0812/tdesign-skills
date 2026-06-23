@@ -1,0 +1,24 @@
+/**
+ * TDesign TDesign Mobile React 示例：grid - scroll
+ * 覆盖组件：Grid
+ * 来源：组件库源码 src/grid/_example/scroll.tsx
+ */
+
+import React from 'react';
+import { Grid, GridItem } from 'tdesign-mobile-react';
+
+import './style/index.less';
+
+const imgUrl = 'https://tdesign.gtimg.com/mobile/demos/example1.png';
+
+export default function Scroll() {
+  return (
+    <>
+      <Grid column={0} className={'grid-demo'}>
+        {Array.from({ length: 10 }, (_, index) => (
+          <GridItem key={index} text="标题文字" image={imgUrl} />
+        ))}
+      </Grid>
+    </>
+  );
+}

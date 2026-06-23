@@ -1,0 +1,19 @@
+<!--
+  TDesign TDesign Miniprogram 示例：fab - fab
+  覆盖组件：Fab
+  来源：组件库源码 packages/components/fab/_example/fab.wxml
+-->
+
+{
+  "navigationStyle": "custom",
+  "renderer": "skyline",
+  "componentFramework": "glass-easel",
+  "disableScroll": true,
+  "usingComponents": {
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-button": "tdesign-miniprogram/button/button",
+    "base": "../base",
+    "advance": "../advance",
+    "draggable": "../draggable"
+  }
+}

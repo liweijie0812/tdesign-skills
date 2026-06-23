@@ -1,0 +1,16 @@
+<!--
+  TDesign TDesign UniApp 示例：grid - index
+  覆盖组件：Grid
+  来源：组件库源码 packages/components/grid/_example/index.vue
+-->
+
+<t-grid class="block">
+  <t-grid-item text="分享" image="slot">
+    <view slot="image" class="grid-item__image">
+      <t-button variant="text" icon="share" open-type="share"></t-button>
+    </view>
+  </t-grid-item>
+  <t-grid-item text="收藏" icon="star" bindclick="onClick" />
+  <t-grid-item text="保存" icon="download" bindclick="onClick" />
+  <t-grid-item text="编辑" icon="edit-1" bindclick="onClick" />
+</t-grid>

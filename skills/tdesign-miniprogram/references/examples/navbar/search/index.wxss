@@ -1,0 +1,12 @@
+<!--
+  TDesign TDesign Miniprogram 示例：navbar - index
+  覆盖组件：Navbar
+  来源：组件库源码 packages/components/navbar/_example/index.wxml
+-->
+
+.search-box {
+  --td-search-height: 32px;
+  --td-search-font: var(--td-font-body-medium);
+  --td-search-icon-size: 40rpx;
+  width: 252px;
+}

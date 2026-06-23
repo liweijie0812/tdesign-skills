@@ -1,0 +1,52 @@
+<!--
+  TDesign TDesign Miniprogram 示例：dropdown-menu - index
+  覆盖组件：Dropdown-menu
+  来源：组件库源码 packages/components/dropdown-menu/_example/index.wxml
+-->
+
+Component({
+  data: {
+    product: {
+      value: 'all',
+      options: [
+        {
+          value: 'all',
+          label: '全部产品',
+        },
+        {
+          value: 'new',
+          label: '最新产品',
+        },
+        {
+          value: 'hot',
+          label: '最火产品',
+        },
+        {
+          value: 'disabled',
+          label: '禁用选项',
+          disabled: true,
+        },
+      ],
+    },
+    sorter: {
+      value: 'default',
+      options: [
+        {
+          value: 'default',
+          label: '默认排序',
+        },
+        {
+          value: 'price',
+          label: '价格从高到低',
+        },
+      ],
+    },
+  },
+  methods: {
+    onChange(e) {
+      this.setData({
+        'product.value': e.detail.value,
+      });
+    },
+  },
+});

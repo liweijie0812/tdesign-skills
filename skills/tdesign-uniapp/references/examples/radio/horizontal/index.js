@@ -1,0 +1,16 @@
+<!--
+  TDesign TDesign UniApp 示例：radio - index
+  覆盖组件：Radio
+  来源：组件库源码 packages/components/radio/_example/index.vue
+-->
+
+Page({
+  data: {
+    checked: false,
+  },
+  handleChange(e) {
+    this.setData({
+      checked: e.detail.checked,
+    });
+  },
+});

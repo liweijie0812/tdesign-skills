@@ -1,0 +1,13 @@
+<!--
+  TDesign TDesign UniApp 示例：notice-bar - index
+  覆盖组件：Notice-bar
+  来源：组件库源码 packages/components/notice-bar/_example/index.vue
+-->
+
+{
+  "component": true,
+  "usingComponents": {
+    "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  }
+}

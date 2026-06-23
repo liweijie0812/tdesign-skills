@@ -1,0 +1,13 @@
+<!--
+  TDesign TDesign Miniprogram 示例：stepper - index
+  覆盖组件：Stepper
+  来源：组件库源码 packages/components/stepper/_example/index.wxml
+-->
+
+{
+  "component": true,
+  "usingComponents": {
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-stepper": "tdesign-miniprogram/stepper/stepper"
+  }
+}

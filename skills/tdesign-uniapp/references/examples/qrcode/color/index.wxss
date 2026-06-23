@@ -1,0 +1,15 @@
+<!--
+  TDesign TDesign UniApp 示例：qrcode - index
+  覆盖组件：Qrcode
+  来源：组件库源码 packages/components/qrcode/_example/index.vue
+-->
+
+.demo-summary {
+  padding-top: 48rpx;
+  padding-bottom: 32rpx;
+  box-sizing: border-box;
+
+  line-height: 22px;
+  color: var(--bg-color-demo-desc);
+  font-size: var(--td-font-size-base, 28rpx);
+}

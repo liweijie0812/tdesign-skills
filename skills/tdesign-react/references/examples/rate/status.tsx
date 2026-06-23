@@ -1,0 +1,23 @@
+/**
+ * TDesign TDesign React 示例：rate - status
+ * 覆盖组件：Rate
+ * 来源：组件库源码 packages/components/rate/_example/status.tsx
+ */
+
+import React from 'react';
+import { Rate, Space } from 'tdesign-react';
+
+export default function BasicRate() {
+  return (
+    <Space direction="vertical" style={{ textAlign: 'center' }}>
+      <h3>未评分状态</h3>
+      <Rate />
+
+      <h3>满分状态</h3>
+      <Rate defaultValue={5} />
+
+      <h3>半星状态</h3>
+      <Rate allowHalf defaultValue={4.5} />
+    </Space>
+  );
+}

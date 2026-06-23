@@ -1,0 +1,101 @@
+<!--
+  TDesign TDesign Mobile Vue 示例：radio - custom
+  覆盖组件：Radio
+  来源：组件库源码 src/radio/demos/custom.vue
+-->
+
+<template>
+  <t-radio-group :value="radio" @change="onChange">
+    <view v-for="(item, index) in 3" :key="index" :class="`card ${radio == index ? 'card--active' : ''}`">
+      <icon v-if="radio == index" class="card__icon" name="check" />
+      <t-radio :value="index" borderless content="描述信息描述信息描述信息描述信息描述信息" icon="none" label="单选" />
+    </view>
+  </t-radio-group>
+
+  <view class="demo-desc" style="margin: 24px 16px 16px">横向卡片单选框</view>
+
+  <t-radio-group :value="radio1" class="horizontal-box" @change="onChange1">
+    <view v-for="(item, index) in 3" :key="index" :class="`card ${radio1 == index ? 'card--active' : ''}`">
+      <icon v-if="radio1 == index" class="card__icon" name="check" />
+      <t-radio :value="index" borderless icon="none" label="单选" />
+    </view>
+  </t-radio-group>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { Icon } from 'tdesign-icons-vue-next';
+
+const radio = ref(0);
+const radio1 = ref(0);
+
+const onChange = (value: any, context: { e: Event }) => {
+  radio.value = value;
+};
+
+const onChange1 = (value: any, context: { e: Event }) => {
+  radio1.value = value;
+};
+</script>
+<style lang="less" scoped>
+@import '../../_common/style/mobile/_variables';
+
+.demo-desc {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 16px;
+}
+
+.card {
+  display: block;
+  position: relative;
+  margin: 16px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1.5px solid #fff;
+}
+
+.card--active {
+  border-color: @brand-color;
+}
+
+.card--active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  border: 14px solid @brand-color;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+.card__icon {
+  display: block;
+  color: #fff;
+  position: absolute;
+  left: 1.5px;
+  top: 1.5px;
+  z-index: 1;
+  font-size: 14px;
+}
+
+/* 横向布局 */
+.horizontal-box {
+  width: calc(100% - 32px);
+  display: flex;
+  align-items: center;
+  margin: 16px;
+}
+
+.horizontal-box .card {
+  flex: 1;
+  margin: 0;
+}
+
+.horizontal-box .card + .card {
+  margin-left: 12px;
+}
+</style>

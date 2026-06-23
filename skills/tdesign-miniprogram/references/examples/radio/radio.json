@@ -1,0 +1,18 @@
+<!--
+  TDesign TDesign Miniprogram 示例：radio - radio
+  覆盖组件：Radio
+  来源：组件库源码 packages/components/radio/_example/radio.wxml
+-->
+
+{
+  "navigationBarTitleText": "Radio",
+  "usingComponents": {
+    "horizontal": "./horizontal",
+    "base": "./base",
+    "align": "./align",
+    "card": "./card",
+    "status": "./status",
+    "theme": "./theme",
+    "special": "./special"
+  }
+}

@@ -1,0 +1,7 @@
+<!--
+  TDesign TDesign Miniprogram 示例：calendar - calendar
+  覆盖组件：Calendar
+  来源：组件库源码 packages/components/calendar/_example/calendar.wxml
+-->
+
+Page({});

@@ -1,0 +1,62 @@
+/**
+ * TDesign TDesign React 示例：tree-select - prefixsuffix
+ * 覆盖组件：Tree-select
+ * 来源：组件库源码 packages/components/tree-select/_example/prefixsuffix.tsx
+ */
+
+import React from 'react';
+import { CaretDownSmallIcon, UserIcon } from 'tdesign-icons-react';
+import { TreeSelect } from 'tdesign-react';
+
+import type { TreeSelectProps } from 'tdesign-react';
+
+const options: TreeSelectProps['data'] = [
+  {
+    label: '广东省',
+    value: 'guangdong',
+    children: [
+      {
+        label: '广州市',
+        value: 'guangzhou',
+      },
+      {
+        label: '深圳市',
+        value: 'shenzhen',
+        children: [
+          {
+            label: '南山区海天二路33号腾讯滨海大厦',
+            value: 'Tencent',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: '江苏省',
+    value: 'jiangsu',
+    disabled: true,
+    children: [
+      {
+        label: '南京市',
+        value: 'nanjing',
+      },
+      {
+        label: '苏州市',
+        value: 'suzhou',
+      },
+    ],
+  },
+];
+
+export default function Example() {
+  return (
+    <TreeSelect
+      data={options}
+      clearable
+      placeholder="请输入"
+      prefixIcon={<UserIcon />}
+      suffixIcon={<CaretDownSmallIcon />}
+      style={{ width: 300 }}
+    />
+  );
+}

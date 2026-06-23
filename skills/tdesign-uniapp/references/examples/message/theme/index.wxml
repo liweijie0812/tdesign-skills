@@ -1,0 +1,25 @@
+<!--
+  TDesign TDesign UniApp 示例：message - index
+  覆盖组件：Message
+  来源：组件库源码 packages/components/message/_example/index.vue
+-->
+
+<t-message id="t-message" />
+
+<view class="message-example">
+  <t-button t-class="external-class" theme="primary" variant="outline" size="large" block bind:tap="showInfoMessage"
+    >普通通知</t-button
+  >
+
+  <t-button t-class="external-class" theme="primary" variant="outline" size="large" block bind:tap="showSuccessMessage"
+    >成功通知</t-button
+  >
+
+  <t-button t-class="external-class" theme="primary" variant="outline" size="large" block bind:tap="showWarnMessage"
+    >警示通知</t-button
+  >
+
+  <t-button t-class="external-class" theme="primary" variant="outline" size="large" block bind:tap="showErrorMessage"
+    >错误通知</t-button
+  >
+</view>

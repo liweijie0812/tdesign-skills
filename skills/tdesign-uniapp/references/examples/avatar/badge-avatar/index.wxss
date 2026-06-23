@@ -1,0 +1,15 @@
+<!--
+  TDesign TDesign UniApp 示例：avatar - index
+  覆盖组件：Avatar
+  来源：组件库源码 packages/components/avatar/_example/index.vue
+-->
+
+.avatar-example:not(:last-child) {
+  margin-right: 64rpx;
+}
+
+.external-class-content {
+  color: #fff;
+  background-color: var(--td-brand-color, #0052d9);
+  font-weight: 400;
+}

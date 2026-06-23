@@ -1,0 +1,14 @@
+<!--
+  TDesign TDesign Miniprogram 示例：popup - index
+  覆盖组件：Popup
+  来源：组件库源码 packages/components/popup/_example/index.wxml
+-->
+
+{
+  "component": true,
+  "usingComponents": {
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

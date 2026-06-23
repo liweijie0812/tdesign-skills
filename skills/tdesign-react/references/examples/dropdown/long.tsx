@@ -1,0 +1,25 @@
+/**
+ * TDesign TDesign React 示例：dropdown - long
+ * 覆盖组件：Dropdown
+ * 来源：组件库源码 packages/components/dropdown/_example/long.tsx
+ */
+
+import React from 'react';
+import { Button, Dropdown, MessagePlugin } from 'tdesign-react';
+
+import type { DropdownProps } from 'tdesign-react';
+
+export default function BasicDropdown() {
+  const options = Array.from({ length: 20 }).map((v, k) => ({
+    content: `选项${k + 1}`,
+    value: k + 1,
+  }));
+  const clickHandler: DropdownProps['onClick'] = (data) => {
+    MessagePlugin.success(`选中【${data.value}】`);
+  };
+  return (
+    <Dropdown options={options} onClick={clickHandler} maxHeight={400} minColumnWidth={'90px'}>
+      <Button>hover我试试</Button>
+    </Dropdown>
+  );
+}

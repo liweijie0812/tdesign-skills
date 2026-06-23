@@ -1,0 +1,17 @@
+<!--
+  TDesign TDesign Miniprogram 示例：date-time-picker - index
+  覆盖组件：Date-time-picker
+  来源：组件库源码 packages/components/date-time-picker/_example/index.wxml
+-->
+
+<t-date-time-picker
+  usePopup="{{false}}"
+  title="选择日期"
+  mode="date"
+  value="{{value}}"
+  format="YYYY-MM-DD"
+  bindchange="onConfirm"
+  bindpick="onColumnChange"
+  start="{{start}}"
+  end="{{end}}"
+/>

@@ -1,0 +1,18 @@
+<!--
+  TDesign TDesign Miniprogram 示例：table - index
+  覆盖组件：Table
+  来源：组件库源码 packages/components/table/_example/index.wxml
+-->
+
+<t-table
+  row-key="id"
+  fixed-rows="{{[1, 2]}}"
+  columns="{{columns}}"
+  data="{{data}}"
+  stripe="{{true}}"
+  max-height="{{400}}"
+  show-header="{{true}}"
+  cell-empty-content="-"
+  bind:row-click="handleRowClick"
+  bind:cell-click="handleCellClick"
+/>

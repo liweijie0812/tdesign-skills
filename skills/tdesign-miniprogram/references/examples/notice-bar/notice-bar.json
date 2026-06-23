@@ -1,0 +1,21 @@
+<!--
+  TDesign TDesign Miniprogram 示例：notice-bar - notice-bar
+  覆盖组件：Notice-bar
+  来源：组件库源码 packages/components/notice-bar/_example/notice-bar.wxml
+-->
+
+{
+  "navigationBarTitleText": "NoticeBar",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar",
+    "base": "./base",
+    "iconDemo": "./iconDemo",
+    "suffixIcon": "./suffixIcon",
+    "event": "./event",
+    "custom": "./custom",
+    "theme": "./theme",
+    "scrolling": "./scrolling",
+    "customization": "./customization"
+  }
+}

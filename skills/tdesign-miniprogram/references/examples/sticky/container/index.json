@@ -1,0 +1,14 @@
+<!--
+  TDesign TDesign Miniprogram 示例：sticky - index
+  覆盖组件：Sticky
+  来源：组件库源码 packages/components/sticky/_example/index.wxml
+-->
+
+{
+  "component": true,
+  "styleIsolation": "shared",
+  "usingComponents": {
+    "t-sticky": "tdesign-miniprogram/sticky/sticky",
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

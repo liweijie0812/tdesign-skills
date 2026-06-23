@@ -1,0 +1,9 @@
+<!--
+  TDesign TDesign Miniprogram 示例：slider - index
+  覆盖组件：Slider
+  来源：组件库源码 packages/components/slider/_example/index.wxml
+-->
+
+<view class="wrapper">
+  <t-slider default-value="{{23}}" step="{{0.1}}" bind:change="handleChange" />
+</view>

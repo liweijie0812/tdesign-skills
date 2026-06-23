@@ -1,0 +1,19 @@
+/**
+ * TDesign TDesign React 示例：time-picker - hm
+ * 覆盖组件：Time-picker
+ * 来源：组件库源码 packages/components/time-picker/_example/hm.tsx
+ */
+
+import React from 'react';
+import { Space, TimePicker } from 'tdesign-react';
+
+export default function HmTimePicker() {
+  return (
+    <Space direction="vertical">
+      <h3>时分选择</h3>
+      <TimePicker defaultValue={'12:00'} format="HH:mm" />
+      <h3>毫秒选择</h3>
+      <TimePicker defaultValue={'12:59:59:000'} format="HH:mm:ss:SSS" />
+    </Space>
+  );
+}

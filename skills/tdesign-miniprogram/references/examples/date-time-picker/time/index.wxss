@@ -1,0 +1,9 @@
+<!--
+  TDesign TDesign Miniprogram 示例：date-time-picker - index
+  覆盖组件：Date-time-picker
+  来源：组件库源码 packages/components/date-time-picker/_example/index.wxml
+-->
+
+.panel-item {
+  margin: 32rpx 0;
+}

@@ -1,0 +1,16 @@
+<!--
+  TDesign TDesign UniApp 示例：drawer - drawer
+  覆盖组件：Drawer
+  来源：组件库源码 packages/components/drawer/_example/drawer.vue
+-->
+
+{
+  "navigationBarTitleText": "Drawer",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "base": "./base",
+    "title": "./title",
+    "icon-drawer": "./icon-drawer",
+    "footer": "./footer"
+  }
+}

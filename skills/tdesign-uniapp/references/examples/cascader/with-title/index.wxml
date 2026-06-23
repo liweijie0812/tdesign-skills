@@ -1,0 +1,15 @@
+<!--
+  TDesign TDesign UniApp 示例：cascader - index
+  覆盖组件：Cascader
+  来源：组件库源码 packages/components/cascader/_example/index.vue
+-->
+
+<t-cell title="地址" note="{{note}}" bind:click="showCascader" arrow></t-cell>
+
+<t-cascader
+  visible="{{visible}}"
+  options="{{options}}"
+  title="请选择地址"
+  sub-titles="{{subTitles}}"
+  bind:change="onChange"
+></t-cascader>

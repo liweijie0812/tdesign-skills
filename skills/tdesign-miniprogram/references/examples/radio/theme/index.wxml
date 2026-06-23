@@ -1,0 +1,11 @@
+<!--
+  TDesign TDesign Miniprogram 示例：radio - index
+  覆盖组件：Radio
+  来源：组件库源码 packages/components/radio/_example/index.wxml
+-->
+
+<t-radio default-checked="{{true}}" allow-uncheck icon="line" label="单选" />
+
+<view class="gutter" style="height: 32rpx"></view>
+
+<t-radio default-checked="{{true}}" allow-uncheck icon="dot" label="单选" />

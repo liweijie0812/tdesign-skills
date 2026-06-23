@@ -1,0 +1,15 @@
+<!--
+  TDesign TDesign UniApp 示例：skeleton - index
+  覆盖组件：Skeleton
+  来源：组件库源码 packages/components/skeleton/_example/index.vue
+-->
+
+<view class="group">
+  <t-skeleton class="group-avatar" rowCol="{{rowColsAvater}}" loading></t-skeleton>
+  <t-skeleton class="group-content" rowCol="{{rowColsContent}}" loading></t-skeleton>
+</view>
+
+<view class="group">
+  <t-skeleton class="group-avatar" rowCol="{{rowColsImage}}" loading></t-skeleton>
+  <t-skeleton class="group-content" rowCol="{{rowColsContent}}" loading></t-skeleton>
+</view>

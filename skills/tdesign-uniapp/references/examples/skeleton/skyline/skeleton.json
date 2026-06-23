@@ -1,0 +1,21 @@
+<!--
+  TDesign TDesign UniApp 示例：skeleton - skeleton
+  覆盖组件：Skeleton
+  来源：组件库源码 packages/components/skeleton/_example/skeleton.vue
+-->
+
+{
+  "navigationStyle": "custom",
+  "renderer": "skyline",
+  "componentFramework": "glass-easel",
+  "disableScroll": true,
+  "usingComponents": {
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+    "theme": "../theme",
+    "grid": "../grid",
+    "cell-group": "../cell-group",
+    "image-group": "../image-group",
+    "animation": "../animation"
+  }
+}

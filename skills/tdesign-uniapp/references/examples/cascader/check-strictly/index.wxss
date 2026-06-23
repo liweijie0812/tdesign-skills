@@ -1,0 +1,9 @@
+<!--
+  TDesign TDesign UniApp 示例：cascader - index
+  覆盖组件：Cascader
+  来源：组件库源码 packages/components/cascader/_example/index.vue
+-->
+
+.confirm-btn {
+  color: #0052d9;
+}

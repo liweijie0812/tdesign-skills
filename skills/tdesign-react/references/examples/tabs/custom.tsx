@@ -1,0 +1,70 @@
+/**
+ * TDesign TDesign React 示例：tabs - custom
+ * 覆盖组件：Tabs
+ * 来源：组件库源码 packages/components/tabs/_example/custom.tsx
+ */
+
+import React, { useState } from 'react';
+import { Tabs } from 'tdesign-react';
+
+import type { TabValue } from 'tdesign-react';
+
+const { TabPanel } = Tabs;
+
+const tabs: Array<{ label: string; value: number }> = [];
+for (let i = 1, max = 10; i <= max; ++i) {
+  tabs.push({
+    value: i,
+    label: `选项卡 ${i}`,
+  });
+}
+
+export default function AddTabs() {
+  const [panels, setPanels] = useState(tabs);
+  const [value, setValue] = useState<TabValue>(1);
+
+  return (
+    <Tabs
+      placement={'top'}
+      size={'medium'}
+      disabled={false}
+      theme={'card'}
+      defaultValue={1}
+      value={value}
+      onChange={setValue}
+      addable
+      onRemove={({ value }) => {
+        const newPanels = panels.filter((panel) => panel.value !== value);
+        setPanels(newPanels);
+      }}
+      onAdd={() => {
+        const newValue = panels.length > 0 ? panels[panels.length - 1].value + 1 : 1;
+        const newPanels = panels.concat({
+          value: newValue,
+          label: `选项卡${panels.length + 1}`,
+        });
+        setValue(newValue);
+        setPanels(newPanels);
+      }}
+    >
+      {panels.map(({ value, label }, index) => (
+        <TabPanel
+          key={value}
+          value={value}
+          label={label}
+          removable={true}
+          onRemove={() => {
+            setPanels((panels) => {
+              panels.splice(index, 1);
+              return panels;
+            });
+          }}
+        >
+          <div className="tabs-content" style={{ margin: 20 }}>
+            {label}内容区
+          </div>
+        </TabPanel>
+      ))}
+    </Tabs>
+  );
+}

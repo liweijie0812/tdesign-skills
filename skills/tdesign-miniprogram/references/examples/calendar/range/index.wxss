@@ -1,0 +1,31 @@
+<!--
+  TDesign TDesign Miniprogram 示例：calendar - index
+  覆盖组件：Calendar
+  来源：组件库源码 packages/components/calendar/_example/index.wxml
+-->
+
+.wrapper {
+  background-color: var(--td-bg-color-container);
+  padding: 32rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper__center {
+  color: var(--td-text-color-placeholder);
+}
+
+.wrapper__left,
+.wrapper__right {
+  width: 240rpx;
+  color: var(--td-text-color-primary);
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 48rpx;
+}
+
+.wrapper__right {
+  text-align: right;
+}

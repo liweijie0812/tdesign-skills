@@ -1,0 +1,28 @@
+<!--
+  TDesign TDesign UniApp 示例：rate - index
+  覆盖组件：Rate
+  来源：组件库源码 packages/components/rate/_example/index.vue
+-->
+
+.demo-rate {
+  background-color: var(--bg-color-demo);
+  color: var(--td-text-color-primary);
+  padding: 32rpx;
+  margin-top: 32rpx;
+  margin-bottom: 32rpx;
+}
+
+.rate-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.desc {
+  text-align: center;
+  margin-top: 24rpx;
+}
+
+.desc--active {
+  color: #ed7b2f;
+  font-weight: 600;
+}

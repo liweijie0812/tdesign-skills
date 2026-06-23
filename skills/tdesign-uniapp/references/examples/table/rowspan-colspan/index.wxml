@@ -1,0 +1,14 @@
+<!--
+  TDesign TDesign UniApp 示例：table - index
+  覆盖组件：Table
+  来源：组件库源码 packages/components/table/_example/index.vue
+-->
+
+<t-table
+  row-key="id"
+  columns="{{columns}}"
+  data="{{data}}"
+  bordered="{{true}}"
+  rowspan-and-colspan="{{rowspanAndColspan}}"
+  cell-empty-content="-"
+/>

@@ -1,0 +1,15 @@
+<!--
+  TDesign TDesign Miniprogram 示例：checkbox - index
+  覆盖组件：Checkbox
+  来源：组件库源码 packages/components/checkbox/_example/index.wxml
+-->
+
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "t-checkbox-group": "tdesign-miniprogram/checkbox-group/checkbox-group",
+    "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  }
+}

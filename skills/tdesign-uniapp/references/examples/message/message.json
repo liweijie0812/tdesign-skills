@@ -1,0 +1,14 @@
+<!--
+  TDesign TDesign UniApp 示例：message - message
+  覆盖组件：Message
+  来源：组件库源码 packages/components/message/_example/message.vue
+-->
+
+{
+  "navigationBarTitleText": "Message",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "base": "./base",
+    "theme": "./theme"
+  }
+}

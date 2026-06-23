@@ -1,0 +1,13 @@
+<!--
+  TDesign TDesign Miniprogram 示例：image - index
+  覆盖组件：Image
+  来源：组件库源码 packages/components/image/_example/index.wxml
+-->
+
+{
+  "component": true,
+  "usingComponents": {
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-loading": "tdesign-miniprogram/loading/loading"
+  }
+}

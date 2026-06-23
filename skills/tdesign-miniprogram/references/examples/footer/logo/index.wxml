@@ -1,0 +1,16 @@
+<!--
+  TDesign TDesign Miniprogram 示例：footer - index
+  覆盖组件：Footer
+  来源：组件库源码 packages/components/footer/_example/index.wxml
+-->
+
+<!-- theme 为 logo -->
+<view class="footer-example">
+  <t-footer logo="{{logo}}" />
+</view>
+
+<view class="footer-example">
+  <t-footer
+    logo="{{{url: theme === 'dark'?'https://tdesign.gtimg.com/mobile/demos/footer-logo-dark.png':'https://tdesign.gtimg.com/mobile/demos/logo1.png'} }}"
+  />
+</view>

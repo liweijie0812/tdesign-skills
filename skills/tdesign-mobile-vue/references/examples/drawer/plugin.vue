@@ -1,0 +1,24 @@
+<!--
+  TDesign TDesign Mobile Vue 示例：drawer - plugin
+  覆盖组件：Drawer
+  来源：组件库源码 src/drawer/demos/plugin.vue
+-->
+
+<template>
+  <t-button block variant="outline" size="large" theme="primary" @click="showDrawer">命令行调用</t-button>
+</template>
+
+<script lang="ts" setup>
+import { DrawerPlugin } from 'tdesign-mobile-vue';
+
+const showDrawer = () => {
+  const instance = DrawerPlugin({
+    items: new Array(20).fill({ title: '菜单' }).map((item, index: number) => ({ title: `标题 ${index + 1}` })),
+    onItemClick(index: number) {
+      console.log(index);
+      instance.destroy();
+    },
+  });
+  instance.show();
+};
+</script>
