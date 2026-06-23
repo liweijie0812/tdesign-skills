@@ -4,7 +4,7 @@
 
 ## 查阅顺序
 
-1. Web 中后台页面先查 `../design/design-spec.md`、`../design/tokens.md` 和 `../design/checklist.json`，确认设计红线、Token 规则和自检项。
+1. Web 中后台页面先查 `../design/design-spec.md`、`../design/visual-consistency-web.md`、`../design/tokens.md` 和 `../design/checklist.json`，确认设计红线、显式视觉规则、Token 规则和自检项。
 2. 先按 `skills/tdesign-usage-guide/references/decisions/README.md` 和 `skills/tdesign-usage-guide/references/decisions/platform-design-policy.md` 确认平台与组件选型口径。
 3. 需要表单录入、编辑、配置、审批页时，查 `form-page.md`。
 4. 需要后台列表、资源列表、结构化数据浏览页时，查 `table-list-page.md`。
@@ -28,6 +28,7 @@
 
 - 场景卡只提供默认组合和常见校验点，不替代当前项目的业务约束。
 - Web 中后台场景必须遵守 `../design/design-spec.md` 的真实组件、图标、表格、图表、导航和状态反馈红线。
+- Web 中后台场景中的间距、配色、排版、圆角、阴影和状态一致性，优先遵守 `../design/visual-consistency-web.md` 的显式规则表。
 - Web 自定义样式优先使用 `../design/tokens.md` 中的语义 Token，不写零散硬编码颜色、间距、圆角或高度。
 - Web 代码生成或页面改造后必须按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 执行质量门禁。
 - Web 与 Mobile / Miniprogram 页面结构不直接互相复用，必须按平台降密或调整导航方式。

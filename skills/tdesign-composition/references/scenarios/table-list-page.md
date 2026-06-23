@@ -27,7 +27,7 @@
 - 操作列只放高频动作，低频动作折叠到 `Dropdown`。
 - 破坏性行操作使用 `Popconfirm` 或 `Dialog`，文案说明后果。
 - 单元格内容过长时优先省略、悬浮说明或展开详情，不拉宽整表。
-- Web 筛选区、工具栏、表格、分页和状态反馈的颜色、间距和边框优先使用语义 Token；Mobile / Miniprogram 按当前端 Design Token 和组件变量确认。
+- Web 筛选区、工具栏、表格、分页和状态反馈的颜色、间距和边框优先直接写 `var(--td-*)` 形式的 CSS Variables；Mobile / Miniprogram 按当前端 Design Token 和组件变量确认。
 - Web 表格操作图标必须来自 TDesign Icons manifest；Mobile / Miniprogram 按当前端图标 API 和项目图标方案确认。任何端都不使用 Emoji、自绘 SVG、外部 iconfont 或临时网络图片。
 - Mobile / Miniprogram 数据密度更低，优先减少列数、拆详情页或使用条目流，不强行复刻 Web 宽表格。
 - 小程序当前未同步 `List` 组件 API 时，不要假定可用；简单条目优先用 `Cell` / `CellGroup` 或项目已有列表封装。

@@ -44,6 +44,7 @@ description: 当 TDesign 任务尚未明确技术栈或横跨多个 TDesign 包�
 - 具体 props/事件/插槽/类型/代码落地 → 对应技术栈专项 skill
 - 图标名称、关键词、分类、是否存在、包名、导入方式 → `tdesign-icons`
 - 版本能力、新增、修复、废弃 → `tdesign-changelog`
+- Web 视觉一致性、间距、配色、排版、圆角、阴影、状态 → `tdesign-composition/references/design/visual-consistency-web.md`
 - 设计规范、视觉校验、Design Token、色彩、布局 → `tdesign-composition/references/design/`
 
 ## 交接规则

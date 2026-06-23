@@ -9,7 +9,7 @@ description: 当用户需要 TDesign 组件搭配、页面骨架、设计规范�
 
 ## 查阅顺序
 
-1. 涉及 Web 中后台页面生成、页面改造或视觉走查时，动手前先查 `references/design/design-spec.md`、`references/design/tokens.md` 和 `references/design/checklist.json`；简单咨询只按问题命中必要资料。
+1. 涉及 Web 中后台页面生成、页面改造或视觉走查时，动手前先查 `references/design/design-spec.md`、`references/design/visual-consistency-web.md`、`references/design/tokens.md` 和 `references/design/checklist.json`；简单咨询只按问题命中必要资料。
 2. 已安装 `tdesign-usage-guide` 时，先按 `../tdesign-usage-guide/references/decisions/README.md` 和 `../tdesign-usage-guide/references/decisions/platform-design-policy.md` 确认平台与组件选型口径；未安装时按用户已给出的平台和组件假设继续，不重新发明选型规则，并建议补装 `tdesign-usage-guide`。
 3. 组件搭配入口：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/component-composition-map.md`；未安装时直接使用本 skill 的场景卡和设计资料。
 4. Web 搭配细节：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/web/component-composition-map.md`；未安装时使用 Web 场景卡默认组合。
@@ -30,6 +30,7 @@ description: 当用户需要 TDesign 组件搭配、页面骨架、设计规范�
 ## Web 中后台资料
 
 - 对话式页面生成、视觉规范、设计原则和交付前自检：查 `references/design/design-spec.md`。
+- Web 视觉一致性显式规则：查 `references/design/visual-consistency-web.md`。
 - 结构化设计自检规则：查 `references/design/checklist.json`。
 - 高频 Design Token、CSS Variables、颜色 / 字号 / 间距 / 圆角速查：查 `references/design/tokens.md`。
 - 色彩、品牌色、功能色、中性色、扩展色、Design Token：查 `references/design/color.md`。

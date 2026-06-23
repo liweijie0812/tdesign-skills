@@ -96,7 +96,7 @@
 
 ## Design Token 使用
 
-TDesign 使用“色板 -> 全局语义 Token -> 组件 Token”的关系管理颜色。生成 UI 或改样式时，优先使用语义 Token，而不是直接把色板 hex 写进组件样式。
+TDesign 使用“色板 -> 全局语义 Token -> 组件 Token”的关系管理颜色。生成 UI 或改样式时，优先在业务样式里直接写 `var(--td-*)` 形式的 CSS Variables，或通过组件公开 API 使用对应语义，而不是直接把色板 hex 写进组件样式。
 
 | 层级 | 示例 | 说明 |
 | --- | --- | --- |

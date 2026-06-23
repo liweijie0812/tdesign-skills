@@ -83,12 +83,13 @@ CNB 平台展示摘要见 `skills/SKILL.md`；该文件只说明 skill 数量、
 4. 具体 API、事件、插槽和写法差异按当前依赖进入技术栈 skill：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue2`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 或 `tdesign-uniapp`。
 5. 版本能力、新增、修复和废弃问题用 `tdesign-changelog`，查完后仍回到当前栈 API 文件确认真实写法。
 6. 对话式页面生成、视觉规范、设计原则和交付前自检，查阅 `skills/tdesign-composition/references/design/design-spec.md`。
-7. Web 中后台页面生成前，查阅 `skills/tdesign-composition/references/design/checklist.json`；生成后按检查项自检，能运行脚本时执行 `node skills/tdesign-composition/scripts/check-quality.mjs <file-or-directory>`。
-8. 高频 Design Token、CSS Variables、颜色 / 字号 / 间距 / 圆角速查，查阅 `skills/tdesign-composition/references/design/tokens.md`。
-9. 色彩、品牌色、功能色、中性色、扩展色，查阅 `skills/tdesign-composition/references/design/color.md`。
-10. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `skills/tdesign-composition/references/design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
-11. Web 中后台框架、后台页面模板、整站/区域导航查 `skills/tdesign-composition/references/design/offices.md`。
-12. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `skills/tdesign-composition/references/design/offices-task.md`。
+7. Web 视觉一致性、间距、配色、排版、圆角、阴影和状态规则，查阅 `skills/tdesign-composition/references/design/visual-consistency-web.md`。
+8. Web 中后台页面生成前，查阅 `skills/tdesign-composition/references/design/checklist.json`；生成后按检查项自检，能运行脚本时执行 `node skills/tdesign-composition/scripts/check-quality.mjs <file-or-directory>`。
+9. 高频 Design Token、CSS Variables、颜色 / 字号 / 间距 / 圆角速查，查阅 `skills/tdesign-composition/references/design/tokens.md`。
+10. 色彩、品牌色、功能色、中性色、扩展色，查阅 `skills/tdesign-composition/references/design/color.md`。
+11. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `skills/tdesign-composition/references/design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
+12. Web 中后台框架、后台页面模板、整站/区域导航查 `skills/tdesign-composition/references/design/offices.md`。
+13. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `skills/tdesign-composition/references/design/offices-task.md`。
 
 ## 最小示例
 
@@ -105,6 +106,7 @@ CNB 平台展示摘要见 `skills/SKILL.md`；该文件只说明 skill 数量、
 - `skills/tdesign-docs/references/api/`：API 总入口和跨端共享契约。
 - `skills/tdesign-usage-guide/references/decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。
 - `skills/tdesign-composition/references/design/`：TDesign 对话式设计规范、高频 Token、Color、Layout、中后台框架和高频任务设计方法。
+- `skills/tdesign-composition/references/design/visual-consistency-web.md`：Web 中后台视觉一致性显式规则，汇总间距、配色、排版、圆角、阴影、布局和状态要求。
 - `skills/tdesign-composition/references/design/checklist.json`：Web 中后台页面生成后的结构化设计自检规则。
 - `skills/tdesign-composition/references/quality-gate.md` 与 `skills/tdesign-composition/scripts/check-quality.mjs`：生成后质量门禁说明和静态扫描脚本。
 - `skills/tdesign-composition/references/scenarios/`：组件搭配设计指南与页面场景卡，包括表单页、表格列表页和应用壳。

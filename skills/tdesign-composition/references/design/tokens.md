@@ -24,7 +24,7 @@
 
 ## 使用原则
 
-- 优先级：先用组件 props 和布局能力，再用 TDesign 语义 Token，最后才补少量业务 CSS。
+- 优先级：先用组件 props 和布局能力，再在业务样式里直接写 `var(--td-*)` 形式的 TDesign CSS Variables，最后才补少量业务 CSS。
 - 业务 CSS 中的颜色、文字、间距、圆角、组件尺寸和状态样式优先使用 `--td-*` 语义 Token。
 - 不直接把 hex、rgba、任意 px 和任意圆角值写成业务视觉规范；确需硬值时必须属于“允许例外”。
 - 组件已有 `theme`、`status`、`variant`、`size`、`layout` 等 props 时，先用 props，不优先覆盖内部样式。

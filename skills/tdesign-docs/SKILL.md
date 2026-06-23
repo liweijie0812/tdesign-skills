@@ -14,7 +14,8 @@ description: 当用户询问 TDesign 文档入口、资料在哪里、当前技�
 3. API 资料入口：`references/api/README.md` 是 API 资料索引与读取约定，`references/api/index.md` 是跨端共享契约（`shared/` 目录）入口；先读 README 再按需进 index。
 4. 选型资料入口：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/README.md`；未安装时只说明应补装该 skill，不在 docs 内替代选型判断。
 5. 场景卡入口：已安装 `tdesign-composition` 时查 `../tdesign-composition/references/scenarios/README.md`；未安装时只说明应补装该 skill，不在 docs 内替代页面组合判断。
-6. 色彩、布局、Token、中后台框架等设计资料：转到 `tdesign-composition` 的 `references/design/` 目录（docs 只负责指路，不展开设计细则）。未安装时提示补装 `tdesign-composition`。
+6. Web 视觉一致性、间距、配色、排版、圆角、阴影和状态规则：转到 `tdesign-composition` 的 `references/design/visual-consistency-web.md`。未安装时提示补装 `tdesign-composition`。
+7. 色彩、布局、Token、中后台框架等设计资料：转到 `tdesign-composition` 的 `references/design/` 目录（docs 只负责指路，不展开设计细则）。未安装时提示补装 `tdesign-composition`。
 
 ## 快速查询
 
