@@ -34,6 +34,7 @@ node skills/tdesign-changelog/scripts/query-changelog.mjs --stack mobile-react -
 - `--since` / `--until`：版本区间。
 - `--category`：按变更类别过滤。
 - `--keyword`：按关键词过滤 markdown 变更项。
+- `--limit`：最大输出条数，默认 `5`；如需查看更多历史记录可增大此值。
 - `--json`：输出原始匹配 JSON。
 
 更多典型查询示例查 `references/changelog-queries.md`。
