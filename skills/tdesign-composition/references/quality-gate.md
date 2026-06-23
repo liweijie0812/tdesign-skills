@@ -1,6 +1,6 @@
 # TDesign 生成质量门禁
 
-用于页面生成、页面改造或视觉走查后的自动化检查。此门禁不能替代当前项目的 lint / test，但可拦截最常见的 TDesign 规范偏离。
+用于页面生成、页面改造或视觉走查后的自动化检查。此门禁不能替代当前项目的 lint / test，但可拦截最常见的 TDesign 规范偏离。无设计文件场景下，最终 QC、交接格式和冲突仲裁先查 `references/modules/M06-qc-handoff.md`。
 
 ## 使用方式
 
@@ -45,6 +45,7 @@ node skills/tdesign-composition/scripts/check-quality.mjs src/pages/dashboard.vu
 - 结构化规则源：`references/design/checklist.json`。
 - 质量门禁脚本：`scripts/check-quality.mjs`，路径相对当前 `tdesign-composition` skill 目录。
 - 人工自检补充：`references/design/design-spec.md` 的“交付前自检”。
+- 终审与交接：`references/modules/M06-qc-handoff.md`。
 - `checklist.json` 中的 `platforms` 表示检查项适用平台，`autoCheck` 表示脚本是否可自动覆盖；`DS-012` 只能按交付输出人工确认。
 - 交付输出使用 `outputTemplate.itemFormat`：`DS-编号：通过 / 不适用 / 需人工确认 - 简要原因`。
 

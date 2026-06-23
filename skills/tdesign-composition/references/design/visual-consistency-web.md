@@ -1,6 +1,6 @@
 # TDesign Web 视觉一致性规则
 
-本文把 `design-spec.md`、`tokens.md`、`color.md`、`layout.md`、`offices.md` 和 `offices-task.md` 中分散的 Web 中后台视觉规则收敛成一份显式规则表，用于回答“间距、配色、排版、圆角、阴影、布局和状态应该如何保持一致”。
+本文把 `design-spec.md`、`tokens.md`、`color.md`、`layout.md`、`offices.md` 和 `offices-task.md` 中分散的 Web 中后台视觉规则收敛成一份显式规则表，用于回答“间距、配色、排版、圆角、阴影、布局和状态应该如何保持一致”。无设计文件场景下，颜色根规则先查 `../modules/M02-colors.md`，排版、间距、组件尺寸和圆角根规则先查 `../modules/M03-typography-spacing-radius.md`，布局、应用壳和导航结构根规则先查 `../modules/M04-layout-navigation.md`。
 
 ## 适用范围
 

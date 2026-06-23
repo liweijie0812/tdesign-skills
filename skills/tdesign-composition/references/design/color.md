@@ -2,7 +2,7 @@
 
 来源：TDesign 官网 `https://tdesign.tencent.com/design/color`，上游源码 `Tencent/tdesign/site/src/pages/design/color_zh-CN.vue`。
 
-当用户询问 TDesign 色彩、品牌色、功能色、中性色、扩展色、Design Token 或 CSS Variables 时，先按本文判断颜色语义，再按当前技术栈 API 或项目主题文件确认具体变量名与覆盖方式。
+无设计文件场景下，完整颜色根规则先查 `../modules/M02-colors.md`。本文作为官方色板、扩展色和主题定制的补充资料；涉及业务样式生成、Light / Dark 语义链、彩色实心底对比规则时，以 `M02-colors.md` 为入口，再按当前技术栈 API 或项目主题文件确认具体变量名与覆盖方式。
 
 ## 核心规则
 

@@ -4,19 +4,24 @@
 
 ## 查阅顺序
 
-1. Web 中后台页面先查 `../design/design-spec.md`、`../design/visual-consistency-web.md`、`../design/tokens.md` 和 `../design/checklist.json`，确认设计红线、显式视觉规则、Token 规则和自检项。
-2. 先按 `skills/tdesign-usage-guide/references/decisions/README.md` 和 `skills/tdesign-usage-guide/references/decisions/platform-design-policy.md` 确认平台与组件选型口径。
-3. 需要表单录入、编辑、配置、审批页时，查 `form-page.md`。
-4. 需要后台列表、资源列表、结构化数据浏览页时，查 `table-list-page.md`。
-5. 需要后台框架、控制台骨架、导航壳时，查 `layout-shell.md`。
-6. 需要详情页、对象档案或审批详情时，查 `detail-page.md`。
-7. 需要登录、注册或身份入口时，查 `login-page.md`。
-8. 需要错误页、无权限页或结果页时，查 `error-page.md`。
-9. 需要仪表盘、数据概览或图表页面时，查 `dashboard-page.md`。
-10. 需要弹窗、抽屉或临时任务流时，查 `dialog-drawer-flow.md`。
-11. 需要 CRUD、批量导入、批量操作或状态流转时，查 `crud-task-flow.md`。
-12. 需要移动端表单、移动端列表或轻量页面时，查 `mobile-pages.md`。
-13. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认 props、事件、插槽和写法。
+1. 无设计文件场景先查 `../modules/M01-overview-usage-rules.md`，确认 TDesign 默认根约束、Usage 红线、导航、图标和 CDN 规则。
+2. 颜色语义、Light / Dark Token 和彩色实心底对比规则先查 `../modules/M02-colors.md`。
+3. 排版、间距、组件尺寸和圆角规则先查 `../modules/M03-typography-spacing-radius.md`。
+4. 布局、应用壳、栅格和导航结构规则先查 `../modules/M04-layout-navigation.md`。
+5. 组件、图标、表格和图表规则先查 `../modules/M05-components-icons-charts.md`。
+6. Web 中后台页面再查 `../design/design-spec.md`、`../design/visual-consistency-web.md`、`../design/tokens.md` 和 `../design/checklist.json`，确认设计红线、显式视觉规则、Token 规则和自检项。
+7. 先按 `skills/tdesign-usage-guide/references/decisions/README.md` 和 `skills/tdesign-usage-guide/references/decisions/platform-design-policy.md` 确认平台与组件选型口径。
+8. 需要表单录入、编辑、配置、审批页时，查 `form-page.md`。
+9. 需要后台列表、资源列表、结构化数据浏览页时，查 `table-list-page.md`。
+10. 需要后台框架、控制台骨架、导航壳时，查 `layout-shell.md`。
+11. 需要详情页、对象档案或审批详情时，查 `detail-page.md`。
+12. 需要登录、注册或身份入口时，查 `login-page.md`。
+13. 需要错误页、无权限页或结果页时，查 `error-page.md`。
+14. 需要仪表盘、数据概览或图表页面时，查 `dashboard-page.md`。
+15. 需要弹窗、抽屉或临时任务流时，查 `dialog-drawer-flow.md`。
+16. 需要 CRUD、批量导入、批量操作或状态流转时，查 `crud-task-flow.md`。
+17. 需要移动端表单、移动端列表或轻量页面时，查 `mobile-pages.md`。
+18. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认 props、事件、插槽和写法。
 
 ## 与其他目录的边界
 
@@ -27,6 +32,7 @@
 ## 使用原则
 
 - 场景卡只提供默认组合和常见校验点，不替代当前项目的业务约束。
+- 无设计文件场景不依赖 Figma、截图或 `DESIGN.md`；默认按 `../modules/M01-overview-usage-rules.md`、场景卡、Token 和当前技术栈 API 生成。
 - Web 中后台场景必须遵守 `../design/design-spec.md` 的真实组件、图标、表格、图表、导航和状态反馈红线。
 - Web 中后台场景中的间距、配色、排版、圆角、阴影和状态一致性，优先遵守 `../design/visual-consistency-web.md` 的显式规则表。
 - Web 自定义样式优先使用 `../design/tokens.md` 中的语义 Token，不写零散硬编码颜色、间距、圆角或高度。

@@ -2,7 +2,7 @@
 
 来源：TDesign 官网 `https://tdesign.tencent.com/design/layout`，上游源码 `Tencent/tdesign/site/src/pages/design/layout_zh-CN.vue`。
 
-当用户询问 Web 中后台布局、导航布局、应用壳、栅格系统、响应式布局、断点、间距、侧边栏宽度或页面框架时，先按本文判断设计规则，再按当前技术栈查 `Layout`、`Grid`、`Row`、`Col`、`Menu` 等组件 API。Mobile / Miniprogram 只参考栅格和间距原则，页面结构必须回到对应端场景卡和 API。
+无设计文件场景下，布局、导航、应用壳、Header 高度和品牌位唯一约束先查 `../modules/M04-layout-navigation.md`。本文作为 Web 中后台 Layout、栅格、断点和布局组件映射的补充资料；涉及具体实现时，再按当前技术栈查 `Layout`、`Grid`、`Row`、`Col`、`Menu` 等组件 API。Mobile / Miniprogram 只参考栅格和间距原则，页面结构必须回到对应端场景卡和 API。
 
 ## 核心规则
 

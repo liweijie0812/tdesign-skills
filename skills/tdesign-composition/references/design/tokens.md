@@ -1,6 +1,6 @@
 # TDesign 高频 Design Token
 
-本文用于页面生成和样式改造时快速选择常用 `--td-*` 变量。完整组件级变量仍以当前技术栈 API 文档和项目主题文件为准。
+本文用于页面生成和样式改造时快速选择常用 `--td-*` 变量。无设计文件场景下，完整颜色语义、Light / Dark 变量链和彩色实心底对比规则先查 `../modules/M02-colors.md`；完整排版、间距、组件尺寸和圆角规则先查 `../modules/M03-typography-spacing-radius.md`；完整组件级变量仍以当前技术栈 API 文档和项目主题文件为准。
 
 ## 常用 Token 速查
 
