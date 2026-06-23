@@ -155,17 +155,22 @@ async function slimWebMobileStack(stackName) {
     if (!compDir.isDirectory() || compDir.name === 'README.md') continue;
 
     const compDirPath = path.join(examplesDir, compDir.name);
-    const files = await fs.readdir(compDirPath, { withFileTypes: true });
-    const allFiles = files.filter((f) => f.isFile());
+
+    // 递归收集所有文件（包括子目录），避免泄漏子目录中的文件（Bug 1 修复）
+    const allFilesAbs = [];
+    await walkDir(compDirPath, (fullPath) => {
+      if (!fullPath.endsWith('README.md')) allFilesAbs.push(fullPath);
+    });
+
     const keyFiles = [];
     const otherFiles = [];
 
-    for (const file of allFiles) {
-      const baseName = path.basename(file.name, path.extname(file.name));
+    for (const filePath of allFilesAbs) {
+      const baseName = path.basename(filePath, path.extname(filePath));
       if (isKeyVariant(baseName)) {
-        keyFiles.push(file.name);
+        keyFiles.push(filePath);
       } else {
-        otherFiles.push(file.name);
+        otherFiles.push(filePath);
       }
     }
 
@@ -174,31 +179,36 @@ async function slimWebMobileStack(stackName) {
     if (keyFiles.length > 0) {
       keptFiles = keyFiles;
       // 删除非关键文件
-      for (const fileName of otherFiles) {
+      for (const filePath of otherFiles) {
         if (!DRY_RUN) {
-          await fs.unlink(path.join(compDirPath, fileName));
+          await fs.unlink(filePath);
         }
         deleted++;
       }
-    } else {
+    } else if (otherFiles.length > 0) {
       // 没有关键变体，保留第一个文件作为代表性示例
       keptFiles = [otherFiles[0]];
       for (let i = 1; i < otherFiles.length; i++) {
         if (!DRY_RUN) {
-          await fs.unlink(path.join(compDirPath, otherFiles[i]));
+          await fs.unlink(otherFiles[i]);
         }
         deleted++;
       }
+    } else {
+      keptFiles = [];
     }
 
     kept += keptFiles.length;
+
+    // 清理空目录（Bug 3 修复：removeEmptyDirs 之前从未被调用）
+    await removeEmptyDirs(compDirPath);
 
     if (keptFiles.length > 0) {
       componentSummaries.push({
         name: compDir.name,
         dir: `${compDir.name}/`,
         count: keptFiles.length,
-        files: keptFiles,
+        files: keptFiles.map((fp) => path.basename(fp)),
       });
     }
   }
@@ -239,13 +249,10 @@ async function slimMiniprogramStack(stackName) {
           kept += baseFiles.filter((f) => f.isFile()).length;
           keptSubdirs.push(entry.name);
         } else {
-          // 递归删除整个子目录
-          if (DRY_RUN) {
-            // 试运行时统计将要删除的文件数
-            await walkDir(path.join(compDirPath, entry.name), () => { deleted++; });
-          } else {
+          // 先统计再删除（Bug 2 修复：非 dry-run 时删除计数丢失）
+          await walkDir(path.join(compDirPath, entry.name), () => { deleted++; });
+          if (!DRY_RUN) {
             await fs.rm(path.join(compDirPath, entry.name), { recursive: true });
-            // 统计已删除的文件数（递归前先计数）
           }
         }
       } else if (entry.isFile()) {
@@ -255,18 +262,8 @@ async function slimMiniprogramStack(stackName) {
       }
     }
 
-    // 为试运行重新统计删除数
-    if (DRY_RUN) {
-      deleted = 0;
-      for (const entry of entries) {
-        if (entry.isDirectory() && !shouldKeepMiniprogramDir(entry.name)) {
-          await walkDir(path.join(compDirPath, entry.name), () => { deleted++; });
-        }
-      }
-    } else {
-      // 非 dry-run 时重新统计实际删除数
-      // 我们无法精确知道删了多少，所以重新遍历统计
-    }
+    // 清理空目录（Bug 3 修复）
+    await removeEmptyDirs(compDirPath);
 
     if (keptSubdirs.length > 0) {
       componentSummaries.push({
