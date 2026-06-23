@@ -1,7 +1,0 @@
-<!--
-  TDesign TDesign UniApp 示例：overlay - overlay
-  覆盖组件：Overlay
-  来源：组件库源码 packages/components/overlay/_example/overlay.vue
--->
-
-Page({});

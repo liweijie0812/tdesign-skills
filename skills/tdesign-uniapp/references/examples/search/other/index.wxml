@@ -1,9 +1,0 @@
-<!--
-  TDesign TDesign UniApp 示例：search - index
-  覆盖组件：Search
-  来源：组件库源码 packages/components/search/_example/index.vue
--->
-
-<view class="example-search">
-  <t-search model:value="{{value}}" center placeholder="搜索预设文案" bind:change="onChange" />
-</view>

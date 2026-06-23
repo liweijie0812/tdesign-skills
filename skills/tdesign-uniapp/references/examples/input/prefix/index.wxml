@@ -1,9 +1,0 @@
-<!--
-  TDesign TDesign UniApp 示例：input - index
-  覆盖组件：Input
-  来源：组件库源码 packages/components/input/_example/index.vue
--->
-
-<t-input prefixIcon="app" label="标签文字" placeholder="请输入文字" />
-
-<t-input prefixIcon="app" placeholder="请输入文字" />

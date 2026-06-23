@@ -1,9 +1,0 @@
-<!--
-  TDesign TDesign Miniprogram 示例：action-sheet - index
-  覆盖组件：Action-sheet
-  来源：组件库源码 packages/components/action-sheet/_example/index.wxml
--->
-
-<t-action-sheet id="t-action-sheet" usingCustomNavbar bind:selected="handleSelected" />
-
-<t-button size="large" variant="outline" bind:tap="handleAction" block theme="primary">列表型选项状态</t-button>

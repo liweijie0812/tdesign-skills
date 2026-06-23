@@ -1,7 +1,0 @@
-<!--
-  TDesign TDesign Miniprogram 示例：cell - cell
-  覆盖组件：Cell
-  来源：组件库源码 packages/components/cell/_example/cell.wxml
--->
-
-Page({});

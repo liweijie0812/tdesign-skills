@@ -1,9 +1,0 @@
-<!--
-  TDesign TDesign Mobile Vue 示例：input - label
-  覆盖组件：Input
-  来源：组件库源码 src/input/demos/label.vue
--->
-
-<template>
-  <t-input label="标签超长时最多十个字" placeholder="请输入文字" />
-</template>

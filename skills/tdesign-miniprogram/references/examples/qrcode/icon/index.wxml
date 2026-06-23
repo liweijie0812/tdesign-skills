@@ -1,7 +1,0 @@
-<!--
-  TDesign TDesign Miniprogram 示例：qrcode - index
-  覆盖组件：Qrcode
-  来源：组件库源码 packages/components/qrcode/_example/index.wxml
--->
-
-<t-qrcode value="https://tdesign.tencent.com/" icon="https://tdesign.gtimg.com/site/tdesign-logo.png" />

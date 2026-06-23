@@ -1,8 +1,0 @@
-<!--
-  TDesign TDesign Miniprogram 示例：dialog - index
-  覆盖组件：Dialog
-  来源：组件库源码 packages/components/dialog/_example/index.wxml
--->
-
-<t-button size="large" variant="outline" theme="primary" bind:tap="showDialog" block> 命令行操作 </t-button>
-<t-dialog id="t-dialog" />
