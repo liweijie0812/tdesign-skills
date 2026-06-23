@@ -8,6 +8,8 @@
 node <tdesign-composition-skill-dir>/scripts/check-quality.mjs [--platform web|mobile|miniprogram] <file-or-directory> [...more]
 ```
 
+`<file-or-directory>` 按**当前命令工作目录**解析。运行前先确认已经在目标项目根目录，或传入绝对路径；不要在 skill 仓库里直接扫描另一个项目的相对路径。
+
 示例：
 
 ```bash
@@ -15,6 +17,12 @@ node skills/tdesign-composition/scripts/check-quality.mjs src/views/admin
 node skills/tdesign-composition/scripts/check-quality.mjs --platform mobile src/pages/mobile
 node skills/tdesign-composition/scripts/check-quality.mjs src/pages/dashboard.vue src/pages/users.vue
 ```
+
+## 路径问题排查
+
+- 提示 `path does not exist`：当前目录下不存在传入路径。先确认 `pwd`，再改用项目内真实相对路径或绝对路径。
+- 在 monorepo 中运行：从包含目标应用的 package 根目录运行，或传入 `apps/admin/src/...` 这类完整相对路径。
+- 扫描 Mobile / Miniprogram：显式加 `--platform mobile` 或 `--platform miniprogram`，避免 Web-only 规则误报。
 
 ## 检查项
 

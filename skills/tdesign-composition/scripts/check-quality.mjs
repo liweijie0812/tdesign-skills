@@ -18,6 +18,7 @@ function printUsage() {
   console.log('Options:');
   console.log('  --platform <platform>  Set platform: auto, web, mobile, or miniprogram');
   console.log('  -h, --help             Show this help message');
+  console.log(`Current working directory: ${root}`);
 }
 
 if (rawArgs.includes('--help') || rawArgs.includes('-h')) {
@@ -300,7 +301,7 @@ const files = [];
 for (const target of targets) {
   const resolved = path.resolve(root, target);
   if (!fs.existsSync(resolved)) {
-    failures.push(`${target}: path does not exist`);
+    failures.push(`${target}: path does not exist from current working directory ${root}. Run from the project root or pass an absolute path.`);
     continue;
   }
   walk(resolved, files);
