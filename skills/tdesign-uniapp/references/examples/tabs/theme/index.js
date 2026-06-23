@@ -1,7 +1,0 @@
-<!--
-  TDesign TDesign UniApp 示例：tabs - index
-  覆盖组件：Tabs
-  来源：组件库源码 packages/components/tabs/_example/index.vue
--->
-
-Component({});

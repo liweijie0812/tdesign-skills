@@ -1,9 +1,0 @@
-<!--
-  TDesign TDesign Miniprogram 示例：dialog - index
-  覆盖组件：Dialog
-  来源：组件库源码 packages/components/dialog/_example/index.wxml
--->
-
-.wrapper {
-  margin-bottom: 32rpx;
-}

@@ -1,7 +1,0 @@
-<!--
-  TDesign TDesign UniApp 示例：pull-down-refresh - pull-down-refresh
-  覆盖组件：Pull-down-refresh
-  来源：组件库源码 packages/components/pull-down-refresh/_example/pull-down-refresh.vue
--->
-
-Page({});

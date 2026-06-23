@@ -1,79 +1,80 @@
 # TDesign Mobile Vue 示例索引
 
-本目录包含从 TDesign Mobile Vue 组件库源码自动提取的示例代码。
+本目录包含从 TDesign Mobile Vue 组件库源码自动提取的示例代码（已精简，每组件仅保留基础示例和关键变体）。
 
 导入方式：`import { Component } from 'tdesign-mobile-vue'`
 
 ## 覆盖组件
 
-| 组件 | 目录 | 示例文件 |
-|------|------|----------|
-| Action-sheet | `action-sheet/` | align.vue, grid-multiple.vue, grid.vue, list.vue, mobile.vue, status.vue |
-| Avatar | `avatar/` | action.vue, badge-avatar.vue, character-avatar.vue, exhibition.vue, icon-avatar.vue, image-avatar.vue, mobile.vue, size.vue |
-| Back-top | `back-top/` | base.vue, half-round.vue, mobile.vue |
-| Badge | `badge/` | base.vue, mobile.vue, size.vue, theme.vue |
-| Button | `button/` | base.vue, block.vue, ghost.vue, group.vue, icon.vue, mobile.vue, shape.vue, size.vue, status.vue, theme.vue |
-| Calendar | `calendar/` | base.vue, custom-text-single.vue, custom-text.vue, disabled.vue, local-text.vue, mobile.vue, multiple.vue, range.vue, switch-mode.vue, without-popup.vue |
-| Cascader | `cascader/` | base.vue, check-strictly.vue, keys.vue, lazy.vue, mobile.vue, theme-tab.vue, with-title.vue, with-value.vue |
-| Cell | `cell/` | group.vue, mobile.vue, multiple.vue, single.vue |
-| Checkbox | `checkbox/` | all.vue, base.vue, card.vue, horizontal.vue, mobile.vue, right.vue, special.vue, status.vue, type.vue |
-| Collapse | `collapse/` | accordion.vue, action.vue, base.vue, card.vue, mobile.vue, placement.vue |
-| Color-picker | `color-picker/` | base.vue, format.vue, mobile.vue, multiple.vue, use-popup.vue |
-| Config-provider | `config-provider/` | mobile.vue, other-en.vue, table-en.vue, upload-en.vue |
-| Count-down | `count-down/` | base.vue, mobile.vue, size.vue |
-| Date-time-picker | `date-time-picker/` | date-all.vue, hour-minute-second.vue, hour-minute.vue, mobile.vue, show-week.vue, steps.vue, with-title.vue, without-title.vue, year-month-date.vue, year-month.vue |
-| Dialog | `dialog/` | confirm.vue, feedback.vue, image-dialog.vue, input.vue, mobile.vue, multi-state.vue, plugin.vue |
-| Divider | `divider/` | base.vue, mobile.vue, theme.vue |
-| Drawer | `drawer/` | base.vue, footer.vue, icon.vue, mobile.vue, plugin.vue, title.vue |
-| Dropdown-menu | `dropdown-menu/` | customized.vue, direction.vue, disabled.vue, mobile.vue, multiple.vue, single.vue |
-| Empty | `empty/` | base.vue, buttonEmpty.vue, imageEmpty.vue, mobile.vue |
-| Fab | `fab/` | advance.vue, base.vue, collapsible.vue, draggable.vue, mobile.vue |
-| Footer | `footer/` | base.vue, links.vue, logo.vue, mobile.vue |
-| Form | `form/` | horizontal.vue, mobile.vue, vertical.vue |
-| Grid | `grid/` | badge.vue, base.vue, bordered.vue, card.vue, desc.vue, icon.vue, mobile.vue, multiple.vue, scroll.vue |
-| Guide | `guide/` | base.vue, custom-popover.vue, dialog-body.vue, dialog.vue, mobile.vue, my-popover.vue, no-mask.vue, popover-dialog.vue |
-| Icon | `icon/` | base.vue, enhanced.vue, iconfont-enhanced.vue, iconfont.vue, mobile.vue, single.vue |
-| Image | `image/` | base.vue, mobile.vue, position.vue, shape.vue, status.vue |
-| Image-viewer | `image-viewer/` | align.vue, base.vue, mobile.vue, operation.vue |
-| Indexes | `indexes/` | base.vue, custom.vue, mobile.vue |
-| Input | `input/` | align.vue, banner.vue, base.vue, bordered.vue, custom.vue, label.vue, layout.vue, maxLength.vue, mobile.vue, prefix.vue, special.vue, status.vue, suffix.vue |
-| Layout | `layout/` | base.vue, mobile.vue, offset.vue |
-| Link | `link/` | base.vue, linkSize.vue, mobile.vue, prefix.vue, status.vue, suffix.vue, theme.vue, underline.vue |
-| List | `list/` | base.vue, err-tip.vue, mobile.vue, pull-refresh.vue |
-| Loading | `loading/` | attach.vue, base.vue, delay.vue, fullscreen.vue, horz.vue, mobile.vue, pure-text.vue, service.vue, size.vue, speed.vue, vert.vue |
-| Message | `message/` | base.vue, closeAll.vue, mobile.vue, theme.vue |
-| Navbar | `navbar/` | base.vue, custom-color.vue, img.vue, left-title.vue, mobile.vue, search.vue, size.vue |
-| Notice-bar | `notice-bar/` | base.vue, custom.vue, customization.vue, event.vue, iconDemo.vue, mobile.vue, scrolling.vue, suffixIcon.vue, theme.vue |
-| Overlay | `overlay/` | base.vue, mobile.vue |
-| Picker | `picker/` | area.vue, base.vue, customHeight.vue, mobile.vue, with-title.vue |
-| Popover | `popover/` | mobile.vue, placement.vue, theme.vue, type.vue |
-| Popup | `popup/` | base.vue, custom-close.vue, mobile.vue, nested.vue, with-title.vue |
-| Progress | `progress/` | base.vue, circle.vue, line.vue, mobile.vue, plump.vue |
-| Pull-down-refresh | `pull-down-refresh/` | base.vue, loading-texts.vue, mobile.vue, timeout.vue |
-| Qrcode | `qrcode/` | base.vue, borderless.vue, color.vue, download.vue, icon.vue, level.vue, mobile.vue, size.vue, status-render.vue, status.vue, type.vue |
-| Radio | `radio/` | base.vue, card.vue, custom.vue, horizontal.vue, icon.vue, mobile.vue, placement.vue, status.vue |
-| Rate | `rate/` | action.vue, base.vue, color.vue, count.vue, custom.vue, mobile.vue, placement.vue, show-text.vue, size.vue, special.vue |
-| Result | `result/` | custom.vue, mobile.vue, theme.vue |
-| Search | `search/` | action.vue, base.vue, max-length.vue, mobile.vue, other.vue, shape.vue |
-| Segmented | `segmented/` | base.vue, block.vue, disabled.vue, mobile.vue |
-| Side-bar | `side-bar/` | base.vue, custom.vue, mobile.vue, switch.vue, with-icon.vue |
-| Skeleton | `skeleton/` | animation.vue, cell-group.vue, grid.vue, image-group.vue, mobile.vue, theme.vue |
-| Slider | `slider/` | base.vue, capsule.vue, disabled.vue, label.vue, mobile.vue, range.vue, step.vue, vertical.vue |
-| Stepper | `stepper/` | base.vue, min-max.vue, mobile.vue, size.vue, status.vue, theme.vue |
-| Steps | `steps/` | horizontal.vue, mobile.vue, special.vue, status.vue, vertical.vue |
-| Sticky | `sticky/` | base.vue, container.vue, mobile.vue, offset.vue |
-| Swipe-cell | `swipe-cell/` | double.vue, event.vue, icon.vue, left.vue, mobile.vue, right.vue |
-| Swiper | `swiper/` | base.vue, card.vue, control.vue, current.vue, custom.vue, fraction.vue, mobile.vue, outside.vue, vertical.vue |
-| Switch | `switch/` | base.vue, color.vue, label.vue, mobile.vue, size.vue, status.vue |
-| Tab-bar | `tab-bar/` | badge-props.vue, base.vue, custom.vue, mobile.vue, pure-icon.vue, round.vue, text-spread.vue, text.vue |
-| Table | `table/` | base.vue, bordered.vue, custom-row-style.vue, mobile.vue, rowspan-colspan.vue, scroll.vue, stripe.vue |
-| Tabs | `tabs/` | badge.vue, content.vue, evenly.vue, icon.vue, isometric.vue, mobile.vue, size.vue, status.vue, theme.vue |
-| Tag | `tag/` | checkable.vue, closable.vue, mobile.vue, size.vue, theme.vue, type.vue |
-| Textarea | `textarea/` | autosize.vue, base.vue, card.vue, custom.vue, disabled.vue, label.vue, maxcharacter.vue, maxlength.vue, mobile.vue |
-| Toast | `toast/` | base.vue, close.vue, cover.vue, mobile.vue, theme.vue |
-| Tree-select | `tree-select/` | base.vue, mobile.vue, multiple.vue, normal.vue |
-| Typography | `typography/` | base.vue, combination.vue, copyable.vue, ellipsis.vue, mobile.vue, theme.vue |
-| Upload | `upload/` | base.vue, custom.vue, mobile.vue, multiple.vue, status.vue, theme.vue |
-| Watermark | `watermark/` | base.vue, gray.vue, image.vue, layout.vue, mobile.vue, movingImage.vue, movingText.vue, multiLine.vue, multiLineGray.vue |
+| 组件 | 目录 | 保留示例数 | 关键示例 |
+|------|------|------------|----------|
+| Action-sheet | `action-sheet/` | 1 | grid-multiple.vue |
+| Avatar | `avatar/` | 1 | action.vue |
+| Back-top | `back-top/` | 1 | base.vue |
+| Badge | `badge/` | 1 | base.vue |
+| Button | `button/` | 2 | base.vue, group.vue |
+| Calendar | `calendar/` | 6 | base.vue, custom-text-single.vue, custom-text.vue, disabled.vue |
+| Cascader | `cascader/` | 1 | base.vue |
+| Cell | `cell/` | 2 | group.vue, multiple.vue |
+| Checkbox | `checkbox/` | 1 | base.vue |
+| Collapse | `collapse/` | 1 | base.vue |
+| Color-picker | `color-picker/` | 4 | base.vue, format.vue, multiple.vue, use-popup.vue |
+| Config-provider | `config-provider/` | 1 | mobile.vue |
+| Count-down | `count-down/` | 1 | base.vue |
+| Date-time-picker | `date-time-picker/` | 1 | date-all.vue |
+| Dialog | `dialog/` | 2 | image-dialog.vue, plugin.vue |
+| Divider | `divider/` | 1 | base.vue |
+| Drawer | `drawer/` | 2 | base.vue, plugin.vue |
+| Dropdown-menu | `dropdown-menu/` | 3 | customized.vue, disabled.vue, multiple.vue |
+| Empty | `empty/` | 1 | base.vue |
+| Fab | `fab/` | 1 | base.vue |
+| Footer | `footer/` | 1 | base.vue |
+| Form | `form/` | 1 | basic-form.vue |
+| Grid | `grid/` | 2 | base.vue, multiple.vue |
+| Guide | `guide/` | 5 | base.vue, custom-popover.vue, dialog-body.vue, dialog.vue |
+| Icon | `icon/` | 1 | base.vue |
+| Image | `image/` | 1 | base.vue |
+| Image-viewer | `image-viewer/` | 1 | base.vue |
+| Indexes | `indexes/` | 2 | base.vue, custom.vue |
+| Input | `input/` | 2 | base.vue, custom.vue |
+| Layout | `layout/` | 1 | base.vue |
+| Link | `link/` | 1 | base.vue |
+| List | `list/` | 1 | base.vue |
+| Loading | `loading/` | 1 | base.vue |
+| Message | `message/` | 1 | base.vue |
+| Navbar | `navbar/` | 2 | base.vue, custom-color.vue |
+| Notice-bar | `notice-bar/` | 4 | base.vue, custom.vue, customization.vue, event.vue |
+| Overlay | `overlay/` | 1 | base.vue |
+| Picker | `picker/` | 2 | base.vue, customHeight.vue |
+| Popover | `popover/` | 1 | mobile.vue |
+| Popup | `popup/` | 2 | base.vue, custom-close.vue |
+| Progress | `progress/` | 1 | base.vue |
+| Pull-down-refresh | `pull-down-refresh/` | 2 | base.vue, loading-texts.vue |
+| Qrcode | `qrcode/` | 1 | base.vue |
+| Radio | `radio/` | 2 | base.vue, custom.vue |
+| Rate | `rate/` | 2 | base.vue, custom.vue |
+| Result | `result/` | 1 | custom.vue |
+| Search | `search/` | 1 | base.vue |
+| Segmented | `segmented/` | 2 | base.vue, disabled.vue |
+| Side-bar | `side-bar/` | 2 | base.vue, custom.vue |
+| Skeleton | `skeleton/` | 2 | cell-group.vue, image-group.vue |
+| Slider | `slider/` | 2 | base.vue, disabled.vue |
+| Stepper | `stepper/` | 1 | base.vue |
+| Steps | `steps/` | 1 | horizontal.vue |
+| Sticky | `sticky/` | 1 | base.vue |
+| Swipe-cell | `swipe-cell/` | 1 | event.vue |
+| Swiper | `swiper/` | 3 | base.vue, control.vue, custom.vue |
+| Switch | `switch/` | 1 | base.vue |
+| Tab-bar | `tab-bar/` | 2 | base.vue, custom.vue |
+| Table | `table/` | 2 | base.vue, custom-row-style.vue |
+| Tabs | `tabs/` | 1 | badge.vue |
+| Tag | `tag/` | 1 | checkable.vue |
+| Textarea | `textarea/` | 3 | base.vue, custom.vue, disabled.vue |
+| Toast | `toast/` | 1 | base.vue |
+| Tree-select | `tree-select/` | 2 | base.vue, multiple.vue |
+| Typography | `typography/` | 1 | base.vue |
+| Upload | `upload/` | 3 | base.vue, custom.vue, multiple.vue |
+| Watermark | `watermark/` | 1 | base.vue |
 
-> 此 README 由 `scripts/sync-examples.mjs` 自动生成。
+> 此 README 由 `scripts/slim-examples.mjs` 自动生成。
+> 示例已按方案一精简：Web/Mobile 保留 base + 关键变体，Miniprogram/UniApp 仅保留 base 子目录。

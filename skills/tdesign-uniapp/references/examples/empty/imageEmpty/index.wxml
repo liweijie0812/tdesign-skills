@@ -1,7 +1,0 @@
-<!--
-  TDesign TDesign UniApp 示例：empty - index
-  覆盖组件：Empty
-  来源：组件库源码 packages/components/empty/_example/index.vue
--->
-
-<t-empty t-class="empty-cls" t-class-image="t-empty__image" image="{{image}}" description="描述文字" />
