@@ -36,3 +36,4 @@
 - 小程序项目只查阅 `skills/tdesign-miniprogram/references/api/` 下的 API 文档。
 - 不同技术栈、移动端和小程序的 props、事件、插槽、组件命名和引入方式不能混用。
 - API 表描述不够精确时，优先读取同技术栈目录下对应组件或子组件的 `type.ts` / `props.ts` / `common.ts`，不要依赖用户项目 `node_modules` 推断 TDesign 官方 API。
+- 不根据其他组件库习惯或历史记忆臆造子组件名；尤其 `Table` 等复杂组件，先查当前栈 API 是否通过 `columns`、类型或配置项暴露能力，再决定是否存在独立子组件。

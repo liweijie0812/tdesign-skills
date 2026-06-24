@@ -261,6 +261,13 @@ function checkTableComponentUsage(filePath, text) {
   addWarning(filePath, 1, 'DS-010 页面出现表格、列表或数据关键词，但未发现真实 Table 组件');
 }
 
+function checkInventedTableColumns(filePath, text) {
+  if (!isUiFile(filePath)) return;
+  if (!hasAny(text, [/<t-table-column\b/i, /<TableColumn\b/, /<Table\.Column\b/])) return;
+
+  addFailure(filePath, 1, 'DS-012 检测到未确认的 Table 列子组件写法；请回当前技术栈 API 确认 `Table` 是否应使用 `columns`、render、插槽或真实子组件');
+}
+
 function checkStatusExpression(filePath, text) {
   if (!isUiFile(filePath)) return;
   const markupAndScript = stripStyleBlocks(text);
@@ -289,6 +296,7 @@ function checkFile(filePath) {
   checkIconSource(relativePath, text);
   checkSolidColorContrast(relativePath, text);
   checkTableComponentUsage(relativePath, text);
+  checkInventedTableColumns(relativePath, text);
   checkStatusExpression(relativePath, text);
 }
 

@@ -6,7 +6,7 @@
 2. 只有 TDesign 无法满足需求时，才使用原生 HTML、最小 CSS 或受控自定义组件，并说明不是 TDesign 官方能力，因为未经验证的实现可能在边缘场景（暗色模式、响应式、国际化）下出问题。
 3. 不引入其他组件库，因为混用会导致样式冲突、包体积膨胀和视觉不一致；如果 TDesign 确实无法覆盖需求，优先用原生 HTML + 最小 CSS 兜底。
 4. 不用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力，因为重复实现会绕过 TDesign 的可访问性、键盘导航和主题适配。
-5. props、事件、插槽、小程序 external classes 等必须查 `references/api/` 确认，因为 TDesign 各栈 API 差异大，凭记忆容易跨栈混淆（如 Vue 3 的 `modelValue` vs 小程序的 `value` 和小程序 external classes）。
+5. props、事件、插槽、小程序 external classes 和真实子组件名必须查 `references/api/` 确认，因为 TDesign 各栈 API 差异大，凭记忆容易跨栈混淆（如 Vue 3 的 `modelValue` vs 小程序的 `value`、以及 `Table` 这类复杂组件通常通过 `columns` 配置而不是臆造 `t-table-column` 一类标签）。
 
 ## 职责边界
 
@@ -39,6 +39,13 @@
 - 只读取当前任务需要的单个组件目录，不整树加载 `references/api/`。
 - API 表不够精确时，再读取同目录 `type.ts`、`props.ts`、`common.ts`。
 - 组件是否存在必须以 `references/meta/stack-matrix.json` 或对应端文件为准，不从目录存在推断。
+
+## 组件用法题固定顺序
+
+- 用户一旦在问“怎么用”“怎么写”“给个示例”，主责必须切到当前技术栈 API skill，不继续停留在总入口、docs、选型或场景层回答实现细节。
+- 执行顺序固定为：识别技术栈 → 确认组件覆盖 → 查当前栈 `references/api/<component>/index.md` → 不够再查 `type.ts` / `props.ts` / `common.ts` → 最后再查同栈 `references/examples/`。
+- 不要先读示例再反推 API，因为示例是辅助证据，不是 props、事件、插槽和子组件存在性的权威来源。
+- 回答顺序固定为：先说明技术栈或假设前提，再给 API 依据和关键写法，最后给最小示例；不确定点要明确标注需回 API 或类型源确认。
 
 ## 技术栈 skill 统一模板
 

@@ -1,6 +1,6 @@
 ---
 name: tdesign-composition
-description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架、场景默认方案、Web 中后台视觉规范、Design Token、质量门禁、表单/列表/详情/仪表盘/应用壳/移动端页面搭建或审计时使用。只负责页面级组合、设计规则和交付自检；组件选型理由转 tdesign-usage-guide，单组件 API 转当前技术栈 skill，资料入口转 tdesign-docs。
+description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架、场景默认方案、Web 中后台视觉规范、Design Token、质量门禁、表单/列表/详情/仪表盘/应用壳/移动端页面搭建或审计时使用。只负责页面级组合、设计规则和交付自检；不负责单组件怎么用、示例代码或具体 props/API。
 ---
 
 # TDesign 组件搭配设计指南与页面场景
@@ -74,6 +74,7 @@ description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架�
 - 组件选型争议转到 `tdesign-usage-guide`，不在场景卡里重新做选型规则，因为选型和组合是不同职责。
 - 如果场景卡里的默认组件当前栈不存在，已安装 `tdesign-docs` 时先查 `../tdesign-docs/references/meta/stack-matrix.json`（全局概览）和按端的 `stack-matrix-<端>.json`；已安装 `tdesign-usage-guide` 时再查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`。目标 skill 未安装时，优先换当前栈已有的相似 TDesign 组件，再考虑最小原生能力，并说明需补装缺失 skill 获得完整覆盖或降级策略。
 - 场景组合确定后，单组件 props、事件、插槽回到对应技术栈 API skill。
+- 场景卡只决定用 `Table`，不决定其列实现标签名；落地代码时必须回当前栈 API 确认是 `columns`、render、插槽还是独立子组件，不要臆造 `t-table-column` 一类标签。
 - 只有组件组合和 props 无法满足时，才补最小 CSS，因为 CSS 兜底脱离了 TDesign 的主题适配体系。
 - 选择性安装且缺少 `tdesign-usage-guide` 或 `tdesign-docs` 时，不凭记忆断言组件覆盖、反模式或降级策略；只基于本 skill 场景卡、当前项目依赖和已安装技术栈 API 文件做保守方案。
 - 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。

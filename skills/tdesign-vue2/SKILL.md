@@ -1,6 +1,7 @@
 ---
 name: tdesign-vue2
-description: 当项目使用 tdesign-vue 或用户提到 TDesign Vue 2 组件、TDesign Web 组件的 props、事件、Options API、插槽或代码落地时使用。
+description: 当项目使用 tdesign-vue，或用户提到 TDesign Vue 2 / Web 组件怎么用、示例代码、props、事件、Options API、插槽、导入方式或代码落地时使用。
+
 ---
 
 # TDesign Vue 2 API
@@ -10,10 +11,10 @@ description: 当项目使用 tdesign-vue 或用户提到 TDesign Vue 2 组件、
 ## 查阅顺序
 
 1. 先确认项目安装 `tdesign-vue`，并查看已有代码的导入与写法。
-2. 典型写法参考查 `references/examples/README.md`（Options API、v-model、data/methods 组织等）。
-3. 组件是否存在：已安装 `tdesign-docs` 时查 `../tdesign-docs/references/meta/stack-matrix-web.json` 的 `coverage.byStack.vue2`；未安装时以当前栈 `references/api/` 目录实际存在的组件为准，不从记忆推断，建议补装 `tdesign-docs` 获得准确覆盖矩阵。
-4. 具体组件 API 查 `references/api/<component>/index.md`。
-5. API 表不够精确时，查同目录 `type.ts`、`props.ts`（如存在）、`common.ts` 或子组件类型文件。
+2. 组件是否存在：已安装 `tdesign-docs` 时查 `../tdesign-docs/references/meta/stack-matrix-web.json` 的 `coverage.byStack.vue2`；未安装时以当前栈 `references/api/` 目录实际存在的组件为准，不从记忆推断，建议补装 `tdesign-docs` 获得准确覆盖矩阵。
+3. 具体组件 API 查 `references/api/<component>/index.md`。
+4. API 表不够精确时，查同目录 `type.ts`、`props.ts`（如存在）、`common.ts` 或子组件类型文件。
+5. 用户在问“怎么用/给示例”时，再查 `references/examples/README.md`，命中组件目录后按需读 `base.vue` 和最接近需求的关键变体。
 6. 涉及跨端语义或端差异时：已安装 `tdesign-docs` 时先看 `../tdesign-docs/references/api/shared/index.md`；未安装时以当前栈 `references/api/<component>/` 为准，不确定的差异明确告知用户需人工确认，建议补装 `tdesign-docs` 获得跨端共享契约。
 7. 页面组合或页面搭建先 `tdesign-composition`，版本能力先 `tdesign-changelog`；对应 skill 未安装时跳过查询，不凭记忆编造版本或组合结论，建议补装对应 skill 获得准确结果，查完回本栈 API 文件确认。
 
@@ -23,6 +24,8 @@ description: 当项目使用 tdesign-vue 或用户提到 TDesign Vue 2 组件、
 - 事件名、插槽名、受控字段和子组件以 `references/api/` 为准，因为 Vue 2 的事件命名和插槽写法与 Vue 3 存在差异。
 - 不把 `tdesign-vue-next`、React、Mobile 或 Miniprogram API 当作 Vue 2 API。
 - 不凭经验编造 props、事件、插槽或函数式调用，应查 `references/api/` 确认。
+- 不凭经验编造子组件标签名；例如 `Table` 优先查 `columns` 配置和插槽，不要直接生成 `t-table-column` 或其他未在当前栈 API 中确认的标签。
+- 用户要求“怎么用”或“给个示例”时，先读当前组件 `references/api/<component>/index.md`，必要时补读同栈 examples 和类型源，再组织 Vue 2 代码；不要跳过 API 直接给经验写法。
 
 ## 约束
 

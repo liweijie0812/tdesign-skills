@@ -16,6 +16,7 @@
 - React 通常以 `type.ts` 为主，Vue Next / Vue 2 通常同时有 `props.ts` 和 `type.ts`。
 - `ConfigProvider` 的全局配置项较多，具体字段以 `config-provider/type.ts` 和 `props.ts` 为准。
 - `Table`、`Upload`、`Tree`、`Select`、`DatePicker` 等复杂组件的组合配置较多，优先查本地类型源，不要凭 API 表摘要推断。
+- `Table` 相关列、筛选、编辑和树形能力常通过 `columns`、配置对象和渲染函数暴露；未在当前栈 API 明确出现前，不要生成 `t-table-column`、`TableColumn` 等推测出来的子组件名。
 
 ## 跨框架命名规则
 

@@ -1,11 +1,13 @@
 ---
 name: tdesign-docs
-description: 当用户询问 TDesign 文档入口、资料在哪里、当前技术栈有哪些组件可用、组件覆盖矩阵、上游来源链接，或需要决定先读哪个目录时使用。只做资料检索、覆盖确认和来源路由；不做组件选型、页面组合或具体 API 实现。
+description: 当用户询问 TDesign 文档入口、资料在哪里、当前技术栈有哪些组件可用、组件覆盖矩阵、上游来源链接，或需要决定先读哪个目录时使用。只做资料检索、覆盖确认和来源路由；不回答组件怎么用、示例代码、props/事件/插槽或页面组合。
 ---
 
 # TDesign 文档与资料入口
 
 本 skill 用于回答"资料在哪里、当前栈有什么、应该先读什么"。它不替代组件选型、场景搭配或具体 API 实现。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
+
+如果用户已经在问“某组件怎么用”“给个代码示例”“props/事件/插槽怎么写”，本 skill 只负责指出该去哪个技术栈 API 目录，不直接凭 docs 总览回答实现细节。
 
 ## 查阅顺序
 
@@ -37,7 +39,7 @@ node skills/tdesign-docs/scripts/query-matrix.mjs --group web --json     # 按�
 - 回答"当前栈有没有某组件"：用 `references/meta/stack-matrix.json`（全局覆盖）和对应端的 `stack-matrix-<端>.json`。
 - 回答"该选什么组件、为什么"：转到 `tdesign-usage-guide`。
 - 回答"页面通常怎么搭"：转到 `tdesign-composition`。
-- 回答"某个 props、事件、插槽怎么写"：转到对应技术栈 skill。
+- 回答"某个 props、事件、插槽怎么写" 或 "某组件怎么用/给示例"：转到对应技术栈 skill。
 - 回答"某能力何时新增或废弃"：转到 `tdesign-changelog`。
 
 ## 约束

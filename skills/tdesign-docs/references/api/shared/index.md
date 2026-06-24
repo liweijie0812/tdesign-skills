@@ -8,6 +8,7 @@
 - Web、移动端、小程序和 uni-app 只能复用设计意图，不能复用 props、事件、插槽、样式入口或函数式调用签名。
 - 同名组件在不同端可能有不同默认值、关闭链路、层级、slots 和 external classes。
 - API 表描述不够精确时，读取对应组件或子组件目录下的 `type.ts` / `props.ts` 和公共 `common.ts`。
+- `_shared` 只提供语义，不证明某个子组件真实存在；像 `Table` 这样的复杂组件，列能力常由 `columns` 等配置对象表达，不能据语义文档反推 `t-table-column` 或 `TableColumn` 一定可用。
 
 ## Dialog
 

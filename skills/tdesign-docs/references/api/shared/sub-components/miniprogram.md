@@ -52,6 +52,7 @@
 - `AvatarGroup`：用于展示多人、团队或协作者头像集合，真实类型源在 `avatar-group/`。
 - `CollapsePanel`：用于 `Collapse` 中的单个面板，真实类型源在 `collapse-panel/`。
 - `BaseTableCol`：用于小程序表格列定义，复杂列能力以 `skills/tdesign-miniprogram/references/api/table/index.md` 和 `table/type.ts` 为准。
+- 小程序和 uni-app 的 `Table` 列能力优先通过 `columns`、`BaseTableCol` 类型和真实 slots 表达；未在当前栈 API 明确出现前，不要生成 `t-table-column`、`TableColumn` 等推测出来的子组件名。
 - `Upload` slots：上传按钮、文件列表和自定义内容按 `skills/tdesign-miniprogram/references/api/upload/index.md`，文件类型以 `upload/type.ts` 为准。
 - `GuideStep`：用于引导流程中的单个步骤，类型以 `guide/type.ts` 为准。
 

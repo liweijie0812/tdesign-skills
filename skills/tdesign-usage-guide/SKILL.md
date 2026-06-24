@@ -1,6 +1,6 @@
 ---
 name: tdesign-usage-guide
-description: 当用户需要 TDesign 组件使用指南、组件选型、何时使用、相似组件比较、迁移到 TDesign、评审 TDesign 代码、反模式或降级策略时使用。只负责选型和使用决策；不负责组件搭配设计指南、页面骨架、具体 props/API 写法或图标检索。
+description: 当用户问 TDesign 该用哪个组件、什么时候用、`Table` 还是 `List`、相似组件比较、迁移到 TDesign、评审反模式或降级策略时使用。只负责选型和使用决策；不负责组件怎么写、示例代码、具体 props/API、页面组合或图标检索。
 ---
 
 # TDesign 使用指南与选型
@@ -61,6 +61,7 @@ description: 当用户需要 TDesign 组件使用指南、组件选型、何时�
 - 迁移时先识别原 UI 语义，再映射到 TDesign 组件，不逐标签替换，因为逐标签替换会丢失组件间的交互逻辑和状态管理。
 - 不继承来源库的 props 名、事件名、弹层挂载习惯和样式覆盖方式，因为不同组件库的 API 约定不同，直接继承会导致运行时错误。
 - 评审时优先检查跨栈 API、伪造组件能力、过度自定义样式和重复造轮子。
+- 评审和回答时都不要臆造组件或子组件名称；像 `Table` 这类复杂组件的列、筛选、编辑能力是否通过 `columns`、配置项还是独立子组件暴露，必须回到当前技术栈 API 确认。
 - 需要组件搭配选型口径时，查 `references/decisions/component-composition-map.md`；需要组件搭配设计指南或页面级组合时，转到 `tdesign-composition`。
 - 需要落地 API 时，转到对应技术栈 skill。
 - 需要确认组件是否存在时，转到 `tdesign-docs` 覆盖矩阵。
