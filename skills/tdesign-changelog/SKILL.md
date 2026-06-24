@@ -41,8 +41,8 @@ node skills/tdesign-changelog/scripts/query-changelog.mjs --stack mobile-react -
 
 ## 约束
 
-- 查到版本线索后，仍要回到对应技术栈 skill 的 `references/api/<component>/index.md` 确认真实写法。
-- 不要用 changelog 反推 API 形状、默认值或事件名。
+- 查到版本线索后，仍要回到对应技术栈 skill 的 `references/api/<component>/index.md` 确认真实写法，因为 changelog 只记录变更摘要，不含完整 API 形状。
+- 不用 changelog 反推 API 形状、默认值或事件名，因为 changelog 描述可能省略上下文。
 - 只判断版本变化，不替代 `tdesign-docs` 的组件覆盖矩阵。
 - 组件名查不到时，使用脚本返回的候选组件名重试。
 - 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。

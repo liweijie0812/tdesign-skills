@@ -48,18 +48,18 @@ description: 当用户需要 TDesign 组件使用指南、组件选型、何时�
 
 ## 核心原则
 
-- 优先使用 TDesign 组件、布局、子组件、props、插槽和设计变量。
-- 只有 TDesign 无法满足需求时，才使用原生 HTML、最小 CSS 或受控自定义组件。
-- 禁止无理由引入其他组件库。
-- 禁止用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力。
-- 禁止把 Web、Mobile、Miniprogram 的组件结论直接互相套用。
+- 优先使用 TDesign 组件、布局、子组件、props、插槽和设计变量，因为 TDesign 组件经过跨端适配和可访问性测试，混用其他方案会导致视觉不一致和维护成本上升。
+- 只有 TDesign 无法满足需求时，才使用原生 HTML、最小 CSS 或受控自定义组件，因为未经验证的实现可能在边缘场景（暗色模式、响应式、国际化）下出问题。
+- 不引入其他组件库，因为混用会导致样式冲突、包体积膨胀和视觉不一致。
+- 不用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力，因为重复实现会绕过 TDesign 的可访问性、键盘导航和主题适配。
+- 不把 Web、Mobile、Miniprogram 的组件结论直接互相套用，因为各端组件覆盖范围、props 和默认值存在差异。
 
 > 常见取舍（Button vs Link、Dialog vs Drawer、Table vs List、Select/Picker vs Cascader、Message vs Notification 等）见 `references/decisions/similar-components.md` 与平台下 `similar-components.md`，不在本文件重复维护。
 
 ## 迁移与评审
 
-- 迁移时先识别原 UI 语义，再映射到 TDesign 组件，不逐标签替换。
-- 不继承来源库的 props 名、事件名、弹层挂载习惯和样式覆盖方式。
+- 迁移时先识别原 UI 语义，再映射到 TDesign 组件，不逐标签替换，因为逐标签替换会丢失组件间的交互逻辑和状态管理。
+- 不继承来源库的 props 名、事件名、弹层挂载习惯和样式覆盖方式，因为不同组件库的 API 约定不同，直接继承会导致运行时错误。
 - 评审时优先检查跨栈 API、伪造组件能力、过度自定义样式和重复造轮子。
 - 需要组件搭配选型口径时，查 `references/decisions/component-composition-map.md`；需要组件搭配设计指南或页面级组合时，转到 `tdesign-composition`。
 - 需要落地 API 时，转到对应技术栈 skill。
@@ -68,8 +68,8 @@ description: 当用户需要 TDesign 组件使用指南、组件选型、何时�
 
 ## 约束
 
-- 只负责选型、使用决策、反模式、迁移和降级策略，不直接编写当前栈 props、事件或插槽。
-- 组件存在性和覆盖范围转到 `tdesign-docs`，不要从经验判断某栈是否可用。
+- 只负责选型、使用决策、反模式、迁移和降级策略，不直接编写当前栈 props、事件或插槽，因为这些需要查具体技术栈的 API 文件。
+- 组件存在性和覆盖范围转到 `tdesign-docs`，不从经验判断某栈是否可用，因为各端覆盖范围不同且随版本变化。
 - 组件搭配设计指南、页面骨架、场景默认组合和交付自检转到 `tdesign-composition`。
 - 图标名称、分类、包名和导入方式转到 `tdesign-icons`。
 - 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。

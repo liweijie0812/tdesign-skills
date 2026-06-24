@@ -1,6 +1,6 @@
 ---
 name: tdesign-uniapp
-description: 当项目使用 tdesign-uniapp 且需要 uni-app 单组件 API、easycom 引入、@event 事件或代码落地时使用。
+description: 当项目使用 tdesign-uniapp 或用户提到 TDesign uni-app 组件、TDesign uni-app 的 easycom 引入、@event 事件或代码落地时使用。
 ---
 
 # TDesign UniApp API
@@ -20,11 +20,11 @@ description: 当项目使用 tdesign-uniapp 且需要 uni-app 单组件 API、ea
 ## UniApp 写法边界
 
 - 使用 `t-*` 组件标签，属性使用短横线（kebab-case），事件使用 `@event` 语法（非小程序 `bind:event`）。
-- 所有受控组件统一使用 `value` 作为双向绑定属性名，不使用 Vue 3 默认的 `modelValue`；使用 `v-model` 时必须写成 `v-model:value`，不要写裸 `v-model` 或 `v-model:modelValue`。
+- 所有受控组件统一使用 `value` 作为双向绑定属性名，不使用 Vue 3 默认的 `modelValue`；使用 `v-model` 时必须写成 `v-model:value`，不要写裸 `v-model` 或 `v-model:modelValue`，因为 `tdesign-uniapp` 基于小程序适配，Vue 3 默认的 `modelValue` 在 uni-app 中不生效。
 - 组件通过 `easycom` 自动引入，无需手动 `usingComponents`；也可手动 `import` 后注册。
 - 样式使用 `<style>` 或 `<style scoped>`，不使用小程序的 `@import` WXSS 路径。
-- 不要把 React 点语法、Vue Web 裸 `v-model` 约定、小程序 `bind` 事件或 WXML 模板语法套到 uni-app。
-- 不要凭经验编造 props、事件、插槽或组件名。
+- 不把 React 点语法、Vue Web 裸 `v-model` 约定、小程序 `bind` 事件或 WXML 模板语法套到 uni-app，因为 uni-app 使用 Vue template 而非 WXML。
+- 不凭经验编造 props、事件、插槽或组件名，应查 `references/api/` 确认。
 
 ### 与小程序的关键差异
 
@@ -41,11 +41,11 @@ description: 当项目使用 tdesign-uniapp 且需要 uni-app 单组件 API、ea
 
 ## 约束
 
-- 只读取当前任务需要的单个组件目录，不整树加载 `references/api/`。
-- 优先用 TDesign UniApp 组件和 props 解决问题，最后才补最小 CSS。
+- 只读取当前任务需要的单个组件目录，不整树加载 `references/api/`，因为整树加载会浪费大量 token 且信息过载。
+- 优先用 TDesign UniApp 组件和 props 解决问题，最后才补最小 CSS，因为 TDesign uni-app 组件经过多端兼容测试。
 - UniApp 组件 API 参考小程序组件文档，但事件写法必须使用 `@event` Vue 语法。
-- UniApp 受控组件双向绑定必须使用 `v-model:value`，与 React 版和原生小程序版的 `value` 命名保持一致。
-- 禁止引入其他组件库；禁止用 `div` / `ul > li` / `window.confirm()` 重复实现 TDesign 已有能力。
+- UniApp 受控组件双向绑定必须使用 `v-model:value`，与 React 版和原生小程序版的 `value` 命名保持一致，因为 `modelValue` 在 uni-app 中不生效。
+- 不引入其他组件库，因为混用会导致样式冲突、包体积膨胀和视觉不一致；不用 `div` / `ul > li` / `window.confirm()` 重复实现 TDesign 已有能力，因为重复实现会绕过 TDesign 的多端兼容和主题适配。
 - 当前栈组件不存在或能力不足：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/fallback-policy.md`；未安装时优先换相似 TDesign 组件，再考虑 uni-app 原生能力 + 最小 CSS，并在回复中说明这是非 TDesign 官方能力，建议补装 `tdesign-usage-guide` 获得完整降级策略。
 - 路由交接：选型→`tdesign-usage-guide`、页面组合→`tdesign-composition`、图标→`tdesign-icons`、版本→`tdesign-changelog`；查完线索回本栈 `references/api/<component>/index.md` 确认写法。
 - 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。

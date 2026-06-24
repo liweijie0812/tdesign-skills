@@ -2,11 +2,11 @@
 
 ## 核心原则
 
-1. 优先使用 TDesign 组件、布局、子组件、props、插槽和设计变量。
-2. 只有 TDesign 无法满足需求时，才使用原生 HTML、最小 CSS 或受控自定义组件，并说明不是 TDesign 官方能力。
-3. 禁止无理由引入其他组件库。
-4. 禁止用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力。
-5. 禁止凭经验猜 props、事件、插槽、函数式调用或小程序 external classes。
+1. 优先使用 TDesign 组件、布局、子组件、props、插槽和设计变量，因为 TDesign 组件经过跨端适配和可访问性测试，混用其他方案会导致视觉不一致和维护成本上升。
+2. 只有 TDesign 无法满足需求时，才使用原生 HTML、最小 CSS 或受控自定义组件，并说明不是 TDesign 官方能力，因为未经验证的实现可能在边缘场景（暗色模式、响应式、国际化）下出问题。
+3. 不引入其他组件库，因为混用会导致样式冲突、包体积膨胀和视觉不一致；如果 TDesign 确实无法覆盖需求，优先用原生 HTML + 最小 CSS 兜底。
+4. 不用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力，因为重复实现会绕过 TDesign 的可访问性、键盘导航和主题适配。
+5. props、事件、插槽、小程序 external classes 等必须查 `references/api/` 确认，因为 TDesign 各栈 API 差异大，凭记忆容易跨栈混淆（如 Vue 3 的 `modelValue` vs 小程序的 `value` 和小程序 external classes）。
 
 ## 职责边界
 
@@ -17,15 +17,15 @@
 
 ## 跨栈隔离
 
-- 禁止混用 React 点语法、Vue 标签写法、小程序短横线属性、uni-app `@event` 语法和不同端默认值。
-- 禁止把 Web、Mobile、Miniprogram 的组件结论直接互相套用。
-- 不要把 `tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react` 的 API 当作 React Web API。
-- `tdesign-uniapp` 受控组件统一用 `value` 做双向绑定属性名；使用 `v-model` 时必须写 `v-model:value`，不要套用 Vue 3 默认 `modelValue`。
+- 不混用 React 点语法、Vue 标签写法、小程序短横线属性、uni-app `@event` 语法和不同端默认值，因为跨栈混用会导致运行时错误（如 Vue `@event` 在小程序中不生效）。
+- 不把 Web、Mobile、Miniprogram 的组件结论直接互相套用，因为各端组件覆盖范围、props 和默认值存在差异。
+- 不把 `tdesign-vue-next`、`tdesign-vue`、`tdesign-mobile-react` 的 API 当作 React Web API。
+- `tdesign-uniapp` 受控组件统一用 `value` 做双向绑定属性名；使用 `v-model` 时必须写 `v-model:value`，因为 `tdesign-uniapp` 基于小程序适配，Vue 3 默认的 `modelValue` 在 uni-app 中不生效。
 
 ## 样式约束
 
-- 禁止在 TDesign 已提供组件的情况下手写等价实现。
-- 禁止通过覆盖 TDesign 样式来实现新 UI，应优先换组件或调整 props。
+- 不在 TDesign 已提供组件的情况下手写等价实现，因为重复实现会脱离 TDesign 的主题适配和可访问性支持。
+- 不通过覆盖 TDesign 样式来实现新 UI，应优先换组件或调整 props，因为覆盖内部样式会在版本升级后失效。
 - 只有组件组合和 props 无法满足时，才补最小 CSS。
 
 ## 场景卡约束

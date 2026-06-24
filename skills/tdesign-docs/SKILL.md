@@ -42,8 +42,8 @@ node skills/tdesign-docs/scripts/query-matrix.mjs --group web --json     # 按�
 
 ## 约束
 
-- 不要一次性读取所有技术栈的 `references/api/` 树。
-- 不要从目录存在推断组件可用性，必须以 `references/meta/stack-matrix.json` 或对应端文件为准。
-- 不要把 Web only 组件默认用于 Mobile 或 Miniprogram。
-- 选择性安装且目标辅助 skill 不存在时，只回答本 skill 能确认的资料入口和覆盖矩阵；不要凭记忆补齐选型、页面组合或设计规范结论。
+- 不一次性读取所有技术栈的 `references/api/` 树，因为整树加载会浪费大量 token 且信息过载。
+- 不从目录存在推断组件可用性，以 `references/meta/stack-matrix.json` 或对应端文件为准，因为目录可能包含不完整或过时的资料。
+- 不把 Web only 组件默认用于 Mobile 或 Miniprogram，因为各端组件覆盖范围不同。
+- 选择性安装且目标辅助 skill 不存在时，只回答本 skill 能确认的资料入口和覆盖矩阵；不凭记忆补齐选型、页面组合或设计规范结论。
 - 完整 collection 模式下，详细职责表、跨栈隔离细则和强制约束可参考 `../tdesign-skills/references/constraints.md`；未安装时按本文件内联规则执行。
