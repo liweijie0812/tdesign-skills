@@ -1,6 +1,6 @@
 ---
 name: tdesign-skills
-description: 当 TDesign 任务尚未明确技术栈或横跨多个 TDesign 包，需要先识别技术栈并路由到专项 skill 时使用。
+description: 当用户提到 TDesign 但未明确具体技术栈（React/Vue/小程序等），或任务横跨多个 TDesign 包，需要先识别技术栈并路由到专项 skill 时使用。
 ---
 
 # TDesign Skills 总入口
@@ -15,7 +15,7 @@ description: 当 TDesign 任务尚未明确技术栈或横跨多个 TDesign 包�
 
 ## 技术栈识别
 
-先检查 `package.json` 和项目已有代码，禁止只根据截图、类名或历史记忆判断。
+先检查 `package.json` 和项目已有代码，因为只根据截图、类名或历史记忆判断容易误判技术栈（如 uni-app 和小程序都使用 `t-*` 组件）。
 
 | 包名 | 技术栈 | 专项 skill |
 | --- | --- | --- |
