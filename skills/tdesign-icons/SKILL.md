@@ -63,7 +63,7 @@ node skills/tdesign-icons/scripts/query-icons.mjs --search edit --json
 
 ## 包名与导入红线
 
-- 包名必须来自下方官方包名矩阵，因为 `tdesign-icons-xxx`、`tdesign-icons-web`、`tdesign-icon`、`tdesign-icons` 等包名在 npm 上不存在，会导致安装失败。
+- 包名必须来自上方官方包名矩阵，因为 `tdesign-icons-xxx`、`tdesign-icons-web`、`tdesign-icon`、`tdesign-icons` 等包名在 npm 上不存在，会导致安装失败。
 - 不在 Vue 3 项目中安装或导入 `tdesign-icons-react`，不在 React 项目中安装或导入 `tdesign-icons-vue-next` / `tdesign-icons-vue`，因为跨栈包会导致组件无法渲染。
 - 不在 Vue 3 项目中使用 `tdesign-icons-vue`，除非项目实际依赖是 Vue 2 的 `tdesign-vue`，因为 Vue 2 和 Vue 3 的图标包不兼容。
 - Mobile React 使用 `tdesign-icons-react`，Mobile Vue 使用 `tdesign-icons-vue-next`；不把 Mobile Vue 写成 `tdesign-icons-vue`，因为 Mobile Vue 基于 Vue 3。

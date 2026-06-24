@@ -6,7 +6,7 @@
 2. 只有 TDesign 无法满足需求时，才使用原生 HTML、最小 CSS 或受控自定义组件，并说明不是 TDesign 官方能力，因为未经验证的实现可能在边缘场景（暗色模式、响应式、国际化）下出问题。
 3. 不引入其他组件库，因为混用会导致样式冲突、包体积膨胀和视觉不一致；如果 TDesign 确实无法覆盖需求，优先用原生 HTML + 最小 CSS 兜底。
 4. 不用 `div`、`ul > li`、`window.confirm()` 等重复实现 TDesign 已有能力，因为重复实现会绕过 TDesign 的可访问性、键盘导航和主题适配。
-5. props、事件、插槽等必须查 `references/api/` 确认，因为 TDesign 各栈 API 差异大，凭记忆容易跨栈混淆（如 Vue 3 的 `modelValue` vs 小程序的 `value`）。
+5. props、事件、插槽、小程序 external classes 等必须查 `references/api/` 确认，因为 TDesign 各栈 API 差异大，凭记忆容易跨栈混淆（如 Vue 3 的 `modelValue` vs 小程序的 `value` 和小程序 external classes）。
 
 ## 职责边界
 
