@@ -5,7 +5,7 @@ description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架�
 
 # TDesign 组件搭配设计指南与页面场景
 
-本 skill 用于回答“组件怎么搭配、某类页面通常怎么组织、默认怎么搭”。默认面向无设计文件场景：不依赖 Figma、截图或 `DESIGN.md`，先按 `references/modules/M01-overview-usage-rules.md` 建立根约束。它不替代组件选型理由、组件覆盖确认或具体组件 API。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
+本 skill 用于回答“页面怎么搭、某类页面通常怎么组织、默认怎么搭”。默认面向无设计文件场景：不依赖 Figma、截图或 `DESIGN.md`，先按 `references/modules/M01-overview-usage-rules.md` 建立根约束。它不替代组件选型理由、组件覆盖确认或具体组件 API。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
 ## 执行流程
 
@@ -44,14 +44,12 @@ description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架�
 
 1. 无设计文件场景先查 `references/modules/M01-overview-usage-rules.md`；它是页面组合、设计规则、导航、图标、CDN 示例和质量自检的根约束。
 2. 涉及 Web 中后台页面生成、页面改造或视觉走查时，动手前先查 `references/design/design-spec.md`、`references/design/visual-consistency-web.md`、`references/design/tokens.md` 和 `references/design/checklist.json`；简单咨询只按问题命中必要资料。
-3. 已安装 `tdesign-usage-guide` 时，先按 `../tdesign-usage-guide/references/decisions/README.md` 和 `../tdesign-usage-guide/references/decisions/platform-design-policy.md` 确认平台与组件选型口径；未安装时按用户已给出的平台和组件假设继续，不重新发明选型规则，并建议补装 `tdesign-usage-guide`。
-4. 组件搭配入口：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/component-composition-map.md`；未安装时直接使用本 skill 的场景卡和设计资料。
-5. Web 搭配细节：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/web/component-composition-map.md`；未安装时使用 Web 场景卡默认组合。
-6. Mobile / Miniprogram 搭配细节：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/mobile/component-composition-map.md`；未安装时使用移动端场景卡默认组合。
-7. 用户明确提到 starter、后台模板、页面模块拆分或常见搭配时，补查 `references/scenarios/web-starter-patterns.md`。
-8. 按场景决策表命中场景卡，具体场景卡路径见 `references/reading-guide.md`。
-9. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认写法。
-10. 代码生成或页面改造完成后，按 `references/design/checklist.json` 的适用项自检，质量门禁细则见 `references/quality-gate.md`。
+3. 已安装 `tdesign-usage-guide` 时，先按 `../tdesign-usage-guide/references/decisions/README.md` 和 `../tdesign-usage-guide/references/decisions/platform-design-policy.md` 确认平台与选型边界；未安装时按用户已给出的平台和组件假设继续，不重新发明选型规则，并建议补装 `tdesign-usage-guide`。
+4. 用户明确提到 starter、后台模板、页面模块拆分或常见搭配时，补查 `references/scenarios/web-starter-patterns.md`。
+5. 页面骨架、场景默认方案和设计细节以本 skill 为主。
+6. 按场景决策表命中场景卡，具体场景卡路径见 `references/reading-guide.md`。
+7. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认写法。
+8. 代码生成或页面改造完成后，按 `references/design/checklist.json` 的适用项自检，质量门禁细则见 `references/quality-gate.md`。
 
 > 场景卡完整路径、Web 中后台模块和设计规范资料的详细查阅清单见 `references/reading-guide.md`。
 

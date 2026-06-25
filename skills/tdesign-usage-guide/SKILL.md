@@ -28,7 +28,7 @@ description: 当用户问 TDesign 该用哪个组件、什么时候用、`Table`
 2. 组件何时使用：先查 `references/decisions/web/component-usage-map.md` 或 `references/decisions/mobile/component-usage-map.md`，命中组件后再按需查平台下 `components/<component>.md`。
 3. 相似组件怎么选：先查 `references/decisions/similar-components.md`，再查平台细分文档。
 4. 高频单项取舍：查平台下 `similar-components.md` 和 `components/<component>.md`。
-5. 组件搭配选型口径：先查 `references/decisions/component-composition-map.md`，再查平台下 `component-composition-map.md`。组件搭配设计指南、页面级组合和场景细节转到 `tdesign-composition`。
+5. 组件搭配选型口径：只保留与选型直接相关的边界判断；页面级组合、场景默认方案和设计规范转到 `tdesign-composition`。
 6. 反模式：先查 `references/decisions/anti-patterns.md`，再查平台细分文档。
 7. 当前栈缺组件或能力不够：查 `references/decisions/fallback-policy.md`。
 
@@ -62,7 +62,7 @@ description: 当用户问 TDesign 该用哪个组件、什么时候用、`Table`
 - 不继承来源库的 props 名、事件名、弹层挂载习惯和样式覆盖方式，因为不同组件库的 API 约定不同，直接继承会导致运行时错误。
 - 评审时优先检查跨栈 API、伪造组件能力、过度自定义样式和重复造轮子。
 - 评审和回答时都不要臆造组件或子组件名称；像 `Table` 这类复杂组件的列、筛选、编辑能力是否通过 `columns`、配置项还是独立子组件暴露，必须回到当前技术栈 API 确认。
-- 需要组件搭配选型口径时，查 `references/decisions/component-composition-map.md`；需要组件搭配设计指南或页面级组合时，转到 `tdesign-composition`。
+- 需要页面级组合或场景默认方案时，转到 `tdesign-composition`。
 - 需要落地 API 时，转到对应技术栈 skill。
 - 需要确认组件是否存在时，转到 `tdesign-docs` 覆盖矩阵。
 - 需要图标名称或分类时，转到 `tdesign-icons`。

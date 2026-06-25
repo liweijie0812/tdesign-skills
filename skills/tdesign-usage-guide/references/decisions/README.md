@@ -24,7 +24,7 @@
 2. 组件何时使用：先查 `web/component-usage-map.md` 或 `mobile/component-usage-map.md`；需要展开单组件细则时，再查 `web/components/<component>.md` 或 `mobile/components/<component>.md`。
 3. 相似组件怎么选：先看 `similar-components.md`，再按平台查 `web/similar-components.md` 或 `mobile/similar-components.md`。
 4. 高频单项取舍：按平台查 `web/similar-components.md` / `mobile/similar-components.md`，再查对应 `components/<component>.md`。
-5. 页面怎么搭：先看 `component-composition-map.md`，再查 `web/component-composition-map.md` 或 `mobile/component-composition-map.md`。
+5. 页面怎么搭：直接转到 `tdesign-composition`，查 `references/scenarios/README.md` 和 `references/reading-guide.md`。
 6. 什么不能做：先看 `anti-patterns.md`，再查 `web/anti-patterns.md` 或 `mobile/anti-patterns.md`。
 7. 当前栈缺组件或能力不够：查 `fallback-policy.md`。
 
