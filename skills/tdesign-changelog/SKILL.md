@@ -7,6 +7,13 @@ description: 当用户询问 TDesign 某组件能力在哪个版本新增、修�
 
 本 skill 用于确认 TDesign 组件的版本变化，不替代当前技术栈 API 文件。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
+## 使用协议
+
+1. **必须通过 `load_skill` 加载本 skill**，不要绕过 skill 系统直接 grep、find 或 read `references/` 下的内部文件。`load_skill` 返回的 SKILL.md 包含查询命令和约束上下文，直接读文件会丢失这些关键指导。
+2. **严格按下方「查询命令」使用脚本查询**，不直接读取 changelog 原始数据。
+3. **需要交接到其他 skill 时，对目标 skill 再次 `load_skill`**，不要直接读目标 skill 的 `references/` 文件。
+4. **`references/` 下的文件只在 SKILL.md 指引下按需读取**，它们是 skill 的内部资料，不是独立文档。
+
 ## 适用问题
 
 - 某个组件能力是哪个版本新增的。

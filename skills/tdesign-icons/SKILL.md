@@ -7,6 +7,13 @@ description: 当用户需要查找 TDesign 图标、搜索图标名称/关键词
 
 本 skill 用于查找和检索 TDesign Icons 图标库中的图标，并锁定当前技术栈应使用的官方图标包、安装命令和导入方式。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
+## 使用协议
+
+1. **必须通过 `load_skill` 加载本 skill**，不要绕过 skill 系统直接 grep、find 或 read `references/` 下的内部文件。`load_skill` 返回的 SKILL.md 包含查阅顺序和约束上下文，直接读文件会丢失这些关键指导。
+2. **严格按下方「查阅顺序」执行**，优先使用 `query-icons.mjs` 脚本查询，不直接读取 `references/manifest.json`。
+3. **需要交接到其他 skill 时，对目标 skill 再次 `load_skill`**，不要直接读目标 skill 的 `references/` 文件。
+4. **`references/` 下的文件只在 SKILL.md 指引下按需读取**，它们是 skill 的内部资料，不是独立文档。
+
 数据来源：`tdesign-icons` 官方 `manifest.js`，包含 2000+ 个图标的全量元数据。命名规则、品牌图标速查、6 级模糊匹配流程、多色 / 可变粗细写法和分类参考查 `references/usage-guide.md`。
 
 ## 查阅顺序

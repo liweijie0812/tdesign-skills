@@ -8,6 +8,13 @@ description: 当项目使用 tdesign-react，或用户提到 TDesign React / Web
 
 本 skill 只服务 `tdesign-react`。实现时使用 React Web JSX、React 事件、`className` / `style` 和 React 组件导入方式。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
+## 使用协议
+
+1. **必须通过 `load_skill` 加载本 skill**，不要绕过 skill 系统直接 grep、find 或 read `references/` 下的内部文件。`load_skill` 返回的 SKILL.md 包含查阅顺序、写法边界和约束上下文，直接读文件会丢失这些关键指导，导致跳步、跨栈误判或凭记忆编造 API。
+2. **严格按下方「查阅顺序」执行**，不跳步、不凭经验猜路径。先确认依赖和组件覆盖，再查 API，最后才查示例。
+3. **需要交接到其他 skill 时，对目标 skill 再次 `load_skill`**，不要直接读目标 skill 的 `references/` 文件。
+4. **`references/` 下的文件只在 SKILL.md 指引下按需读取**，它们是 skill 的内部资料，不是独立文档。
+
 ## 查阅顺序
 
 1. 先确认项目安装 `tdesign-react`，并查看已有代码的导入与写法。

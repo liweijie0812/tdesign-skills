@@ -7,6 +7,13 @@ description: 当用户询问 TDesign 文档入口、资料在哪里、当前技�
 
 本 skill 用于回答"资料在哪里、当前栈有什么、应该先读什么"。它不替代组件选型、场景搭配或具体 API 实现。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
+## 使用协议
+
+1. **必须通过 `load_skill` 加载本 skill**，不要绕过 skill 系统直接 grep、find 或 read `references/` 下的内部文件。`load_skill` 返回的 SKILL.md 包含查阅顺序和约束上下文，直接读文件会丢失这些关键指导。
+2. **严格按下方「查阅顺序」执行**，不跳步、不凭经验猜路径。
+3. **需要交接到其他 skill 时，对目标 skill 再次 `load_skill`**，不要直接读目标 skill 的 `references/` 文件。
+4. **`references/` 下的文件只在 SKILL.md 指引下按需读取**，它们是 skill 的内部资料，不是独立文档。
+
 如果用户已经在问“某组件怎么用”“给个代码示例”“props/事件/插槽怎么写”，本 skill 只负责指出该去哪个技术栈 API 目录，不直接凭 docs 总览回答实现细节。
 
 ## 查阅顺序
