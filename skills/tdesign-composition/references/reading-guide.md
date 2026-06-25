@@ -6,6 +6,7 @@
 
 | 场景 | 文件 |
 | --- | --- |
+| Web starter 页面模块、组件搭配和高频组合提炼 | `references/scenarios/web-starter-patterns.md` |
 | 表单录入、编辑、配置、审批页 | `references/scenarios/form-page.md` |
 | 后台列表、资源列表、结构化数据浏览页 | `references/scenarios/table-list-page.md` |
 | 后台框架、控制台骨架、导航壳 | `references/scenarios/layout-shell.md` |

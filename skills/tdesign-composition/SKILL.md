@@ -1,6 +1,6 @@
 ---
 name: tdesign-composition
-description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架、场景默认方案、Web 中后台视觉规范、Design Token、质量门禁、表单/列表/详情/仪表盘/应用壳/移动端页面搭建或审计时使用。只负责页面级组合、设计规则和交付自检；不负责单组件怎么用、示例代码或具体 props/API。
+description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架、场景默认方案、Web starter 页面模式、Web 中后台视觉规范、Design Token、质量门禁、表单/列表/详情/仪表盘/应用壳/移动端页面搭建或审计时使用。只负责页面级组合、设计规则和交付自检；不负责单组件怎么用、示例代码或具体 props/API。
 ---
 
 # TDesign 组件搭配设计指南与页面场景
@@ -12,9 +12,10 @@ description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架�
 1. **读取根约束**：无设计文件场景先查 `references/modules/M01-overview-usage-rules.md`，确定 TDesign 组件、Token、导航、图标和自检红线。
 2. **判断平台**：先确认是 Web、Mobile、Miniprogram 还是 UniApp；未说明且出现中后台、控制台、运营后台时默认按 Web。
 3. **选择场景卡**：按“表单 / 列表 / 详情 / 仪表盘 / 应用壳 / 登录 / 错误页 / 弹窗抽屉 / CRUD / 移动端”命中 `references/scenarios/`。
-4. **套设计红线**：Web 中后台必须同时查 `design-spec.md`、`visual-consistency-web.md`、`tokens.md`、`checklist.json`。
-5. **回到技术栈 API**：确定页面组合后，再查当前栈 skill 的组件 API、示例和导入方式，避免凭记忆写 props。
-6. **交付前自检**：代码生成、页面改造或视觉走查必须输出 DS 检查项结果；能访问文件时优先运行质量门禁脚本。
+4. **遇到 starter 页面问题**：如果用户明确提到 starter、后台模板、页面模块拆分或“这一页通常怎么搭”，优先查 `references/scenarios/web-starter-patterns.md` 获取 Web starter 参考。
+5. **套设计红线**：Web 中后台必须同时查 `design-spec.md`、`visual-consistency-web.md`、`tokens.md`、`checklist.json`。
+6. **回到技术栈 API**：确定页面组合后，再查当前栈 skill 的组件 API、示例和导入方式，避免凭记忆写 props。
+7. **交付前自检**：代码生成、页面改造或视觉走查必须输出 DS 检查项结果；能访问文件时优先运行质量门禁脚本。
 
 ## 场景决策表
 
@@ -30,6 +31,7 @@ description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架�
 | 登录、注册、找回密码、身份入口 | `references/scenarios/login-page.md` |
 | 403 / 404 / 500、无权限、空结果、结果页 | `references/scenarios/error-page.md` |
 | 移动端页面、轻量表单、移动列表、Cell 流 | `references/scenarios/mobile-pages.md` |
+| starter、后台模板、页面模块拆分、常见搭配 | `references/scenarios/web-starter-patterns.md` |
 
 ## 交付格式
 
@@ -46,9 +48,10 @@ description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架�
 4. 组件搭配入口：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/component-composition-map.md`；未安装时直接使用本 skill 的场景卡和设计资料。
 5. Web 搭配细节：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/web/component-composition-map.md`；未安装时使用 Web 场景卡默认组合。
 6. Mobile / Miniprogram 搭配细节：已安装 `tdesign-usage-guide` 时查 `../tdesign-usage-guide/references/decisions/mobile/component-composition-map.md`；未安装时使用移动端场景卡默认组合。
-7. 按场景决策表命中场景卡，具体场景卡路径见 `references/reading-guide.md`。
-8. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认写法。
-9. 代码生成或页面改造完成后，按 `references/design/checklist.json` 的适用项自检，质量门禁细则见 `references/quality-gate.md`。
+7. 用户明确提到 starter、后台模板、页面模块拆分或常见搭配时，补查 `references/scenarios/web-starter-patterns.md`。
+8. 按场景决策表命中场景卡，具体场景卡路径见 `references/reading-guide.md`。
+9. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认写法。
+10. 代码生成或页面改造完成后，按 `references/design/checklist.json` 的适用项自检，质量门禁细则见 `references/quality-gate.md`。
 
 > 场景卡完整路径、Web 中后台模块和设计规范资料的详细查阅清单见 `references/reading-guide.md`。
 
