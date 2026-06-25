@@ -7,6 +7,13 @@ description: 当用户问 TDesign 该用哪个组件、什么时候用、`Table`
 
 本 skill 用于回答“该选什么、什么时候用、为什么、什么不能做”。组件搭配设计指南、页面场景和设计规范交给 `tdesign-composition`；具体 props、事件、插槽和导入方式必须回到当前技术栈 API skill。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
+## 使用协议
+
+1. **必须通过 `load_skill` 加载本 skill**，不要绕过 skill 系统直接 grep、find 或 read `references/` 下的内部文件。`load_skill` 返回的 SKILL.md 包含查阅顺序、判断流程和约束上下文，直接读文件会丢失这些关键指导。
+2. **严格按下方「查阅顺序」和「判断流程」执行**，不跳步、不凭经验猜路径。
+3. **需要交接到其他 skill 时，对目标 skill 再次 `load_skill`**，不要直接读目标 skill 的 `references/` 文件。
+4. **`references/` 下的文件只在 SKILL.md 指引下按需读取**，它们是 skill 的内部资料，不是独立文档。
+
 ## 何时使用本 skill
 
 - 用户问“用哪个 TDesign 组件”“这个场景该用什么组件”“什么时候用某组件”“某组件适不适合当前场景”。

@@ -7,6 +7,13 @@ description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架�
 
 本 skill 用于回答“页面怎么搭、某类页面通常怎么组织、默认怎么搭”。默认面向无设计文件场景：不依赖 Figma、截图或 `DESIGN.md`，先按 `references/modules/M01-overview-usage-rules.md` 建立根约束。它不替代组件选型理由、组件覆盖确认或具体组件 API。如果同目录存在 `../tdesign-skills/references/constraints.md`，可参考它获取更详细的跨 skill 约束。
 
+## 使用协议
+
+1. **必须通过 `load_skill` 加载本 skill**，不要绕过 skill 系统直接 grep、find 或 read `references/` 下的内部文件。`load_skill` 返回的 SKILL.md 包含执行流程、查阅顺序和约束上下文，直接读文件会丢失这些关键指导。
+2. **严格按下方「执行流程」和「查阅顺序」执行**，不跳步、不凭经验猜路径。
+3. **需要交接到其他 skill 时，对目标 skill 再次 `load_skill`**，不要直接读目标 skill 的 `references/` 文件。
+4. **`references/` 下的文件只在 SKILL.md 指引下按需读取**，它们是 skill 的内部资料，不是独立文档。
+
 ## 执行流程
 
 1. **读取根约束**：无设计文件场景先查 `references/modules/M01-overview-usage-rules.md`，确定 TDesign 组件、Token、导航、图标和自检红线。

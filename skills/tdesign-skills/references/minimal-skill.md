@@ -14,12 +14,13 @@ Use this when a normal business project has `tdesign-react`, `tdesign-vue-next`,
 
 ## Core Rules
 
-1. Prefer TDesign components, layouts, props, slots, and design variables when the dependency is installed.
-2. Detect the stack before writing code: React, Vue Next, Vue 2, Mobile React, Mobile Vue, Miniprogram, or UniApp.
-3. Check the current stack before claiming a component is available.
-4. Never mix React dot syntax, Vue tags, Miniprogram kebab-case props/events, or UniApp @event syntax.
-5. If exact props/events are needed, open only the current stack skill's `references/api/<component>/index.md` and local `type.ts` / `props.ts`.
-6. If TDesign cannot cover the requirement, say so and use a minimal fallback.
+1. **Always load this skill via `load_skill`** — do not bypass the skill system by directly grepping, finding, or reading `references/` files. The SKILL.md defines the lookup order and constraints; skipping it leads to missed steps, cross-stack errors, or hallucinated APIs.
+2. Prefer TDesign components, layouts, props, slots, and design variables when the dependency is installed.
+3. Detect the stack before writing code: React, Vue Next, Vue 2, Mobile React, Mobile Vue, Miniprogram, or UniApp.
+4. Check the current stack before claiming a component is available.
+5. Never mix React dot syntax, Vue tags, Miniprogram kebab-case props/events, or UniApp @event syntax.
+6. If exact props/events are needed, open only the current stack skill's `references/api/<component>/index.md` and local `type.ts` / `props.ts`.
+7. If TDesign cannot cover the requirement, say so and use a minimal fallback.
 
 ## Common Choices
 

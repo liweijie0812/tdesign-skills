@@ -7,6 +7,13 @@ description: 当用户提到 TDesign 组件怎么用、示例代码、props、�
 
 本 skill 只负责识别 TDesign、判断技术栈、选择主责 skill。其它决策统一交给更窄的专项 skill，通用强制约束见 `references/constraints.md`。
 
+## 使用协议
+
+1. **必须通过 `load_skill` 加载本 skill**，不要绕过 skill 系统直接 grep、find 或 read `references/` 下的内部文件。`load_skill` 返回的 SKILL.md 包含查阅顺序、写法边界和约束上下文，直接读文件会丢失这些关键指导。
+2. **路由到其他 skill 时，对目标 skill 也必须 `load_skill`**，不要直接读目标 skill 的 `references/` 文件。每个 skill 的 SKILL.md 定义了该 skill 的查阅顺序和写法边界，是进入该 skill 的唯一正门。
+3. **严格按下方「技术栈识别」和「路由规则」执行**，不跳步、不凭经验猜路径。
+4. **`references/` 下的文件只在 SKILL.md 指引下按需读取**，它们是 skill 的内部资料，不是独立文档。
+
 ## 适用范围
 
 - 适用：项目已安装或明确使用 TDesign（react/vue-next/vue2/mobile-react/mobile-vue/miniprogram/uniapp）。
