@@ -17,6 +17,7 @@
 | 弹窗、抽屉、临时任务流 | `references/scenarios/dialog-drawer-flow.md` |
 | CRUD、批量导入、批量操作、状态流转 | `references/scenarios/crud-task-flow.md` |
 | 移动端表单、移动端列表和轻量移动页面 | `references/scenarios/mobile-pages.md` |
+| 组件搭配替代 CSS、工具栏 / 操作列间距、页面骨架、6 套套餐落地 | `references/scenarios/landing-practices.md` |
 
 ## 已迁移资料
 

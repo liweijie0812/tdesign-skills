@@ -38,6 +38,7 @@ description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架�
 | 403 / 404 / 500、无权限、空结果、结果页 | `references/scenarios/error-page.md` |
 | 移动端页面、轻量表单、移动列表、Cell 流 | `references/scenarios/mobile-pages.md` |
 | starter、后台模板、页面模块拆分、常见搭配 | `references/scenarios/web-starter-patterns.md` |
+| 落地规范、组件搭配替代 CSS、工具栏/操作列间距、页面骨架、6 套套餐 | `references/scenarios/landing-practices.md` |
 
 ## 交付格式
 
@@ -50,7 +51,8 @@ description: 当用户需要 TDesign 页面组合、组件搭配、页面骨架�
 1. 按场景决策表命中场景卡，具体路径见 `references/reading-guide.md`。
 2. 场景卡内引用的 `../modules/`、`../design/`、`../quality-gate.md` 资料已迁移至 `tdesign-design-spec`；已安装该 skill 时按其 SKILL.md 查阅顺序获取，未安装时按用户约束做保守方案并建议补装。
 3. 已安装 `tdesign-usage-guide` 时，先按 `../tdesign-usage-guide/references/decisions/README.md` 确认平台与选型边界；未安装时按用户已给出的平台和组件假设继续，建议补装。
-4. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认写法。
+4. 涉及组件搭配替代 CSS、工具栏 / 操作列间距、页面骨架或 6 套套餐落地时，补查 `references/scenarios/landing-practices.md`。
+5. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认写法。
 
 ## 常见组合
 

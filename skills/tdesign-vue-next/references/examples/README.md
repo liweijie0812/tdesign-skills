@@ -48,7 +48,7 @@
 | Menu | `menu/` | 5 | custom-header.vue, custom-side.vue, group-side.vue, multiple.vue |
 | Message | `message/` | 3 | base.vue, loading.vue, plugin.vue |
 | Notification | `notification/` | 2 | base.vue, plugin.vue |
-| Pages | `pages/` | 1 | form-page.vue |
+| Pages | `pages/` | 2 | form-page.vue, landing-list-page.vue |
 | Pagination | `pagination/` | 1 | base.vue |
 | Popconfirm | `popconfirm/` | 1 | base.vue |
 | Popup | `popup/` | 2 | base.vue, disabled.vue |

@@ -22,7 +22,8 @@
 16. 需要 CRUD、批量导入、批量操作或状态流转时，查 `crud-task-flow.md`。
 17. 需要移动端表单、移动端列表或轻量页面时，查 `mobile-pages.md`。
 18. 需要参考 Web starter 的页面模块拆分、组件搭配和高频组合时，查 `web-starter-patterns.md`。
-19. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认 props、事件、插槽和写法。
+19. 需要组件搭配替代 CSS、工具栏 / 操作列间距约定、页面骨架或 6 套套餐落地时，查 `landing-practices.md`。
+20. 场景卡确定组件组合后，再回到当前技术栈 skill 的 `references/api/<component>/index.md` 确认 props、事件、插槽和写法。
 
 ## 与其他目录的边界
 
