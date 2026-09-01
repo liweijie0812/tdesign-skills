@@ -5,7 +5,7 @@
 ## 使用方式
 
 ```bash
-node <tdesign-composition-skill-dir>/scripts/check-quality.mjs [--platform web|mobile|miniprogram] <file-or-directory> [...more]
+node <tdesign-design-spec-skill-dir>/scripts/check-quality.mjs [--platform web|mobile|miniprogram] <file-or-directory> [...more]
 ```
 
 `<file-or-directory>` 按**当前命令工作目录**解析。运行前先确认已经在目标项目根目录，或传入绝对路径；不要在 skill 仓库里直接扫描另一个项目的相对路径。
@@ -13,9 +13,9 @@ node <tdesign-composition-skill-dir>/scripts/check-quality.mjs [--platform web|m
 示例：
 
 ```bash
-node skills/tdesign-composition/scripts/check-quality.mjs src/views/admin
-node skills/tdesign-composition/scripts/check-quality.mjs --platform mobile src/pages/mobile
-node skills/tdesign-composition/scripts/check-quality.mjs src/pages/dashboard.vue src/pages/users.vue
+node skills/tdesign-design-spec/scripts/check-quality.mjs src/views/admin
+node skills/tdesign-design-spec/scripts/check-quality.mjs --platform mobile src/pages/mobile
+node skills/tdesign-design-spec/scripts/check-quality.mjs src/pages/dashboard.vue src/pages/users.vue
 ```
 
 ## 路径问题排查
@@ -43,7 +43,7 @@ node skills/tdesign-composition/scripts/check-quality.mjs src/pages/dashboard.vu
 ## 与 checklist 的关系
 
 - 结构化规则源：`references/design/checklist.json`。
-- 质量门禁脚本：`scripts/check-quality.mjs`，路径相对当前 `tdesign-composition` skill 目录。
+- 质量门禁脚本：`scripts/check-quality.mjs`，路径相对当前 `tdesign-design-spec` skill 目录。
 - 人工自检补充：`references/design/design-spec.md` 的“交付前自检”。
 - 终审与交接：`references/modules/M06-qc-handoff.md`。
 - `checklist.json` 中的 `platforms` 表示检查项适用平台，`autoCheck` 表示脚本是否可自动覆盖；`DS-012` 只能按交付输出人工确认。

@@ -5,7 +5,7 @@
 ## 查阅顺序
 
 1. Web 页面怎么搭：查 `skills/tdesign-composition/references/scenarios/README.md`。
-2. Web 视觉和设计规则：查 `skills/tdesign-composition/references/reading-guide.md`。
+2. Web 视觉和设计规则：查 `skills/tdesign-design-spec/SKILL.md`。
 3. 组件是否存在：查 `skills/tdesign-docs/references/meta/stack-matrix-web.json`。
 
 ## 边界

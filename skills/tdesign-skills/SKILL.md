@@ -47,8 +47,8 @@ description: 当用户提到 TDesign 组件怎么用、示例代码、props、�
 - 技术栈不明确、跨多个 TDesign 包、需要路由 → `tdesign-skills`
 - 文档入口、组件覆盖、资料索引 → `tdesign-docs`
 - 组件选型、相似组件、何时使用、反模式 → `tdesign-usage-guide`
-- 组件搭配设计指南、页面搭建、场景骨架 → `tdesign-composition`
-- starter 页面模式、后台模板页面模块拆分、常见页面搭配 → `tdesign-composition`
+- 组件搭配、页面搭建、场景骨架、starter 页面模式 → `tdesign-composition`
+- 设计规范、Design Token、色彩、视觉一致性、质量门禁、DS 自检 → `tdesign-design-spec`
 - 具体 props/事件/插槽/类型/代码落地/组件用法示例 → 对应技术栈专项 skill
 - 图标名称、关键词、分类、是否存在、包名、导入方式 → `tdesign-icons`
 - 版本能力、新增、修复、废弃 → `tdesign-changelog`

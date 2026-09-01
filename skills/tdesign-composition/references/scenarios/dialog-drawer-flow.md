@@ -45,4 +45,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-006`、`DS-007`、`DS-011`、`DS-012`。
 - 涉及图标时追加 `DS-008`；弹层内包含结构化数据表格时追加 `DS-010`。
-- Web 弹窗/抽屉任务流交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。
+- Web 弹窗/抽屉任务流交付前按 ``tdesign-design-spec` 的 `references/design/checklist.json`` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 ``tdesign-design-spec` 的 `references/quality-gate.md`` 检查目标文件。

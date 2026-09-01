@@ -2,7 +2,7 @@
 
 用于后台管理、控制台、仪表盘等稳定页面框架。
 
-布局、导航、Header 高度和品牌位唯一约束先查 `../modules/M04-layout-navigation.md`；本场景卡只给应用壳默认组合。
+布局、导航、Header 高度和品牌位唯一约束先查 ``tdesign-design-spec` 的 `references/modules/M04-layout-navigation.md``；本场景卡只给应用壳默认组合。
 
 本场景卡主要适用于 Web。Mobile / Miniprogram 没有等价的常驻桌面应用壳，通常改用页面级导航、底部主导航或分类导航。
 
@@ -56,4 +56,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-004`、`DS-005`、`DS-008`、`DS-012`。
 - Web `Header` / `t-layout__header` 必须使用 `var(--td-comp-size-xxxl)`，并同时设置 `height`、`min-height`、`flex-shrink: 0`。
-- Web 应用壳交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。
+- Web 应用壳交付前按 ``tdesign-design-spec` 的 `references/design/checklist.json`` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 ``tdesign-design-spec` 的 `references/quality-gate.md`` 检查目标文件。

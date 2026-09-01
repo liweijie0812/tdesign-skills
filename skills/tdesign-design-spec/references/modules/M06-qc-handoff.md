@@ -87,7 +87,7 @@
 - [ ] 状态不只依赖颜色，配合文案、组件状态、图标或反馈。
 - [ ] 焦点态可见，键盘操作路径不被隐藏。
 - [ ] 文本与背景对比可读；深色或饱和功能色底上的前景优先 `--td-text-color-anti`。
-- [ ] 能运行质量门禁时，已执行 `node <tdesign-composition-skill-dir>/scripts/check-quality.mjs --platform <platform> <file-or-directory>`。
+- [ ] 能运行质量门禁时，已执行 `node <tdesign-design-spec-skill-dir>/scripts/check-quality.mjs --platform <platform> <file-or-directory>`。
 - [ ] 无法运行质量门禁时，已说明原因并按 `DS-编号：通过 / 不适用 / 需人工确认 - 简要原因` 输出人工自检。
 
 ## 3. 冲突仲裁规则
