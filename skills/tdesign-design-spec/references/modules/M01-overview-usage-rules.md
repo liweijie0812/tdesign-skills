@@ -1,6 +1,6 @@
 # M01 - Overview & Usage Rules
 
-本模块是 `tdesign-composition` 在无设计文件场景下的根约束。凡涉及页面生成、页面改造、组件搭配、视觉审计或其他模块化规则，必须先按本模块确定全局红线，再进入场景卡、Token、布局、图标或质量门禁资料。
+本模块是 `tdesign-design-spec` 在无设计文件场景下的根约束。凡涉及页面生成、页面改造、组件搭配、视觉审计或其他模块化规则，必须先按本模块确定全局红线，再进入场景卡、Token、布局、图标或质量门禁资料。
 
 ## 1. 体系定位
 
@@ -35,7 +35,7 @@
 
 ### Usage-1 规范入口
 
-无设计文件场景下，提示词或任务说明应声明“遵循 `tdesign-composition` 的 TDesign 无设计文件规范”。如果项目已有局部业务规范，先遵守业务约束，再用本模块补齐 TDesign 默认规则。
+无设计文件场景下，提示词或任务说明应声明“遵循 `tdesign-design-spec` 的 TDesign 无设计文件规范”。如果项目已有局部业务规范，先遵守业务约束，再用本模块补齐 TDesign 默认规则。
 
 ### Usage-2 Token 优先
 
@@ -101,7 +101,7 @@ Web 代码与 HTML 产物中任何需要图标的位置，包括导航、按钮�
 module_id: M01
 context: no-design-file
 inputs_used:
-  - tdesign-composition root constraints
+  - tdesign-design-spec root constraints
 decisions:
   - 不依赖 Figma、DESIGN.md 或截图上下文
   - 以 TDesign 官方组件、Token、场景卡和当前技术栈 API 为默认依据

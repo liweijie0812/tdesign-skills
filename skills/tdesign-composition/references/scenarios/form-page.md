@@ -24,7 +24,7 @@
 - 简单筛选表单可以使用行内布局，复杂编辑表单优先纵向布局。
 - 多个动态重复字段使用表单列表能力或项目已有封装，不自行拼装数组状态。
 - 长表单需要分区时使用 `Card`、`Divider`、`Tabs` 或锚点，不默认塞进 `Dialog`。
-- Web 表单页的颜色、间距、圆角和状态样式优先直接写 `var(--td-*)` 形式的 CSS Variables，并参考 `../design/tokens.md` 的映射；Mobile / Miniprogram 按当前端 Design Token 和组件变量确认。
+- Web 表单页的颜色、间距、圆角和状态样式优先直接写 `var(--td-*)` 形式的 CSS Variables，并参考 ``tdesign-design-spec` 的 `references/design/tokens.md`` 的映射；Mobile / Miniprogram 按当前端 Design Token 和组件变量确认。
 - 表单提交、上传、校验、错误反馈和成功反馈必须使用真实 TDesign 组件，不用静态块或自定义提示冒充。
 - Mobile / Miniprogram 长表单优先分组、分步或拆页面；不要照搬 Web 多列布局。
 
@@ -50,4 +50,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-007`、`DS-011`、`DS-012`。
 - 涉及删除、禁用、清空、撤销等危险提交时追加 `DS-006`，必须使用二次确认组件。
-- Web 自定义样式查 `../design/tokens.md` 的常用 Token 速查；交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果。
+- Web 自定义样式查 ``tdesign-design-spec` 的 `references/design/tokens.md`` 的常用 Token 速查；交付前按 ``tdesign-design-spec` 的 `references/design/checklist.json`` 的 `outputTemplate` 输出适用项结果。

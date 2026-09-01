@@ -22,6 +22,7 @@ description: 当项目使用 tdesign-vue-next，或用户提到 TDesign Vue 3 / 
 3. 具体组件 API 查 `references/api/<component>/index.md`。
 4. API 表不够精确时，查同目录 `type.ts`、`props.ts`（如存在）、`common.ts` 或子组件类型文件。
 5. 用户在问“怎么用/给示例”时，再查 `references/examples/README.md`，命中组件目录后按需读 `base.vue` 和最接近需求的关键变体。
+5.1 需要整页落地模板时，参考 `references/examples/pages/` 下的页面示例（如标准列表页 `landing-list-page.vue`、标准表单页 `form-page.vue`），其体现了“组件搭配替代 CSS”的落地写法（`t-space` 工具栏 / `t-link` 操作列 / `t-empty` 空态等）。
 6. 涉及跨端语义或端差异时：已安装 `tdesign-docs` 时先看 `../tdesign-docs/references/api/shared/index.md`；未安装时以当前栈 `references/api/<component>/` 为准，不确定的差异明确告知用户需人工确认，建议补装 `tdesign-docs` 获得跨端共享契约。
 7. 页面组合或页面搭建先 `tdesign-composition`，版本能力先 `tdesign-changelog`；对应 skill 未安装时跳过查询，不凭记忆编造版本或组合结论，建议补装对应 skill 获得准确结果，查完回本栈 API 文件确认。
 

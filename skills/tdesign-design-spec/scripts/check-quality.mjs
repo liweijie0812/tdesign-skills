@@ -11,7 +11,7 @@ let platform = 'auto';
 const supportedExtensions = new Set(['.vue', '.css', '.scss', '.less', '.html', '.tsx', '.jsx', '.ts', '.js']);
 const uiExtensions = new Set(['.vue', '.html', '.tsx', '.jsx']);
 const supportedPlatforms = new Set(['auto', 'web', 'mobile', 'miniprogram']);
-const usage = 'Usage: node <path-to-tdesign-composition>/scripts/check-quality.mjs [--platform web|mobile|miniprogram] <file-or-directory> [...more]';
+const usage = 'Usage: node <path-to-tdesign-design-spec>/scripts/check-quality.mjs [--platform web|mobile|miniprogram] <file-or-directory> [...more]';
 
 function printUsage() {
   console.log(usage);

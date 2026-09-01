@@ -26,7 +26,7 @@
 5. 涉及具体组件 props、事件、插槽和类型时，必须回到当前技术栈 API skill，不凭经验编造。
 6. 需要图标时先用 `tdesign-icons` 查询图标名，再按当前技术栈写法使用图标组件。
 7. 生成独立 HTML / CDN 示例时，除 TDesign UI CSS / JS 外，必须同时引入对应框架的 TDesign Icons 包；图标包不可用时不要用 Emoji、自绘 SVG 或外部 iconfont 兜底。
-8. 交付前按 `checklist.json` 的 `outputTemplate` 逐项自检；有可访问代码文件时优先运行 `node <tdesign-composition-skill-dir>/scripts/check-quality.mjs --platform web <file-or-directory>`。
+8. 交付前按 `checklist.json` 的 `outputTemplate` 逐项自检；有可访问代码文件时优先运行 `node <tdesign-design-spec-skill-dir>/scripts/check-quality.mjs --platform web <file-or-directory>`。
 
 ## 页面结构
 
@@ -100,7 +100,7 @@
 ## 交付前自检
 
 - 结构化自检是否按 `checklist.json` 的 `outputTemplate` 输出检查项 ID、结果和不适用原因。
-- 能运行脚本时是否已执行 `node <tdesign-composition-skill-dir>/scripts/check-quality.mjs --platform web <file-or-directory>`。
+- 能运行脚本时是否已执行 `node <tdesign-design-spec-skill-dir>/scripts/check-quality.mjs --platform web <file-or-directory>`。
 - 页面是否优先使用 TDesign 组件和布局能力。
 - 颜色、文字、边框、背景、间距和圆角是否优先使用 Token。
 - 后台导航是否使用 `Menu + Layout` / 顶部导航等标准组合，且没有双 Logo。

@@ -1,5 +1,5 @@
 {
-  "name": "tdesign-composition-design-checklist",
+  "name": "tdesign-design-spec-checklist",
   "description": "TDesign 页面生成后的结构化设计自检。用于把 design-spec.md 的人类规则转成可复用检查项，并按 platforms 区分 Web、Mobile 和 Miniprogram。",
   "scope": "Web 中后台、控制台、运营后台、配置页、数据列表、表单录入、详情页、仪表盘，以及 Mobile / Miniprogram 轻量页面。",
   "checks": [

@@ -166,4 +166,4 @@
 | 生成后逐项自检 | `DS-012` |
 
 - 页面生成、页面改造或视觉走查后，继续按 `checklist.json` 的 `outputTemplate` 输出 `DS-编号：通过 / 不适用 / 需人工确认 - 简要原因`。
-- 有可访问代码文件时，优先运行 `node skills/tdesign-composition/scripts/check-quality.mjs --platform web <file-or-directory>` 做静态门禁。
+- 有可访问代码文件时，优先运行 `node skills/tdesign-design-spec/scripts/check-quality.mjs --platform web <file-or-directory>` 做静态门禁。

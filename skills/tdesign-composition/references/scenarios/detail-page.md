@@ -25,7 +25,7 @@
 - 多段信息使用 `Card` 分组，不把所有字段塞进一个长块。
 - 状态、风险、审批结果和异常原因必须有文字或组件状态辅助表达。
 - 时间线展示关键节点，完整日志量大时放入 `Table` 或独立日志页。
-- Web 自定义样式优先使用 `../design/tokens.md` 的语义 Token；Mobile / Miniprogram 按当前端 Design Token 和组件变量确认。
+- Web 自定义样式优先使用 ``tdesign-design-spec` 的 `references/design/tokens.md`` 的语义 Token；Mobile / Miniprogram 按当前端 Design Token 和组件变量确认。
 
 ## 栈差异提醒
 
@@ -46,4 +46,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-006`、`DS-007`、`DS-008`、`DS-011`、`DS-012`。
 - 涉及结构化日志表格时追加 `DS-010`，必须使用真实 `Table` 与列配置。
-- Web 详情页交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。
+- Web 详情页交付前按 ``tdesign-design-spec` 的 `references/design/checklist.json`` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 ``tdesign-design-spec` 的 `references/quality-gate.md`` 检查目标文件。

@@ -39,14 +39,14 @@ npx skills add https://cnb.cool/liweijie0812/tdesign-skills.git
 
 | 目标 | 建议组合 |
 | --- | --- |
-| 只用 React Web 组件 | `tdesign-react` + `tdesign-docs` + `tdesign-usage-guide` |
-| 完整 Web 开发 | `tdesign-react` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
+| 只用 React Web 组件 | `tdesign-react` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-design-spec` |
+| 完整 Web 开发 | `tdesign-react` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-design-spec` + `tdesign-icons` + `tdesign-changelog` |
 | Vue 3 Web | 将上述组合中的 `tdesign-react` 换为 `tdesign-vue-next` |
 | Vue 2 Web | 将上述组合中的 `tdesign-react` 换为 `tdesign-vue2` |
-| 移动端 React | `tdesign-mobile-react` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
-| 移动端 Vue | `tdesign-mobile-vue` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
-| 小程序 | `tdesign-miniprogram` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
-| uni-app | `tdesign-uniapp` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-icons` + `tdesign-changelog` |
+| 移动端 React | `tdesign-mobile-react` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-design-spec` + `tdesign-icons` + `tdesign-changelog` |
+| 移动端 Vue | `tdesign-mobile-vue` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-design-spec` + `tdesign-icons` + `tdesign-changelog` |
+| 小程序 | `tdesign-miniprogram` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-design-spec` + `tdesign-icons` + `tdesign-changelog` |
+| uni-app | `tdesign-uniapp` + `tdesign-docs` + `tdesign-usage-guide` + `tdesign-composition` + `tdesign-design-spec` + `tdesign-icons` + `tdesign-changelog` |
 | 只查图标 | `tdesign-icons` + 当前技术栈 skill |
 | 只查版本变化 | `tdesign-changelog` + 当前技术栈 skill |
 
@@ -78,18 +78,18 @@ CNB 平台展示摘要见 `skills/SKILL.md`；该文件只说明 skill 数量、
 ## 使用指引（AI Agent）
 
 1. 先确认平台口径和项目技术栈，避免混用 Web、移动端、小程序、uni-app、React、Vue 3 和 Vue 2 写法。
-2. 根 `tdesign-skills` 只做任务路由；资料入口用 `tdesign-docs`，选型和迁移评审用 `tdesign-usage-guide`，组件搭配设计指南和页面搭配用 `tdesign-composition`，图标名、包名和导入方式用 `tdesign-icons`。
+2. 根 `tdesign-skills` 只做任务路由；资料入口用 `tdesign-docs`，选型和迁移评审用 `tdesign-usage-guide`，页面场景组合用 `tdesign-composition`，设计规范、Token 和质量门禁用 `tdesign-design-spec`，图标名、包名和导入方式用 `tdesign-icons`。
 3. 查询组件可用性先查 `skills/tdesign-docs/references/meta/stack-matrix.json`（全局概览），再按端查 `stack-matrix-web.json`、`stack-matrix-mobile.json` 或 `stack-matrix-miniprogram.json`。
 4. 具体 API、事件、插槽和写法差异按当前依赖进入技术栈 skill：`tdesign-react`、`tdesign-vue-next`、`tdesign-vue2`、`tdesign-mobile-react`、`tdesign-mobile-vue`、`tdesign-miniprogram` 或 `tdesign-uniapp`。
 5. 版本能力、新增、修复和废弃问题用 `tdesign-changelog`，查完后仍回到当前栈 API 文件确认真实写法。
-6. 对话式页面生成、视觉规范、设计原则和交付前自检，查阅 `skills/tdesign-composition/references/design/design-spec.md`。
-7. Web 视觉一致性、间距、配色、排版、圆角、阴影和状态规则，查阅 `skills/tdesign-composition/references/design/visual-consistency-web.md`。
-8. Web 中后台页面生成前，查阅 `skills/tdesign-composition/references/design/checklist.json`；生成后按检查项自检，能运行脚本时执行 `node skills/tdesign-composition/scripts/check-quality.mjs <file-or-directory>`。
-9. 高频 Design Token、CSS Variables、颜色 / 字号 / 间距 / 圆角速查，查阅 `skills/tdesign-composition/references/design/tokens.md`。
-10. 色彩、品牌色、功能色、中性色、扩展色，查阅 `skills/tdesign-composition/references/design/color.md`。
-11. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `skills/tdesign-composition/references/design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
-12. Web 中后台框架、后台页面模板、整站/区域导航查 `skills/tdesign-composition/references/design/offices.md`。
-13. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `skills/tdesign-composition/references/design/offices-task.md`。
+6. 对话式页面生成、视觉规范、设计原则和交付前自检，查阅 `skills/tdesign-design-spec/references/design/design-spec.md`。
+7. Web 视觉一致性、间距、配色、排版、圆角、阴影和状态规则，查阅 `skills/tdesign-design-spec/references/design/visual-consistency-web.md`。
+8. Web 中后台页面生成前，查阅 `skills/tdesign-design-spec/references/design/checklist.json`；生成后按检查项自检，能运行脚本时执行 `node skills/tdesign-design-spec/scripts/check-quality.mjs <file-or-directory>`。
+9. 高频 Design Token、CSS Variables、颜色 / 字号 / 间距 / 圆角速查，查阅 `skills/tdesign-design-spec/references/design/tokens.md`。
+10. 色彩、品牌色、功能色、中性色、扩展色，查阅 `skills/tdesign-design-spec/references/design/color.md`。
+11. Web 中后台布局、导航布局、应用壳、栅格、断点、间距或页面框架查 `skills/tdesign-design-spec/references/design/layout.md`；Mobile / Miniprogram 只参考其中栅格和间距原则。
+12. Web 中后台框架、后台页面模板、整站/区域导航查 `skills/tdesign-design-spec/references/design/offices.md`。
+13. Web 中后台筛选查询、批量操作、数据导入、状态流转、任务引导、效果预览或新手指引查 `skills/tdesign-design-spec/references/design/offices-task.md`。
 
 ## 最小示例
 
@@ -105,10 +105,10 @@ CNB 平台展示摘要见 `skills/SKILL.md`；该文件只说明 skill 数量、
 - `skills/tdesign-docs/references/meta/stack-matrix.json`：跨端组件覆盖全局概览和已知写法差异；按端明细见 `stack-matrix-web.json`、`stack-matrix-mobile.json`、`stack-matrix-miniprogram.json`。配套查询脚本：`skills/tdesign-docs/scripts/query-matrix.mjs`。
 - `skills/tdesign-docs/references/api/`：API 总入口和跨端共享契约。
 - `skills/tdesign-usage-guide/references/decisions/`：平台设计口径、跨端选型规则、反模式和降级策略。
-- `skills/tdesign-composition/references/design/`：TDesign 对话式设计规范、高频 Token、Color、Layout、中后台框架和高频任务设计方法。
-- `skills/tdesign-composition/references/design/visual-consistency-web.md`：Web 中后台视觉一致性显式规则，汇总间距、配色、排版、圆角、阴影、布局和状态要求。
-- `skills/tdesign-composition/references/design/checklist.json`：Web 中后台页面生成后的结构化设计自检规则。
-- `skills/tdesign-composition/references/quality-gate.md` 与 `skills/tdesign-composition/scripts/check-quality.mjs`：生成后质量门禁说明和静态扫描脚本。
+- `skills/tdesign-design-spec/references/design/`：TDesign 对话式设计规范、高频 Token、Color、Layout、中后台框架和高频任务设计方法。
+- `skills/tdesign-design-spec/references/design/visual-consistency-web.md`：Web 中后台视觉一致性显式规则，汇总间距、配色、排版、圆角、阴影、布局和状态要求。
+- `skills/tdesign-design-spec/references/design/checklist.json`：Web 中后台页面生成后的结构化设计自检规则。
+- `skills/tdesign-design-spec/references/quality-gate.md` 与 `skills/tdesign-design-spec/scripts/check-quality.mjs`：生成后质量门禁说明和静态扫描脚本。
 - `skills/tdesign-composition/references/scenarios/`：组件搭配设计指南与页面场景卡，包括表单页、表格列表页和应用壳。
 - `skills/tdesign-react/references/api/`、`skills/tdesign-vue-next/references/api/`、`skills/tdesign-vue2/references/api/`、`skills/tdesign-mobile-react/references/api/`、`skills/tdesign-mobile-vue/references/api/`、`skills/tdesign-miniprogram/references/api/`、`skills/tdesign-uniapp/references/api/`：按技术栈拆分的 TDesign API；组件 API 位于 `references/api/<component>/index.md`。
 - `skills/tdesign-react/references/examples/`、`skills/tdesign-vue-next/references/examples/`、`skills/tdesign-vue2/references/examples/`、`skills/tdesign-mobile-react/references/examples/`、`skills/tdesign-mobile-vue/references/examples/`、`skills/tdesign-miniprogram/references/examples/`、`skills/tdesign-uniapp/references/examples/`：按技术栈拆分的示例代码，展示各技术栈的典型写法（表单页、组件搭配等）。
@@ -129,7 +129,7 @@ node scripts/sync-api-docs.mjs
 
 ```bash
 node scripts/validate.mjs
-node --check skills/tdesign-composition/scripts/check-quality.mjs
+node --check skills/tdesign-design-spec/scripts/check-quality.mjs
 node --check scripts/sync-api-docs.mjs
 git diff --check
 ```

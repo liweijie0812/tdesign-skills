@@ -2,7 +2,7 @@
 
 用于后台管理列表、资源列表、数据检索、批量操作和结构化记录浏览。
 
-表格、图标和真实组件红线先查 `../modules/M05-components-icons-charts.md`；本场景卡只给列表页默认组合。
+表格、图标和真实组件红线先查 ``tdesign-design-spec` 的 `references/modules/M05-components-icons-charts.md``；本场景卡只给列表页默认组合。
 
 ## 默认组件组合
 
@@ -57,4 +57,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-006`、`DS-007`、`DS-008`、`DS-010`、`DS-011`、`DS-012`。
 - 结构化行列数据必须使用真实 `Table` 与列配置；禁止截图、静态块、图标或 `table-filled` 伪装。
-- Web 筛选区、工具栏、表格、分页和状态反馈交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果。
+- Web 筛选区、工具栏、表格、分页和状态反馈交付前按 ``tdesign-design-spec` 的 `references/design/checklist.json`` 的 `outputTemplate` 输出适用项结果。

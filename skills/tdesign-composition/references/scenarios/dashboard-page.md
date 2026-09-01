@@ -2,7 +2,7 @@
 
 用于控制台首页、数据概览、运营看板、资源监控和趋势分析页面。
 
-图表、图标和真实组件红线先查 `../modules/M05-components-icons-charts.md`；本场景卡只给仪表盘默认组合。
+图表、图标和真实组件红线先查 ``tdesign-design-spec` 的 `references/modules/M05-components-icons-charts.md``；本场景卡只给仪表盘默认组合。
 
 ## 默认组件组合
 
@@ -26,7 +26,7 @@
 - 趋势、对比、分布、关系和转化必须使用真实图表或项目图表组件，不用静态块、图标或图片冒充。
 - 图表需要加载、空数据、失败和权限不足状态，不能只显示空白容器。
 - 指标卡只表达摘要，复杂明细进入列表页、详情页或独立分析页。
-- Web 自定义样式优先使用 `../design/tokens.md` 的语义 Token；图表配色优先使用项目图表规范或扩展色，不滥用功能色。
+- Web 自定义样式优先使用 ``tdesign-design-spec` 的 `references/design/tokens.md`` 的语义 Token；图表配色优先使用项目图表规范或扩展色，不滥用功能色。
 
 ## 栈差异提醒
 
@@ -47,4 +47,4 @@
 
 - 适用自检项：`DS-001`、`DS-002`、`DS-003`、`DS-007`、`DS-008`、`DS-011`、`DS-012`。
 - 如果包含结构化明细表格，追加 `DS-010`，必须使用真实 `Table` 与列配置。
-- Web 仪表盘交付前按 `../design/checklist.json` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 `../quality-gate.md` 检查目标文件。
+- Web 仪表盘交付前按 ``tdesign-design-spec` 的 `references/design/checklist.json`` 的 `outputTemplate` 输出适用项结果；能运行脚本时按 ``tdesign-design-spec` 的 `references/quality-gate.md`` 检查目标文件。
